@@ -1,3 +1,4 @@
+import Loader from "@/components/common/loader";
 import getLectures from "@/lib/lectures/getLectures";
 import { useState, useEffect } from "react";
 
@@ -6,5 +7,9 @@ export default function Lecture() {
   useEffect(() => {
     getLectures(setLectures);
   }, []);
-  return <div>Lecture</div>;
+  return (
+    <div>
+      {Lectures?<>Lectures</>:<Loader/>}
+    </div>
+    );
 }

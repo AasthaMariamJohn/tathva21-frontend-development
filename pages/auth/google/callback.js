@@ -1,3 +1,4 @@
+import Loader from "@/components/common/loader";
 import { useUserContext } from "@/context/userContext";
 import { CleanedUserData, saveCookie } from "@/lib/common/login";
 import axios from "axios";
@@ -14,15 +15,15 @@ export default function GoogleAuthCallback() {
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google/callback?id_token=${router.query["id_token"]}w&access_token=${router.query["access_token"]}&raw%5Baccess_token%5D=${router.query["access_token"]}&raw%5Bexpires_in%5D=${router.query["raw[expires_in]"]}&raw%5Bscope%5D=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&raw%5Btoken_type%5D=Bearer&raw%5Bid_token%5D=${router.query["id_token"]}`
         )
         .then((res) => {
-          const data=CleanedUserData(res.data.jwt,res.data.user)
+          const data=CleanedUserData(res.data.jwt,res.data.user) 
           saveCookie(data)
           setUser(data)
           setIsLoggedIn(true) 
           router.push('/')
+
         });
 
     }
   }, [router.query]);
-  return <div>Google callback
-  </div>;
+  return <Loader/>;
 }

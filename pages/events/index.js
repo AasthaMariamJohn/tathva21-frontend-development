@@ -1,3 +1,4 @@
+import Loader from "@/components/common/loader";
 import getEvents from "@/lib/events/getEvents";
 import { useState, useEffect } from "react";
 export default function Events() {
@@ -5,5 +6,9 @@ export default function Events() {
   useEffect(() => {
     getEvents(setEvents);
   }, []);
-  return <div>Events</div>;
+  return (
+    <div>
+      {Events?<>Event</>:<Loader/>}
+    </div>
+  )
 }

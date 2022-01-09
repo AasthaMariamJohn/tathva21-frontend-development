@@ -1,3 +1,4 @@
+import Loader from "@/components/common/loader";
 import getEventWithName from "@/lib/events/getEvent";
 import { useRouter } from "next/router";
 import { useState,useEffect } from "react";
@@ -11,7 +12,7 @@ export default function Event() {
   }, [eventName])
   return (
     <div>
-      {Event?<>{Event.name}</>:<>Data fetching</>}
+      {Event?<>{Event.name}</>:<Loader/>  }
     </div>
   );
 }
