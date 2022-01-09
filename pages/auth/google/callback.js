@@ -17,7 +17,7 @@ export default function GoogleAuthCallback() {
           const data=CleanedUserData(res.data.jwt,res.data.user)
           saveCookie(data)
           setUser(data)
-          setIsLoggedIn(true)
+          setIsLoggedIn(true) 
           router.push('/')
         });
 
