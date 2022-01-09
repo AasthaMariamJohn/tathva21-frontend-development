@@ -1,3 +1,4 @@
+import { AspectRatio } from '@chakra-ui/react'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
@@ -13,12 +14,10 @@ const NITCModel3D = () => {
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState()
   const [_camera, setCamera] = useState()
-  const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+  const [target] = useState(new THREE.Vector3(0,0,0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
-      20 * Math.sin(0.2 * Math.PI),
-      10,
-      20 * Math.cos(0.2 * Math.PI)
+      54.97889292526845, 36.09132257513777 ,-45.4275292024348
     )
   )
   const [scene] = useState(new THREE.Scene())
@@ -53,25 +52,37 @@ const NITCModel3D = () => {
 
       // 640 -> 240
       // 8   -> 6
+      const aspectRatio = scW/scH
       const scale = scH * 0.005 + 4.8
-      const camera = new THREE.OrthographicCamera(
-        -scale,
-        scale,
-        scale,
-        -scale,
-        0.01,
-        50000
+      const camera = new THREE.PerspectiveCamera(
+       30, aspectRatio,10,10000
       )
+
+      
+      
       camera.position.copy(initialCameraPosition)
       camera.lookAt(target)
       setCamera(camera)
-
-      const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+      
+      // adding ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff)
       scene.add(ambientLight)
+      // adding fog
+      const fog = new THREE.FogExp2(0xffffff, 0.009)
+      scene.fog = fog
 
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
       controls.target = target
+      
+      
+      
+      controls.minDistance = 0
+      controls.maxDistance = 200
+      controls.minAzimuthAngle = THREE.Math.degToRad(-Infinity)
+      controls.maxAzimuthAngle = THREE.Math.degToRad(Infinity)
+      controls.minPolarAngle = THREE.Math.degToRad(0)
+      controls.maxPolarAngle = THREE.Math.degToRad(90)
       setControls(controls)
 
       loadGLTFModel(scene, '/scene.glb', {
@@ -87,23 +98,34 @@ const NITCModel3D = () => {
       const animate = () => {
         req = requestAnimationFrame(animate)
 
-        frame = frame <= 100 ? frame + 1 : frame
+        // frame = frame <= 100 ? frame + 1 : frame
 
-        if (frame <= 100) {
-          const p = initialCameraPosition
-          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
+        // if (frame <= 10) {
+        //   const p = initialCameraPosition
+        //   const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
 
-          camera.position.y = 10
-          camera.position.x =
-            p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
-          camera.position.z =
-            p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
+        //   camera.position.y = 10
+        //   camera.position.x =
+        //     p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
+        //   camera.position.z =
+        //     p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
+        //   camera.lookAt(target)
+        // } else 
+        {
           camera.lookAt(target)
-        } else {
           controls.update()
         }
+        console.log("Camera Positions",camera.position.x, camera.position.y, camera.position.z)
+        console.log("Camera Target",target.x, target.y, target.z)
+        console.log("Camera Rotation",camera.rotation.x, camera.rotation.y, camera.rotation.z)
+        console.log("Camera Rotation Speed",camera.rotation.xSpeed, camera.rotation.ySpeed, camera.rotation.zSpeed)
+        console.log("Camera Near and Far",camera.near, camera.far)
+        console.log("Camera Fov",camera.fov)
+        console.log("Azimuth",controls.azimuthAngle)
+        console.log("Polar",controls.polarAngle)
 
         renderer.render(scene, camera)
+        //debugger
       }
 
       return () => {
@@ -120,6 +142,8 @@ const NITCModel3D = () => {
       window.removeEventListener('resize', handleWindowResize, false)
     }
   }, [renderer, handleWindowResize])
+//debugger useEffect
+
 
   return (
     

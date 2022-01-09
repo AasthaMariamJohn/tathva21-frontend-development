@@ -18,11 +18,10 @@ export const ModelContainer = forwardRef(({ children }, ref) => (
   <Box
     ref={ref}
     className="NITC-Model"
-    m="auto"
-    mt={['0px']}
-    mb={['0px']}
-    w={['100%']}
-    h={[500, 480, 640]}
+    
+    m={['0px']}
+    w={['100vw']}
+    h={['100vh']}
     position="relative"
   >
     {children}
