@@ -1,0 +1,55 @@
+.profile-page {
+  position: absolute;
+  top: 30%;
+  left: 36%;
+}
+.profile {
+  font-family: "batman_forever";
+  font-size: large;
+}
+.edit-icon {
+  cursor: pointer;
+  position: absolute;
+  margin-left: 540px;
+  margin-top: 10px;
+  font-size: 30px;
+}
+.save-icon {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+}
+.table {
+  width: 110%;
+  border: 1.29px solid rgba(73, 233, 255, 0.58);
+  border-collapse: collapse;
+  text-align: center;
+  align-items: center;
+}
+.table-cell {
+  padding: 10px;
+}
+.input {
+  text-align: center;
+  align-items: center;
+  font-family: "batman_forever";
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: #000;
+  color: white;
+}
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #283fa3;
+}
+.input:disabled {
+  border-bottom: none;
+  background-color: #000;
+  color: wheat;
+}
