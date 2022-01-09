@@ -17,3 +17,15 @@ a {
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "batman_forever";
+  src: url("/fonts/batman_forever/batmfa__.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "quantico";
+  src: url("/fonts/quantico/quantico.regular.ttf");
+  font-style: normal;
+  font-display: swap;
+}
