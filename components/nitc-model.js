@@ -2,6 +2,7 @@ import { AspectRatio } from '@chakra-ui/react'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { MapControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from '../lib/model'
 import { ModelSpinner, ModelContainer } from './nitc-model-loader'
 
@@ -22,6 +23,8 @@ const NITCModel3D = () => {
   )
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState()
+  
+    
 
   const handleWindowResize = useCallback(() => {
     const { current: container } = refContainer
@@ -71,18 +74,23 @@ const NITCModel3D = () => {
       const fog = new THREE.FogExp2(0xffffff, 0.009)
       scene.fog = fog
 
-      const controls = new OrbitControls(camera, renderer.domElement)
-      controls.autoRotate = true
+      const controls = new MapControls(camera, renderer.domElement)
+      //controls.autoRotate = true
       controls.target = target
       
+      controls.maxDistance = 150
       
+      var minPan = new THREE.Vector3( - 10, - 10, - 10 );
+      var maxPan = new THREE.Vector3( 10, 10, 10 );
+      var _v = new THREE.Vector3();
       
-      controls.minDistance = 0
-      controls.maxDistance = 200
-      controls.minAzimuthAngle = THREE.Math.degToRad(-Infinity)
-      controls.maxAzimuthAngle = THREE.Math.degToRad(Infinity)
-      controls.minPolarAngle = THREE.Math.degToRad(0)
-      controls.maxPolarAngle = THREE.Math.degToRad(90)
+      controls.addEventListener("change", function() {
+          _v.copy(controls.target);
+          controls.target.clamp(minPan, maxPan);
+          _v.sub(controls.target);
+          camera.position.sub(_v);
+      })
+    
       setControls(controls)
 
       loadGLTFModel(scene, '/scene.glb', {
@@ -94,7 +102,7 @@ const NITCModel3D = () => {
       })
 
       let req = null
-      let frame = 0
+      //let frame = 0
       const animate = () => {
         req = requestAnimationFrame(animate)
 
@@ -112,9 +120,10 @@ const NITCModel3D = () => {
         //   camera.lookAt(target)
         // } else 
         {
-          camera.lookAt(target)
-          controls.update()
+          //camera.lookAt(target)
+          controls.update(0.1)
         }
+        console.log("Target: ", target)
         console.log("Camera Positions",camera.position.x, camera.position.y, camera.position.z)
         console.log("Camera Target",target.x, target.y, target.z)
         console.log("Camera Rotation",camera.rotation.x, camera.rotation.y, camera.rotation.z)
@@ -123,7 +132,7 @@ const NITCModel3D = () => {
         console.log("Camera Fov",camera.fov)
         console.log("Azimuth",controls.azimuthAngle)
         console.log("Polar",controls.polarAngle)
-
+        
         renderer.render(scene, camera)
         //debugger
       }
