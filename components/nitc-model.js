@@ -3,11 +3,36 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { MapControls } from 'three/examples/jsm/controls/OrbitControls'
+import { degToRad } from 'three/src/math/MathUtils'
 import { loadGLTFModel } from '../lib/model'
 import { ModelSpinner, ModelContainer } from './nitc-model-loader'
 
-function easeOutCirc(x) {
-  return Math.sqrt(1 - Math.pow(x - 1, 4))
+
+const Button3D = (name , scene, x, y, z) => {
+    const mesh = new THREE.Mesh(
+    new THREE.SphereBufferGeometry(1, 1, 1),
+    new THREE.MeshStandardMaterial({ color: 0xff0000 })
+  );
+  
+  
+  mesh.position.set(x,y,z);
+  mesh.name = name
+  scene.add(mesh);   
+  //camera.lookAt(mesh.position);
+  
+  setInterval(() => {
+    mesh.rotateY(degToRad(3));
+  }, 5);
+};
+
+function onMouseMove( event , mouse) {
+
+	// calculate mouse position in normalized device coordinates
+	// (-1 to +1) for both components
+
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
 }
 
 const NITCModel3D = () => {
@@ -18,12 +43,14 @@ const NITCModel3D = () => {
   const [target] = useState(new THREE.Vector3(0,0,0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
-      54.97889292526845, 36.09132257513777 ,-45.4275292024348
+      0,20,100
     )
   )
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState()
-  
+  // for raycasting mose coordinates
+  const mouse = new THREE.Vector2()
+  const raycaster = new THREE.Raycaster()
     
 
   const handleWindowResize = useCallback(() => {
@@ -72,16 +99,17 @@ const NITCModel3D = () => {
       scene.add(ambientLight)
       // adding fog
       const fog = new THREE.FogExp2(0xffffff, 0.009)
-      scene.fog = fog
+      //scene.fog = fog
 
       const controls = new MapControls(camera, renderer.domElement)
       //controls.autoRotate = true
       controls.target = target
       
-      controls.maxDistance = 150
+      controls.maxDistance = 52.5
+      controls.minDistance = 23.5
       
-      var minPan = new THREE.Vector3( - 10, - 10, - 10 );
-      var maxPan = new THREE.Vector3( 10, 10, 10 );
+      var minPan = new THREE.Vector3( - 12, - 10, - 40 );
+      var maxPan = new THREE.Vector3( 12, 10, 10 );
       var _v = new THREE.Vector3();
       
       controls.addEventListener("change", function() {
@@ -90,7 +118,9 @@ const NITCModel3D = () => {
           _v.sub(controls.target);
           camera.position.sub(_v);
       })
-    
+      window.addEventListener( 'mousemove', (event)=>{
+        onMouseMove(event, mouse)
+      }, false );
       setControls(controls)
 
       loadGLTFModel(scene, '/scene.glb', {
@@ -102,37 +132,15 @@ const NITCModel3D = () => {
       })
 
       let req = null
-      //let frame = 0
+      let frame = 0
       const animate = () => {
         req = requestAnimationFrame(animate)
 
-        // frame = frame <= 100 ? frame + 1 : frame
-
-        // if (frame <= 10) {
-        //   const p = initialCameraPosition
-        //   const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
-
-        //   camera.position.y = 10
-        //   camera.position.x =
-        //     p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
-        //   camera.position.z =
-        //     p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
-        //   camera.lookAt(target)
-        // } else 
-        {
-          //camera.lookAt(target)
-          controls.update(0.1)
-        }
-        console.log("Target: ", target)
-        console.log("Camera Positions",camera.position.x, camera.position.y, camera.position.z)
-        console.log("Camera Target",target.x, target.y, target.z)
-        console.log("Camera Rotation",camera.rotation.x, camera.rotation.y, camera.rotation.z)
-        console.log("Camera Rotation Speed",camera.rotation.xSpeed, camera.rotation.ySpeed, camera.rotation.zSpeed)
-        console.log("Camera Near and Far",camera.near, camera.far)
-        console.log("Camera Fov",camera.fov)
-        console.log("Azimuth",controls.azimuthAngle)
-        console.log("Polar",controls.polarAngle)
-        
+       
+        //camera.lookAt(target)
+        controls.update(0.1)
+        resetHover(scene)
+        hoverButtons(scene, camera, raycaster, mouse)
         renderer.render(scene, camera)
         //debugger
       }
@@ -151,9 +159,36 @@ const NITCModel3D = () => {
       window.removeEventListener('resize', handleWindowResize, false)
     }
   }, [renderer, handleWindowResize])
-//debugger useEffect
+  // adding buttons
+  useEffect(()=>{
+      if(loading===false)
+      {
+        const eclc = scene.getObjectByName('ECLC')
+        console.log(loading)
+        console.log(eclc)
+        Button3D('ECLCButton',scene,eclc.position.x,eclc.position.y,eclc.position.z)
+        
+        //debugger
+      }
+    },[loading])
 
-
+  // hovering over buttons
+  const hoverButtons = (scene, camera, raycaster, mouse)=>{
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(scene.children);
+    for(let i =0; i<intersects.length; i++){
+      if(intersects[i].object.name==='ECLCButton'){
+        intersects[i].object.material.color.setHex(0x0000ff)
+        console.log(intersects[i].object.name)
+      }
+    }
+  }
+  const resetHover = (scene) =>{
+    const eclcbutton = scene.getObjectByName('ECLCButton')
+    if(eclcbutton){
+      eclcbutton.material.color.setHex(0xff0000)
+    }
+  }
   return (
     
     <ModelContainer  ref={refContainer}></ModelContainer>
