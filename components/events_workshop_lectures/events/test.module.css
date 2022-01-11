@@ -1,0 +1,27 @@
+.search-member-box {
+  font-family: "batman-forever";
+  border-collapse: collapse;
+  border: 2px solid green;
+  /* width: 200px; */
+  font-size: large;
+}
+.search-member-box tbody {
+  display: block;
+  /* height: 100px; */
+  overflow-y: scroll;
+}
+.search-member-box thead {
+  display: table;
+  table-layout: fixed;
+}
+.search-member-box tbody::-webkit-scrollbar {
+  width: 5px;
+}
+.search-member-box tbody::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+.search-member-box tbody::-webkit-scrollbar-thumb {
+  background: rgba(73, 233, 255, 0.91)  ;
+  border-radius: 10px;
+}

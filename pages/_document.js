@@ -7,6 +7,7 @@ class MyDocument extends Document {
       <Html lang='en'>
         <Head>
               <meta name='ex' content='aaaa'></meta>
+              <link rel="icon" type="image/x-icon" href="favicon.png"></link>
         </Head>
         <body>
           <Main />

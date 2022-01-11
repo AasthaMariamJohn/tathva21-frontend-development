@@ -1,4 +1,4 @@
-import { Login } from "@/lib/common/login";
+import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
 
 export default function LoginBtn() {

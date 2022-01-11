@@ -10,7 +10,14 @@ export default function Home() {
       Home
       <LoginBtn></LoginBtn>
       <LogoutBtn/>
+      <br/>
       <Link href="/profile" passHref><button>Profile</button></Link>
+      <br/>
+      <Link href='/events' passHref><button>Events</button></Link>
+      <br/>
+      <Link href='/lectures' passHref><button>Lectures</button></Link>
+      <br/>
+      <Link href='/workshops' passHref><button>Workshops</button></Link>
     </div>
   )
 }

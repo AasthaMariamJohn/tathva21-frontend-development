@@ -1,6 +1,6 @@
 import Loader from "@/components/common/loader";
 import { useUserContext } from "@/context/userContext";
-import { CleanedUserData, saveCookie } from "@/lib/common/login";
+import { CleanedUserData, saveCookie } from "@/lib/user/login";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
