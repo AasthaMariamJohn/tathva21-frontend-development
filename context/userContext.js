@@ -15,7 +15,7 @@ export function UserWrapper({ children }) {
   const [userLectures, setUserLectures] = useState(null);
   const [userWorkshops, setuserWorkshops] = useState(null);
   useEffect(() => {
-    if (user.jwt)
+    if (user)
       getInitialUserDetails(
         setUserEvents,
         setUserLectures,
