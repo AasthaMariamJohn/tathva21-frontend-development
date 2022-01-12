@@ -1,20 +1,35 @@
 import { useUserContext } from "@/context/userContext";
 import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LogoutBtn() {
   const { setUser, setIsLoggedIn } = useUserContext();
   const router = useRouter();
   function DestroyCookie() {
-    console.log("aa");
     destroyCookie(null, "TathvaUser");
   }
   function Logout() {
-    console.log('aa');
+    toast.success("You are logged out", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     DestroyCookie();
     setUser(null);
     setIsLoggedIn(false);
     router.push("/");
   }
-  return <button onClick={Logout}>Logout</button>;
+  return (
+    <div>
+      <ToastContainer/>
+      <button onClick={Logout}>Logout</button>
+    </div>
+  );
 }

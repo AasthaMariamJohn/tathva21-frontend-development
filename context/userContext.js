@@ -15,14 +15,15 @@ export function UserWrapper({ children }) {
   const [userLectures, setUserLectures] = useState(null);
   const [userWorkshops, setuserWorkshops] = useState(null);
   useEffect(() => {
-    if (user)
+    if (user) {
       getInitialUserDetails(
         setUserEvents,
         setUserLectures,
         setuserWorkshops,
         user.jwt
       );
-      setIsLoggedIn(true)
+      setIsLoggedIn(true);
+    }
   }, [user]);
   return (
     <UserContext.Provider

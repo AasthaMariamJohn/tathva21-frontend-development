@@ -1,7 +1,6 @@
 import Loader from "@/components/common/loader";
 import { useUserContext } from "@/context/userContext";
 import getEvents from "@/lib/events/getEvents";
-import registerEvent from "@/lib/events/registerEvent";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 export default function Events() {
@@ -19,9 +18,7 @@ export default function Events() {
               <Link href={`/events/${event.slug}`} passHref>
                 {event.name}
               </Link>
-              <button onClick={()=>{
-                registerEvent(event.id,user.id,user.jwt)
-              }}>Register</button>
+
             </div>
           ))}
         </div>
