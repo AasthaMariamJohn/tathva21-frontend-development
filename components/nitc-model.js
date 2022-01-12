@@ -5,6 +5,7 @@ import { MapControls } from 'three/examples/jsm/controls/OrbitControls'
 import { degToRad } from 'three/src/math/MathUtils'
 import { loadGLTFModel } from '../lib/model'
 import { ModelContainer } from './nitc-model-loader'
+const TWEEN = require('@tweenjs/tween.js')
 
 
 const Button3D = (name , scene, x, y, z) => {
