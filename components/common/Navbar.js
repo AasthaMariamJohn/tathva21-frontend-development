@@ -53,6 +53,7 @@ const Navbar = () => {
 
   return (
     <div>
+    
       {!collapseDown && (
         <>
           <div className={style.logo}>
@@ -95,7 +96,7 @@ const Navbar = () => {
           </div>
         </>
       )}
-
+      
       {collapseDown && (
         <>
           <div className={style.menu}>
