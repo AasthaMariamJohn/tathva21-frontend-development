@@ -687,3 +687,56 @@
     padding-left: 3%;
   }
 }
+
+.menu {
+  height: 400px;
+  width: 83%;
+  border: 1px solid rgba(73, 233, 255, 0.58);
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin-top: 30px;
+  margin-left: 35px;
+  position: absolute;
+  z-index: 1000;
+}
+
+.logo_menu {
+  width: 18%;
+  background-color: black;
+  border-radius: 50%;
+  position: relative;
+  left: -8px;
+  top: -10px;
+  z-index: 999;
+  cursor: pointer;
+}
+.menu-title {
+  position: fixed;
+  left: 85px;
+  top: 40px;
+  font-family: "batman_forever";
+  font-size: large;
+  display: flex;
+}
+.menu-list {
+  list-style: none;
+  position: relative;
+  text-align: center;
+  font-family: "batman_forever";
+  font-size: 13px;
+  margin-top: 20px;
+  line-height: 60px;
+}
+
+.menu-link:hover {
+  font-weight: bolder;
+  text-shadow: #49e9ff;
+  color: red;
+}
+
+.close {
+  position: absolute;
+  right: 30px;
+  top: 35px;
+  z-index: 1000;
+}
