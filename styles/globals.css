@@ -1,10 +1,20 @@
-html,
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+<<<<<<< HEAD
   background: black;  
+=======
+  background-color: #000;
+  color: white;
+  list-style: none;
+>>>>>>> master
 }
 
 a {
@@ -12,7 +22,15 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: "batman_forever";
+  src: url("/fonts/batman_forever/batmfa__.ttf");
+  font-style: normal;
+  font-display: swap;
 }
-
+@font-face {
+  font-family: "quantico";
+  src: url("/fonts/quantico/quantico.regular.ttf");
+  font-style: normal;
+  font-display: swap;
+}
