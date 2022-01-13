@@ -17,7 +17,6 @@ export default function Layout({ children }) {
           crossOrigin=""
         />
         <link
-          rel="preload"
           rel="stylesheet"
           type="text/css"
           href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css"

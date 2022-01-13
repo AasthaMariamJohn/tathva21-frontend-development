@@ -7,44 +7,50 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const router = useRouter();
-  const [title, setTitle] = useState("Tathva 21");
+  const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
-    { link: "About Us", id: 1, url: "" },
-    { link: "Events", id: 2, url: "" },
-    { link: "Workshops", id: 3, url: "" },
-    { link: "Lecture", id: 4, url: "" },
-    { link: "Shop", id: 5, url: "" },
+    { title: "About Us", id: 1, link: "/about" },
+    { title: "Events", id: 2, link: "/events" },
+    { title: "Workshops", id: 3, link: "/workshops" },
+    { title: "Lecture", id: 4, link: "/lectures" },
+    { title: "Shop", id: 5, link: "/shop" },
   ]);
   useEffect(() => {
-    if (router.asPath == "/") setTitle("Tathva 21");
-
     switch (router.asPath) {
       case "/":
-        setTitle("Tathva 21");
+        setTitle({ title: "Tathva 21", link: "/" });
         break;
       case "/events":
-        setTitle("EVENTS");
+        setTitle({ title: "EVENTS", link: "/events" });
         break;
       case "/workshops":
-        setTitle("WORKSHOPS");
+        setTitle({ title: "WORKSHOPS", link: "/workshops" });
         break;
       case "/lectures":
-        setTitle("LECTURES");
+        setTitle({ title: "LECTURES", link: "/lectures" });
         break;
       case "/profile":
-        setTitle("PROFILE");
+        setTitle({ title: "PROFILE", link: "/profile" });
+        break;
+      case "/about":
+        setTitle({ title: "About Us", link: "/about" });
+        break;
+      case "/shop":
+        setTitle({ title: "Shop", link: "/shop" });
         break;
     }
-  }, []);
+  }, [router]);
   return (
-    <>
+    <div >
       <div className={style.logo}>
-        <Image
-          src={"/navbarlogo.png"}
-          width="120"
-          height="120"
-          alt="Tathva"
-        ></Image>
+        <Link href="/" passHref>
+          <Image
+            src={"/navbarlogo.png"}
+            width="120"
+            height="120"
+            alt="Tathva"
+          ></Image>
+        </Link>
       </div>
       <div className={style.navbar}>
         <div
@@ -53,10 +59,16 @@ const Navbar = () => {
         ></div>
         <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
           <ol className={style["navbar-list"]}>
-            <li className={style["navbar-title"]}>{title}</li>
+            <li className={style["navbar-title"]}>
+              <Link href={title.link}>
+                <a>{title.title}</a>
+              </Link>
+            </li>
             {links.map((link) => (
               <li key={link.id} className={style["navbar-link"]}>
-                {link.link}
+                <Link href={link.link}>
+                  <a>{link.title}</a>
+                </Link>
               </li>
             ))}
           </ol>
@@ -65,7 +77,7 @@ const Navbar = () => {
       <div className={style.login} data-augmented-ui>
         Login
       </div>
-    </>
+    </div>
   );
 };
 

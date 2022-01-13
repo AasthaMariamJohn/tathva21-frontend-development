@@ -99,6 +99,7 @@
   left: 5px;
   top: 16px;
   z-index: 999;
+  cursor: pointer;
 }
 
 .navbar-list {
@@ -121,5 +122,5 @@
 }
 
 @media (max-width:400px){
-  
+
 }
