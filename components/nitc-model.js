@@ -7,6 +7,14 @@ import { loadGLTFModel } from '../lib/model'
 import { ModelContainer } from './nitc-model-loader'
 const TWEEN = require('@tweenjs/tween.js')
 
+const TweenAnimation = (object, x,y,z, duration, easing, onComplete) => {
+  const target = {x: x, y: object.position.y, z: z};
+  const tween = new TWEEN.Tween(object.position)
+    .to(target, duration)
+    .easing(easing)
+    .onComplete(onComplete)
+    tween.start()
+}
 
 const Button3D = (name , scene, x, y, z) => {
     const mesh = new THREE.Mesh(
@@ -40,20 +48,34 @@ function onMouseDown(event, scene, camera, raycaster, mouse){
     for(let i =0; i<intersects.length; i++){
       if(intersects[i].object.name==='ECLCButton'){
         console.log(intersects[i].object.name,' clicked')
+        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , () => {console.log('animation done')})
 
       }
-      else if(intersects[i].object.name==='OATButton'){
+      else if(intersects[i].object.name==='ARYABHATAButton'){
         console.log(intersects[i].object.name,' clicked')
+        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , () => {console.log('animation done')})
      
       }
       else if(intersects[i].object.name==='MBButton'){
         console.log(intersects[i].object.name,' clicked')
+        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , () => {console.log('animation done')})
      
       }
-      else if(intersects[i].object.name==='CreativeButton'){
+      else if(intersects[i].object.name==='CCCButton'){
         console.log(intersects[i].object.name,' clicked')
+        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , () => {console.log('animation done')})
      
        }
+      else if(intersects[i].object.name==='ArchieButton'){
+        console.log(intersects[i].object.name,' clicked')
+        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , () => {console.log('animation done')})
+      
+        }
       
     }
 }
@@ -65,7 +87,7 @@ const NITCModel3D = () => {
   const [target] = useState(new THREE.Vector3(0,0,0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
-      0,20,100
+      0,30,100 // Set inital camera position here
     )
   )
   const [scene] = useState(new THREE.Scene())
@@ -74,7 +96,12 @@ const NITCModel3D = () => {
   const mouse = new THREE.Vector2()
   const raycaster = new THREE.Raycaster()
     
+  // for animating the model
+  const clock = new THREE.Clock()
+  const delta = clock.getDelta()
+  const mixers =  {mixer1 :undefined}
 
+  // Handling window resize
   const handleWindowResize = useCallback(() => {
     const { current: container } = refContainer
     if (container && renderer) {
@@ -130,8 +157,14 @@ const NITCModel3D = () => {
       controls.maxDistance = 52.5
       controls.minDistance = 23.5
       
-      var minPan = new THREE.Vector3( - 12, - 10, - 40 );
-      var maxPan = new THREE.Vector3( 12, 10, 10 );
+      controls.minPolarAngle = degToRad(0)
+      controls.maxPolarAngle = degToRad(180)
+      controls.noRotate = true
+      controls.minAzimuthAngle = degToRad(0)
+      controls.maxAzimuthAngle = degToRad(0)
+
+      var minPan = new THREE.Vector3( - 30, - 10, - 40 );
+      var maxPan = new THREE.Vector3( 30, 10, 10 );
       var _v = new THREE.Vector3();
       
       controls.addEventListener("change", function() {
@@ -151,23 +184,23 @@ const NITCModel3D = () => {
       loadGLTFModel(scene, '/scene.glb', {
         receiveShadow: false,
         castShadow: false
-      }).then(() => {
+      },mixers).then(() => {
         animate()
         setLoading(false)
       })
 
       let req = null
-      let frame = 0
+
       const animate = () => {
         req = requestAnimationFrame(animate)
-
-       
-        //camera.lookAt(target)
+        delta = clock.getDelta()
+        if ( mixers.mixer1 !== undefined ){ mixers.mixer1.update( delta );}
+        TWEEN.update()
         controls.update(0.1)
         resetHover(scene)
         hoverButtons(scene, camera, raycaster, mouse)
         renderer.render(scene, camera)
-        //debugger
+
       }
 
       return () => {
@@ -189,13 +222,16 @@ const NITCModel3D = () => {
       if(loading===false)
       {
         const eclc = scene.getObjectByName('ECLC')
-        const oat002 = scene.getObjectByName('OAT002')
         const mb = scene.getObjectByName('MB')
-        const creative = scene.getObjectByName('Creative')
+        const archi = scene.getObjectByName('Archie')
+        const ccc = scene.getObjectByName('CCC')
+        const aryabhata = scene.getObjectByName('ARYABHATA')
+        
         Button3D('ECLCButton',scene,eclc.position.x,eclc.position.y,eclc.position.z)
-        Button3D('OATButton',scene,oat002.position.x,oat002.position.y,oat002.position.z)
         Button3D('MBButton',scene,mb.position.x,mb.position.y,mb.position.z)
-        Button3D('CreativeButton',scene,creative.position.x,creative.position.y,creative.position.z)
+        Button3D('ArchieButton',scene,archi.position.x,archi.position.y,archi.position.z)
+        Button3D('CCCButton',scene,ccc.position.x,ccc.position.y+7,ccc.position.z)
+        Button3D('ARYABHATAButton',scene,aryabhata.position.x,aryabhata.position.y,aryabhata.position.z)
       }
     },[loading])
 
@@ -210,7 +246,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.y = 2
         intersects[i].object.scale.z = 2
       }
-      else if(intersects[i].object.name==='OATButton'){
+      else if(intersects[i].object.name==='ARYABHATAButton'){
         intersects[i].object.material.color.setHex(0x0000ff)
         intersects[i].object.scale.x = 2
         intersects[i].object.scale.y = 2
@@ -224,33 +260,39 @@ const NITCModel3D = () => {
         intersects[i].object.scale.z = 2
      
       }
-      else if(intersects[i].object.name==='CreativeButton'){
+      else if(intersects[i].object.name==='CCCButton'){
         intersects[i].object.material.color.setHex(0x0000ff)
         intersects[i].object.scale.x = 2
         intersects[i].object.scale.y = 2
         intersects[i].object.scale.z = 2
      
        }
-      
+      else if(intersects[i].object.name==='ArchieButton'){
+        intersects[i].object.material.color.setHex(0x0000ff)
+        intersects[i].object.scale.x = 2
+        intersects[i].object.scale.y = 2
+        intersects[i].object.scale.z = 2
+     
+      }      
     }
   }
   const resetHover = (scene) =>{
     const eclcbutton = scene.getObjectByName('ECLCButton')
-    const oat002button = scene.getObjectByName('OATButton')
+    const aryabhatabutton = scene.getObjectByName('ARYABHATAButton')
     const mbbutton = scene.getObjectByName('MBButton')
-    const creativebutton = scene.getObjectByName('CreativeButton')
-
+    const CCCbutton = scene.getObjectByName('CCCButton')
+    const archibutton = scene.getObjectByName('ArchieButton')
     if(eclcbutton){
       eclcbutton.material.color.setHex(0xff0000)
       eclcbutton.scale.x = 1
       eclcbutton.scale.y = 1
       eclcbutton.scale.z = 1
     }
-    if(oat002button){
-      oat002button.material.color.setHex(0xff0000)
-      oat002button.scale.x = 1
-      oat002button.scale.y = 1
-      oat002button.scale.z = 1
+    if(aryabhatabutton){
+      aryabhatabutton.material.color.setHex(0xff0000)
+      aryabhatabutton.scale.x = 1
+      aryabhatabutton.scale.y = 1
+      aryabhatabutton.scale.z = 1
     }
     if(mbbutton){
       mbbutton.material.color.setHex(0xff0000)
@@ -258,11 +300,17 @@ const NITCModel3D = () => {
       mbbutton.scale.y = 1
       mbbutton.scale.z = 1
     }
-    if(creativebutton){
-      creativebutton.material.color.setHex(0xff0000)
-      creativebutton.scale.x = 1
-      creativebutton.scale.y = 1
-      creativebutton.scale.z = 1
+    if(CCCbutton){
+      CCCbutton.material.color.setHex(0xff0000)
+      CCCbutton.scale.x = 1
+      CCCbutton.scale.y = 1
+      CCCbutton.scale.z = 1
+    }
+    if(archibutton){
+      archibutton.material.color.setHex(0xff0000)
+      archibutton.scale.x = 1
+      archibutton.scale.y = 1
+      archibutton.scale.z = 1
     }
   }
   return (
