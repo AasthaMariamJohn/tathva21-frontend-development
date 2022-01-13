@@ -28,7 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     switch (router.asPath) {
       case "/":
-        setTitle({ title: "Tathva'21", link: "/" });
+        setTitle({ title: "Tathva 21", link: "/" });
         break;
       case "/events":
         setTitle({ title: "EVENTS", link: "/events" });
@@ -109,6 +109,9 @@ const Navbar = () => {
                 ></Image>
               </Link>
             </div>
+            <div className={style.close} onClick={handleClose}>
+              <Image src={"/close.png"} width="40" height="40" />
+            </div>
             <p className={style["menu-title"]}>
               <Link href={title.link}>
                 <a>{title.title}</a>
@@ -127,9 +130,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ol>
-          </div>
-          <div className={style.close} onClick={handleClose}>
-            <Image src={"/close.png"} width="40" height="40" />
           </div>
         </>
       )}
