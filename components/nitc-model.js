@@ -7,13 +7,17 @@ import { loadGLTFModel } from '../lib/model'
 import { ModelContainer } from './nitc-model-loader'
 const TWEEN = require('@tweenjs/tween.js')
 
-const TweenAnimation = (object, x,y,z, duration, easing, onComplete) => {
+const TweenAnimation = (controls, object, x,y,z, duration, easing, onComplete) => {
   const target = {x: x, y: object.position.y, z: z};
+  controls.target = new THREE.Vector3(target.x,target.y,target.z);
   const tween = new TWEEN.Tween(object.position)
     .to(target, duration)
     .easing(easing)
-    .onComplete(onComplete)
+    .onComplete(() => {
+      onComplete(controls)})
     tween.start()
+
+   
 }
 
 const Button3D = (name , scene, x, y, z) => {
@@ -42,38 +46,47 @@ function onMouseMove( event , mouse) {
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
 }
-function onMouseDown(event, scene, camera, raycaster, mouse){
+const onAnimationComplete = (controls) => {
+  controls.enabled = true
+  console.log('animation done')
+}  
+function onMouseDown(event, scene, camera, raycaster, mouse, controls){
   raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(scene.children);
     for(let i =0; i<intersects.length; i++){
       if(intersects[i].object.name==='ECLCButton'){
         console.log(intersects[i].object.name,' clicked')
-        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
-          , () => {console.log('animation done')})
+        controls.enabled = false;
+        TweenAnimation( controls, camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , onAnimationComplete)
 
       }
       else if(intersects[i].object.name==='ARYABHATAButton'){
+        controls.enabled = false;
         console.log(intersects[i].object.name,' clicked')
-        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
-          , () => {console.log('animation done')})
+        TweenAnimation( controls, camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , onAnimationComplete)
      
       }
       else if(intersects[i].object.name==='MBButton'){
+        controls.enabled = false;
         console.log(intersects[i].object.name,' clicked')
-        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
-          , () => {console.log('animation done')})
+        TweenAnimation( controls, camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , onAnimationComplete)
      
       }
       else if(intersects[i].object.name==='CCCButton'){
+        controls.enabled = false;
         console.log(intersects[i].object.name,' clicked')
-        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
-          , () => {console.log('animation done')})
+        TweenAnimation( controls, camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , onAnimationComplete)
      
        }
       else if(intersects[i].object.name==='ArchieButton'){
+        controls.enabled = false;
         console.log(intersects[i].object.name,' clicked')
-        TweenAnimation( camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
-          , () => {console.log('animation done')})
+        TweenAnimation( controls, camera, intersects[i].object.position.x, intersects[i].object.position.y, intersects[i].object.position.z, 2000, TWEEN.Easing.Quartic.Out
+          , onAnimationComplete)
       
         }
       
@@ -87,7 +100,7 @@ const NITCModel3D = () => {
   const [target] = useState(new THREE.Vector3(0,0,0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
-      0,30,100 // Set inital camera position here
+      0,17,62// Set inital camera position here
     )
   )
   const [scene] = useState(new THREE.Scene())
@@ -134,13 +147,13 @@ const NITCModel3D = () => {
       const aspectRatio = scW/scH
       const scale = scH * 0.005 + 4.8
       const camera = new THREE.PerspectiveCamera(
-       30, aspectRatio,10,10000
+       45, aspectRatio,10,10000
       )
 
       
       
       camera.position.copy(initialCameraPosition)
-      camera.lookAt(target)
+      //camera.lookAt(target)
       setCamera(camera)
       
       // adding ambient light
@@ -157,15 +170,15 @@ const NITCModel3D = () => {
       controls.maxDistance = 52.5
       controls.minDistance = 23.5
       
-      controls.minPolarAngle = degToRad(0)
-      controls.maxPolarAngle = degToRad(180)
-      controls.noRotate = true
+      controls.minPolarAngle = degToRad(70)
+      controls.maxPolarAngle = degToRad(70)
+      //controls.noRotate = true
       controls.minAzimuthAngle = degToRad(0)
       controls.maxAzimuthAngle = degToRad(0)
 
-      var minPan = new THREE.Vector3( - 30, - 10, - 40 );
-      var maxPan = new THREE.Vector3( 30, 10, 10 );
-      var _v = new THREE.Vector3();
+      var minPan = new THREE.Vector3( - 30, - 100, - 40 );
+      var maxPan = new THREE.Vector3( 30, 100, 20 )
+      var _v = new THREE.Vector3()
       
       controls.addEventListener("change", function() {
           _v.copy(controls.target);
@@ -177,7 +190,7 @@ const NITCModel3D = () => {
         onMouseMove(event, mouse)
       }, false );
       window.addEventListener( 'mousedown',(event)=>{
-        onMouseDown(event, scene, camera, raycaster, mouse)
+        onMouseDown(event, scene, camera, raycaster, mouse, controls)
       } , false );
       setControls(controls)
 
@@ -192,6 +205,7 @@ const NITCModel3D = () => {
       let req = null
 
       const animate = () => {
+        //console.log(camera.position)
         req = requestAnimationFrame(animate)
         delta = clock.getDelta()
         if ( mixers.mixer1 !== undefined ){ mixers.mixer1.update( delta );}
