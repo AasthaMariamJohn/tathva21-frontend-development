@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Hamburger from "./Hamburger.js";
 
 const Navbar = () => {
   const router = useRouter();
@@ -77,7 +78,12 @@ const Navbar = () => {
       <div className={style.login} data-augmented-ui>
         Login
       </div>
+      <div className={style.hamburger}>
+        <Hamburger />
+      </div>
     </div>
+     
+    
   );
 };
 
