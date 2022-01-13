@@ -19,7 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     switch (router.asPath) {
       case "/":
-        setTitle({ title: "Tathva 21", link: "/" });
+        setTitle({ title: "Tathva'21", link: "/" });
         break;
       case "/events":
         setTitle({ title: "EVENTS", link: "/events" });

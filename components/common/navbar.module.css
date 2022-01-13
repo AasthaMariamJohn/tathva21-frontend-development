@@ -5,7 +5,7 @@
   margin-top: 46px;
   margin-left: 30px;
   --aug-border: initial;
-  --aug-border-all: 2.5px;
+  --aug-border-all: 1.5px;
   --aug-border-bg: #49e9ff;
   --aug-clip-tl1: initial;
   --aug-tl1-width: 72px;
@@ -28,7 +28,7 @@
 }
 
 .no1 {
-  width: 87%;
+  width: 85%;
   top: -2px;
   position: absolute;
   background: linear-gradient(
@@ -41,19 +41,22 @@
 }
 
 .no2 {
-  width: 90%;
+  width: 88%;
   position: absolute;
   top: -30px;
   left: -20px;
-  padding-left: 1.5%;
+  display: flex;
 }
 
 .login {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "batman_forever";
   font-size: large;
   height: 56px;
-  width: 10%;
+  width: 13%;
   position: absolute;
   top: 57px;
   right: 8px;
@@ -81,7 +84,7 @@
   --aug-clip-br1: initial;
   --aug-br1-width: 30px;
   --aug-br1-height: 60px;
-  padding-top: 18px;
+  /* padding-top: 18px; */
 }
 
 .logo {
@@ -104,20 +107,26 @@
 .navbar-list {
   list-style: none;
   display: flex;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
 }
 .navbar-link {
   font-size: large;
+  flex: 0.1;
 }
 .navbar-title {
+  flex: 0.25;
   font-size: 25px;
   font-weight: bolder;
   z-index: 1000;
-  margin-right: -20px;
+  /* margin-right: -20px; */
+  margin-left: 73px;
 }
 .navbar-link:hover {
-  font-weight: bolder;
+  /* font-weight: bolder; */
+  text-shadow: 0px 0px 10px #00e0ff;
 }
 
 .hamburger {
@@ -170,7 +179,10 @@
     right: 13px;
   }
   .login {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     font-family: "batman_forever";
     font-size: 55%;
     height: 30px;
@@ -200,7 +212,7 @@
 
     --aug-clip-br1: initial;
     --aug-br1: 15px;
-    padding: 10px 3px 0;
+    /* padding: 10px 3px 0; */
   }
 
   .navbar-link {
@@ -208,11 +220,13 @@
   }
 
   .navbar-title {
+    flex: 0.25;
     font-size: 90%;
     font-weight: bolder;
     z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
+    /* margin-right: -80px; */
+    /* margin-top: -23px; */
+    margin-left: 73px;
   }
 
   .logo {
@@ -270,7 +284,10 @@
     right: 13px;
   }
   .login {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     font-family: "batman_forever";
     font-size: 70%;
     height: 30px;
@@ -300,7 +317,7 @@
 
     --aug-clip-br1: initial;
     --aug-br1: 15px;
-    padding: 10px 3px 0;
+    /* padding: 10px 3px 0; */
   }
 
   .navbar-link {
@@ -308,11 +325,13 @@
   }
 
   .navbar-title {
+    flex: 0.25;
     font-size: 100%;
     font-weight: bolder;
     z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
+    /* margin-right: -80px; */
+    /* margin-top: -23px; */
+    margin-left: 73px;
   }
 
   .logo {
@@ -372,7 +391,10 @@
     margin-left: 20px;
   }
   .login {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     font-family: "batman_forever";
     font-size: 70%;
     height: 30px;
@@ -402,7 +424,7 @@
 
     --aug-clip-br1: initial;
     --aug-br1: 15px;
-    padding: 10px 3px 0;
+    /* padding: 10px 3px 0; */
   }
 
   .navbar-link {
@@ -410,11 +432,13 @@
   }
 
   .navbar-title {
+    flex: 0.25;
     font-size: 100%;
     font-weight: bolder;
     z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
+    /* margin-right: -80px; */
+    /* margin-top: -23px; */
+    margin-left: 73px;
   }
 
   .logo {
@@ -455,7 +479,7 @@
   }
 
   .no1 {
-    width: 84%;
+    width: 81%;
     top: -2px;
     position: absolute;
     background: linear-gradient(
@@ -468,7 +492,7 @@
   }
 
   .no2 {
-    width: 90%;
+    width: 87%;
     position: absolute;
     top: -30px;
     left: -20px;
@@ -476,14 +500,17 @@
   }
 
   .login {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     font-family: "batman_forever";
     font-size: small;
-    height: 30px;
-    width: 13%;
+    height: 41px;
+    width: 17%;
     position: absolute;
-    top: 57px;
-    right: 8px;
+    top: 46px;
+    right: -6px;
     background: linear-gradient(
         270deg,
         rgba(73, 233, 255, 0.58) 18.78%,
@@ -508,7 +535,7 @@
     --aug-clip-br1: initial;
     --aug-br1-width: 30px;
     --aug-br1-height: 60px;
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
 
   .logo {
@@ -531,20 +558,26 @@
   .navbar-list {
     list-style: none;
     display: flex;
-    margin-top: 45px;
+    /* margin-top: 45px; */
+    width: 100%;
     justify-content: space-evenly;
+    align-items: center;
   }
   .navbar-link {
+    flex: 0.1;
     font-size: 10px;
   }
   .navbar-title {
+    flex: 0.25;
     font-size: 16px;
     font-weight: bolder;
     z-index: 1000;
-    margin-right: -20px;
+    /* margin-right: -20px; */
+    margin-left: 73px;
   }
   .navbar-link:hover {
-    font-weight: bolder;
+    /* font-weight: bolder; */
+    text-shadow: 0px 0px 10px #00e0ff;
   }
 
   .hamburger {
@@ -601,7 +634,10 @@
   }
 
   .login {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     font-family: "batman_forever";
     font-size: small;
     height: 36px;
@@ -633,7 +669,7 @@
     --aug-clip-br1: initial;
     --aug-br1-width: 30px;
     --aug-br1-height: 60px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
   }
 
   .logo {
@@ -656,20 +692,26 @@
   .navbar-list {
     list-style: none;
     display: flex;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    width: 100%;
+    align-items: center;
     justify-content: space-evenly;
   }
   .navbar-link {
+    flex: 0.1;
     font-size: small;
   }
   .navbar-title {
+    flex: 0.25;
+    margin-left: 73px;
     font-size: 20px;
     font-weight: bolder;
     z-index: 1000;
-    margin-right: -20px;
+    /* margin-right: -20px; */
   }
   .navbar-link:hover {
-    font-weight: bolder;
+    /* font-weight: bolder; */
+    text-shadow: 0px 0px 10px #00e0ff;
   }
 
   .hamburger {
