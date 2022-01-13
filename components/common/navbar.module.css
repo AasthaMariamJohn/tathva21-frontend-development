@@ -16,18 +16,18 @@
   --aug-clip-t2: initial;
   --aug-t-offset: 4%;
   --aug-t-extend1: 74%;
-  --aug-t1: 40px;
-  --aug-t2: 40px;
+  --aug-t1: 30px;
+  --aug-t2: 30px;
   --aug-clip-b1: initial;
   --aug-clip-b2: initial;
   --aug-b-offset: 8%;
   --aug-b-extend1: 72%;
-  --aug-b1: 40px;
-  --aug-b2: 40px;
+  --aug-b1: 30px;
+  --aug-b2: 30px;
 }
 
 .no1 {
-  width: 83%;
+  width: 88%;
   top: -2px;
   position: absolute;
   background: linear-gradient(
@@ -40,15 +40,19 @@
 }
 
 .no2 {
-  width: 86%;
+  width: 90%;
   position: absolute;
   top: -30px;
   left: -20px;
 }
 
 .login {
+
+  text-align: center;
+  font-family: 'batman_forever';
+  font-size: large;
   height: 56px;
-  width: 15%;
+  width: 10%;
   /* background-color: brown; */
   position: absolute;
   top: 57px;
@@ -78,8 +82,15 @@
   --aug-clip-br1: initial;
   --aug-br1-width: 30px;
   --aug-br1-height: 60px;
+  padding-top: 15px;
+  
 }
 
+
+.navbar{
+  font-family: "batman_forever";
+  color: white;
+}
 .logo {
   width: 8%;
   background-color: black;
@@ -87,5 +98,28 @@
   position: absolute;
   left: 5px;
   top: 16px;
-  z-index: 99999;
+  z-index: 999;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-evenly;
+}
+.navbar-link{
+  font-size: large;
+}
+.navbar-title{
+  font-size: 25px;
+  font-weight: bolder;
+  z-index: 1000;
+  margin-right: -20px;
+}
+.navbar-link:hover{
+  font-weight: bolder;
+}
+
+@media (max-width:400px){
+  
 }
