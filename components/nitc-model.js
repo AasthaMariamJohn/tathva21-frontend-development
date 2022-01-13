@@ -7,15 +7,16 @@ import { loadGLTFModel } from '../lib/model'
 import { ModelContainer } from './nitc-model-loader'
 const TWEEN = require('@tweenjs/tween.js')
 
-const TweenAnimation = (controls, object, x,y,z, duration, easing, onComplete) => {
-  const target = {x: x, y: object.position.y, z: z};
-  controls.target = new THREE.Vector3(target.x,target.y,target.z);
-  const tween = new TWEEN.Tween(object.position)
+const TweenAnimation = (controls, camera, x,y,z, duration, easing, onComplete) => {
+  const target = {x: x, y: y, z: z};
+  //controls.target = new THREE.Vector3(target.x,target.y,target.z);
+  const tween = new TWEEN.Tween(controls.target)
     .to(target, duration)
     .easing(easing)
     .onComplete(() => {
       onComplete(controls)})
     tween.start()
+
 
    
 }
@@ -98,11 +99,8 @@ const NITCModel3D = () => {
   const [renderer, setRenderer] = useState()
   const [_camera, setCamera] = useState()
   const [target] = useState(new THREE.Vector3(0,0,0))
-  const [initialCameraPosition] = useState(
-    new THREE.Vector3(
-      0,17,62// Set inital camera position here
-    )
-  )
+  // Set inital camera position here
+  const [initialCameraPosition] = useState(new THREE.Vector3(0,17,62))
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState()
   // for raycasting mose coordinates
@@ -147,12 +145,13 @@ const NITCModel3D = () => {
       const aspectRatio = scW/scH
       const scale = scH * 0.005 + 4.8
       const camera = new THREE.PerspectiveCamera(
-       45, aspectRatio,10,10000
-      )
+        45, aspectRatio,10,10000
+        )
 
-      
-      
+        
+        
       camera.position.copy(initialCameraPosition)
+      
       //camera.lookAt(target)
       setCamera(camera)
       
@@ -165,19 +164,20 @@ const NITCModel3D = () => {
 
       const controls = new MapControls(camera, renderer.domElement)
       //controls.autoRotate = true
-      controls.target = target
+      controls.target = initialCameraPosition
       
       controls.maxDistance = 52.5
       controls.minDistance = 23.5
       
-      controls.minPolarAngle = degToRad(70)
-      controls.maxPolarAngle = degToRad(70)
+      controls.minPolarAngle = degToRad(65)
+      controls.maxPolarAngle = degToRad(65)
       //controls.noRotate = true
       controls.minAzimuthAngle = degToRad(0)
       controls.maxAzimuthAngle = degToRad(0)
 
-      var minPan = new THREE.Vector3( - 30, - 100, - 40 );
-      var maxPan = new THREE.Vector3( 30, 100, 20 )
+
+      var minPan = new THREE.Vector3( - 30, 0, - 40 );
+      var maxPan = new THREE.Vector3( 30, 0, 20 )
       var _v = new THREE.Vector3()
       
       controls.addEventListener("change", function() {
@@ -203,14 +203,17 @@ const NITCModel3D = () => {
       })
 
       let req = null
-
+      
       const animate = () => {
-        //console.log(camera.position)
+        console.log(camera.position)
+        controls.update()
         req = requestAnimationFrame(animate)
         delta = clock.getDelta()
-        if ( mixers.mixer1 !== undefined ){ mixers.mixer1.update( delta );}
-        TWEEN.update()
-        controls.update(0.1)
+        if ( mixers.mixer1 !== undefined ){ 
+          mixers.mixer1.update( delta );
+          TWEEN.update()
+        }
+        
         resetHover(scene)
         hoverButtons(scene, camera, raycaster, mouse)
         renderer.render(scene, camera)
@@ -244,7 +247,7 @@ const NITCModel3D = () => {
         Button3D('ECLCButton',scene,eclc.position.x,eclc.position.y,eclc.position.z)
         Button3D('MBButton',scene,mb.position.x,mb.position.y,mb.position.z)
         Button3D('ArchieButton',scene,archi.position.x,archi.position.y,archi.position.z)
-        Button3D('CCCButton',scene,ccc.position.x,ccc.position.y+7,ccc.position.z)
+        Button3D('CCCButton',scene,ccc.position.x,ccc.position.y+10,ccc.position.z)
         Button3D('ARYABHATAButton',scene,aryabhata.position.x,aryabhata.position.y,aryabhata.position.z)
       }
     },[loading])
