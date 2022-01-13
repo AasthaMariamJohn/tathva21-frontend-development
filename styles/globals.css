@@ -8,13 +8,9 @@ html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-<<<<<<< HEAD
-  background: black;  
-=======
   background-color: #000;
   color: white;
   list-style: none;
->>>>>>> master
 }
 
 a {

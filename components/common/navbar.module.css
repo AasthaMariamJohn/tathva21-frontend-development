@@ -4,7 +4,7 @@
   margin-top: 46px;
   margin-left: 30px;
   --aug-border: initial;
-  --aug-border-all: 2.5px;
+  --aug-border-all: 1.5px;
   --aug-border-bg: #49e9ff;
   --aug-clip-tl1: initial;
   --aug-tl1-width: 72px;
@@ -27,7 +27,7 @@
 }
 
 .no1 {
-  width: 87%;
+  width: 85%;
   top: -2px;
   position: absolute;
   background: linear-gradient(
@@ -40,10 +40,11 @@
 }
 
 .no2 {
-  width: 90%;
+  width: 88%;
   position: absolute;
   top: -30px;
   left: -20px;
+  display: flex;
 }
 
 .login {
@@ -51,7 +52,7 @@
   font-family: "batman_forever";
   font-size: large;
   height: 56px;
-  width: 10%;
+  width: 13%;
   position: absolute;
   top: 57px;
   right: 8px;
@@ -103,20 +104,26 @@
 .navbar-list {
   list-style: none;
   display: flex;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
 }
 .navbar-link {
   font-size: large;
+  flex: 0.1;
 }
 .navbar-title {
+  flex: 0.25;
   font-size: 25px;
   font-weight: bolder;
   z-index: 1000;
-  margin-right: -20px;
+  /* margin-right: -20px; */
+  margin-left: 73px;
 }
 .navbar-link:hover {
-  font-weight: bolder;
+  /* font-weight: bolder; */
+  text-shadow: 0px 0px 10px #00e0ff;
 }
 
 .hamburger {
