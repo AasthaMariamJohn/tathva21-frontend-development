@@ -27,7 +27,7 @@
 }
 
 .no1 {
-  width: 88%;
+  width: 87%;
   top: -2px;
   position: absolute;
   background: linear-gradient(
@@ -87,13 +87,15 @@
   font-family: "batman_forever";
   color: white;
 }
+
 .logo {
-  width: 15%;
+  width: 8%;
   background-color: black;
   border-radius: 50%;
   position: absolute;
-  left: 50px;
-  top: 21px;
+  left: 5px;
+  top: 16px;
+  z-index: 99999;
   z-index: 999;
 }
 
@@ -114,6 +116,10 @@
 }
 .navbar-link:hover {
   font-weight: bolder;
+}
+
+.hamburger {
+  display: none;
 }
 
 @media (max-width: 400px) {
@@ -156,6 +162,7 @@
     left: -20px;
   }
   .hamburger {
+    display: block;
     position: absolute;
     top: 42px;
     right: 13px;
@@ -204,5 +211,15 @@
     z-index: 1000;
     margin-right: -80px;
     margin-top: -23px;
+  }
+
+  .logo {
+    width: 15%;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 50px;
+    top: 21px;
+    z-index: 999;
   }
 }
