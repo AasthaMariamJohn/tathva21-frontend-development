@@ -1,5 +1,5 @@
 .navbarg {
-  height: 97px;
+  height: 126px;
   background-color: black;
   margin-top: 46px;
   margin-left: 30px;
@@ -7,8 +7,8 @@
   --aug-border-all: 2.5px;
   --aug-border-bg: #49e9ff;
   --aug-clip-tl1: initial;
-  --aug-tl1-width: 70px;
-  --aug-tl1-height: 150px;
+  --aug-tl1-width: 72px;
+  --aug-tl1-height: 410px;
   --aug-clip-br1: initial;
   --aug-br1-width: 70px;
   --aug-br1-height: 150px;
@@ -16,14 +16,14 @@
   --aug-clip-t2: initial;
   --aug-t-offset: 4%;
   --aug-t-extend1: 74%;
-  --aug-t1: 20px;
-  --aug-t2: 20px;
+  --aug-t1: 40px;
+  --aug-t2: 40px;
   --aug-clip-b1: initial;
   --aug-clip-b2: initial;
   --aug-b-offset: 8%;
-  --aug-b-extend1: 74%;
-  --aug-b1: 20px;
-  --aug-b2: 20px;
+  --aug-b-extend1: 72%;
+  --aug-b1: 40px;
+  --aug-b2: 40px;
 }
 
 .no1 {
@@ -82,10 +82,10 @@
 
 .logo {
   width: 8%;
-  background-color: red;
+  background-color: black;
   border-radius: 50%;
   position: absolute;
-  left: 1px;
-  top: 30px;
+  left: 5px;
+  top: 16px;
   z-index: 99999;
 }
