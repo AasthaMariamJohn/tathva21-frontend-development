@@ -55,16 +55,22 @@ export default function Event() {
         <div>
           {Event.id}
           <br />
-          <Image src={Event.coverImage.src} width={200} height={200}></Image>
+          <Image
+            src={Event.coverImage.src}
+            width={200}
+            height={200}
+            alt="event-cover-image"
+          ></Image>
           <br />
 
           {isRegistered ? (
             <>
               you are registered for this event
-              <FileUpload jwt={user.jwt} />
+              <FileUpload jwt={user.jwt} refId={userEventId} />
               {Event.isTeamEvent && userEventDetails ? (
                 <TeamMemberWrapper>
                   <SearchTeamMemberBox
+                    eventId={userEventId}
                     maxTeamSize={Event.maxTeamSize}
                     teamMembers={userEventDetails.teamMembers}
                   />
@@ -77,7 +83,12 @@ export default function Event() {
             <>
               {Event.regPrice ? (
                 <div>
-                  <RazerPay event={Event} user={user} />
+                  <RazerPay
+                    event={Event}
+                    user={user}
+                    paymentType={"event"}
+                    regPrice={Event.regPrice}
+                  />
                 </div>
               ) : (
                 <div>
@@ -99,5 +110,3 @@ export default function Event() {
     </div>
   );
 }
-
-

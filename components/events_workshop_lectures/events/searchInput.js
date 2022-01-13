@@ -2,9 +2,13 @@ import { useUserContext } from "@/context/userContext";
 import searchMember from "@/lib/events/searchMember";
 import { useEffect, useState } from "react/cjs/react.development";
 import "react-toastify/dist/ReactToastify.css";
+import { useTeamMemberContext } from "@/context/teamMemberContext";
 
-export default function SearchInput({ memberIn }) {
+export default function SearchInput({ memberIn, inputId }) {
   const { user } = useUserContext();
+
+  const { updatedTeamMembers, setUpdatedTeamMembers } = useTeamMemberContext();
+
   const [tathvaId, setTathvaId] = useState(memberIn ? memberIn.tathvaId : null);
   const [member, setMember] = useState(
     memberIn
@@ -15,38 +19,37 @@ export default function SearchInput({ memberIn }) {
         }
       : null
   );
-  const [checked, setChecked] = useState(memberIn ? true: false);
+  const [checked, setChecked] = useState(memberIn ? true : false);
   useEffect(() => {
     if (isCorrectTathvaId(tathvaId) && !member) {
       searchMember(tathvaId, user.jwt, setMember);
     } else {
-      if (!memberIn) setMember(null);
+      if (!memberIn && !member) {
+        setMember(null);
+      }
     }
   }, [tathvaId]);
 
   useEffect(() => {
-    if (member) {
-      memberIn = null;
+    if (checked && member) {
+      updatedTeamMembers[inputId] = {
+        user: { id: member.id, name: member.name },
+      };
+      setUpdatedTeamMembers(updatedTeamMembers);
+    } else if (!checked && member) {
+      delete updatedTeamMembers[inputId];
+      setUpdatedTeamMembers(updatedTeamMembers);
     }
-  }, [member]);
+  }, [checked]);
 
-
-  useEffect(()=>{
-    if(checked){
-      a={
-        user:member.id
-      }
-    }
-  },[checked])
-
-  function isCorrectTathvaId(tathvaId) {
+  function isCorrectTathvaId() {
     if (tathvaId && tathvaId.length == 10) return true;
     return false;
   }
 
   function handleTathvaIdChange(e) {
     setTathvaId(e.target.value);
-    if (isCorrectTathvaId(tathvaId)) {
+    if (isCorrectTathvaId()) {
       searchMember(tathvaId, user.jwt, setMember);
     }
   }
@@ -62,7 +65,7 @@ export default function SearchInput({ memberIn }) {
       <td>
         <input
           disabled={memberIn ? "disabled" : ""}
-          value={member ? member.name : ""}
+          value={member && isCorrectTathvaId() ? member.name : ""}
           onChange={(e) => {
             e.target.value = member.name;
           }}
@@ -73,7 +76,9 @@ export default function SearchInput({ memberIn }) {
           type={"checkbox"}
           checked={memberIn ? "checked" : checked}
           disabled={memberIn ? "disabled" : ""}
-          onChange={(e)=>{setChecked(checked?false:true)}}
+          onChange={(e) => {
+            setChecked(checked ? false : true);
+          }}
         ></input>
       </td>
     </tr>

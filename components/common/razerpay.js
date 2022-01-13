@@ -1,8 +1,7 @@
-import { useUserContext } from "@/context/userContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-function RazerPay({ event,user }) {
-
+function RazerPay({ event, user, paymentType, regPrice }) {
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -34,7 +33,7 @@ function RazerPay({ event,user }) {
           user: {
             id: user.id,
           },
-          paymentType: "event",
+          paymentType: paymentType,
           entity: {
             id: event.id,
           },
@@ -56,27 +55,25 @@ function RazerPay({ event,user }) {
           currency: "INR",
           name: "Tathva Bootcamp",
           order_id: orderId,
-          description:`${event.name}`,
+          description: `${event.name}`,
           prefill: {
-            name: "amal",
             email: user.email,
-            contact: "+91 1234567891",
+            contact: `+91 ${user.phoneNumber}`,
           },
           handler: async function (response) {
-            
-            const data={
-              order_id:orderId,
+            const data = {
+              order_id: orderId,
               razorpayPaymentId: response.razorpay_payment_id,
               razorpayOrderId: response.razorpay_order_id,
               razorpaySignature: response.razorpay_signature,
-              payload:{
-                payment:{
-                  entity:{
-                    order_id:response.razorpay_order_id
-                  }
-                }
-              }
-            }
+              payload: {
+                payment: {
+                  entity: {
+                    order_id: response.razorpay_order_id,
+                  },
+                },
+              },
+            };
             axios
               .post(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/orders/paymentComplete`,
@@ -84,12 +81,22 @@ function RazerPay({ event,user }) {
                 {
                   headers: {
                     Authorization: `Bearer ${user.jwt}`,
-                    'x-razorpay-signature':response.razorpay_signature,
+                    "x-razorpay-signature": response.razorpay_signature,
                   },
                 }
               )
               .then((result) => {
-                console.log(result.data.msg);
+                if (result.data.status == "ok") {
+                  toast.success("Payment Successfull", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                }
               });
           },
           theme: {
@@ -102,14 +109,9 @@ function RazerPay({ event,user }) {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Buy React now!</p>
-        <button className="App-link" onClick={displayRazorpay}>
-          Pay ₹500
-        </button>
-      </header>
-    </div>
+    <button className="App-link" onClick={displayRazorpay}>
+      Pay ₹{regPrice}
+    </button>
   );
 }
 

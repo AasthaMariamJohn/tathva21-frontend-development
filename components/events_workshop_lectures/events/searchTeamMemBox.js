@@ -3,8 +3,18 @@ import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import SearchInput from "./searchInput";
 import styles from "./test.module.css";
-export default function SearchTeamMemberBox({ maxTeamSize, teamMembers }) {
-  const { setTeamMembers } = useTeamMemberContext();
+import addTeamMembers from "@/lib/events/addTeamMembers";
+import { useUserContext } from "@/context/userContext";
+import { useRouter } from "next/router";
+export default function SearchTeamMemberBox({
+  eventId,
+  maxTeamSize,
+  teamMembers,
+}) {
+  const { setTeamMembers, updatedTeamMembers } = useTeamMemberContext();
+  const { user } = useUserContext();
+  const router=useRouter()
+  
   useEffect(() => {
     if (teamMembers) {
       setTeamMembers(teamMembers);
@@ -20,14 +30,23 @@ export default function SearchTeamMemberBox({ maxTeamSize, teamMembers }) {
           </tr>
         </thead>
         <Inputs maxTeamSize={maxTeamSize}></Inputs>
-
-        <tbody>
-          <tr style={{ colSpan: 2 }}>
-            <td>
-              <button>Add Members</button>
-            </td>
-          </tr>
-        </tbody>
+        {teamMembers.length < maxTeamSize ? (
+          <tbody>
+            <tr style={{ colSpan: 2 }}>
+              <td>
+                <button
+                  onClick={() => {
+                    addTeamMembers(eventId, updatedTeamMembers, user.jwt,router);
+                  }}
+                >
+                  Add Members
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        ) : (
+          <></>
+        )}
       </table>
     </div>
   );
@@ -35,17 +54,19 @@ export default function SearchTeamMemberBox({ maxTeamSize, teamMembers }) {
 
 function Inputs({ maxTeamSize }) {
   const { teamMembers } = useTeamMemberContext();
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState();
+  var row = [];
   useEffect(() => {
-    if (teamMembers)
+    if (teamMembers && row.length <= maxTeamSize)
       for (var i = 0; i < maxTeamSize; i++) {
-        if (teamMembers[i])
-          setRows(
-            rows.push(
-              <SearchInput key={i} memberIn={teamMembers[i]} inputId={i} />
-            )
+        if (teamMembers[i]) {
+          row.push(
+            <SearchInput key={i} memberIn={teamMembers[i]} inputId={i} />
           );
-        else setRows(rows.push(<SearchInput key={i} inputId={i} />));
+        } else {
+          row.push(<SearchInput key={i} inputId={i} />);
+        }
+        setRows(row);
       }
   }, [teamMembers]);
 

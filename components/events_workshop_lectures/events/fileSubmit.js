@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-export default function FileUpload({ jwt }) {
-  const refId = 2;
+import { toast } from "react-toastify";
+export default function FileUpload({ jwt, refId }) {
   const [image, setImage] = useState(null);
 
   function handleChange(e) {
@@ -12,18 +12,24 @@ export default function FileUpload({ jwt }) {
     const formData = new FormData();
     formData.append("files", image);
     formData.append("refId", refId);
+    if (!image) return;
 
-    const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload`,
-      formData,
-      {
+    const id = toast.loading("Please wait...");
+
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/upload`, formData, {
         headers: {
           Authorization: "Bearer " + jwt,
         },
-      }
-    );
-
-    console.log("image uploaded");
+      })
+      .then(() => {
+        toast.update(id, {
+          render: "Submission Added",
+          type: "success",
+          isLoading: false,
+          autoClose:2000,
+        });
+      });
   }
   return (
     <>

@@ -17,6 +17,7 @@ export function UserWrapper({ children }) {
   useEffect(() => {
     if (user) {
       getInitialUserDetails(
+        setUser,
         setUserEvents,
         setUserLectures,
         setuserWorkshops,
@@ -24,7 +25,7 @@ export function UserWrapper({ children }) {
       );
       setIsLoggedIn(true);
     }
-  }, [user]);
+  }, []);
   return (
     <UserContext.Provider
       value={{

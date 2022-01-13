@@ -19,13 +19,7 @@ export default function Workshops() {
               <Link href={`/workshops/${workshop.slug}`} passHref>
                 {workshop.name}
               </Link>
-              <button
-                onClick={() => {
-                  registerWorkshop(workshop.id, user.id, user.jwt);
-                }}
-              >
-                Register
-              </button>
+              
             </div>
           ))}
         </div>

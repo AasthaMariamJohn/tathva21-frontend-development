@@ -5,7 +5,7 @@ TeamMemberContext.displayName = "TeamMemberContext";
 
 export function TeamMemberWrapper({ children }) {
   const [teamMembers, setTeamMembers] = useState(null);
-  const [updatedTeamMembers, setUpdatedTeamMembers] = useState(null);
+  const [updatedTeamMembers, setUpdatedTeamMembers] = useState({});
 
   return (
     <TeamMemberContext.Provider

@@ -18,9 +18,6 @@ export default function Lecture() {
       {Lectures.map((lecture)=>(
         <div key={lecture.id}>
           <Link href={`/lectures/${lecture.slug}`}><a>{lecture.name}</a></Link>
-          <button onClick={()=>{
-            registerLecture(lecture.id,user.id,user.jwt)
-          }}>Register</button>
         </div>
       ))}
       </>
