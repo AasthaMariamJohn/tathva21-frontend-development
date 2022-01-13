@@ -1,6 +1,5 @@
 import { useTeamMemberContext } from "@/context/teamMemberContext";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useState,useEffect } from "react";
 import SearchInput from "./searchInput";
 import styles from "./test.module.css";
 import addTeamMembers from "@/lib/events/addTeamMembers";
