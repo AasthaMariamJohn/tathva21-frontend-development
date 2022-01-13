@@ -82,10 +82,10 @@
 
 .logo {
   width: 8%;
-  background-color: black;
+  background-color: red;
   border-radius: 50%;
   position: absolute;
   left: 1px;
   top: 30px;
-  z-index: 1;
+  z-index: 99999;
 }

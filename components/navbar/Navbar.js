@@ -13,7 +13,7 @@ const Navbar = () => {
               href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css"
             />
           </Head>
-          <div className={style.logo}><Image src="/assets/images/logo.png" alt="" layout='fill'/></div>
+          <div className={style.logo}><Image src="/logo.png" width="100" height="100" alt='Tathva'></Image></div>
           <div className={style.navbar}>
             <div className={`${style.navbarg} ${style.no1}`} data-augmented-ui></div>
             <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui></div>
