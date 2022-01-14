@@ -21,8 +21,13 @@ export default function Event() {
         <Vector2 /> */}
 
         <div className={style.img}>
-          <Image src="/herodekstop.png" alt="" className={style.img_desktop}  width={300} height={200}/>
-          <Image src="/heromobile.png" alt="" className={style.img_mobile} width={200} height={200}/>
+          <div className={style.img_desktop} >
+          <Image src="/herodekstop.png" alt="next-image"  width={300} height={200}/>
+          </div>
+          <div className={style.img_mobile}>
+          <Image src="/heromobile.png" alt="next-image"  width={200} height={200}/>
+
+          </div>
         </div>
         <div className={style.content}>
           <div className={style.eventname}>
