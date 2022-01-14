@@ -1,4 +1,3 @@
-import Image from "next/image";
 import style from "./ewl.module.css";
 import Vector1 from "./Vector1";
 import Vector2 from "./Vector2";
