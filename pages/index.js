@@ -1,15 +1,14 @@
-import LoginBtn from '@/components/home/loginBtn'
-import LogoutBtn from '@/components/home/logoutBtn'
+
+import TathvaLoader from '@/components/common/loader2'
 import { useUserContext } from '@/context/userContext'
-import Model3D from '../components/3DModel/main'
-import Link from 'next/link'
-import Loader from '@/components/common/loader'
+
+
 export default function Home() {
 
-  const {user}=useUserContext()
+  // const {user}=useUserContext()
   return (
     <div >
-      {/* <Model3D/> */}
+      {/* <TathvaLoader/> */}
     </div>
   )
 }

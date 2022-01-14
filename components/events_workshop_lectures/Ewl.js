@@ -1,3 +1,4 @@
+import Image from "next/image";
 import style from "./ewl.module.css";
 import Vector1 from "./Vector1";
 import Vector2 from "./Vector2";
@@ -20,8 +21,8 @@ export default function Event() {
         <Vector2 /> */}
 
         <div className={style.img}>
-          <img src="/herodekstop.png" alt="" className={style.img_desktop} />
-          <img src="/heromobile.png" alt="" className={style.img_mobile} />
+          <Image src="/herodekstop.png" alt="" className={style.img_desktop}  />
+          <Image src="/heromobile.png" alt="" className={style.img_mobile} />
         </div>
         <div className={style.content}>
           <div className={style.eventname}>
@@ -47,7 +48,7 @@ export default function Event() {
           </div>
           <p className={style.des}>
             NFT stands for non-fungible token, which basically means <br />
-            that it's a one-of-a-kind digital asset that belongs to you
+            that it&apos;s a one-of-a-kind digital asset that belongs to you
             <br />
             and you only. The most po24535pular NFTs right now <br />
             include artwork and music, but can also include <br />
