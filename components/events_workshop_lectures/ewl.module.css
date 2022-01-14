@@ -1,0 +1,145 @@
+.main {
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  top: 300px;
+  background-color: black;
+  color: white;
+  font-family: "batman_forever";
+}
+.vector_1 {
+  position: absolute;
+  right: 11%;
+  top: 1%;
+}
+.vector_2 {
+  position: absolute;
+}
+
+.main2 {
+  display: inline-block;
+  width: 50%;
+  border: 1px solid rgb(0, 195, 255);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 20%;
+}
+
+.img_desktop {
+  display: block;
+  width: 45%;
+  display: flex;
+  float: left;
+}
+.titles {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 8px;
+}
+.content {
+  display: inline-block;
+  position: absolute;
+  font-size: 10px;
+}
+
+.list {
+  display: inline-block;
+  margin: 10px 0 80px 120px;
+  border-radius: 5px;
+}
+
+.des {
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.button {
+  width: 34%;
+  height: 34px;
+  text-align: center;
+  margin-top: 40px;
+  padding: 14px 0 0 0;
+  margin-left: 60px;
+  --aug-border: initial;
+  --aug-border-all: 2.5px;
+  --aug-border-bg: #49e9ff;
+
+  --aug-clip-tl1: initial;
+  --aug-tl1: 10px;
+  --aug-clip-bl1: initial;
+  --aug-bl1: 10px;
+  --aug-clip-tr1: initial;
+  --aug-tr1: 10px;
+  --aug-clip-br1: initial;
+  --aug-br1: 10px;
+
+  --aug-clip-t1: initial;
+  --aug-clip-t2: initial;
+  --aug-t1: 6px;
+  --aug-t2: 6px;
+  --aug-t-extend1: 20%;
+  --aug-clip-b1: initial;
+  --aug-clip-b2: initial;
+  --aug-b-extend1: 20%;
+  --aug-b1: 6px;
+  --aug-b2: 6px;
+}
+.main ::-webkit-scrollbar {
+  display: none;
+}
+.main ul {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.main li {
+  outline: none;
+  list-style: none;
+  padding: 0 40.5px;
+  line-height: 64px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.main li:last-child {
+  border-bottom-width: 0;
+}
+.main li:nth-child(5) ~ :last-child {
+  position: relative;
+  z-index: 1;
+}
+.main li:nth-child(5) ~ :nth-last-child(2):after {
+  content: "";
+  cursor: s-resize;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    #fff 100%
+  );
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  height: 45px;
+}
+
+.img_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .img_desktop {
+    display: none;
+  }
+
+  .img_mobile {
+    display: block;
+  }
+}
