@@ -53,17 +53,18 @@ const Navbar = () => {
 
   return (
     <div>
-    
       {!collapseDown && (
         <>
           <div className={style.logo}>
             <Link href="/" passHref>
-              <Image
-                src={"/navbarlogo.png"}
-                width="120"
-                height="120"
-                alt="Tathva"
-              ></Image>
+              <a>
+                <Image
+                  src={"/navbarlogo.png"}
+                  width="120"
+                  height="120"
+                  alt="Tathva"
+                ></Image>
+              </a>
             </Link>
           </div>
           <div className={style.navbar}>
@@ -96,7 +97,7 @@ const Navbar = () => {
           </div>
         </>
       )}
-      
+
       {collapseDown && (
         <>
           <div className={style.menu}>

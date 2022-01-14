@@ -3,6 +3,7 @@ import LogoutBtn from '@/components/home/logoutBtn'
 import { useUserContext } from '@/context/userContext'
 import Model3D from '../components/3DModel/main'
 import Link from 'next/link'
+import Loader from '@/components/common/loader'
 export default function Home() {
 
   const {user}=useUserContext()

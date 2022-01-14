@@ -1,10 +1,10 @@
 
 import dynamic from 'next/dynamic'
-import NitcModelLoader from './nitc-model-loader'
+import Loader from '../common/loader'
 
 const LazyNitcModel = dynamic(() => import('./nitc-model'), {
   ssr: false,
-  loading: () => <NitcModelLoader />
+  loading: () => <Loader/>
 })
 
 const Main = ({ children, router }) => {
