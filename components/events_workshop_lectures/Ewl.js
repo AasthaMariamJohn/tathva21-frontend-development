@@ -2,6 +2,7 @@ import Image from "next/image";
 import style from "./ewl.module.css";
 import Vector1 from "./Vector1";
 import Vector2 from "./Vector2";
+import Image from "next/image";
 
 export default function Event() {
   return (
@@ -21,7 +22,7 @@ export default function Event() {
         <Vector2 /> */}
 
         <div className={style.img}>
-          <Image src="/herodekstop.png" alt="" className={style.img_desktop}  />
+          <Image src="/herodekstop.png" alt="" className={style.img_desktop} />
           <Image src="/heromobile.png" alt="" className={style.img_mobile} />
         </div>
         <div className={style.content}>
