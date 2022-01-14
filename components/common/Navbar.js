@@ -5,9 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Hamburger from "./Hamburger.js";
-
+import { useUserContext } from "@/context/userContext";
+import LogoutBtn from '../home/logoutBtn'
+import LoginBtn from "../home/loginBtn";
 const Navbar = () => {
   const router = useRouter();
+  const {isLoggedIn}=useUserContext()
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
     { title: "About Us", id: 1, link: "/about" },
@@ -90,7 +93,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className={style.login} data-augmented-ui>
-            Login
+            {isLoggedIn?<LogoutBtn/>:<LoginBtn/>}
           </div>
           <div className={style.hamburger} onClick={handleCollapseDown}>
             <Hamburger />
@@ -112,7 +115,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className={style.close} onClick={handleClose}>
-              <Image src={"/close.png"} width="40" height="40" />
+              <Image src={"/close.png"} width="40" height="40" alt="next-image" />
             </div>
             <p className={style["menu-title"]}>
               <Link href={title.link}>

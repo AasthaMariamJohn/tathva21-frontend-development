@@ -9,7 +9,7 @@ export default function Home() {
   const {user}=useUserContext()
   return (
     <div >
-      <Model3D/>
+      {/* <Model3D/> */}
     </div>
   )
 }

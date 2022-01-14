@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
+import Model3D from '@/components/3DModel/main'
 export default function Layout({ children }) {
   return (
     <div>
@@ -23,6 +24,7 @@ export default function Layout({ children }) {
         />
       </Head>
       <Navbar />
+      <Model3D/>
       <main>{children}</main>
     </div>
   );
