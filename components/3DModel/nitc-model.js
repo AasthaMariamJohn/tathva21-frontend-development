@@ -6,7 +6,7 @@ import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
 
-import TathvaLoader from "../common/loader2";
+import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
 
@@ -397,7 +397,7 @@ const NITCModel3D = () => {
   };
   return (
     <div>
-      {loading?<TathvaLoader/>:<></>}
+      {loading?<Loader/>:<></>}
       <ModelContainer ref={refContainer}></ModelContainer>
     </div>
   );
