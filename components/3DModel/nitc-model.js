@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { MapControls } from 'three/examples/jsm/controls/OrbitControls'
 import { degToRad } from 'three/src/math/MathUtils'
-import { loadGLTFModel } from '../lib/model'
+import { loadGLTFModel } from './lib/model'
 import { ModelContainer } from './nitc-model-loader'
 const TWEEN = require('@tweenjs/tween.js')
 
@@ -100,7 +100,7 @@ const NITCModel3D = () => {
   const [_camera, setCamera] = useState()
   const [target] = useState(new THREE.Vector3(0,0,0))
   // Set inital camera position here
-  const [initialCameraPosition] = useState(new THREE.Vector3(0,17,62))
+  const [initialCameraPosition] = useState(new THREE.Vector3(-1,19,57))
   const [scene] = useState(new THREE.Scene())
   const [_controls, setControls] = useState()
   // for raycasting mose coordinates
@@ -150,7 +150,7 @@ const NITCModel3D = () => {
 
         
         
-      camera.position.copy(initialCameraPosition)
+      //camera.position.copy(initialCameraPosition)
       
       //camera.lookAt(target)
       setCamera(camera)
@@ -194,7 +194,7 @@ const NITCModel3D = () => {
       } , false );
       setControls(controls)
 
-      loadGLTFModel(scene, '/scene.glb', {
+      loadGLTFModel(scene, '/model/scene.glb', {
         receiveShadow: false,
         castShadow: false
       },mixers).then(() => {
@@ -205,7 +205,7 @@ const NITCModel3D = () => {
       let req = null
       
       const animate = () => {
-        console.log(camera.position)
+        //console.log(camera.position)
         controls.update()
         req = requestAnimationFrame(animate)
         delta = clock.getDelta()

@@ -1,4 +1,4 @@
-import Layout from '../components/layouts/main'
+import Layout from '../components/3DModel/main'
 const Home = () => (
   <div>
     <Layout/>

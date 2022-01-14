@@ -1,8 +1,8 @@
 
 import dynamic from 'next/dynamic'
-import NitcModelLoader from '../nitc-model-loader'
+import NitcModelLoader from './nitc-model-loader'
 
-const LazyNitcModel = dynamic(() => import('../nitc-model'), {
+const LazyNitcModel = dynamic(() => import('./nitc-model'), {
   ssr: false,
   loading: () => <NitcModelLoader />
 })
