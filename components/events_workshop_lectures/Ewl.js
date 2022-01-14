@@ -25,8 +25,9 @@ export default function Event() {
         </div>
         <div className={style.content}>
           <div className={style.eventname}>
-            <h3 className={style.titles}>EVENT NAME</h3>
+            <h2 className={style.titles}>EVENT NAME</h2>
             <svg
+              className={style.titles}
               width="12"
               height="13"
               viewBox="0 0 12 13"
@@ -38,7 +39,7 @@ export default function Event() {
                 fill="#B9B9B9"
               />
             </svg>
-            <h3 className={style.titles}>dhfghsdfg</h3>
+            <h3 className={style.titles}>25:03:99</h3>
           </div>
           <div className={style.eventdetails}>
             <h3 className={style.titles}>INFO</h3>
@@ -46,11 +47,10 @@ export default function Event() {
             <h3 className={style.titles}>TERMS&CONDITIONS</h3>
           </div>
           <p className={style.des}>
-            NFT stands for non-fungible token, which basically means <br />
+            NFT stands for non-fungible token, which basically means
             that it's a one-of-a-kind digital asset that belongs to you
-            <br />
-            and you only. The most po24535pular NFTs right now <br />
-            include artwork and music, but can also include <br />
+            and you only. The most po24535pular NFTs right now
+            include artwork and music, but can also include
             viGDG5353deos and even tweets.
           </p>
           <div className={style.button} data-augmented-ui>

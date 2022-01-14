@@ -1,10 +1,12 @@
+
 .main {
   width: 100%;
+  height: 67%;
   background-size: cover;
   position: absolute;
-  top: 300px;
-  background-color: black;
+  top: 200px;
   color: white;
+  background: rgba(0, 0, 0, 0.76);
   font-family: "batman_forever";
 }
 .vector_1 {
@@ -19,17 +21,21 @@
 .main2 {
   display: inline-block;
   width: 50%;
-  border: 1px solid rgb(0, 195, 255);
+  position: absolute;
+  background: rgba(0, 0, 0, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: 20%;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgb(0, 238, 255) , rgb(255, 0, 255));
+  border-image-slice: 1; 
 }
 
 .img_desktop {
   display: block;
-  width: 45%;
+  width: 44%;
   display: flex;
   float: left;
 }
@@ -41,7 +47,17 @@
 .content {
   display: inline-block;
   position: absolute;
-  font-size: 10px;
+  font-size: 15px;
+}
+.eventname {
+  font-size: 15px;
+}
+.eventname h2{
+  font-size: 25px;
+}
+.des{
+  font-size: 12px;
+  margin-top: 30px;
 }
 
 .list {
@@ -50,18 +66,13 @@
   border-radius: 5px;
 }
 
-.des {
-  margin-top: 50px;
-  margin-left: 10px;
-}
-
 .button {
-  width: 34%;
-  height: 34px;
+  width: 150px;
+  height: 45px;
   text-align: center;
   margin-top: 40px;
   padding: 14px 0 0 0;
-  margin-left: 60px;
+  margin-left: 15px;
   --aug-border: initial;
   --aug-border-all: 2.5px;
   --aug-border-bg: #49e9ff;
@@ -85,6 +96,22 @@
   --aug-b-extend1: 20%;
   --aug-b1: 6px;
   --aug-b2: 6px;
+  background-image: linear-gradient(
+      to right,
+      rgb(146, 192, 252),
+      rgba(146, 192, 252, 0.795),
+      rgba(146, 192, 252, 0.582),
+      rgba(146, 192, 252, 0.342),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0),
+      rgba(146, 192, 252, 0.342),
+      rgba(146, 192, 252, 0.582),
+      rgba(146, 192, 252, 0.795),
+      rgb(146, 192, 252)
+    );
+  box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25);
+
 }
 .main ::-webkit-scrollbar {
   display: none;
@@ -141,5 +168,168 @@
 
   .img_mobile {
     display: block;
+    width: 100%;
+    display: flex;
+    float: left;
+  }
+
+  .main {
+    width: 100%;
+    height: 87%;
+    background-size: cover;
+    position: absolute;
+    top: 12.5vh;
+    color: white;
+    background: rgba(0, 0, 0, 0.76);
+    font-family: "batman_forever";
+  }
+  .vector_1 {
+    position: absolute;
+    right: 11%;
+    top: 1%;
+  }
+  .vector_2 {
+    position: absolute;
+  }
+  
+  .main2 {
+    display: flex;
+    top: 7vh;
+    width: 75vw;
+    left: -10vw;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(45deg, rgb(0, 238, 255) , rgb(0, 238, 255));
+    border-image-slice: 1;  
+  }
+  
+  .titles {
+    text-decoration: none;
+    display: inline-flex;
+    margin: 0 8px;
+  }
+  .content {
+    display: inline-block;
+    position: absolute;
+    font-size: 1.5vh;
+    width: 100%;
+    height: 35vh;
+    background: rgba(0, 0, 0, 0.76);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin-top: 25vh;
+    margin-left: -4vw;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(90deg, rgb(0, 238, 255) , rgb(255, 0, 255));
+    border-image-slice: 1;
+  }
+  .eventname {
+    font-size: 1.5vh;
+  }
+  .eventname h2{
+    font-size: 2vh;
+  }
+  .des{
+    font-size: 1.3vh;
+    margin-top: 2vh;
+  }
+  
+  .list {
+    display: inline-flex;
+    margin: 10px 0 80px 120px;
+    border-radius: 5px;
+  }
+  
+  .button {
+    width: 30vw;
+    height: 6vh;
+    text-align: center;
+    margin-top: 40px;
+    padding: 14px 0 0 0;
+    margin-left: 1svw;
+    --aug-border: initial;
+    --aug-border-all: 2.5px;
+    --aug-border-bg: #49e9ff;
+  
+    --aug-clip-tl1: initial;
+    --aug-tl1: 10px;
+    --aug-clip-bl1: initial;
+    --aug-bl1: 10px;
+    --aug-clip-tr1: initial;
+    --aug-tr1: 10px;
+    --aug-clip-br1: initial;
+    --aug-br1: 10px;
+  
+    --aug-clip-t1: initial;
+    --aug-clip-t2: initial;
+    --aug-t1: 6px;
+    --aug-t2: 6px;
+    --aug-t-extend1: 20%;
+    --aug-clip-b1: initial;
+    --aug-clip-b2: initial;
+    --aug-b-extend1: 20%;
+    --aug-b1: 6px;
+    --aug-b2: 6px;
+    background-image: linear-gradient(
+        to right,
+        rgb(146, 192, 252),
+        rgba(146, 192, 252, 0.795),
+        rgba(146, 192, 252, 0.582),
+        rgba(146, 192, 252, 0.342),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(146, 192, 252, 0.342),
+        rgba(146, 192, 252, 0.582),
+        rgba(146, 192, 252, 0.795),
+        rgb(146, 192, 252)
+      );
+    box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25);
+  
+  }
+  .main ::-webkit-scrollbar {
+    display: none;
+  }
+  .main ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  .main li {
+    outline: none;
+    list-style: none;
+    padding: 0 10px;
+    line-height: 64px;
+    cursor: pointer;
+    font-size: 10px;
+  }
+  .main li:last-child {
+    border-bottom-width: 0;
+  }
+  .main li:nth-child(5) ~ :last-child {
+    position: relative;
+    z-index: 1;
+  }
+  .main li:nth-child(5) ~ :nth-last-child(2):after {
+    content: "";
+    cursor: s-resize;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: -webkit-linear-gradient(
+      top,
+      rgba(255, 255, 255, 0) 0%,
+      #fff 100%
+    );
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    height: 45px;
   }
 }
