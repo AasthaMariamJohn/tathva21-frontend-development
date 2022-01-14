@@ -87,12 +87,9 @@
 }
 
 .logo {
-  width: 8%;
-  background-color: black;
-  border-radius: 50%;
   position: absolute;
-  left: 5px;
-  top: 16px;
+  left: 60px;
+  /* top: 0px; */
   z-index: 999;
   cursor: pointer;
 }
@@ -224,10 +221,10 @@
 
   .logo {
     display: block;
-    width: 15%;
+    transform: scale(.6);
     position: absolute;
-    left: 50px;
-    top: 21px;
+    left: 10px;
+    top: -24px;
   }
   .menu-title {
     position: fixed;
@@ -350,10 +347,10 @@
   }
 
   .logo {
-    width: 13%;
+    transform: scale(0.7);
     position: absolute;
-    left: 50px;
-    top: 21px;
+    left: 10px;
+    top: -25px;
   }
   .menu-title {
     position: fixed;
@@ -470,10 +467,10 @@
   }
 
   .logo {
-    width: 9%;
+    transform: scale(0.7);
     position: absolute;
-    left: 50px;
-    top: 21px;
+    left: 10px;
+    top: -25px;
   }
   .menu-title {
     position: fixed;
@@ -582,14 +579,9 @@
   }
 
   .logo {
-    width: 8%;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    left: 7px;
-    top: 18px;
-    z-index: 999;
-    cursor: pointer;
+    transform: scale(0.8);
+    left: 50px;
+    top: -18px;
   }
 
   /* NAVBAR */
@@ -725,14 +717,9 @@
   }
 
   .logo {
-    width: 8%;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    left: 5px;
-    top: 16px;
-    z-index: 999;
-    cursor: pointer;
+  
+    left: 80px;
+    top: -16px;
   }
 
   /* NAVBAR */

@@ -1,0 +1,9 @@
+.contact-logo{
+      position: absolute;
+      right: 3vw;
+      top :90vh;
+      border: 3px solid rgba(73, 233, 255, 0.45);
+      border-radius: 50%;
+      text-align: center;
+      padding: 4px;
+}

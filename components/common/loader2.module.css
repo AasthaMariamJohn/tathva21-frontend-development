@@ -1,0 +1,72 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  stroke-width: 5px;
+}
+.preText {
+  font-size: 2rem;
+  text-align: center;
+  width: 60%;
+  font-family: fontastiq;
+  color: white;
+}
+#preLogo {
+  width: 400px;
+  height: 400px;
+}
+.loading {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}
+@keyframes path1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes path2 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes path3 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.p1 {
+  stroke-dasharray: 895.74609375;
+  stroke-dashoffset: 895.74609375;
+  animation: path1 3s linear infinite;
+}
+
+.p2 {
+  stroke-dasharray: 1170.7462158203125;
+  stroke-dashoffset: 1170.7462158203125;
+  animation: path1 3s linear infinite;
+}
+
+.p3 {
+  stroke-dasharray: 109.70411682128906;
+  stroke-dashoffset: 109.70411682128906;
+  animation: path1 3s linear infinite;
+}
+.cls-1 {
+  fill: none;
+  stroke: rgb(255, 255, 255);
+  stroke-miterlimit: 10;
+}

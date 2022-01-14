@@ -23,14 +23,25 @@ export function loadGLTFModel(
         mixers.mixer1 = new AnimationMixer(obj)
         
 	      mixers.mixer1.clipAction(gltf.animations[0]).reset().play();
-
+        
         scene.add(obj)
 
         obj.traverse(function (child) {
           if (child.isMesh) {
-            child.castShadow = castShadow
-            child.receiveShadow = receiveShadow
+            child.castShadow = true
+            child.receiveShadow = true
           }
+
+          if (child.isLight) {
+            console.log(1);
+            const l = child;
+            l.castShadow = true;
+            l.shadow.bias = -0.003;
+            l.shadow.mapSize.width = 2048;
+            l.shadow.mapSize.height = 2048;
+          }
+
+
         })
         resolve(obj)
       },

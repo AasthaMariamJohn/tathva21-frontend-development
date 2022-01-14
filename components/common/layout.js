@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import Model3D from '@/components/3DModel/main'
+import ContactUsLogo from './contactLogo'
+import DonateBtn from "./donateBtn";
 export default function Layout({ children }) {
   return (
     <div>
@@ -24,8 +26,10 @@ export default function Layout({ children }) {
         />
       </Head>
       <Navbar />
-      <Model3D/>
+      {/* <Model3D/> */}
       <main>{children}</main>
+      <DonateBtn/>
+      <ContactUsLogo/>
     </div>
   );
 }

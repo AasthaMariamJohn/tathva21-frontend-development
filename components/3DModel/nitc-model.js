@@ -7,7 +7,6 @@ import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
 
 import Loader from "../common/loader";
-import { useUserContext } from "@/context/userContext";
 
 const TWEEN = require("@tweenjs/tween.js");
 
@@ -173,9 +172,14 @@ const NITCModel3D = () => {
         antialias: true,
         alpha: true,
       });
+      renderer.physicallyCorrectLights = true
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
+
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
+
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
 
@@ -191,11 +195,11 @@ const NITCModel3D = () => {
       setCamera(camera);
 
       // adding ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
       scene.add(ambientLight);
       // adding fog
-      const fog = new THREE.FogExp2(0xffffff, 0.009);
-      //scene.fog = fog
+      const fog = new THREE.FogExp2(0x21211F, 0.01);
+      scene.fog = fog
 
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
@@ -308,7 +312,7 @@ const NITCModel3D = () => {
         "CCCButton",
         scene,
         ccc.position.x,
-        ccc.position.y + 10,
+        ccc.position.y ,
         ccc.position.z
       );
       Button3D(

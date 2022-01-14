@@ -58,7 +58,14 @@ const Navbar = () => {
     <div>
       {!collapseDown && (
         <>
-          <div className={style.logo}>
+          
+          <div className={style.navbar}>
+            <div
+              className={`${style.navbarg} ${style.no1}`}
+              data-augmented-ui
+            ></div>
+            <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
+            <div className={style.logo}>
             <Link href="/" passHref>
               <a>
                 <Image
@@ -70,12 +77,6 @@ const Navbar = () => {
               </a>
             </Link>
           </div>
-          <div className={style.navbar}>
-            <div
-              className={`${style.navbarg} ${style.no1}`}
-              data-augmented-ui
-            ></div>
-            <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
               <ol className={style["navbar-list"]}>
                 <li className={style["navbar-title"]}>
                   <Link href={title.link}>

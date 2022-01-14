@@ -157,16 +157,16 @@
   height: 45px;
 }
 
-.img_mobile {
+.img_mobile{
   display: none;
 }
 
 @media screen and (max-width: 600px) {
-  .img_desktop {
+  .img_desktop{
     display: none;
   }
 
-  .img_mobile {
+  .img_mobile{
     display: block;
     width: 100%;
     display: flex;
