@@ -309,7 +309,7 @@ const NITCModel3D = () => {
         "CCCButton",
         scene,
         ccc.position.x,
-        ccc.position.y + 10,
+        ccc.position.y ,
         ccc.position.z
       );
       Button3D(
