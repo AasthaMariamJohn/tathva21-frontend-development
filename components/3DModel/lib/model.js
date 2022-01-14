@@ -1,0 +1,43 @@
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import {AnimationMixer} from 'three'
+export function loadGLTFModel(
+  scene,
+  glbPath,
+  options = { receiveShadow: true, castShadow: true }, mixers
+) {
+  const { receiveShadow, castShadow } = options
+  return new Promise((resolve, reject) => {
+    const loader = new GLTFLoader()
+
+    loader.load(
+      glbPath,
+      gltf => {
+        const obj = gltf.scene
+        obj.name = 'NITC 3D Model'
+        obj.position.y = 0
+        obj.position.x = 0
+        obj.position.z = 0
+        obj.receiveShadow = receiveShadow
+        obj.castShadow = castShadow
+
+        mixers.mixer1 = new AnimationMixer(obj)
+        
+	      mixers.mixer1.clipAction(gltf.animations[0]).reset().play();
+
+        scene.add(obj)
+
+        obj.traverse(function (child) {
+          if (child.isMesh) {
+            child.castShadow = castShadow
+            child.receiveShadow = receiveShadow
+          }
+        })
+        resolve(obj)
+      },
+      undefined,
+      function (error) {
+        reject(error)
+      }
+    )
+  })
+}
