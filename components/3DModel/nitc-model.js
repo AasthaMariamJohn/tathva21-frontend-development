@@ -177,6 +177,10 @@ const NITCModel3D = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
+
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
+
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
 
@@ -192,7 +196,7 @@ const NITCModel3D = () => {
       setCamera(camera);
 
       // adding ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
       scene.add(ambientLight);
       // adding fog
       const fog = new THREE.FogExp2(0x21211F, 0.01);

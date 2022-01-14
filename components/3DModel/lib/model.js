@@ -28,8 +28,17 @@ export function loadGLTFModel(
 
         obj.traverse(function (child) {
           if (child.isMesh) {
-            child.castShadow = castShadow
-            child.receiveShadow = receiveShadow
+            child.castShadow = true
+            child.receiveShadow = true
+          }
+
+          if (child.isLight) {
+            console.log(1);
+            const l = child;
+            l.castShadow = true;
+            l.shadow.bias = -0.003;
+            l.shadow.mapSize.width = 2048;
+            l.shadow.mapSize.height = 2048;
           }
 
 
