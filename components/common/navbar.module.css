@@ -52,6 +52,7 @@
   text-align: center;
   font-family: "batman_forever";
   font-size: large;
+  color: white;
   height: 56px;
   width: 10%;
   position: absolute;
@@ -82,6 +83,7 @@
   --aug-br1-width: 30px;
   --aug-br1-height: 60px;
   padding-top: 18px;
+  z-index: 100;
 }
 
 .logo {
@@ -99,6 +101,8 @@
 .navbar {
   font-family: "batman_forever";
   color: white;
+  position: relative;
+  z-index: 100;
 }
 
 .navbar-list {
@@ -122,6 +126,8 @@
 
 .hamburger {
   display: none;
+  position: relative;
+  z-index: 100;
 }
 
 @media (max-width: 400px) {
@@ -848,4 +854,9 @@
     position: absolute;
     z-index: 1000;
   }
+}
+
+.menu {
+  background-color: black;
+  color: white;
 }
