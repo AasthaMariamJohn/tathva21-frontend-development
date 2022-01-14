@@ -173,6 +173,7 @@ const NITCModel3D = () => {
         antialias: true,
         alpha: true,
       });
+      renderer.physicallyCorrectLights = true
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
@@ -194,8 +195,8 @@ const NITCModel3D = () => {
       const ambientLight = new THREE.AmbientLight(0xffffff);
       scene.add(ambientLight);
       // adding fog
-      const fog = new THREE.FogExp2(0xffffff, 0.009);
-      //scene.fog = fog
+      const fog = new THREE.FogExp2(0x21211F, 0.01);
+      scene.fog = fog
 
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true

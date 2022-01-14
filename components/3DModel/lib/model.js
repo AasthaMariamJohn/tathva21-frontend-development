@@ -23,7 +23,7 @@ export function loadGLTFModel(
         mixers.mixer1 = new AnimationMixer(obj)
         
 	      mixers.mixer1.clipAction(gltf.animations[0]).reset().play();
-
+        
         scene.add(obj)
 
         obj.traverse(function (child) {
@@ -31,6 +31,8 @@ export function loadGLTFModel(
             child.castShadow = castShadow
             child.receiveShadow = receiveShadow
           }
+
+
         })
         resolve(obj)
       },
