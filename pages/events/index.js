@@ -1,10 +1,10 @@
 import Loader from "@/components/common/loader";
-import { useUserContext } from "@/context/userContext";
 import getEvents from "@/lib/events/getEvents";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Ewl from "@/components/events_workshop_lectures/Ewl";
 import getEventWithName from "@/lib/events/getEvent";
+import ComingSoon from "@/components/common/coming_soon";
 
 export default function Events() {
 
@@ -18,7 +18,8 @@ export default function Events() {
 
   return (
     <div>
-     {Event1? <Ewl event={Event1}/>:<></>}
+     {/* {Event1? <Ewl event={Event1}/>:<Loader/>} */}
+     <ComingSoon/>
     </div>
   );
 }
