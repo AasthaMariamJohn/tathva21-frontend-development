@@ -1,0 +1,51 @@
+.main {
+  position: absolute;
+  color: white;
+}
+.heading {
+  margin: 150px 0px 50px 0px;
+  display: flex;
+  justify-content: center;
+}
+.heading h1 {
+  font-family: "batman_forever";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+}
+.sponsor {
+  font-family: "quantico";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 180px;
+  bottom: 105px;
+}
+.sponsor div {
+  margin: 10px;
+}
+.sponsorImg {
+  width: 75vw;
+  margin-top: 25px;
+  justify-content: center;
+}
+.sponsorImg img {
+  width: inherit;
+  height: inherit;
+}
+
+@media (max-width: 768px) {
+  .sponsor {
+    margin: 0 24px;
+    justify-content: center;
+  }
+  .sponsor p {
+    color: white;
+    line-height: 1.8;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
