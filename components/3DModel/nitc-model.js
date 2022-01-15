@@ -230,7 +230,7 @@ const NITCModel3D = () => {
   const [_camera, setCamera] = useState();
   const [target] = useState(new THREE.Vector3(0, 0, 0));
   // Set inital camera position here
-  const [initialCameraPosition] = useState(new THREE.Vector3(0, 47, 16));
+  const [initialCameraPosition] = useState(new THREE.Vector3(-10, 47, 16));
   const [scene] = useState(new THREE.Scene());
   const [_controls, setControls] = useState();
   // for raycasting mose coordinates
@@ -286,7 +286,7 @@ const NITCModel3D = () => {
       // 8   -> 6
       const aspectRatio = scW / scH;
       const scale = scH * 0.005 + 4.8;
-      const camera = new THREE.PerspectiveCamera(45, aspectRatio, 10, 10000);
+      const camera = new THREE.PerspectiveCamera(70, aspectRatio, 10, 10000);
       
       //camera.position.copy(initialCameraPosition)
       
@@ -294,11 +294,11 @@ const NITCModel3D = () => {
       setCamera(camera);
 
       // adding ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-      scene.add(ambientLight);
+      // const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+      // scene.add(ambientLight);
       // adding fog
-      const fog = new THREE.FogExp2(0x21211F, 0.01);
-      scene.fog = fog
+      // const fog = new THREE.FogExp2(0x21211F, 0.01);
+      // scene.fog = fog
       
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
@@ -308,11 +308,11 @@ const NITCModel3D = () => {
       controls.maxDistance = 52.5;
       controls.minDistance = 23.5;
       
-      controls.minPolarAngle = degToRad(65);
-      controls.maxPolarAngle = degToRad(65);
+      controls.minPolarAngle = degToRad(60);
+      controls.maxPolarAngle = degToRad(60);
       //controls.noRotate = true
-      controls.minAzimuthAngle = degToRad(0);
-      controls.maxAzimuthAngle = degToRad(0);
+      controls.minAzimuthAngle = degToRad(-30);
+      controls.maxAzimuthAngle = degToRad(-30);
 
 
       // Bloom
