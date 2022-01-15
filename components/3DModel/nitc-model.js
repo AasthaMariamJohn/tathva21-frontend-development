@@ -5,10 +5,8 @@ import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { ShaderPass, UnrealBloomPass, BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
+
 import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
@@ -224,16 +222,6 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
     }
   }
 }
-function restoreMaterial( obj ) {
-
-  if ( materials[ obj.uuid ] ) {
-
-    obj.material = materials[ obj.uuid ];
-    delete materials[ obj.uuid ];
-
-  }
-
-}
 
 
 const NITCModel3D = () => {
@@ -257,21 +245,10 @@ const NITCModel3D = () => {
   const delta = clock.getDelta();
   const mixers = { mixer1: undefined };
 
+  
 
-  // Bloom
-  const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
-  bloomPass.threshold = 0;
-  bloomPass.strength = 6.19;
-  bloomPass.radius = 0.8;
-  bloomPass.exposure = 1.0184;
-  let bloomComposer = null;
-  let renderScene = undefined;
-  let finalComposer = undefined;
-  const ENTIRE_SCENE = 0, BLOOM_SCENE = 1;
-  let bloomLayer = new THREE.Layers();
-	bloomLayer.set( BLOOM_SCENE );
-  const darkMaterial = new THREE.MeshBasicMaterial( { color: "black" } );
-	const materials = {};
+
+  
   // Handling window resize
   const handleWindowResize = useCallback(() => {
     const { current: container } = refContainer;
@@ -301,71 +278,21 @@ const NITCModel3D = () => {
       renderer.setClearColor( 0xcccccc );
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
-      renderScene = new RenderPass( scene, camera );
-      bloomComposer = new EffectComposer( renderer );
-			bloomComposer.renderToScreen = false;
-			bloomComposer.addPass( renderScene );
-			bloomComposer.addPass( bloomPass );
-      
 
-      const finalPass = new ShaderPass(
-				new THREE.ShaderMaterial( {
-					uniforms: {
-						baseTexture: { value: null },
-						bloomTexture: { value: bloomComposer.renderTarget2.texture }
-					},
-					//vertexShader: document.getElementById( 'vertexshader' ).textContent,
-					//fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
-					defines: {}
-				} ), "baseTexture"
-			);
-			finalPass.needsSwap = true;
-
-      finalComposer = new EffectComposer( renderer );
-			finalComposer.addPass( renderScene );
-			finalComposer.addPass( finalPass );
-
-
-
-      function darkenNonBloomed( obj ) {
-
-        if ( obj.isMesh && bloomLayer.test( obj.layers ) === false ) {
-      
-          materials[ obj.uuid ] = obj.material;
-          obj.material = darkMaterial;
-      
-        }
-      
-      }
-      function renderBloom( mask ,bloomComposer1) {
-      
-        if ( mask === true ) {
-          scene.traverse( darkenNonBloomed );
-          bloomComposer1.render();
-          scene.traverse( restoreMaterial );
-      
-        } else {
-      
-          camera.layers.set( BLOOM_SCENE );
-          bloomComposer1.render();
-          camera.layers.set( ENTIRE_SCENE );
-      
-        }
-      
-      }
-
-
+    
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
-
+      
+      
+      
       // 640 -> 240
       // 8   -> 6
       const aspectRatio = scW / scH;
       const scale = scH * 0.005 + 4.8;
       const camera = new THREE.PerspectiveCamera(45, aspectRatio, 10, 10000);
-
+      
       //camera.position.copy(initialCameraPosition)
-
+      
       //camera.lookAt(target)
       setCamera(camera);
 
@@ -375,25 +302,32 @@ const NITCModel3D = () => {
       // adding fog
       const fog = new THREE.FogExp2(0x21211F, 0.01);
       scene.fog = fog
-
+      
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
       //controls.target = initialCameraPosition;
       TweenAnimation(controls, camera, initialCameraPosition.x,initialCameraPosition.y, initialCameraPosition.z, 0, TWEEN.Easing.Quartic.Out, onAnimationComplete);
-
+      
       controls.maxDistance = 52.5;
       controls.minDistance = 23.5;
-
+      
       controls.minPolarAngle = degToRad(65);
       controls.maxPolarAngle = degToRad(65);
       //controls.noRotate = true
       controls.minAzimuthAngle = degToRad(0);
       controls.maxAzimuthAngle = degToRad(0);
 
+
+      // Bloom
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      composer.addPass(new EffectPass(camera, new BloomEffect()));
+      
+      
       var minPan = new THREE.Vector3(-30, 0, -40);
       var maxPan = new THREE.Vector3(30, 0, 20);
       var _v = new THREE.Vector3();
-
+      
       controls.addEventListener("change", function () {
         _v.copy(controls.target);
         controls.target.clamp(minPan, maxPan);
@@ -406,21 +340,21 @@ const NITCModel3D = () => {
           onMouseMove(event, mouse);
         },
         false
-      );
-      window.addEventListener(
-        "pointerdown",
-        (event) => {
-          onMouseDown(event, scene, camera, raycaster, mouse, controls);
-        },
-        false,
-      );
-      window.addEventListener(
-        "touchstart",
-        (event) => {
-          onTouchStart(event, mouse);
-        },
-        false
-      );
+        );
+        window.addEventListener(
+          "pointerdown",
+          (event) => {
+            onMouseDown(event, scene, camera, raycaster, mouse, controls);
+          },
+          false,
+          );
+          window.addEventListener(
+            "touchstart",
+            (event) => {
+              onTouchStart(event, mouse);
+            },
+            false
+            );
       window.addEventListener(
         "touchend",
         (event) => {
@@ -474,19 +408,12 @@ const NITCModel3D = () => {
           TWEEN.update();
           
         }
-        
-        if(bloomComposer)
-        {
-          // render scene with bloom
-          //renderBloom( true ,bloomComposer);
-          
-          // render the entire scene, then render bloom scene on top
-          //finalComposer.render();
-        }
+    
         resetHover(scene);
         hoverButtons(scene, camera, raycaster, mouse);
         
-        renderer.render(scene, camera);
+        //renderer.render(scene, camera);
+        composer.render();
       };
 
       return () => {
