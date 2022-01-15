@@ -57,6 +57,7 @@
   font-size: 25px;
 }
 .des {
+  font-family: "quantico";
   font-size: 12px;
   margin-top: 30px;
 }
@@ -79,14 +80,6 @@
   line-height: 64px;
   cursor: pointer;
   font-size: 20px;
-}
-
-.img_desktop {
-  text-align: center;
-}
-
-.img_mobile {
-  display: none;
 }
 
 .button {
@@ -136,6 +129,18 @@
   box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25);
 }
 
+.img_desktop {
+  display: block;
+}
+
+.img_mobile {
+  display: none;
+}
+
+.listmobile {
+  display: none;
+}
+
 @media screen and (max-width: 1200px) {
   .main2 {
     display: block;
@@ -151,14 +156,16 @@
     margin-top: 50px;
   }
   .list {
-    position: relative;
-    left: 10%;
+    display: none;
   }
-  .list li {
+  .listmobile {
+    display: block;
+  }
+  .listmobile li {
     display: inline-flex;
   }
 
-  .main ul {
+  .listmobile ul {
     overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
@@ -175,8 +182,6 @@
 @media screen and (max-width: 1000px) {
   .main2 {
     display: block;
-
-    /* margin-left: 14%; */
   }
   .main {
     top: 200px;
@@ -202,6 +207,10 @@
 }
 
 @media screen and (max-width: 680px) {
+  .main2 {
+    margin-top: 30px;
+  }
+
   .img_desktop {
     display: none;
   }
@@ -209,12 +218,12 @@
   .img_mobile {
     border: 2px solid #49e9ff;
     display: block;
-    width: 50%;
-    margin-left: 40px;
+    width: 100%;
   }
 
   .content {
     font-size: 1.5vh;
+    margin-top: 50px;
   }
   .eventname {
     font-size: 1.5vh;
@@ -242,19 +251,13 @@
 }
 
 @media screen and (max-width: 450px) {
-  .img_mobile {
-    display: block;
-    width: 50%;
-    margin-left: 40px;
-    margin-bottom: 30px;
-  }
-
   .main2 {
     width: 80%;
     margin-left: 10%;
   }
   .content {
     font-size: 10px;
+    width: 250px;
   }
   .eventname {
     font-size: 1.5vh;
@@ -266,9 +269,12 @@
     font-size: 1.3vh;
     margin-top: 2vh;
   }
+  .titles {
+    margin-top: 5px;
+  }
 
   .list {
-    left: -20%;
+    left: 0%;
   }
   .main ul {
     height: 50px;
@@ -280,13 +286,13 @@
     font-size: 10px;
   }
   .img_mobile {
-    width: 60%;
+    width: 80%;
   }
   .button {
-    width: 80px;
-    height: 32px;
-    padding-top: 10px;
-    font-size: 8px;
+    width: 70px;
+    height: 25px;
+    padding-top: 8px;
+    font-size: 6px;
     text-align: center;
   }
 }
