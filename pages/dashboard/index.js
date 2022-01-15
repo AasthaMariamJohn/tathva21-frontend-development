@@ -1,7 +1,3 @@
-export default function Dashboard() {
-      return (
-            <div>
-                  Dashboard
-            </div>
-      )
+export default function index() {
+  return <div></div>;
 }

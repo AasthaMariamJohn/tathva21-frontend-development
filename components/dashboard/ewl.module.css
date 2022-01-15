@@ -1,0 +1,203 @@
+.main2 {
+  width: 46%;
+  background: rgba(0, 0, 0, 0.76);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin-top: 25px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
+  border-image-slice: 1;
+  margin-left: 30%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.content {
+  font-size: 15px;
+}
+
+.titles {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.eventname {
+  font-size: 15px;
+}
+.eventname h2 {
+  font-size: 25px;
+}
+.des {
+  font-family: "quantico";
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+.button {
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  margin-top: 40px;
+  padding: 14px 0 0 0;
+  margin-left: 15px;
+  --aug-border: initial;
+  --aug-border-all: 2px;
+  --aug-border-bg: #49e9ff;
+
+  --aug-clip-tl1: initial;
+  --aug-tl1: 10px;
+  --aug-clip-bl1: initial;
+  --aug-bl1: 10px;
+  --aug-clip-tr1: initial;
+  --aug-tr1: 10px;
+  --aug-clip-br1: initial;
+  --aug-br1: 10px;
+
+  --aug-clip-t1: initial;
+  --aug-clip-t2: initial;
+  --aug-t1: 6px;
+  --aug-t2: 6px;
+  --aug-t-extend1: 20%;
+  --aug-clip-b1: initial;
+  --aug-clip-b2: initial;
+  --aug-b-extend1: 20%;
+  --aug-b1: 6px;
+  --aug-b2: 6px;
+  background-image: linear-gradient(
+    to right,
+    rgb(146, 192, 252),
+    rgba(146, 192, 252, 0.795),
+    rgba(146, 192, 252, 0.582),
+    rgba(146, 192, 252, 0.342),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(146, 192, 252, 0.342),
+    rgba(146, 192, 252, 0.582),
+    rgba(146, 192, 252, 0.795),
+    rgb(146, 192, 252)
+  );
+  box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25);
+}
+
+.img_desktop {
+  display: block;
+}
+
+.img_mobile {
+  display: none;
+}
+
+.listmobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .main2 {
+    display: block;
+    border: none;
+  }
+  .content {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    padding: 20px;
+    border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
+    border-image-slice: 1;
+    margin-top: 50px;
+  }
+
+  .img_desktop {
+    border: 2px solid #49e9ff;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .main2 {
+    display: block;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+  .img_desktop {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .main2 {
+    margin-top: 30px;
+  }
+
+  .img_desktop {
+    display: none;
+  }
+
+  .img_mobile {
+    border: 2px solid #49e9ff;
+    display: block;
+    width: 100%;
+  }
+
+  .content {
+    font-size: 1.5vh;
+    margin-top: 50px;
+  }
+  .eventname {
+    font-size: 1.5vh;
+  }
+  .eventname h2 {
+    font-size: 2vh;
+  }
+  .des {
+    font-size: 1.3vh;
+    margin-top: 2vh;
+  }
+
+  .button {
+    width: 20vw;
+    height: 35px;
+    padding-top: 10px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main2 {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .content {
+    font-size: 10px;
+    width: 250px;
+  }
+  .eventname {
+    font-size: 1.5vh;
+  }
+  .eventname h2 {
+    font-size: 2vh;
+  }
+  .des {
+    font-size: 1.3vh;
+    margin-top: 2vh;
+  }
+  .titles {
+    margin-top: 5px;
+  }
+
+  .img_mobile {
+    width: 80%;
+  }
+  .button {
+    width: 70px;
+    height: 25px;
+    padding-top: 8px;
+    font-size: 6px;
+    text-align: center;
+  }
+}
