@@ -1,7 +1,7 @@
 .main {
   background-size: cover;
   position: absolute;
-  top: 250px;
+  top: 300px;
   color: white;
   background: rgba(0, 0, 0, 0.76);
   font-family: "batman_forever";
@@ -13,9 +13,8 @@
   width: 46%;
   background: rgba(0, 0, 0, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 20px;
+  margin-top: 25px;
   border-radius: 25px;
   border: 1px solid transparent;
   border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
@@ -33,7 +32,7 @@
 }
 
 .content {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .titles {
@@ -42,10 +41,10 @@
   margin: 0 8px;
 }
 .eventname {
-  font-size: 13px;
+  font-size: 15px;
 }
 .eventname h2 {
-  font-size: 20px;
+  font-size: 25px;
 }
 .des {
   font-family: "quantico";
@@ -53,7 +52,7 @@
   margin-top: 30px;
 }
 
-/*.main ::-webkit-scrollbar {
+/* .main ::-webkit-scrollbar {
   display: none;
 } */
 
@@ -62,14 +61,13 @@
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 400px;
-  max-width: 200px;
+  max-height: 300px;
 }
 .main li {
   outline: none;
   list-style: none;
-  padding: 0 40px;
-  line-height: 62px;
+  padding: 0 40.5px;
+  line-height: 64px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -80,7 +78,7 @@
   text-align: center;
   margin-top: 40px;
   padding: 14px 0 0 0;
-  margin-left: -150px;
+  margin-left: 15px;
   --aug-border: initial;
   --aug-border-all: 2px;
   --aug-border-bg: #49e9ff;
@@ -154,14 +152,13 @@
   }
   .listmobile li {
     display: inline-flex;
-    font-size: 15px;
-    height: 20px;
   }
 
   .listmobile ul {
     overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
+    height: 80px;
     max-width: 600px;
   }
 
@@ -199,13 +196,8 @@
 }
 
 @media screen and (max-width: 680px) {
-  .main{
-    top: 150px;
-  }
   .main2 {
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 90%;
+    margin-top: 30px;
   }
 
   .img_desktop {
@@ -219,14 +211,14 @@
   }
 
   .content {
-    font-size: 1.3vh;
+    font-size: 1.5vh;
     margin-top: 50px;
   }
   .eventname {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
   }
   .eventname h2 {
-    font-size: 1.3h;
+    font-size: 2vh;
   }
   .des {
     font-size: 1.3vh;
@@ -242,7 +234,6 @@
     width: 20vw;
     height: 35px;
     padding-top: 10px;
-    margin-left: -5px;
     font-size: 10px;
     text-align: center;
   }
