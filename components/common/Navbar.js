@@ -70,7 +70,7 @@ const Navbar = () => {
             <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
             <div className={style.logo}>
             <Link href="/" passHref >
-              <a id="link-button">
+              <a id="logo-link">
                 <Image
                   src={"/logo/navbarlogo.png"}
                   width="120"
@@ -83,13 +83,13 @@ const Navbar = () => {
               <ol className={style["navbar-list"]}>
                 <li className={style["navbar-title"]}>
                   <Link href={title.link} >
-                    <a    >{title.title}</a>
+                    <a   id="tathva-title" >{title.title}</a>
                   </Link>
                 </li>
                 {links.map((link) => (
                   <li key={link.id} className={style["navbar-link"]}>
                     <Link href={link.link}>
-                      <a>{link.title}</a>
+                      <a id={`${link.title}-link`}>{link.title}</a>
                     </Link>
                   </li>
                 ))}

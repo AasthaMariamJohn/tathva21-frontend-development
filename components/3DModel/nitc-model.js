@@ -5,13 +5,12 @@ import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-import { ShaderPass, UnrealBloomPass, BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
-
+import {  BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
 import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
 
- const TweenAnimation = (
+const TweenAnimation = (
   controls,
   camera,
   x,
@@ -223,11 +222,9 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
   }
 }
 
-
 const NITCModel3D = () => {
   const refContainer = useRef();
   const [loading, setLoading] = useState(true);
-
 
   const [renderer, setRenderer] = useState();
   const [_camera, setCamera] = useState();
@@ -271,11 +268,11 @@ const NITCModel3D = () => {
         antialias: true,
         alpha: true,
       });
-      renderer.physicallyCorrectLights = true
+      renderer.physicallyCorrectLights = true;
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
-      renderer.setClearColor( 0xcccccc );
+      renderer.setClearColor(0xcccccc);
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
 
@@ -364,13 +361,96 @@ const NITCModel3D = () => {
         false
       );
       setControls(controls);
-      
-      document.getElementById("link-button").addEventListener("click",()=>{ 
-        TweenAnimation(controls,camera,initialCameraPosition.x,initialCameraPosition.y,
-          initialCameraPosition.z,2000,TWEEN.Easing.Quartic.Out,
-          onAnimationComplete)
-      })
-      
+
+      document.getElementById("logo-link").addEventListener("click", () => {
+        TweenAnimation(
+          controls,
+          camera,
+          initialCameraPosition.x,
+          initialCameraPosition.y,
+          initialCameraPosition.z,
+          2000,
+          TWEEN.Easing.Quartic.Out,
+          onAnimationComplete
+        );
+      });
+      document.getElementById("tathva-title").addEventListener("click", () => {
+        TweenAnimation(
+          controls,
+          camera,
+          initialCameraPosition.x,
+          initialCameraPosition.y,
+          initialCameraPosition.z,
+          2000,
+          TWEEN.Easing.Quartic.Out,
+          onAnimationComplete
+        );
+      });
+      document.getElementById("About Us-link").addEventListener("click", () => {
+        var position = new THREE.Vector3(100, 10, 10);
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
+      // document.getElementById("EVENTS-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("WORKSHOPS-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("LECTURES-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("PROFILE-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
 
       loadGLTFModel(
         scene,
@@ -394,19 +474,16 @@ const NITCModel3D = () => {
         delta = clock.getDelta();
 
         renderer.clear();
-  
+
         camera.layers.set(1);
         //bloomComposer.render();
-        
+
         renderer.clearDepth();
         camera.layers.set(0);
 
-        
-        if (mixers.mixer1 !== undefined) 
-        {
+        if (mixers.mixer1 !== undefined) {
           mixers.mixer1.update(delta);
           TWEEN.update();
-          
         }
     
         resetHover(scene);
@@ -422,8 +499,6 @@ const NITCModel3D = () => {
         renderer.dispose();
       };
     }
-
-    
   }, []);
 
   useEffect(() => {
@@ -464,7 +539,7 @@ const NITCModel3D = () => {
         "CCCButton",
         scene,
         ccc.position.x,
-        ccc.position.y ,
+        ccc.position.y,
         ccc.position.z
       );
       Button3D(
@@ -475,10 +550,6 @@ const NITCModel3D = () => {
         aryabhata.position.z
       );
     }
-    
-
-   
-
   }, [loading]);
 
   // hovering over buttons
@@ -552,12 +623,9 @@ const NITCModel3D = () => {
     }
   };
 
-
-
-
   return (
     <div>
-      {loading?<Loader/>:<></>}
+      {loading ? <Loader /> : <></>}
       <ModelContainer ref={refContainer}></ModelContainer>
     </div>
   );
