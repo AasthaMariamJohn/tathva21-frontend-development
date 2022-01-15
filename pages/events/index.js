@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 import Ewl from "@/components/events_workshop_lectures/Ewl";
 
 export default function Events() {
+
+  
+
   return (
     <div>
       <Ewl />

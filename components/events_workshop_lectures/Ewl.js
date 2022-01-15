@@ -1,8 +1,8 @@
 import style from "./ewl.module.css";
 
-import Ewl_component from "../common/ewl_component";
+import Ewl_component from "../common/Ewl_component";
 import { Center } from "@chakra-ui/react";
-export default function Event() {
+export default function Event({children}) {
   return (
     <div className={style.main}>
       <div className={style.list}>
@@ -27,7 +27,8 @@ export default function Event() {
           </ul>
         </div>
       </Center>
-      <Ewl_component />
+      {/* <Ewl_component /> */}
+      {children}
     </div>
   );
 }
