@@ -9,11 +9,11 @@ import { useEffect } from "react";
 export default function Me() {
       const {isLoggedIn}=useUserContext()
       const router=useRouter()
-      useEffect(()=>{
-            if(!isLoggedIn)[
-                  Login(router)
-            ]
-      },[isLoggedIn])
+      // useEffect(()=>{
+      //       if(!isLoggedIn)[
+      //             Login(router)
+      //       ]
+      // },[isLoggedIn])
       return (
             <ProfileWrapper>
                   <Head>

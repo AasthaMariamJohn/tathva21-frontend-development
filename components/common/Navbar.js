@@ -8,6 +8,9 @@ import Hamburger from "./Hamburger.js";
 import { useUserContext } from "@/context/userContext";
 import LogoutBtn from '../home/logoutBtn'
 import LoginBtn from "../home/loginBtn";
+
+
+
 const Navbar = () => {
   const router = useRouter();
   const {isLoggedIn}=useUserContext()
@@ -66,10 +69,10 @@ const Navbar = () => {
             ></div>
             <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
             <div className={style.logo}>
-            <Link href="/" passHref>
-              <a>
+            <Link href="/" passHref >
+              <a id="link-button">
                 <Image
-                  src={"/navbarlogo.png"}
+                  src={"/logo/navbarlogo.png"}
                   width="120"
                   height="120"
                   alt="Tathva"
@@ -79,8 +82,8 @@ const Navbar = () => {
           </div>
               <ol className={style["navbar-list"]}>
                 <li className={style["navbar-title"]}>
-                  <Link href={title.link}>
-                    <a>{title.title}</a>
+                  <Link href={title.link} >
+                    <a    >{title.title}</a>
                   </Link>
                 </li>
                 {links.map((link) => (
@@ -108,7 +111,7 @@ const Navbar = () => {
             <div className={style.logo_menu}>
               <Link href="/" passHref>
                 <Image
-                  src={"/navbarlogo.png"}
+                  src={"/logo/navbarlogo.png"}
                   width="120"
                   height="120"
                   alt="Tathva"
@@ -116,7 +119,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className={style.close} onClick={handleClose}>
-              <Image src={"/close.png"} width="40" height="40" alt="next-image" />
+              <Image src={"/images/close.png"} width="40" height="40" alt="next-image" />
             </div>
             <p className={style["menu-title"]}>
               <Link href={title.link}>

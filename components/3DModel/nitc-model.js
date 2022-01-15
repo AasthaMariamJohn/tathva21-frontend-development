@@ -10,7 +10,7 @@ import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
 
-const TweenAnimation = (
+ const TweenAnimation = (
   controls,
   camera,
   x,
@@ -176,7 +176,7 @@ const NITCModel3D = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
-
+      renderer.setClearColor( 0xcccccc );
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
 
@@ -232,13 +232,30 @@ const NITCModel3D = () => {
         false
       );
       window.addEventListener(
-        "mousedown",
+        "pointerdown",
         (event) => {
           onMouseDown(event, scene, camera, raycaster, mouse, controls);
         },
-        false
+        false,
       );
+      // window.addEventListener(
+      //   "touchend",
+      //   (event) => {
+      //     onMouseDown(event, scene, camera, raycaster, mouse, controls);
+      //   },
+      //   false
+      // );
       setControls(controls);
+
+        
+    
+  
+
+
+
+
+
+
 
       loadGLTFModel(
         scene,
@@ -323,6 +340,13 @@ const NITCModel3D = () => {
         aryabhata.position.z
       );
     }
+
+    document.getElementById("link-button").addEventListener("click",()=>{
+      TweenAnimation(controls,_camera,initialCameraPosition.x,initialCameraPosition.y,initialCameraPosition.z
+        ,2000,TWEEN.Easing.Quartic.Out,
+        onAnimationComplete)
+    })
+
   }, [loading]);
 
   // hovering over buttons
@@ -395,6 +419,10 @@ const NITCModel3D = () => {
       archibutton.scale.z = 1;
     }
   };
+
+
+
+
   return (
     <div>
       {loading?<Loader/>:<></>}
