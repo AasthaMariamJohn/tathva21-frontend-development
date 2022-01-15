@@ -1,9 +1,46 @@
 import Ewl_component from "@/components/common/Ewl_component";
-import Event from "@/components/events_workshop_lectures/Ewl";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import getEventWithName from "@/lib/events/getEvent";
 import Loader from "@/components/common/loader";
+
+import style from "../../components/events_workshop_lectures/ewl.module.css";
+import { Center } from "@chakra-ui/react";
+
+export function Event({children}) {
+  return (
+    <div className={style.main}>
+      <div className={style.list}>
+        <ul>
+          <li>AI</li>
+          <li>ML</li>
+          <li>ROCKET</li>
+          <li>SPACEx</li>
+          <li>Tesla</li>
+          <li>Googe</li>
+        </ul>
+      </div>
+      <Center>
+        <div className={style.listmobile}>
+          <ul>
+            <li>AI</li>
+            <li>ML</li>
+            <li>ROCKET</li>
+            <li>SPACEx</li>
+            <li>Tesla</li>
+            <li>Googe</li>
+          </ul>
+        </div>
+      </Center>
+      <div className={style.main2}>
+        {/* <Ewl_component /> */}
+        {children}
+      </div>
+    </div>
+  );
+}
+
+
 export default function EventName() {
 
   const [Event1, setEvent1] = useState(null);
@@ -24,6 +61,8 @@ export default function EventName() {
     </div>
   );
 }
+
+
 
 // import Loader from "@/components/common/loader";
 // import RazerPay from "@/components/common/razerpay";

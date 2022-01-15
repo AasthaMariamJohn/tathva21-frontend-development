@@ -1,21 +1,9 @@
-.main {
-  background-size: cover;
-  position: absolute;
-  top: 250px;
-  color: white;
-  background: rgba(0, 0, 0, 0.76);
-  font-family: "batman_forever";
-  margin-top: -30px;
-  padding-bottom: 80px;
-}
-
 .main2 {
   width: 46%;
   background: rgba(0, 0, 0, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 20px;
+  margin-top: 25px;
   border-radius: 25px;
   border: 1px solid transparent;
   border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
@@ -26,52 +14,26 @@
   grid-gap: 20px;
 }
 
-.list {
-  position: fixed;
-  margin: 10px 0 80px 120px;
-  border-radius: 5px;
-}
-
 .content {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .titles {
   text-decoration: none;
-  display: inline-flex;
+  display: inline-block;
   margin: 0 8px;
 }
+
 .eventname {
-  font-size: 13px;
+  font-size: 15px;
 }
 .eventname h2 {
-  font-size: 20px;
+  font-size: 25px;
 }
 .des {
   font-family: "quantico";
   font-size: 12px;
   margin-top: 30px;
-}
-
-/*.main ::-webkit-scrollbar {
-  display: none;
-} */
-
-.main ul {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  max-height: 400px;
-  max-width: 200px;
-}
-.main li {
-  outline: none;
-  list-style: none;
-  padding: 0 40px;
-  line-height: 62px;
-  cursor: pointer;
-  font-size: 20px;
 }
 
 .button {
@@ -80,7 +42,7 @@
   text-align: center;
   margin-top: 40px;
   padding: 14px 0 0 0;
-  margin-left: -150px;
+  margin-left: 15px;
   --aug-border: initial;
   --aug-border-all: 2px;
   --aug-border-bg: #49e9ff;
@@ -146,24 +108,6 @@
     border-image-slice: 1;
     margin-top: 50px;
   }
-  .list {
-    display: none;
-  }
-  .listmobile {
-    display: block;
-  }
-  .listmobile li {
-    display: inline-flex;
-    font-size: 15px;
-    height: 20px;
-  }
-
-  .listmobile ul {
-    overflow-y: hidden;
-    overflow-x: auto;
-    white-space: nowrap;
-    max-width: 600px;
-  }
 
   .img_desktop {
     border: 2px solid #49e9ff;
@@ -175,23 +119,9 @@
   .main2 {
     display: block;
   }
-  .main {
-    top: 200px;
-  }
+
   .content {
     margin-top: 10px;
-  }
-  .list {
-    position: relative;
-    left: -1%;
-  }
-  .list li {
-    display: inline-flex;
-  }
-
-  .main ul {
-    height: 50px;
-    max-width: 500px;
   }
   .img_desktop {
     width: 200px;
@@ -199,13 +129,8 @@
 }
 
 @media screen and (max-width: 680px) {
-  .main{
-    top: 150px;
-  }
   .main2 {
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 90%;
+    margin-top: 30px;
   }
 
   .img_desktop {
@@ -219,30 +144,24 @@
   }
 
   .content {
-    font-size: 1.3vh;
+    font-size: 1.5vh;
     margin-top: 50px;
   }
   .eventname {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
   }
   .eventname h2 {
-    font-size: 1.3h;
+    font-size: 2vh;
   }
   .des {
     font-size: 1.3vh;
     margin-top: 2vh;
   }
 
-  .main ul {
-    height: 50px;
-    max-width: 400px;
-  }
-
   .button {
     width: 20vw;
     height: 35px;
     padding-top: 10px;
-    margin-left: -5px;
     font-size: 10px;
     text-align: center;
   }
@@ -271,18 +190,6 @@
     margin-top: 5px;
   }
 
-  .list {
-    left: 0%;
-  }
-  .main ul {
-    height: 50px;
-    max-width: 250px;
-  }
-
-  .main li {
-    padding-bottom: 10px;
-    font-size: 10px;
-  }
   .img_mobile {
     width: 80%;
   }

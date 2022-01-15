@@ -13,7 +13,7 @@ export default function Ewl_component({event}) {
   const [body, setBody] = useState(eventdetails.info);
 
   return (
-    <div className={style.main2}>
+    <>
       <div className={style.img}>
         <Center>
           <div className={style.img_desktop}>
@@ -72,6 +72,6 @@ export default function Ewl_component({event}) {
           </div>
         </Center>
       </div>
-    </div>
+    </>
   );
 }
