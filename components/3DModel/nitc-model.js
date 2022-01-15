@@ -149,12 +149,6 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
     }
   }
 }
-<<<<<<< HEAD
-function restoreMaterial(obj) {
-  if (materials[obj.uuid]) {
-    obj.material = materials[obj.uuid];
-    delete materials[obj.uuid];
-=======
 
 
 function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
@@ -237,7 +231,6 @@ function restoreMaterial( obj ) {
     obj.material = materials[ obj.uuid ];
     delete materials[ obj.uuid ];
 
->>>>>>> 41cb61abbf555b9636622e55ad8e40aec1d96b50
   }
 }
 
@@ -474,58 +467,58 @@ const NITCModel3D = () => {
           onAnimationComplete
         );
       });
-      document.getElementById("EVENTS-link").addEventListener("click", () => {
-        var position = new THREE.Vector3(100, 10, 10);
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
-      document.getElementById("WORKSHOPS-link").addEventListener("click", () => {
-        var position = new THREE.Vector3(100, 10, 10);
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
-      document.getElementById("LECTURES-link").addEventListener("click", () => {
-        var position = new THREE.Vector3(100, 10, 10);
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
-      document.getElementById("PROFILE-link").addEventListener("click", () => {
-        var position = new THREE.Vector3(100, 10, 10);
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
+      // document.getElementById("EVENTS-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("WORKSHOPS-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("LECTURES-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
+      // document.getElementById("PROFILE-link").addEventListener("click", () => {
+      //   var position = new THREE.Vector3(100, 10, 10);
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
 
       loadGLTFModel(
         scene,
