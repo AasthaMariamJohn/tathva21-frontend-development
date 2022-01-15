@@ -5,7 +5,10 @@ import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
@@ -42,8 +45,8 @@ const Button3D = (name, scene, x, y, z) => {
   scene.add(mesh);
 
   setInterval(() => {
-    mesh.rotateY(degToRad(3));
-  }, 5);
+    mesh.rotateY(degToRad(8));
+  }, 200);
 };
 
 function onMouseMove(event, mouse) {
@@ -129,6 +132,18 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
     }
   }
 }
+function restoreMaterial( obj ) {
+
+  if ( materials[ obj.uuid ] ) {
+
+    obj.material = materials[ obj.uuid ];
+    delete materials[ obj.uuid ];
+
+  }
+
+}
+
+
 const NITCModel3D = () => {
   const refContainer = useRef();
   const [loading, setLoading] = useState(true);
@@ -150,6 +165,21 @@ const NITCModel3D = () => {
   const delta = clock.getDelta();
   const mixers = { mixer1: undefined };
 
+
+  // Bloom
+  const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+  bloomPass.threshold = 0;
+  bloomPass.strength = 6.19;
+  bloomPass.radius = 0.8;
+  bloomPass.exposure = 1.0184;
+  let bloomComposer = null;
+  let renderScene = undefined;
+  let finalComposer = undefined;
+  const ENTIRE_SCENE = 0, BLOOM_SCENE = 1;
+  let bloomLayer = new THREE.Layers();
+	bloomLayer.set( BLOOM_SCENE );
+  const darkMaterial = new THREE.MeshBasicMaterial( { color: "black" } );
+	const materials = {};
   // Handling window resize
   const handleWindowResize = useCallback(() => {
     const { current: container } = refContainer;
@@ -179,6 +209,59 @@ const NITCModel3D = () => {
       renderer.setClearColor( 0xcccccc );
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
+      renderScene = new RenderPass( scene, camera );
+      bloomComposer = new EffectComposer( renderer );
+			bloomComposer.renderToScreen = false;
+			bloomComposer.addPass( renderScene );
+			bloomComposer.addPass( bloomPass );
+      
+
+      const finalPass = new ShaderPass(
+				new THREE.ShaderMaterial( {
+					uniforms: {
+						baseTexture: { value: null },
+						bloomTexture: { value: bloomComposer.renderTarget2.texture }
+					},
+					//vertexShader: document.getElementById( 'vertexshader' ).textContent,
+					//fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+					defines: {}
+				} ), "baseTexture"
+			);
+			finalPass.needsSwap = true;
+
+      finalComposer = new EffectComposer( renderer );
+			finalComposer.addPass( renderScene );
+			finalComposer.addPass( finalPass );
+
+
+
+      function darkenNonBloomed( obj ) {
+
+        if ( obj.isMesh && bloomLayer.test( obj.layers ) === false ) {
+      
+          materials[ obj.uuid ] = obj.material;
+          obj.material = darkMaterial;
+      
+        }
+      
+      }
+      function renderBloom( mask ,bloomComposer1) {
+      
+        if ( mask === true ) {
+          scene.traverse( darkenNonBloomed );
+          bloomComposer1.render();
+          scene.traverse( restoreMaterial );
+      
+        } else {
+      
+          camera.layers.set( BLOOM_SCENE );
+          bloomComposer1.render();
+          camera.layers.set( ENTIRE_SCENE );
+      
+        }
+      
+      }
+
 
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
@@ -271,17 +354,38 @@ const NITCModel3D = () => {
       let req = null;
 
       const animate = () => {
-        console.log(controls.target);
-        controls.update();
+        //console.log(controls.target);
         req = requestAnimationFrame(animate);
+        controls.update();
         delta = clock.getDelta();
-        if (mixers.mixer1 !== undefined) {
+
+        renderer.clear();
+  
+        camera.layers.set(1);
+        //bloomComposer.render();
+        
+        renderer.clearDepth();
+        camera.layers.set(0);
+
+        
+        if (mixers.mixer1 !== undefined) 
+        {
           mixers.mixer1.update(delta);
           TWEEN.update();
+          
         }
-
+        
+        if(bloomComposer)
+        {
+          // render scene with bloom
+          //renderBloom( true ,bloomComposer);
+          
+          // render the entire scene, then render bloom scene on top
+          //finalComposer.render();
+        }
         resetHover(scene);
         hoverButtons(scene, camera, raycaster, mouse);
+        
         renderer.render(scene, camera);
       };
 
