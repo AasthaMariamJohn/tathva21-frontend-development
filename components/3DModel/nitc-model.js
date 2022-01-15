@@ -21,7 +21,7 @@ const TWEEN = require("@tweenjs/tween.js");
   onComplete
 ) => {
   const target = { x: x, y: y, z: z };
-  //controls.target = new THREE.Vector3(target.x,target.y,target.z);
+  // controls.target = new THREE.Vector3(target.x,target.y,target.z);
   const tween = new TWEEN.Tween(controls.target)
     .to(target, duration)
     .easing(easing)
@@ -247,7 +247,12 @@ const NITCModel3D = () => {
       //   false
       // );
       setControls(controls);
-        
+      
+      document.getElementById("link-button").addEventListener("click",()=>{ 
+        TweenAnimation(controls,camera,initialCameraPosition.x,initialCameraPosition.y,
+          initialCameraPosition.z,2000,TWEEN.Easing.Quartic.Out,
+          onAnimationComplete)
+      })
       
 
       loadGLTFModel(

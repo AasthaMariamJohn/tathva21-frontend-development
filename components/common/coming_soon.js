@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./comingsoon.module.css";
 import { useState ,useEffect} from "react";
 import moment from "moment";
 export default function ComingSoon() {
