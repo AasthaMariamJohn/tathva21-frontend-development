@@ -20,7 +20,7 @@ export default function Event() {
       <div className={style.main2}>
         {/* <Vector1 />
         <Vector2 /> */}
-
+        
         <div className={style.img}>
           <div className={style.img_desktop} >
           <Image src="/herodekstop.png" alt="next-image"  width={300} height={200}/>
@@ -32,9 +32,11 @@ export default function Event() {
         </div>
         <div className={style.content}>
           <div className={style.eventname}>
-            <h2 className={style.titles}>EVENT NAME</h2>
-            <MdAlarm/>
-            <h3 className={style.titles}>25:03:99</h3>
+            <h2 className={style.title}>EVENT NAME</h2>
+            <div className={style.title}>
+              <MdAlarm />
+            </div>
+            <h3 className={style.title}>25:03:99</h3>
           </div>
           <div className={style.eventdetails}>
             <h3 className={style.titles}>INFO</h3>
