@@ -2,9 +2,18 @@ import style from "./ewl.module.css";
 import { MdAlarm } from "react-icons/md";
 import Vector1 from "./Vector1";
 import Vector2 from "./Vector2";
-import Image from "next/image";
+import { Center, Image } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Event() {
+  const eventdetails = {
+    info: "Info Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
+    rules:
+      "Rules Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
+    desc: "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
+  };
+
+  const [body, setBody] = useState(eventdetails.info);
   return (
     <div className={style.main}>
       <div className={style.list}>
@@ -17,52 +26,79 @@ export default function Event() {
           <li>Googe</li>
         </ul>
       </div>
+      <Center>
+        <div className={style.listmobile}>
+          <ul>
+            <li>AI</li>
+            <li>ML</li>
+            <li>ROCKET</li>
+            <li>SPACEx</li>
+            <li>Tesla</li>
+            <li>Googe</li>
+          </ul>
+        </div>
+      </Center>
       <div className={style.main2}>
         {/* <Vector1 />
         <Vector2 /> */}
 
         <div className={style.img}>
-          <div className={style.img_desktop}>
-            <Image
-              src="/images/herodekstop.png"
-              alt="next-image"
-              width={300}
-              height={300}
-              layout="responsive"
-            />
-          </div>
-          <div className={style.img_mobile}>
-            <Image
-              src="/images/heromobile.png"
-              alt="next-image"
-              width={1000}
-              height={600}
-              layout="responsive"
-            />
-          </div>
+          <Center>
+            <div className={style.img_desktop}>
+              <Image src="/images/herodekstop.png" alt="next-image" />
+            </div>
+          </Center>
+          <Center>
+            <div className={style.img_mobile}>
+              <Image src="/images/heromobile.png" alt="next-image" />
+            </div>
+          </Center>
         </div>
         <div className={style.content}>
           <div className={style.eventname}>
             <h2 className={style.titles}>EVENT NAME</h2>
-            <div className={style.titles}>
-              <MdAlarm />
-            </div>
-            <h3 className={style.titles}>25:03:99</h3>
+            <h3 className={style.titles}>
+              <h3 className={style.titles}>
+                <MdAlarm />
+              </h3>
+              25:03:99
+            </h3>
           </div>
           <div className={style.eventdetails}>
-            <h3 className={style.titles}>INFO</h3>
-            <h3 className={style.titles}>RULES</h3>
-            <h3 className={style.titles}>TERMS&CONDITIONS</h3>
+            <h3 className={style.titles}>
+              <button
+                onClick={() => {
+                  setBody(eventdetails.info);
+                }}
+              >
+                INFO
+              </button>
+            </h3>
+            <h3 className={style.titles}>
+              <button
+                onClick={() => {
+                  setBody(eventdetails.rules);
+                }}
+              >
+                RULES
+              </button>
+            </h3>
+            <h3 className={style.titles}>
+              <button
+                onClick={() => {
+                  setBody(eventdetails.desc);
+                }}
+              >
+                TERMS&CONDITIONS
+              </button>
+            </h3>
           </div>
-          <p className={style.des}>
-            NFT stands for non-fungible token, which basically means that
-            it&apos;s a one-of-a-kind digital asset that belongs to you and you
-            only. The most po24535pular NFTs right now include artwork and
-            music, but can also include viGDG5353deos and even tweets.
-          </p>
-          <div className={style.button} data-augmented-ui>
-            REGISTER
-          </div>
+          <p className={style.des}>{body}</p>
+          <Center>
+            <div className={style.button} data-augmented-ui>
+              REGISTER
+            </div>
+          </Center>
         </div>
       </div>
     </div>
