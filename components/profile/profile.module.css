@@ -1,6 +1,6 @@
 .profile-page {
   position: absolute;
-  top: 30%;
+  margin-top: 15%;
   left: 36%;
 }
 .profile {
@@ -27,6 +27,7 @@
   border-collapse: collapse;
   text-align: center;
   align-items: center;
+  color: white;
 }
 .table-cell {
   padding: 10px;

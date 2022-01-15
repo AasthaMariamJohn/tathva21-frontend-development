@@ -24,7 +24,7 @@ export default function Event() {
         <div className={style.img}>
           <div className={style.img_desktop}>
             <Image
-              src="/herodekstop.png"
+              src="/images/herodekstop.png"
               alt="next-image"
               width={300}
               height={300}
@@ -33,7 +33,7 @@ export default function Event() {
           </div>
           <div className={style.img_mobile}>
             <Image
-              src="/heromobile.png"
+              src="/images/heromobile.png"
               alt="next-image"
               width={1000}
               height={600}

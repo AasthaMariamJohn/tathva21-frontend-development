@@ -1,5 +1,5 @@
 import { useProfileContext } from "@/context/profileContext";
-import styles from "./test.module.css";
+import styles from "./profile.module.css";
 
 export function NameInput() {
   const { name, setName, inEditMode } = useProfileContext();

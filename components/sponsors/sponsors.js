@@ -19,8 +19,8 @@ export default function Sponsers() {
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </p>
-          <Image src={"/sponsor1.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"}/>
-          <Image src={"/sponsor2.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"}/>
+          <Image src={"/images/sponsor1.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"}/>
+          <Image src={"/images/sponsor2.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"}/>
   
         </div>
       </div>

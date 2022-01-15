@@ -4,10 +4,10 @@
   color: white;
   font-size: 20px;
   height: 40px;
-  /* width: 7%; */
   position: absolute;
   left: 3vw;
   top: 91vh;
+  position:fixed;
   background: linear-gradient(
       270deg,
       rgba(73, 233, 255, 0.58) 18.78%,

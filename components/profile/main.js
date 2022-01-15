@@ -12,11 +12,11 @@ import {
   YearOfStudyInput,
 } from "@/components/profile/inputs";
 import { useEffect } from "react";
-import styles from "./test.module.css";
+import styles from "./profile.module.css";
 import Loader from "../common/loader";
 import { AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 
 export default function Main() {
   const {
@@ -47,7 +47,6 @@ export default function Main() {
   }
   return (
     <div className={styles["profile-page"]}>
-      <ToastContainer />
       {userProfile ? (
         <div className={styles["profile"]}>
           <div
@@ -57,7 +56,7 @@ export default function Main() {
               updateMe(user, allInOne);
             }}
           >
-            {inEditMode ? <AiOutlineSave /> : <></>}
+            {inEditMode ? <AiOutlineSave style={{color:"white"}}/> : <></>}
           </div>
           <div
             className={styles["edit-icon"]}
@@ -68,7 +67,7 @@ export default function Main() {
               }
             }}
           >
-            {inEditMode ? <ImCancelCircle /> : <AiOutlineEdit />}
+            {inEditMode ? <ImCancelCircle style={{color:"white"}}/> : <AiOutlineEdit style={{color:"white"}}/>}
           </div>
           <table className={styles["table"]}>
             <tbody>
@@ -116,20 +115,7 @@ export default function Main() {
               </tr>
             </tbody>
           </table>
-          <div className={styles["caution"]}>
-            <ToastContainer
-              limit={1}
-              position="bottom-center"
-              autoClose={false}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-          </div>
+          <ToastContainer/>
         </div>
       ) : (
         <Loader />

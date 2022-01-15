@@ -1,4 +1,5 @@
 
+import DonateBtn from '@/components/common/donateBtn'
 import Head from 'next/head'
 
 
@@ -10,7 +11,7 @@ export default function Home() {
   // const {user}=useUserContext()
   return (
     <div >
-      {/* <TathvaLoader/> */}
+      <DonateBtn/>
     </div>
   )
 }

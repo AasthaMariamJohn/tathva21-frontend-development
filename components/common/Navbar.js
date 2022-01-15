@@ -69,7 +69,7 @@ const Navbar = () => {
             <Link href="/" passHref>
               <a>
                 <Image
-                  src={"/navbarlogo.png"}
+                  src={"/logo/navbarlogo.png"}
                   width="120"
                   height="120"
                   alt="Tathva"
@@ -108,7 +108,7 @@ const Navbar = () => {
             <div className={style.logo_menu}>
               <Link href="/" passHref>
                 <Image
-                  src={"/navbarlogo.png"}
+                  src={"/logo/navbarlogo.png"}
                   width="120"
                   height="120"
                   alt="Tathva"
@@ -116,7 +116,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className={style.close} onClick={handleClose}>
-              <Image src={"/close.png"} width="40" height="40" alt="next-image" />
+              <Image src={"/images/close.png"} width="40" height="40" alt="next-image" />
             </div>
             <p className={style["menu-title"]}>
               <Link href={title.link}>
