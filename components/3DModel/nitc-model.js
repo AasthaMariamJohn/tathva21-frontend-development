@@ -387,7 +387,7 @@ const NITCModel3D = () => {
         );
       });
       document.getElementById("About Us-link").addEventListener("click", () => {
-        var position = new THREE.Vector3(100, 10, 10);
+        var position = scene.getObjectByName("ECLC").position;
         TweenAnimation(
           controls,
           camera,
@@ -399,46 +399,46 @@ const NITCModel3D = () => {
           onAnimationComplete
         );
       });
-      // document.getElementById("EVENTS-link").addEventListener("click", () => {
-      //   var position = new THREE.Vector3(100, 10, 10);
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     position.x,
-      //     position.y,
-      //     position.z,
-      //     3000,
-      //     TWEEN.Easing.Back.Out,
-      //     onAnimationComplete
-      //   );
-      // });
-      // document.getElementById("WORKSHOPS-link").addEventListener("click", () => {
-      //   var position = new THREE.Vector3(100, 10, 10);
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     position.x,
-      //     position.y,
-      //     position.z,
-      //     3000,
-      //     TWEEN.Easing.Back.Out,
-      //     onAnimationComplete
-      //   );
-      // });
-      // document.getElementById("LECTURES-link").addEventListener("click", () => {
-      //   var position = new THREE.Vector3(100, 10, 10);
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     position.x,
-      //     position.y,
-      //     position.z,
-      //     3000,
-      //     TWEEN.Easing.Back.Out,
-      //     onAnimationComplete
-      //   );
-      // });
-      // document.getElementById("PROFILE-link").addEventListener("click", () => {
+      document.getElementById("Events-link").addEventListener("click", () => {
+        var position =scene.getObjectByName("MB").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
+      document.getElementById("Workshops-link").addEventListener("click", () => {
+        var position = scene.getObjectByName("ARYABHATA").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
+      document.getElementById("Lecture-link").addEventListener("click", () => {
+        var position = scene.getObjectByName("CCC").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
+      // document.getElementById("Profile-link").addEventListener("click", () => {
       //   var position = new THREE.Vector3(100, 10, 10);
       //   TweenAnimation(
       //     controls,
@@ -472,7 +472,6 @@ const NITCModel3D = () => {
         req = requestAnimationFrame(animate);
         controls.update();
         delta = clock.getDelta();
-
         renderer.clear();
 
         camera.layers.set(1);
