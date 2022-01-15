@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-              <link rel="icon" type="image/x-icon" href="favicon.png"></link>
+              <link rel="icon" type="image/x-icon" href="logo/favicon.png"></link>
               <meta name='description' content='official website of Tathva 21,techinal fest of National
                 Institute of Technology,Calicut'></meta>
         </Head>

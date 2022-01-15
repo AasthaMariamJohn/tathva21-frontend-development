@@ -8,6 +8,9 @@ import Hamburger from "./Hamburger.js";
 import { useUserContext } from "@/context/userContext";
 import LogoutBtn from '../home/logoutBtn'
 import LoginBtn from "../home/loginBtn";
+
+
+
 const Navbar = () => {
   const router = useRouter();
   const {isLoggedIn}=useUserContext()
@@ -66,8 +69,8 @@ const Navbar = () => {
             ></div>
             <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
             <div className={style.logo}>
-            <Link href="/" passHref>
-              <a>
+            <Link href="/" passHref >
+              <a id="link-button">
                 <Image
                   src={"/logo/navbarlogo.png"}
                   width="120"
@@ -79,8 +82,8 @@ const Navbar = () => {
           </div>
               <ol className={style["navbar-list"]}>
                 <li className={style["navbar-title"]}>
-                  <Link href={title.link}>
-                    <a>{title.title}</a>
+                  <Link href={title.link} >
+                    <a    >{title.title}</a>
                   </Link>
                 </li>
                 {links.map((link) => (
