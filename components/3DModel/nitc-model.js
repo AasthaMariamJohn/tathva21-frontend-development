@@ -39,9 +39,17 @@ const Button3D = (name, scene, x, y, z) => {
     new THREE.SphereBufferGeometry(1, 1, 1),
     new THREE.MeshStandardMaterial({ color: 0xff0000 })
   );
+  const meshMobile =  new THREE.Mesh(
+    new THREE.SphereBufferGeometry(3),
+    new THREE.MeshStandardMaterial({ color: 0xff0000 })
+  );
 
   mesh.position.set(x, y, z);
+  meshMobile.position.set(x, y, z);
   mesh.name = name;
+  meshMobile.name = name +'Mobile';
+  meshMobile.visible = false;
+  scene.add(meshMobile);
   scene.add(mesh);
 
   setInterval(() => {
@@ -56,6 +64,14 @@ function onMouseMove(event, mouse) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }
+function onTouchStart(event, mouse){
+
+  mouse.x = ( event.touches[ 0 ].clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.touches[ 0 ].clientY / window.innerHeight ) * 2 + 1;
+
+  // rest of your code
+
+}
 const onAnimationComplete = (controls) => {
   controls.enabled = true;
   console.log("animation done");
@@ -63,6 +79,7 @@ const onAnimationComplete = (controls) => {
 function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(scene.children);
+
   for (let i = 0; i < intersects.length; i++) {
     if (intersects[i].object.name === "ECLCButton") {
       console.log(intersects[i].object.name, " clicked");
@@ -117,6 +134,81 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         onAnimationComplete
       );
     } else if (intersects[i].object.name === "ArchieButton") {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    }
+  }
+}
+
+
+function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(scene.children);
+
+  for (let i = 0; i < intersects.length; i++) {
+    if (intersects[i].object.name === "ECLCButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    } else if (intersects[i].object.name === "ARYABHATAButton"+'Mobile') {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    } else if (intersects[i].object.name === "MBButton"+'Mobile') {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    } else if (intersects[i].object.name === "CCCButton"+'Mobile') {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    } else if (intersects[i].object.name === "ArchieButton"+'Mobile') {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
@@ -322,13 +414,21 @@ const NITCModel3D = () => {
         },
         false,
       );
-      // window.addEventListener(
-      //   "touchend",
-      //   (event) => {
-      //     onMouseDown(event, scene, camera, raycaster, mouse, controls);
-      //   },
-      //   false
-      // );
+      window.addEventListener(
+        "touchstart",
+        (event) => {
+          onTouchStart(event, mouse);
+        },
+        false
+      );
+      window.addEventListener(
+        "touchend",
+        (event) => {
+          
+          onTouchDown(event, scene, camera, raycaster, mouse, controls);
+        },
+        false
+      );
       setControls(controls);
       
       document.getElementById("link-button").addEventListener("click",()=>{ 
@@ -421,7 +521,11 @@ const NITCModel3D = () => {
         eclc.position.y,
         eclc.position.z
       );
-      Button3D("MBButton", scene, mb.position.x, mb.position.y, mb.position.z);
+      Button3D("MBButton",
+       scene,
+       mb.position.x,
+       mb.position.y,
+       mb.position.z);
       Button3D(
         "ArchieButton",
         scene,
