@@ -176,7 +176,7 @@ const NITCModel3D = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;
-
+      renderer.setClearColor( 0xcccccc );
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default 
 
@@ -232,12 +232,19 @@ const NITCModel3D = () => {
         false
       );
       window.addEventListener(
-        "mousedown",
+        "pointerdown",
         (event) => {
           onMouseDown(event, scene, camera, raycaster, mouse, controls);
         },
         false
       );
+      // window.addEventListener(
+      //   "touchend",
+      //   (event) => {
+      //     onMouseDown(event, scene, camera, raycaster, mouse, controls);
+      //   },
+      //   false
+      // );
       setControls(controls);
 
       loadGLTFModel(
