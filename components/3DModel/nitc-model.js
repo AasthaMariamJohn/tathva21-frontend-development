@@ -138,7 +138,7 @@ const NITCModel3D = () => {
   const [_camera, setCamera] = useState();
   const [target] = useState(new THREE.Vector3(0, 0, 0));
   // Set inital camera position here
-  const [initialCameraPosition] = useState(new THREE.Vector3(-1, 19, 57));
+  const [initialCameraPosition] = useState(new THREE.Vector3(0, 47, 16));
   const [scene] = useState(new THREE.Scene());
   const [_controls, setControls] = useState();
   // for raycasting mose coordinates
@@ -203,7 +203,8 @@ const NITCModel3D = () => {
 
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
-      controls.target = initialCameraPosition;
+      //controls.target = initialCameraPosition;
+      TweenAnimation(controls, camera, initialCameraPosition.x,initialCameraPosition.y, initialCameraPosition.z, 0, TWEEN.Easing.Quartic.Out, onAnimationComplete);
 
       controls.maxDistance = 52.5;
       controls.minDistance = 23.5;
@@ -246,16 +247,8 @@ const NITCModel3D = () => {
       //   false
       // );
       setControls(controls);
-
         
-    
-  
-
-
-
-
-
-
+      
 
       loadGLTFModel(
         scene,
@@ -273,7 +266,7 @@ const NITCModel3D = () => {
       let req = null;
 
       const animate = () => {
-        //console.log(camera.position)
+        console.log(controls.target);
         controls.update();
         req = requestAnimationFrame(animate);
         delta = clock.getDelta();
@@ -293,6 +286,8 @@ const NITCModel3D = () => {
         renderer.dispose();
       };
     }
+
+    
   }, []);
 
   useEffect(() => {
@@ -340,12 +335,9 @@ const NITCModel3D = () => {
         aryabhata.position.z
       );
     }
+    
 
-    document.getElementById("link-button").addEventListener("click",()=>{
-      TweenAnimation(controls,_camera,initialCameraPosition.x,initialCameraPosition.y,initialCameraPosition.z
-        ,2000,TWEEN.Easing.Quartic.Out,
-        onAnimationComplete)
-    })
+   
 
   }, [loading]);
 
