@@ -5,7 +5,7 @@ import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-import {  BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
+import { BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
 import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
