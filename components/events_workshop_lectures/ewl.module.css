@@ -199,8 +199,13 @@
 }
 
 @media screen and (max-width: 680px) {
+  .main{
+    top: 150px;
+  }
   .main2 {
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 90%;
   }
 
   .img_desktop {
@@ -214,14 +219,14 @@
   }
 
   .content {
-    font-size: 1.5vh;
+    font-size: 1.3vh;
     margin-top: 50px;
   }
   .eventname {
-    font-size: 1.5vh;
+    font-size: 1.2vh;
   }
   .eventname h2 {
-    font-size: 2vh;
+    font-size: 1.3h;
   }
   .des {
     font-size: 1.3vh;
@@ -237,6 +242,7 @@
     width: 20vw;
     height: 35px;
     padding-top: 10px;
+    margin-left: -5px;
     font-size: 10px;
     text-align: center;
   }
