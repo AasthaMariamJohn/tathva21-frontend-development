@@ -3,7 +3,7 @@ import Ewl_component from "../common/Ewl_component";
 import { Center } from "@chakra-ui/react";
 
 
-export default function Event() {
+export default function Event({event}) {
   return (
     <div className={style.main}>
       <div className={style.list}>
@@ -29,8 +29,7 @@ export default function Event() {
         </div>
       </Center>
       <div className={style.main2}>
-        <Ewl_component />
-       
+        <Ewl_component event={event}/>
       </div>
     </div>
   );
