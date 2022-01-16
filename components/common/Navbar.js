@@ -7,7 +7,7 @@ import Hamburger from "./Hamburger.js";
 import { useUserContext } from "@/context/userContext";
 import LogoutBtn from "../home/logoutBtn";
 import LoginBtn from "../home/loginBtn";
-import { Navbarsvg1, Navbarsvg2 } from "./navbarsvg";
+import Navbarsvg from "./navbarsvg";
 import { Center } from "@chakra-ui/react";
 
 const Navbar = () => {
@@ -78,11 +78,8 @@ const Navbar = () => {
             </div>
           </div>
           <div className={style.navbar}>
-            <div className={`${style.navbarsvg} ${style.navbarsvg2}`}>
-              <Navbarsvg2 />
-            </div>
-            <div className={`${style.navbarsvg} ${style.navbarsvg1}`}>
-              <Navbarsvg1 />
+            <div className={`${style.navbarsvg}`}>
+              <Navbarsvg />
             </div>
             <div className={`${style.navbarg}`}>
               <div className={style["navbar-title"]}>
