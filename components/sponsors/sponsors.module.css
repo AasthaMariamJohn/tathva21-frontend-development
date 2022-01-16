@@ -1,8 +1,8 @@
 .main {
   position: absolute;
   color: white;
-  /* background-color: transparent;
-  z-index: 100; */
+  background: transparent;
+  /*z-index: 100; */
   top: 0px;
 }
 .heading {

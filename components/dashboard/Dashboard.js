@@ -4,20 +4,21 @@ import EventComponent from "./EventComponent"
 import Team from "./Team";
 
 
-    
 
 
-export default function Dashboard(){
-    return(
+
+export default function Dashboard() {
+    return (
         <div className={style.main}>
 
-           <div className={style.grid}>
-               <div className={style.section1}>
-                   <EventComponent/>
-                   <Team/>
-               </div>
-           <Section2/>
-           </div> 
+            <div className={style.grid}>
+                <div className={style.section1}>
+                    <EventComponent />
+                    <Team />
+                </div>
+                <Section2 />
+            </div>
 
         </div>
-    )}
+    )
+}
