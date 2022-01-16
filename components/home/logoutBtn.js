@@ -8,7 +8,8 @@ export default function LogoutBtn() {
   const { setUser, setIsLoggedIn } = useUserContext();
   const router = useRouter();
   function DestroyCookie() {
-    destroyCookie(null, "TathvaUser");
+    console.log('logged out');
+    destroyCookie({}, "TathvaUser");
   }
   function Logout() {
     toast.success("You are logged out", {

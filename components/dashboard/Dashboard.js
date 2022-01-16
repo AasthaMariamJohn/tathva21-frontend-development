@@ -53,7 +53,7 @@ export default function Dashboard() {
         <div className={style.grid}>
           <div className={style.section1}>
             <EventComponent event={Event} />
-            <Team />
+            <Team teamMembers={userEventDetails.teamMembers}/>
           </div>
           <Section2 refId={userEventId} jwt={user.jwt} />
         </div>

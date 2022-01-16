@@ -2,7 +2,11 @@ import style from "../events_workshop_lectures/ewl.module.css";
 import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
 import { useState } from "react";
-
+import registerEvent from "@/lib/events/registerEvent";
+import displayRazorpay from "@/components/common/razerpay";
+import { useUserContext } from "@/context/userContext";
+import { Login } from "@/lib/user/login";
+import { useRouter } from "next/router";
 export default function Ewl_component({event}) {
   const eventdetails = {
     info: event.description,
@@ -11,6 +15,9 @@ export default function Ewl_component({event}) {
       "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
   };
   const [body, setBody] = useState(eventdetails.info);
+
+  const {user,isLoggedIn}=useUserContext()
+  const router =useRouter()
 
   return (
     <>
@@ -29,12 +36,12 @@ export default function Ewl_component({event}) {
       <div className={style.content}>
         <div className={style.eventname}>
           <h2 className={style.titles}>{event.name}</h2>
-          <h3 className={style.titles}>
+          <div className={style.titles}>
             <h3 className={style.titles}>
               <MdAlarm />
             </h3>
             {event.regStartDate}
-          </h3>
+          </div>
         </div>
         <div className={style.eventdetails}>
           <h3 className={style.titles}>
@@ -67,8 +74,23 @@ export default function Ewl_component({event}) {
         </div>
         <p className={style.des}>{body}</p>
         <Center>
-          <div className={style.button} data-augmented-ui>
-            REGISTER
+          <div className={style.button} data-augmented-ui 
+            onClick={()=>{
+              if(isLoggedIn){
+                if(event.regPrice){
+                  displayRazorpay(event,user,"event",event.regPrice)
+              }
+              else{
+                registerEvent(event.id,user.id,user.jwt,router)
+              }
+              }
+              else{
+                Login(router)
+              }
+              
+            }}
+          >
+            REGISTER for {event.regPrice?<>{event.regPrice}</>:<>Free</>}
           </div>
         </Center>
       </div>
