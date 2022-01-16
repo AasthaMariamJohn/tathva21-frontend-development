@@ -5,7 +5,8 @@ import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-import { BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
+import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
+//import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import Loader from "../common/loader";
 
 const TWEEN = require("@tweenjs/tween.js");
@@ -299,7 +300,8 @@ const NITCModel3D = () => {
       // adding fog
       // const fog = new THREE.FogExp2(0x21211F, 0.01);
       // scene.fog = fog
-      
+      // setting backgrouound color
+      scene.background = new THREE.Color(0x000000);
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
       //controls.target = initialCameraPosition;
@@ -316,8 +318,20 @@ const NITCModel3D = () => {
 
 
       // Bloom
+      const renderScene = new RenderPass( scene, camera );
+  
+      // const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+  
+      // bloomPass.threshold = 0
+			// bloomPass.strength = 6.19
+			// bloomPass.radius = 0.8
+      // bloomPass.exposure = 1.0184
       const composer = new EffectComposer(renderer);
       composer.addPass(new RenderPass(scene, camera));
+      composer.addPass( renderScene );
+      //composer.addPass( bloomPass );
+      //composer.addPass(new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 ));
+      //composer.addPass(new EffectPass(camera, new VignetteEffect()));
       composer.addPass(new EffectPass(camera, new BloomEffect()));
       
       
