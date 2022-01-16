@@ -2,15 +2,20 @@ import style from "../events_workshop_lectures/ewl.module.css";
 import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
 import { useState } from "react";
+<<<<<<< HEAD
 import registerEvent from "@/lib/events/registerEvent";
 import displayRazorpay from "@/components/common/razerpay";
 import { useUserContext } from "@/context/userContext";
 import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
 export default function Ewl_component({event}) {
+=======
+
+export default function Ewl_component({ event }) {
+>>>>>>> fe33327f8fbd33d5836fab8d9d42ad639333fc98
   const eventdetails = {
     info: event.description,
-    rules:event.rules,
+    rules: event.rules,
     terms:
       "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
   };
@@ -65,7 +70,7 @@ export default function Ewl_component({event}) {
           <h3 className={style.titles}>
             <button
               onClick={() => {
-                setBody(eventdetails.term);
+                setBody(eventdetails.terms);
               }}
             >
               TERMS&CONDITIONS

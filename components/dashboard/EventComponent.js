@@ -1,4 +1,4 @@
-import style from "./db.module.css"
+import style from "./db.module.css";
 import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
 import { useState } from "react";
@@ -58,7 +58,7 @@ export default function EventComponent({event}) {
           <h3 className={style.titles}>
             <button
               onClick={() => {
-                setBody(eventdetails.term);
+                setBody(eventdetails.terms);
               }}
             >
               TERMS&CONDITIONS
@@ -66,7 +66,6 @@ export default function EventComponent({event}) {
           </h3>
         </div>
         <p className={style.des}>{body}</p>
-       
       </div>
     </div>
   );
