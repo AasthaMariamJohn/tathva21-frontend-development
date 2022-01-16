@@ -36,11 +36,12 @@
   padding-left: 1.5%;
   overflow: hidden;
 }
+
 .navbarsvg {
   background-color: transparent;
   position: absolute;
   top: 120px;
-  left: 100px;
+  left: 110px;
   width: 100%;
   z-index: 1000;
 }
@@ -116,9 +117,6 @@
 .hamburger {
   display: none;
 }
-.navbarsvg2 {
-  display: none;
-}
 
 @media (max-width: 1250px) {
   .navbar-link {
@@ -137,12 +135,7 @@
 }
 
 @media (max-width: 1100px) {
-  .navbarsvg2 {
-    display: block;
-    top: 80px;
-    left: 140px;
-  }
-  .navbarsvg1 {
+  .navbarsvg {
     display: none;
   }
 
@@ -214,17 +207,8 @@
   .navbar-title {
     font-size: 2rem;
   }
-  .navbarsvg2 {
-    display: none;
-  }
-  .navbarsvg1 {
-    display: none;
-  }
 }
 @media (max-width: 768px) {
-  .navbarsvg1 {
-    display: none;
-  }
   .menu-title {
     top: -80px;
   }
@@ -238,11 +222,6 @@
 }
 
 @media (max-width: 450px) {
-  .navbarsvg2 {
-    display: block;
-    top: 60px;
-    left: 100px;
-  }
   .navbar-title {
     font-size: 1.1rem;
   }
