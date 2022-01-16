@@ -62,16 +62,20 @@ const Navbar = () => {
       {!collapseDown && (
         <>
           <div className={style.logo}>
-            <Link href="/" passHref>
-              <a id="logo-link">
-                <Image
-                  src={"/logo/navbarlogo.png"}
-                  width="120"
-                  height="120"
-                  alt="Tathva"
-                ></Image>
-              </a>
-            </Link>
+            <div className={`${style.circle} ${style.circle2}`}>
+              <div className={style.logo1}>
+                <Link href="/" passHref>
+                  <a id="logo-link">
+                    <Image
+                      src={"/logo/navbarlogo.png"}
+                      width="120"
+                      height="120"
+                      alt="Tathva"
+                    ></Image>
+                  </a>
+                </Link>
+              </div>
+            </div>
           </div>
           <div className={style.navbar}>
             <div className={style.navbarsvg}>

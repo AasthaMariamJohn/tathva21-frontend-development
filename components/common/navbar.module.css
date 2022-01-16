@@ -1,3 +1,29 @@
+.circle {
+  background: #000;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: rotate 2.5s linear infinite;
+}
+
+.circle2 {
+  box-shadow: 2px 2px 2px -1px #49e9ff;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.logo1 {
+  animation: rotate1 2.5s linear infinite;
+}
+@keyframes rotate1 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
 .navbarg {
   height: 126px;
   background: linear-gradient(to top, transparent 0%, black 100%);
