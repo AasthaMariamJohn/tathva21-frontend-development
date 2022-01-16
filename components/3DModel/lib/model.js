@@ -24,7 +24,7 @@ export function loadGLTFModel(
         
 	      
         gltf.animations.forEach(element => {
-          mixers.mixer1.clipAction(element).reset().play();
+          mixers.mixer1.clipAction(element.optimize()).play();
         
       });
         scene.add(obj)

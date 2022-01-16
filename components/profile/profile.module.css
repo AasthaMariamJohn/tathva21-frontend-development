@@ -1,11 +1,14 @@
 .profile-page {
   position: absolute;
   margin-top: 15%;
+  z-index: 111111;
   left: 36%;
 }
 .profile {
   font-family: "batman_forever";
   font-size: large;
+  width: 100%;
+  background-color: black;
 }
 .edit-icon {
   cursor: pointer;
@@ -22,6 +25,7 @@
   font-size: 30px;
 }
 .table {
+  background-color: black;
   width: 110%;
   border: 1.29px solid rgba(73, 233, 255, 0.58);
   border-collapse: collapse;

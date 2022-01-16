@@ -3,11 +3,10 @@ import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
 import { useState } from "react";
 
-export default function Ewl_component() {
+export default function Ewl_component({event}) {
   const eventdetails = {
-    info: "Info Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
-    rules:
-      "Rules Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
+    info: event.description,
+    rules:event.rules,
     terms:
       "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
   };
@@ -18,23 +17,23 @@ export default function Ewl_component() {
       <div className={style.img}>
         <Center>
           <div className={style.img_desktop}>
-            <Image src="/images/herodekstop.png" alt="next-image" />
+            <Image src={event.coverImage.src} alt="next-image" />
           </div>
         </Center>
         <Center>
           <div className={style.img_mobile}>
-            <Image src="/images/heromobile.png" alt="next-image" />
+            <Image src={event.coverImage.src} alt="next-image" />
           </div>
         </Center>
       </div>
       <div className={style.content}>
         <div className={style.eventname}>
-          <h2 className={style.titles}>EVENT NAME</h2>
+          <h2 className={style.titles}>{event.name}</h2>
           <h3 className={style.titles}>
             <h3 className={style.titles}>
               <MdAlarm />
             </h3>
-            25:03:99
+            {event.regStartDate}
           </h3>
         </div>
         <div className={style.eventdetails}>

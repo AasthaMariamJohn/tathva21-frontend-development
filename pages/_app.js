@@ -4,7 +4,7 @@ import { UserWrapper } from "@/context/userContext";
 import "@/styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
- 
+  
   return (
     <ChakraProvider>
       <UserWrapper>
@@ -15,5 +15,8 @@ function MyApp({ Component, pageProps }) {
     </ChakraProvider>
   );
 }
+
+
+
 
 export default MyApp;

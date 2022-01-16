@@ -28,9 +28,11 @@ export default function Layout({ children }) {
       </Head>
       <Navbar />
       <Model3D/> 
+
       <main>{children}</main>
       {/* <DonateBtn/> */}
       <ContactUsLogo/>
+
     </div>
   );
 }

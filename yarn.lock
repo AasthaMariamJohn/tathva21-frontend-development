@@ -3168,6 +3168,11 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -3583,6 +3588,11 @@ postcss@8.2.15:
     colorette "^1.2.2"
     nanoid "^3.1.23"
     source-map "^0.6.1"
+
+postprocessing@^6.23.5:
+  version "6.23.5"
+  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.23.5.tgz#b4e68d9f5be7dfa2fa886ce8a4d99d7eab56317a"
+  integrity sha512-WpzKg6nUbRWVOISCfup/1rzJjYtxj8kCow/YOkzYq+/879mISewWZAUXwfXaRO8Mu3yM6dH+WAWzxWROjrxM7A==
 
 prebuild-install@^7.0.0:
   version "7.0.0"
