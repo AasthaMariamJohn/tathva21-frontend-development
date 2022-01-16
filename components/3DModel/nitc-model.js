@@ -401,19 +401,19 @@ const NITCModel3D = () => {
           onAnimationComplete
         );
       });
-      document.getElementById("About Us-link").addEventListener("click", () => {
-        var position = scene.getObjectByName("ECLC").position;
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
+      // document.getElementById("About Us-link").addEventListener("click", () => {
+      //   var position = scene.getObjectByName("ECLC").position;
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
       document.getElementById("Events-link").addEventListener("click", () => {
         var position =scene.getObjectByName("MB").position;
         TweenAnimation(

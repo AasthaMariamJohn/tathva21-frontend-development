@@ -84,7 +84,7 @@ function Navbarsvg2() {
           d="M4 25H143.991C155.197 25 166.077 21.2361 174.887 14.312L178.226 11.688C187.036 4.76395 197.917 1 209.122 1H485.5"
           stroke="url(#paint0_linear_535_1113)"
           strokeOpacity="0.58"
-          strokeEidth="2"
+          strokeWidth="2"
           shapeRendering="crispEdges"
         />
       </g>
