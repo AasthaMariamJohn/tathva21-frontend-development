@@ -3,10 +3,10 @@ import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
 import { useState } from "react";
 
-export default function Ewl_component({event}) {
+export default function Ewl_component({ event }) {
   const eventdetails = {
     info: event.description,
-    rules:event.rules,
+    rules: event.rules,
     terms:
       "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio, quia exercitationem, illo nihil repudiandae neque commodi provident, quas aspernatur error repellendus esse optio in impedit ad iure quis dolore.",
   };
@@ -58,7 +58,7 @@ export default function Ewl_component({event}) {
           <h3 className={style.titles}>
             <button
               onClick={() => {
-                setBody(eventdetails.term);
+                setBody(eventdetails.terms);
               }}
             >
               TERMS&CONDITIONS

@@ -1,19 +1,18 @@
 import style from "./navbar.module.css";
 import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Hamburger from "./Hamburger.js";
 import { useUserContext } from "@/context/userContext";
-import LogoutBtn from '../home/logoutBtn'
+import LogoutBtn from "../home/logoutBtn";
 import LoginBtn from "../home/loginBtn";
-
-
+import Navbarsvg from "./navbarsvg";
+import { Center } from "@chakra-ui/react";
 
 const Navbar = () => {
   const router = useRouter();
-  const {isLoggedIn}=useUserContext()
+  const { isLoggedIn } = useUserContext();
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
     { title: "About Us", id: 1, link: "/about" },
@@ -62,15 +61,8 @@ const Navbar = () => {
     <div>
       {!collapseDown && (
         <>
-          
-          <div className={style.navbar}>
-            <div
-              className={`${style.navbarg} ${style.no1}`}
-              data-augmented-ui
-            ></div>
-            <div className={`${style.navbarg} ${style.no2}`} data-augmented-ui>
-            <div className={style.logo}>
-            <Link href="/" passHref >
+          <div className={style.logo}>
+            <Link href="/" passHref>
               <a id="logo-link">
                 <Image
                   src={"/logo/navbarlogo.png"}
@@ -81,10 +73,15 @@ const Navbar = () => {
               </a>
             </Link>
           </div>
+          <div className={style.navbar}>
+            <div className={style.navbarsvg}>
+              <Navbarsvg />
+            </div>
+            <div className={`${style.navbarg}`}>
               <ol className={style["navbar-list"]}>
                 <li className={style["navbar-title"]}>
-                  <Link href={title.link} >
-                    <a   id="tathva-title" >{title.title}</a>
+                  <Link href={title.link}>
+                    <a id="tathva-title">{title.title}</a>
                   </Link>
                 </li>
                 {links.map((link) => (
@@ -97,8 +94,8 @@ const Navbar = () => {
               </ol>
             </div>
           </div>
-          <div className={style.login} data-augmented-ui>
-            {isLoggedIn?<LogoutBtn/>:<LoginBtn/>}
+          <div className={style.login}>
+            {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
           </div>
           <div className={style.hamburger} onClick={handleCollapseDown}>
             <Hamburger />
@@ -108,39 +105,46 @@ const Navbar = () => {
 
       {collapseDown && (
         <>
-          <div className={style.menu}>
-            <div className={style.logo_menu}>
-              <Link href="/" passHref>
+          <Center>
+            <div className={style.menu}>
+              <div className={style.logo_menu}>
+                <Link href="/" passHref>
+                  <Image
+                    src={"/logo/navbarlogo.png"}
+                    width="120"
+                    height="120"
+                    alt="Tathva"
+                  ></Image>
+                </Link>
+              </div>
+              <div className={style.close} onClick={handleClose}>
                 <Image
-                  src={"/logo/navbarlogo.png"}
-                  width="120"
-                  height="120"
-                  alt="Tathva"
-                ></Image>
-              </Link>
+                  src={"/images/close.png"}
+                  width="40"
+                  height="40"
+                  alt="next-image"
+                />
+              </div>
+              <p className={style["menu-title"]}>
+                <Link href={title.link}>
+                  <a>{title.title}</a>
+                </Link>
+              </p>
+              <ol className={style["menu-list"]}>
+                {links.map((link) => (
+                  <li
+                    key={link.id}
+                    className={style["menu-link"]}
+                    onClick={handleClose}
+                  >
+                    <Link href={link.link}>
+                      <a>{link.title}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <div className={style.close} onClick={handleClose}>
-              <Image src={"/images/close.png"} width="40" height="40" alt="next-image" />
-            </div>
-            <p className={style["menu-title"]}>
-              <Link href={title.link}>
-                <a>{title.title}</a>
-              </Link>
-            </p>
-            <ol className={style["menu-list"]}>
-              {links.map((link) => (
-                <li
-                  key={link.id}
-                  className={style["menu-link"]}
-                  onClick={handleClose}
-                >
-                  <Link href={link.link}>
-                    <a>{link.title}</a>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
+          </Center>
         </>
       )}
     </div>
