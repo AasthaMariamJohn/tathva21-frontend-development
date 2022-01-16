@@ -304,8 +304,9 @@ const NITCModel3D = () => {
       scene.background = new THREE.Color(0x000000);
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
-      //controls.target = initialCameraPosition;
-      TweenAnimation(controls, camera, initialCameraPosition.x,initialCameraPosition.y, initialCameraPosition.z, 0, TWEEN.Easing.Quartic.Out, onAnimationComplete);
+      controls.target = initialCameraPosition;
+      
+      //TweenAnimation(controls, camera, initialCameraPosition.x,initialCameraPosition.y, initialCameraPosition.z, 0, TWEEN.Easing.Quartic.Out, onAnimationComplete);
       
       controls.maxDistance = 52.5;
       controls.minDistance = 23.5;
@@ -486,24 +487,18 @@ const NITCModel3D = () => {
         req = requestAnimationFrame(animate);
         controls.update();
         delta = clock.getDelta();
-        renderer.clear();
-
-        camera.layers.set(1);
-        //bloomComposer.render();
-
-        renderer.clearDepth();
-        camera.layers.set(0);
-
+        
+        
         if (mixers.mixer1 !== undefined) {
           mixers.mixer1.update(delta);
           TWEEN.update();
         }
-    
+        
+        composer.render(delta);
         resetHover(scene);
         hoverButtons(scene, camera, raycaster, mouse);
         
         //renderer.render(scene, camera);
-        composer.render();
       };
 
       return () => {
