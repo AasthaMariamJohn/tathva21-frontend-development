@@ -9,6 +9,7 @@ import { useEffect } from "react";
 export default function Me() {
       const {isLoggedIn}=useUserContext()
       const router=useRouter()
+      console.log(isLoggedIn)
       // useEffect(()=>{
       //       if(!isLoggedIn)[
       //             Login(router)
