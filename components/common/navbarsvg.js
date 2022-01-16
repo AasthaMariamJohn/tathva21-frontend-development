@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 export default function Navbarsvg() {
-  const [WindowDimensions, setWindowDimensions] = useState(1200);
+  const [WindowDimensions, setWindowDimensions] = useState(null);
 
   useEffect(() => {
     const getWindowDimensions = () => {
@@ -10,6 +10,7 @@ export default function Navbarsvg() {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
