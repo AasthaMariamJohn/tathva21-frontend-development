@@ -1,3 +1,4 @@
+import Overlay from "@/components/common/overlay";
 import Main from "@/components/profile/main";
 import { ProfileWrapper} from "@/context/profileContext";
 import { useUserContext } from "@/context/userContext";
@@ -20,7 +21,9 @@ export default function Me() {
                   <Head>
                         <title>Profile</title>
                   </Head>
+                  <Overlay>
                   <Main/>
+                  </Overlay>
             </ProfileWrapper>
       )
 }

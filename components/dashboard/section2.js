@@ -1,7 +1,7 @@
 import style from "./db.module.css";
 import Dropbox from "./Dropbox";
 
-export default function Section2() {
+export default function Section2({ refId, jwt }) {
   return (
     <div className={style.section2}>
       <div className={style.section2content}>
@@ -14,7 +14,7 @@ export default function Section2() {
       <p className={style.note}>
         2.consectetur adipiscing elit. Egestas dui consectetur enim,zjsdam.
       </p>
-      <Dropbox />
+      <Dropbox refId={refId} jwt={jwt} />
     </div>
   );
 }

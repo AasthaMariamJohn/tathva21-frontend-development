@@ -26,17 +26,17 @@ const teamMembers = [
   {
     name: "MEMBER 2",
     college: "NITC",
-    id: "09435",
+    id: "09436",
   },
   {
     name: "MEMBER 3",
     college: "NITC",
-    id: "09435",
+    id: "09437",
   },
   {
     name: "MEMBER 4",
     college: "NITC",
-    id: "09435",
+    id: "09438",
   },
 ];
 
