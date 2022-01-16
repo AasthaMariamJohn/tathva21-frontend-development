@@ -35,11 +35,11 @@ const TweenAnimation = (
 const Button3D = (name, scene, x, y, z) => {
   const mesh = new THREE.Mesh(
     new THREE.SphereBufferGeometry(1, 1, 1),
-    new THREE.MeshPhongMaterial({ color: 0xff0000 })
+    new THREE.MeshStandardMaterial({ color: 0xff0000 })
   );
   const meshMobile =  new THREE.Mesh(
     new THREE.SphereBufferGeometry(3),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    new THREE.MeshStandardMaterial({ color: 0xff0000 })
   );
 
   mesh.position.set(x, y, z);
