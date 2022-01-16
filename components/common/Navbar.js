@@ -7,7 +7,7 @@ import Hamburger from "./Hamburger.js";
 import { useUserContext } from "@/context/userContext";
 import LogoutBtn from "../home/logoutBtn";
 import LoginBtn from "../home/loginBtn";
-import Navbarsvg from "./navbarsvg";
+import { Navbarsvg1, Navbarsvg2, Navbarsvg3 } from "./navbarsvg";
 import { Center } from "@chakra-ui/react";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
   const { isLoggedIn } = useUserContext();
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
-    { title: "About Us", id: 1, link: "/about" },
+    // { title: "About Us", id: 1, link: "/about" },
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
@@ -78,8 +78,14 @@ const Navbar = () => {
             </div>
           </div>
           <div className={style.navbar}>
-            <div className={style.navbarsvg}>
-              <Navbarsvg />
+            <div className={`${style.navbarsvg} ${style.navbarsvg1}`}>
+              <Navbarsvg1 />
+            </div>
+            <div className={`${style.navbarsvg} ${style.navbarsvg2}`}>
+              <Navbarsvg2 />
+            </div>
+            <div className={`${style.navbarsvg} ${style.navbarsvg3}`}>
+              <Navbarsvg3 />
             </div>
             <div className={`${style.navbarg}`}>
               <div className={style["navbar-title"]}>

@@ -1,32 +1,176 @@
-export default function navbarsvg() {
+function Navbarsvg1() {
   return (
     <svg
-      width="1305"
+      width="877"
       height="34"
-      viewBox="0 0 1305 34"
+      viewBox="0 0 877 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_535_1113)">
+        <path
+          d="M4 25H228.314C235.906 25 243.399 23.2711 250.223 19.9444L278.715 6.0556C285.539 2.72891 293.032 1 300.624 1H873"
+          stroke="url(#paint0_linear_535_1113)"
+          strokeOpacity="0.58"
+          strokeWidth="2"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_535_1113"
+          x="0"
+          y="0"
+          width="877"
+          height="34"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_535_1113"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_535_1113"
+            result="shape"
+          />
+        </filter>
+        <linearGradient
+          id="paint0_linear_535_1113"
+          x1="-443.58"
+          y1="25"
+          x2="1554.89"
+          y2="30.8211"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="white" />
+          <stop offset="0.0001" stopColor="#1FAEFF" />
+          <stop offset="0.9999" stopColor="#00A3FF" />
+          <stop offset="1" stopColor="white" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function Navbarsvg2() {
+  return (
+    <svg
+      width="490"
+      height="34"
+      viewBox="0 0 490 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_535_1113)">
+        <path
+          d="M4 25H143.991C155.197 25 166.077 21.2361 174.887 14.312L178.226 11.688C187.036 4.76395 197.917 1 209.122 1H485.5"
+          stroke="url(#paint0_linear_535_1113)"
+          strokeOpacity="0.58"
+          strokeEidth="2"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_535_1113"
+          x="0"
+          y="0"
+          width="489.5"
+          height="34"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_535_1113"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_535_1113"
+            result="shape"
+          />
+        </filter>
+        <linearGradient
+          id="paint0_linear_535_1113"
+          x1="-262.613"
+          y1="25.0004"
+          x2="976.949"
+          y2="27.2399"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="white" />
+          <stop offset="0.0001" stopColor="#1FAEFF" />
+          <stop offset="0.9999" stopColor="#00A3FF" />
+          <stop offset="1" stopColor="white" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function Navbarsvg3() {
+  return (
+    <svg
+      width="308"
+      height="34"
+      viewBox="0 0 308 34"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g filter="url(#filter0_d_535_1114)">
         <path
-          d="M4 25H198.42C206.903 25 215.247 22.8417 222.666 18.7281L243.328 7.27186C250.747 3.15832 259.09 1 267.573 1H1305"
+          d="M4.5 25H123.991C135.197 25 146.077 21.2361 154.887 14.312L158.226 11.688C167.036 4.76395 177.917 1 189.122 1H304"
           stroke="url(#paint0_linear_535_1114)"
-          stroke-opacity="0.58"
-          stroke-width="2"
-          shape-rendering="crispEdges"
+          strokeOpacity="0.58"
+          strokeWidth="2"
+          shapeRendering="crispEdges"
         />
       </g>
       <defs>
         <filter
           id="filter0_d_535_1114"
-          x="0"
+          x="0.5"
           y="0"
-          width="1309"
+          width="307.5"
           height="34"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -54,18 +198,20 @@ export default function navbarsvg() {
         </filter>
         <linearGradient
           id="paint0_linear_535_1114"
-          x1="-389.5"
-          y1="25"
-          x2="1367.5"
-          y2="29.4994"
+          x1="-282.613"
+          y1="25.0004"
+          x2="956.949"
+          y2="27.2399"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="0.0001" stop-color="#1FAEFF" />
-          <stop offset="0.9999" stop-color="#00A3FF" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" />
+          <stop offset="0.0001" stopColor="#1FAEFF" />
+          <stop offset="0.9999" stopColor="#00A3FF" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>
   );
 }
+
+export { Navbarsvg1, Navbarsvg2, Navbarsvg3 };
