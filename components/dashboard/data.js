@@ -16,9 +16,8 @@ const events=[
     {
     name:"EventName4",
     img:"./eventImg.png"
-
+    
 }
-   
 ]
 
 const teamMembers = [

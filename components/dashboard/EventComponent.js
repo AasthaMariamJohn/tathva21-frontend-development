@@ -67,11 +67,7 @@ export default function EventComponent() {
           </h3>
         </div>
         <p className={style.des}>{body}</p>
-        <Center>
-          <div className={style.button} data-augmented-ui>
-            REGISTER
-          </div>
-        </Center>
+       
       </div>
     </div>
   );

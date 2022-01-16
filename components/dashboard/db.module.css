@@ -36,6 +36,7 @@
 .titles {
   text-decoration: none;
   display: inline-block;
+  max-width: 100%;
   margin: 0 8px;
 }
 .eventcard{
@@ -140,7 +141,7 @@
   justify-content: space-between;
   margin: 0 auto;
   width: 320px;
-
+ max-width: 100%;
   padding: 0.25rem 2rem;
 
   background: rgba(73, 233, 255, 0.41);
@@ -160,16 +161,17 @@ margin: auto;
 }
 
 .section2{
-  width: 100%;
+  width: 90vw;
   padding: 4rem;
   border:1.52903px solid #49E9FF;
   box-sizing: border-box;
   border-radius: 10px;
-  margin-top:20px
+  margin:20px auto;
+  
 
 }
 .section2content{
-
+max-width: 100%;
   width:max(50vw,530px)
 }
 .img{
@@ -203,7 +205,7 @@ padding: auto;
 
 @media screen and (max-width: 1200px) {
   .main2 {
-    /* display: block; */
+    display: block;
     border: none;
   }
   .content {
@@ -215,10 +217,7 @@ padding: auto;
     margin-top: 50px;
   }
   
-  .main2{
-    /* display: block; */
-
-  }
+  
 
   .img_desktop {
     border: 2px solid #49e9ff;
