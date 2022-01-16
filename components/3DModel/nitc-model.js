@@ -475,7 +475,7 @@ const NITCModel3D = () => {
         },
         mixers
       ).then(() => {
-        animate();
+        requestAnimationFrame(animate);
         setLoading(false);
       });
 
