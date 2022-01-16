@@ -82,20 +82,22 @@ const Navbar = () => {
               <Navbarsvg />
             </div>
             <div className={`${style.navbarg}`}>
-              <ol className={style["navbar-list"]}>
-                <li className={style["navbar-title"]}>
-                  <Link href={title.link}>
-                    <a id="tathva-title">{title.title}</a>
-                  </Link>
-                </li>
-                {links.map((link) => (
-                  <li key={link.id} className={style["navbar-link"]}>
-                    <Link href={link.link}>
-                      <a id={`${link.title}-link`}>{link.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
+              <div className={style["navbar-title"]}>
+                <Link href={title.link}>
+                  <a id="tathva-title">{title.title}</a>
+                </Link>
+              </div>
+              <div>
+                <ol className={style["navbar-list"]}>
+                  {links.map((link) => (
+                    <li key={link.id} className={style["navbar-link"]}>
+                      <Link href={link.link}>
+                        <a id={`${link.title}-link`}>{link.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
           <div className={style.login}>

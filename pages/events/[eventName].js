@@ -6,7 +6,8 @@ import Loader from "@/components/common/loader";
 
 import style from "../../components/events_workshop_lectures/ewl.module.css";
 import { Center } from "@chakra-ui/react";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 export function Event({children}) {
   return (
     <div className={style.main}>
@@ -36,6 +37,7 @@ export function Event({children}) {
         {/* <Ewl_component /> */}
         {children}
       </div>
+
     </div>
   );
 }
@@ -58,6 +60,8 @@ export default function EventName() {
         {Event1?<Ewl_component event={Event1}/>:<Loader/>}
         
       </Event>
+      <ToastContainer></ToastContainer>
+
     </div>
   );
 }

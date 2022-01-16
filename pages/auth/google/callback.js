@@ -20,8 +20,10 @@ export default function GoogleAuthCallback() {
           setUser(data);
           setIsLoggedIn(true);
           var prevPage = sessionStorage.getItem("logginFrom");
+          console.log(prevPage);
           sessionStorage.removeItem("logginFrom");
-          router.push(prevPage);
+          // router.push(prevPage);
+          router.push('/')
         });
     }
   }, [router.query]);
