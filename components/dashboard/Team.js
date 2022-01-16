@@ -2,7 +2,7 @@ import style from "./db.module.css"
 import { teamMembers } from "./data"
 import TeamMember from"./TeamMember"
 const TeamMembers =teamMembers.map(p=> {
-  return(<TeamMember name={p.name}  id={p.id}/>)
+  return(<TeamMember key={p.id} name={p.name} college={p.college} id={p.id}/>)
 })
 
 
