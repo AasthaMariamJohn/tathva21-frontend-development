@@ -7,7 +7,7 @@ import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
 import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
 //import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import Loader from "../common/loader";
+import Loader2 from "../common/loader2";
 
 const TWEEN = require("@tweenjs/tween.js");
 
@@ -633,7 +633,7 @@ const NITCModel3D = () => {
 
   return (
     <div>
-      {loading ? <Loader /> : <></>}
+      {loading ? <Loader2 /> : <></>}
       <ModelContainer ref={refContainer}></ModelContainer>
     </div>
   );
