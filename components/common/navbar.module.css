@@ -5,7 +5,7 @@
   margin-left: 30px;
   width: 90%;
   position: absolute;
-  top: -30px;
+  top: 30px;
   left: -20px;
   padding-left: 1.5%;
 }
@@ -42,20 +42,24 @@
   position: relative;
   z-index: 100;
   left: 30px;
-  width: 80%;
+  /* width: 80%; */
 }
 .navbar-title {
+  width: 300px;
   font-size: 40px;
   font-weight: bolder;
   z-index: 1000;
   margin-right: -15px;
   margin-top: -15px;
+  margin-right: 100px;
+  float: left;
 }
 
 .navbar-list {
+
   list-style: none;
   display: flex;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   justify-content: space-evenly;
 }
 
