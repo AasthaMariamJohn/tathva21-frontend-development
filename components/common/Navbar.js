@@ -21,6 +21,7 @@ const Navbar = () => {
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
     { title: "Shop", id: 5, link: "/shop" },
+    { title: "Sponsors", id: 6, link: "/sponsors" },
   ]);
   const [collapseDown, setCollapseDown] = useState(false);
 

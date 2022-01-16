@@ -1,3 +1,4 @@
+import Dashboard from "@/components/dashboard/Dashboard";
 export default function index() {
-  return <div></div>;
+  return (<div><Dashboard/></div>);
 }
