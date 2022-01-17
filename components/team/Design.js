@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from './team.module.css'
 export default function Prc() {
     return (
         <div className={styles.teamssection}>

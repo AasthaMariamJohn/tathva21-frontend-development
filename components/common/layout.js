@@ -27,7 +27,7 @@ export default function Layout({ children }) {
         />
       </Head>
       <Navbar />
-      <Model3D />
+      {/* <Model3D /> */}
 
       <main>{children}</main>
       {/* <DonateBtn/> */}
