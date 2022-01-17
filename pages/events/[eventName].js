@@ -6,7 +6,8 @@ import Loader from "@/components/common/loader";
 
 import style from "../../components/events_workshop_lectures/ewl.module.css";
 import { Center } from "@chakra-ui/react";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 export function Event({children}) {
   return (
     <div className={style.main}>
@@ -36,6 +37,7 @@ export function Event({children}) {
         {/* <Ewl_component /> */}
         {children}
       </div>
+
     </div>
   );
 }
@@ -58,6 +60,8 @@ export default function EventName() {
         {Event1?<Ewl_component event={Event1}/>:<Loader/>}
         
       </Event>
+      <ToastContainer></ToastContainer>
+
     </div>
   );
 }
@@ -80,40 +84,40 @@ export default function EventName() {
 // import { TeamMemberWrapper } from "@/context/teamMemberContext";
 
 // export default function Event() {
-//   const { user, userEvents } = useUserContext();
-//   const router = useRouter();
-//   const { eventName } = router.query;
-//   const [Event, setEvent] = useState(null);
-//   const [isRegistered, setIsRegistered] = useState(false);
-//   const [userEventId, setUserEventId] = useState(null);
-//   const [userEventDetails, setUserEventDetails] = useState(null);
+  // const { user, userEvents } = useUserContext();
+  // const router = useRouter();
+  // const { eventName } = router.query;
+  // const [Event, setEvent] = useState(null);
+  // const [isRegistered, setIsRegistered] = useState(false);
+  // const [userEventId, setUserEventId] = useState(null);
+  // const [userEventDetails, setUserEventDetails] = useState(null);
 
   // useEffect(() => {
   //   if (eventName) {
   //     getEventWithName(eventName, setEvent);
   //   }
   // }, [eventName]);
-//   useEffect(() => {
-//     if (Event && userEvents) {
-//       for (var i = 0; i < userEvents.length; i++) {
-//         if (userEvents[i].eventId == Event.id) {
-//           setUserEventId(userEvents[i].userEventId);
-//           setIsRegistered(true);
-//         }
-//       }
-//     }
-//   }, [Event, userEvents]);
-//   useEffect(() => {
-//     if (isRegistered && Event && userEventId) {
-//       getRegisteredEventInfo(
-//         userEventId,
-//         user.jwt,
-//         setEvent,
-//         setUserEventDetails
-//       );
-//       setEvent(null);
-//     }
-//   }, [isRegistered]);
+  // useEffect(() => {
+  //   if (Event && userEvents) {
+  //     for (var i = 0; i < userEvents.length; i++) {
+  //       if (userEvents[i].eventId == Event.id) {
+  //         setUserEventId(userEvents[i].userEventId);
+  //         setIsRegistered(true);
+  //       }
+  //     }
+  //   }
+  // }, [Event, userEvents]);
+  // useEffect(() => {
+  //   if (isRegistered && Event && userEventId) {
+  //     getRegisteredEventInfo(
+  //       userEventId,
+  //       user.jwt,
+  //       setEvent,
+  //       setUserEventDetails
+  //     );
+  //     setEvent(null);
+  //   }
+  // }, [isRegistered]);
 //   return (
 //     <div>
 //       <ToastContainer limit={1} />

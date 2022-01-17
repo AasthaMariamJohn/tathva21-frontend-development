@@ -1,52 +1,49 @@
-/* Max Width */
+.circle {
+  background: #000;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: rotate 2.5s linear infinite;
+}
+
+.circle2 {
+  box-shadow: 2px 2px 2px -1px #49e9ff;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.logo1 {
+  animation: rotate1 2.5s linear infinite;
+}
+@keyframes rotate1 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
 .navbarg {
   height: 126px;
-  background-color: black;
-  margin-top: 46px;
-  margin-left: 30px;
-  --aug-border: initial;
-  --aug-border-all: 2.5px;
-  --aug-border-bg: #49e9ff;
-  --aug-clip-tl1: initial;
-  --aug-tl1-width: 72px;
-  --aug-tl1-height: 410px;
-  --aug-clip-br1: initial;
-  --aug-br1-width: 70px;
-  --aug-br1-height: 150px;
-  --aug-clip-t1: initial;
-  --aug-clip-t2: initial;
-  --aug-t-offset: 4%;
-  --aug-t-extend1: 74%;
-  --aug-t1: 30px;
-  --aug-t2: 30px;
-  --aug-clip-b1: initial;
-  --aug-clip-b2: initial;
-  --aug-b-offset: 8%;
-  --aug-b-extend1: 72%;
-  --aug-b1: 30px;
-  --aug-b2: 30px;
-}
-
-.no1 {
-  width: 87%;
-  top: -12px;
-  left: 12px;
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 0%,
-    rgba(73, 233, 255, 0.25) 100%
-  );
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-}
-
-.no2 {
+  background: linear-gradient(to top, transparent 0%, black 100%);
+  margin-top: 26px;
+  margin-left: 100px;
   width: 90%;
   position: absolute;
-  top: -30px;
+  top: 30px;
   left: -20px;
   padding-left: 1.5%;
+  overflow: hidden;
+}
+
+.navbarsvg {
+  background-color: transparent;
+  position: absolute;
+  top: 120px;
+  left: 110px;
+  width: 100%;
+  z-index: 1000;
 }
 
 .login {
@@ -54,44 +51,24 @@
   font-family: "batman_forever";
   font-size: large;
   color: white;
-  height: 56px;
-  width: 10%;
-  position: absolute;
-  top: 57px;
-  right: 8px;
-  background: linear-gradient(
-      270deg,
-      rgba(73, 233, 255, 0.58) 18.78%,
-      rgba(255, 255, 255, 0) 51.39%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(73, 233, 255, 0.58) 16.29%,
-      rgba(255, 255, 255, 0) 48.61%
-    );
-  border-radius: 1px;
-
-  --aug-border: initial;
-  --aug-border-all: 2px;
-  --aug-border-bg: #49e9ff;
-
-  --aug-clip-tl1: initial;
-  --aug-tl1-width: 30px;
-  --aug-tl1-height: 60px;
-  --aug-tl-extend: 20px;
-
-  --aug-clip-br1: initial;
-  --aug-br1-width: 30px;
-  --aug-br1-height: 60px;
-  padding-top: 18px;
+  height: 50px;
+  width: 8.5%;
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  border: 1px solid #49e9ff;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0px 0px 7.93569px rgba(115, 187, 228, 0.4);
+  border-radius: 7.93569px;
   z-index: 100;
+  padding-top: 10px;
 }
 
 .logo {
   position: absolute;
-  left: 60px;
-  /* top: 0px; */
   z-index: 999;
+  top: 20px;
+  left: 10px;
   cursor: pointer;
 }
 
@@ -101,754 +78,174 @@
   color: white;
   position: relative;
   z-index: 100;
+  left: 30px;
+  width: 90%;
+}
+.navbar-title {
+  width: 300px;
+  font-size: 35px;
+  font-weight: bolder;
+  z-index: 1000;
+  margin-right: -15px;
+  margin-top: -15px;
+  margin-right: 100px;
+  float: left;
+
 }
 
 .navbar-list {
   list-style: none;
   display: flex;
-  margin-top: 50px;
   justify-content: space-evenly;
+  word-wrap: none;
+  position: relative;
+  left: -100px;
 }
+
 .navbar-link {
-  font-size: large;
+  font-size: 1rem;
+  margin-left: 40px;
 }
-.navbar-link-highlight{
-  /* font-weight:900; */
+
+.navbar-link-highlight {
   color: #49e9ff;
 }
-.navbar-title {
-  font-size: 25px;
-  font-weight: bolder;
-  z-index: 1000;
-  margin-right: -20px;
-}
+
 .navbar-link:hover {
   font-weight: bolder;
 }
 
 .hamburger {
   display: none;
-  position: relative;
-  z-index: 100;
 }
 
-@media (max-width: 400px) {
-  .navbarg {
-    height: 70px;
-    background-color: black;
-    margin-top: 46px;
-    margin-left: 30px;
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 40px;
-    --aug-tl1-height: 90px;
-    --aug-clip-br1: initial;
-    --aug-br1-width: 40px;
-    --aug-br1-height: 90px;
-    --aug-clip-t1: initial;
-    --aug-clip-t2: initial;
-    --aug-t-offset: 8%;
-    --aug-t-extend1: 34%;
-    --aug-t1: 15px;
-    --aug-t2: 15px;
-    --aug-clip-b1: initial;
-    --aug-clip-b2: initial;
-    --aug-b-offset: 15%;
-    --aug-b-extend1: 32%;
-    --aug-b1: 15px;
-    --aug-b2: 15px;
+@media (max-width: 1250px) {
+  .navbar-link {
+    font-size: 0.8rem;
   }
 
-  .no1 {
+  .login {
+    font-size: 15px;
+    color: white;
+    height: 40px;
+    width: 8.5%;
+    padding-top: 9px;
+    z-index: 100;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .navbarsvg {
     display: none;
   }
 
-  .no2 {
-    width: 70%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-    padding-left: 0;
-  }
   .hamburger {
     display: block;
-    position: absolute;
-    top: 42px;
-    right: 13px;
-  }
-  .login {
-    text-align: center;
-    font-family: "batman_forever";
-    font-size: 55%;
-    height: 30px;
-    width: 26%;
-    position: absolute;
-    top: 35px;
-    right: 30px;
-    background: linear-gradient(
-        270deg,
-        rgba(73, 233, 255, 0.58) 18.78%,
-        rgba(255, 255, 255, 0) 51.39%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(73, 233, 255, 0.58) 16.29%,
-        rgba(255, 255, 255, 0) 48.61%
-      );
-    box-shadow: none;
-    border-radius: 1px;
-
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-
-    --aug-clip-tl1: initial;
-    --aug-tl1: 15px;
-
-    --aug-clip-br1: initial;
-    --aug-br1: 15px;
-    padding: 10px 3px 0;
-  }
-
-  .navbar-link {
-    display: none;  
-  }
-
-  .navbar-title {
-    font-size: 90%;
-    font-weight: bolder;
-    z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
-  }
-
-  .logo {
-    display: block;
-    transform: scale(.6);
-    position: absolute;
-    left: 10px;
-    top: -24px;
-  }
-  .menu-title {
     position: fixed;
-    left: 24%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 85%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
+    top: 55px;
+    right: 30px;
     z-index: 1000;
   }
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    z-index: 1000;
+  }
+
+  .menu {
+    width: 90vw;
+    background-color: black;
+    color: white;
+    border: 2px solid rgba(73, 233, 255, 0.58);
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+  }
+
+  .logo_menu {
+    width: 18%;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    left: -8px;
+    top: -10px;
+    z-index: 9999;
+    cursor: pointer;
+  }
+
   .menu-list {
     list-style: none;
     position: relative;
     text-align: center;
     font-family: "batman_forever";
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 20px;
     line-height: 60px;
   }
+
+  .menu-link:hover {
+    font-weight: bolder;
+    text-shadow: #49e9ff;
+    color: red;
+  }
+  .navbar-link {
+    display: none;
+  }
+  .menu-title {
+    text-align: center;
+    font-family: "batman_forever";
+    font-size: 200%;
+    position: relative;
+    top: -100px;
+  }
+  .login {
+    width: 15%;
+    top: 47px;
+    right: 100px;
+  }
+  .navbar-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .menu-title {
+    top: -80px;
+  }
 }
 
-@media (max-width: 576px) and (min-width: 400px) {
-  .navbarg {
+@media (max-width: 580px) {
+  .navbar-title {
+    font-size: 1.5rem;
+    margin-top: -6px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-title {
+    font-size: 1.1rem;
+  }
+  .menu-title {
+    font-size: 1.5rem;
+    top: -30px;
+  }
+  .login {
+    width: 16%;
+    right: 20%;
+    height: 34px;
+    font-size: 0.8rem;
+    padding-top: 8px;
+  }
+  .hamburger {
+    right: 20px;
+  }
+  .logo {
+    left: 25px;
+    top: 30px;
+  }
+  .circle {
+    width: 70px;
     height: 70px;
-    background-color: black;
-    margin-top: 46px;
-    margin-left: 30px;
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 40px;
-    --aug-tl1-height: 90px;
-    --aug-clip-br1: initial;
-    --aug-br1-width: 40px;
-    --aug-br1-height: 90px;
-    --aug-clip-t1: initial;
-    --aug-clip-t2: initial;
-    --aug-t-offset: 8%;
-    --aug-t-extend1: 34%;
-    --aug-t1: 15px;
-    --aug-t2: 15px;
-    --aug-clip-b1: initial;
-    --aug-clip-b2: initial;
-    --aug-b-offset: 15%;
-    --aug-b-extend1: 32%;
-    --aug-b1: 15px;
-    --aug-b2: 15px;
   }
-
-  .no1 {
-    display: none;
-  }
-
-  .no2 {
-    width: 70%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-  }
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 42px;
-    right: 13px;
-  }
-  .login {
-    text-align: center;
-    font-family: "batman_forever";
-    font-size: 70%;
-    height: 30px;
-    width: 26%;
-    position: absolute;
-    top: 35px;
-    right: 30px;
-    background: linear-gradient(
-        270deg,
-        rgba(73, 233, 255, 0.58) 18.78%,
-        rgba(255, 255, 255, 0) 51.39%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(73, 233, 255, 0.58) 16.29%,
-        rgba(255, 255, 255, 0) 48.61%
-      );
-    box-shadow: none;
-    border-radius: 1px;
-
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-
-    --aug-clip-tl1: initial;
-    --aug-tl1: 15px;
-
-    --aug-clip-br1: initial;
-    --aug-br1: 15px;
-    padding: 10px 3px 0;
-  }
-
-  .navbar-link {
-    display: none;
-  }
-
-  .navbar-title {
-    font-size: 100%;
-    font-weight: bolder;
-    z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
-  }
-
-  .logo {
-    transform: scale(0.7);
-    position: absolute;
-    left: 10px;
-    top: -25px;
-  }
-  .menu-title {
-    position: fixed;
-    left: 24%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 90%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
-    z-index: 1000;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 576px) {
-  .navbarg {
-    height: 70px;
-    background-color: black;
-    margin-top: 46px;
-    margin-left: 30px;
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 40px;
-    --aug-tl1-height: 90px;
-    --aug-clip-br1: initial;
-    --aug-br1-width: 40px;
-    --aug-br1-height: 90px;
-    --aug-clip-t1: initial;
-    --aug-clip-t2: initial;
-    --aug-t-offset: 8%;
-    --aug-t-extend1: 44%;
-    --aug-t1: 15px;
-    --aug-t2: 15px;
-    --aug-clip-b1: initial;
-    --aug-clip-b2: initial;
-    --aug-b-offset: 12%;
-    --aug-b-extend1: 42%;
-    --aug-b1: 15px;
-    --aug-b2: 15px;
-  }
-
-  .no1 {
-    display: none;
-  }
-
-  .no2 {
-    width: 70%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-  }
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 42px;
-    right: 13px;
-  }
-  .navbar {
-    margin-left: 20px;
-  }
-  .login {
-    text-align: center;
-    font-family: "batman_forever";
-    font-size: 70%;
-    height: 30px;
-    width: 26%;
-    position: absolute;
-    top: 35px;
-    right: 30px;
-    background: linear-gradient(
-        270deg,
-        rgba(73, 233, 255, 0.58) 18.78%,
-        rgba(255, 255, 255, 0) 51.39%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(73, 233, 255, 0.58) 16.29%,
-        rgba(255, 255, 255, 0) 48.61%
-      );
-    box-shadow: none;
-    border-radius: 1px;
-
-    --aug-border: initial;
-    --aug-border-all: 1.5px;
-    --aug-border-bg: #49e9ff;
-
-    --aug-clip-tl1: initial;
-    --aug-tl1: 15px;
-
-    --aug-clip-br1: initial;
-    --aug-br1: 15px;
-    padding: 10px 3px 0;
-  }
-
-  .navbar-link {
-    display: none;
-  }
-
-  .navbar-title {
-    font-size: 100%;
-    font-weight: bolder;
-    z-index: 1000;
-    margin-right: -80px;
-    margin-top: -23px;
-  }
-
-  .logo {
-    transform: scale(0.7);
-    position: absolute;
-    left: 10px;
-    top: -25px;
-  }
-  .menu-title {
-    position: fixed;
-    left: 21%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 90%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
-    z-index: 1000;
-  }
-}
-
-@media (max-width: 992px) and (min-width: 768px) {
-  .navbarg {
-    height: 100px;
-    background-color: black;
-    margin-top: 46px;
-    margin-left: 30px;
-    --aug-border: initial;
-    --aug-border-all: 2px;
-    --aug-border-bg: #49e9ff;
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 72px;
-    --aug-tl1-height: 150px;
-    --aug-clip-br1: initial;
-    --aug-br1-width: 70px;
-    --aug-br1-height: 150px;
-    --aug-clip-t1: initial;
-    --aug-clip-t2: initial;
-    --aug-t-offset: 4%;
-    --aug-t-extend1: 64%;
-    --aug-t1: 30px;
-    --aug-t2: 30px;
-    --aug-clip-b1: initial;
-    --aug-clip-b2: initial;
-    --aug-b-offset: 8%;
-    --aug-b-extend1: 62%;
-    --aug-b1: 30px;
-    --aug-b2: 30px;
-  }
-
-  .no1 {
-    width: 84%;
-    top: -2px;
-    position: absolute;
-    background: linear-gradient(
-      180deg,
-      rgba(196, 196, 196, 0) 0%,
-      rgba(73, 233, 255, 0.25) 100%
-    );
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-  }
-
-  .no2 {
-    width: 90%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-    padding-right: 20px;
-  }
-
-  .login {
-    text-align: center;
-    font-family: "batman_forever";
-    font-size: small;
-    height: 30px;
-    width: 13%;
-    position: absolute;
-    top: 57px;
-    right: 8px;
-    background: linear-gradient(
-        270deg,
-        rgba(73, 233, 255, 0.58) 18.78%,
-        rgba(255, 255, 255, 0) 51.39%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(73, 233, 255, 0.58) 16.29%,
-        rgba(255, 255, 255, 0) 48.61%
-      );
-    border-radius: 1px;
-
-    --aug-border: initial;
-    --aug-border-all: 2px;
-    --aug-border-bg: #49e9ff;
-
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 30px;
-    --aug-tl1-height: 60px;
-    --aug-tl-extend: 20px;
-
-    --aug-clip-br1: initial;
-    --aug-br1-width: 30px;
-    --aug-br1-height: 60px;
-    padding-top: 10px;
-  }
-
-  .logo {
-    transform: scale(0.8);
-    left: 50px;
-    top: -18px;
-  }
-
-  /* NAVBAR */
-  .navbar {
-    font-family: "batman_forever";
-    color: white;
-  }
-
-  .navbar-list {
-    list-style: none;
-    display: flex;
-    margin-top: 45px;
-    justify-content: space-evenly;
-  }
-  .navbar-link {
-    font-size: 10px;
-  }
-  .navbar-title {
-    font-size: 16px;
-    font-weight: bolder;
-    z-index: 1000;
-    margin-right: -20px;
-  }
-  .navbar-link:hover {
-    font-weight: bolder;
-  }
-
-  .hamburger {
-    display: none;
-  }
-  .menu-title {
-    position: fixed;
-    left: 21%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 90%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
-    z-index: 1000;
-  }
-}
-@media (max-width: 1200px) and (min-width: 992px) {
-  .navbarg {
-    height: 110px;
-    background-color: black;
-    margin-top: 46px;
-    margin-left: 30px;
-    --aug-border: initial;
-    --aug-border-all: 2px;
-    --aug-border-bg: #49e9ff;
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 72px;
-    --aug-tl1-height: 150px;
-    --aug-clip-br1: initial;
-    --aug-br1-width: 70px;
-    --aug-br1-height: 150px;
-    --aug-clip-t1: initial;
-    --aug-clip-t2: initial;
-    --aug-t-offset: 4%;
-    --aug-t-extend1: 64%;
-    --aug-t1: 30px;
-    --aug-t2: 30px;
-    --aug-clip-b1: initial;
-    --aug-clip-b2: initial;
-    --aug-b-offset: 8%;
-    --aug-b-extend1: 62%;
-    --aug-b1: 30px;
-    --aug-b2: 30px;
-  }
-
-  .no1 {
-    width: 88%;
-    top: -2px;
-    position: absolute;
-    background: linear-gradient(
-      180deg,
-      rgba(196, 196, 196, 0) 0%,
-      rgba(73, 233, 255, 0.25) 100%
-    );
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-  }
-
-  .no2 {
-    width: 92%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-  }
-
-  .login {
-    text-align: center;
-    font-family: "batman_forever";
-    font-size: small;
-    height: 36px;
-    width: 10%;
-    position: absolute;
-    top: 57px;
-    right: 8px;
-    background: linear-gradient(
-        270deg,
-        rgba(73, 233, 255, 0.58) 18.78%,
-        rgba(255, 255, 255, 0) 51.39%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(73, 233, 255, 0.58) 16.29%,
-        rgba(255, 255, 255, 0) 48.61%
-      );
-    border-radius: 1px;
-
-    --aug-border: initial;
-    --aug-border-all: 2px;
-    --aug-border-bg: #49e9ff;
-
-    --aug-clip-tl1: initial;
-    --aug-tl1-width: 30px;
-    --aug-tl1-height: 60px;
-    --aug-tl-extend: 20px;
-
-    --aug-clip-br1: initial;
-    --aug-br1-width: 30px;
-    --aug-br1-height: 60px;
-    padding-top: 15px;
-  }
-
-  .logo {
-  
-    left: 80px;
-    top: -16px;
-  }
-
-  /* NAVBAR */
-  .navbar {
-    font-family: "batman_forever";
-    color: white;
-  }
-
-  .navbar-list {
-    list-style: none;
-    display: flex;
-    margin-top: 50px;
-    justify-content: space-evenly;
-  }
-  .navbar-link {
-    font-size: small;
-  }
-  .navbar-title {
-    font-size: 20px;
-    font-weight: bolder;
-    z-index: 1000;
-    margin-right: -20px;
-  }
-  .navbar-link:hover {
-    font-weight: bolder;
-  }
-
-  .hamburger {
-    display: none;
-  }
-  .menu-title {
-    position: fixed;
-    left: 21%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-}
-
-@media (max-width: 1400px) and (min-width: 1200px) {
-  .no2 {
-    width: 90%;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-    padding-left: 3%;
-  }
-  .menu-title {
-    position: fixed;
-    left: 21%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 90%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
-    z-index: 1000;
-  }
-}
-
-.logo_menu {
-  width: 18%;
-  background-color: black;
-  border-radius: 50%;
-  position: relative;
-  left: -8px;
-  top: -10px;
-  z-index: 999;
-  cursor: pointer;
-}
-
-.menu-list {
-  list-style: none;
-  position: relative;
-  text-align: center;
-  font-family: "batman_forever";
-  font-size: 13px;
-  margin-top: 20px;
-  line-height: 60px;
-}
-
-.menu-link:hover {
-  font-weight: bolder;
-  text-shadow: #49e9ff;
-  color: red;
-}
-
-.close {
-  position: absolute;
-  right: 10px;
-  top: 25px;
-  z-index: 1000;
-}
-
-@media (min-width: 1400px) {
-  .menu-title {
-    position: fixed;
-    left: 21%;
-    top: 60px;
-    font-family: "batman_forever";
-    font-size: large;
-    display: flex;
-  }
-  .menu {
-    width: 90%;
-    border: 1px solid rgba(73, 233, 255, 0.58);
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 30px;
-    margin-left: 35px;
-    position: absolute;
-    z-index: 1000;
-  }
-}
-
-.menu {
-  background-color: black;
-  color: white;
 }

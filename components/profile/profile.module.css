@@ -1,6 +1,6 @@
 .profile-page {
   position: absolute;
-  margin-top: 15%;
+  top: 30vh;
   z-index: 111111;
   left: 36%;
 }

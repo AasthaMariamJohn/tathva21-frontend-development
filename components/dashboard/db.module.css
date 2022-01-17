@@ -1,4 +1,4 @@
-.team ul{
+.team ul {
   list-style-type: none;
 }
 
@@ -6,6 +6,7 @@
   width: 100vw;
   background-size: cover;
   position: absolute;
+  height: 100vh;
   top: 200px;
   bottom: 0;
   color: white;
@@ -16,12 +17,13 @@
 }
 .main2 {
   width: 50%;
+  /* max-height:40vh ; */
   background: rgba(0, 0, 0, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin-top: 25px;
   border-radius: 10px;
-  border:  1.52903px solid #49E9FF;
+  border: 1.52903px solid #49e9ff;
   border-image-slice: 1;
   /* margin-left: 30%; */
   display: grid;
@@ -39,10 +41,10 @@
   max-width: 100%;
   margin: 0 8px;
 }
-.eventcard{
+.eventcard {
   width: 302px;
   height: 334px;
-   border: 1.52903px solid #49E9FF;
+  border: 1.52903px solid #49e9ff;
 }
 
 .eventname {
@@ -107,6 +109,9 @@
 .img_desktop {
   display: block;
 }
+.img_desktop img {
+  max-width: 100%;
+}
 
 .img_mobile {
   display: none;
@@ -115,20 +120,48 @@
 .listmobile {
   display: none;
 }
-.section1{
+.section1 {
   display: flex;
-  justify-content: space-between;
-  
-} 
-.team{
-  margin :auto;
-  width: min(500px,90vw);
-  
+  justify-content: space-around;
+  padding: 0 3em;
+}
+.team {
+  margin: auto;
+  width: min(500px, 90vw);
+
   padding: 1rem;
   border: 1.56886px solid rgba(73, 233, 255, 0.6);
   border-radius: 5px;
 }
-.teammember{
+.members {
+  max-height: 170px;
+  overflow-y: scroll;
+}
+
+.members::-webkit-scrollbar {
+  width: 5px;
+  background: rgba(196, 196, 196, 0.2);
+  border-radius: 33.2228px;
+  overflow-x: visible;
+}
+.members::-webkit-scrollbar-thumb {
+  height: 30px;
+  width: 8px;
+  background: rgba(73, 233, 255, 0.91);
+  border: 0.825433px solid #5aebff;
+}
+.members::-webkit-scrollbar-button {
+  height: 35px;
+}
+.line {
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  margin: auto 0;
+  height: 300px;
+}
+.teammember {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -136,71 +169,60 @@
 
   border-bottom: 0.805882px solid rgba(73, 233, 255, 0.58);
 }
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   width: 320px;
- max-width: 100%;
+  max-width: 100%;
   padding: 0.25rem 2rem;
 
   background: rgba(73, 233, 255, 0.41);
 }
-.addmember{
-  margin:0 auto;
+.addmember {
+  margin: 0 auto;
   padding: 0 auto;
   font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 12.9196px;
-line-height: 16px;
-color: rgba(73, 233, 255, 0.58);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12.9196px;
+  line-height: 16px;
+  color: rgba(73, 233, 255, 0.58);
 }
-.addmember p{
-margin: auto;
+.addmember p {
+  margin: auto;
 }
 
-.section2{
+.section2 {
   width: 90vw;
   padding: 4rem;
-  border:1.52903px solid #49E9FF;
+  border: 1.52903px solid #49e9ff;
   box-sizing: border-box;
   border-radius: 10px;
-  margin:20px auto;
-  
-
+  margin: 20px auto;
 }
-.section2content{
-max-width: 100%;
-  width:max(50vw,530px)
+.section2content {
+  max-width: 100%;
+  width: max(50vw, 530px);
 }
-.img{
-padding: 20px;
+.img {
+  padding: 20px;
 }
-.note{
-max-width:min(500px,80vw);
-padding: 1em;
-opacity: 0.6;
-font-family: Oxanium;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;}
 /*-------------------------------------------------------------dropbox*/
 
-.dropbox{
+.dropbox {
   border: 0.810811px dashed rgba(73, 233, 255, 0.58);
   width: 200px;
   height: 70px;
-  
-font-family: Astrohead FREE;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 11px;
 
-color: #696969;
-padding: auto;
+  font-family: Astrohead FREE;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 11px;
+
+  color: #696969;
+  padding: auto;
 }
 
 @media screen and (max-width: 1200px) {
@@ -216,8 +238,13 @@ padding: auto;
     border-image-slice: 1;
     margin-top: 50px;
   }
-  
-  
+
+  .line {
+    border: 0;
+    border-right: 3px solid white;
+    border-left: 3px solid white;
+    margin: 0 auto;
+  }
 
   .img_desktop {
     border: 2px solid #49e9ff;
@@ -230,7 +257,7 @@ padding: auto;
     display: block;
     width: 100%;
   }
-  .section1{
+  .section1 {
     display: block;
   }
   .content {
