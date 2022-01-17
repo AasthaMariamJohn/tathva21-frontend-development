@@ -1,16 +1,73 @@
+import { useUserContext } from "@/context/userContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect } from "react";
+import getWorkshopWithName from "@/lib/workshops/getWorkshop";
+import getRegisteredWorkshopInfo from "@/lib/workshops/getRegisteredWorkshopInfo";
+import styles from "@/components/dashboard/db.module.css";
+import Loader from "@/components/common/loader";
+import EventComponent from "@/components/dashboard/EventComponent";
+import { useRouter } from "next/router";
+import Overlay from "@/components/common/overlay";
 
-export default function DashboardLectureName(){
-      return(
-            <div>
-                  <ToastContainer/>
-            </div>
-      )
+export default function DashboardWorkshopName() {
+  return (
+    <div>
+      <ToastContainer />
+      <Overlay>
+        <Dashboard />
+      </Overlay>
+    </div>
+  );
 }
-function Dashboard(){
-      return(
-            <div>
-            </div>   
-      )
+function Dashboard() {
+  const { user, userWorkshops } = useUserContext();
+  const router = useRouter();
+  const { workshopName } = router.query;
+  const [Workshop, setWorkshop] = useState(null);
+  const [userWorkshopId, setUserWorkshopId] = useState(null);
+  const [userWorkshopDetails, setUserWorkshopDetails] = useState(null);
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  useEffect(() => {
+    if (workshopName) {
+      getWorkshopWithName(workshopName, setWorkshop);
+    }
+  }, [workshopName]);
+
+  useEffect(() => {
+    if (Workshop && userWorkshops) {
+      for (var i = 0; i < userWorkshops.length; i++) {
+        if (userWorkshops[i].userWorkshopId == Workshop.id) {
+          setUserWorkshopId(userWorkshops[i].userWorkshopId);
+          setIsRegistered(true);
+        }
+      }
+    }
+  }, [Workshop, userWorkshops]);
+
+  useEffect(() => {
+    if (isRegistered && Workshop && userWorkshopId) {
+      getRegisteredWorkshopInfo(
+        userWorkshopId,
+        user.jwt,
+        setWorkshop,
+        setUserWorkshopDetails
+      );
+    }
+  }, [isRegistered]);
+
+  return (
+    <div className={styles["main"]}>
+      {Workshop && isRegistered && userWorkshopDetails ? (
+        <div className={styles["grid"]}>
+          <div className={styles["section1"]}>
+            <EventComponent event={Workshop}></EventComponent>
+          </div>
+        </div>
+      ) : (
+        <Loader />
+      )}
+    </div>
+  );
 }

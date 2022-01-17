@@ -8,14 +8,16 @@ import getRegisteredLectureInfo from "@/lib/lectures/getRegisterLectureInfo";
 
 import styles from "@/components/dashboard/db.module.css";
 import Loader from "@/components/common/loader";
-import Ewl_component from "@/components/common/Ewl_component";
 import EventComponent from "@/components/dashboard/EventComponent";
+import Overlay from "@/components/common/overlay";
 
 export default function DashboardLectureName() {
   return (
     <div>
       <ToastContainer />
-      <Dashboard/>
+      <Overlay>
+        <Dashboard />
+      </Overlay>
     </div>
   );
 }
