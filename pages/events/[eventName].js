@@ -57,7 +57,7 @@ export default function EventName() {
   return (
     <div>
       <Event>
-        {Event1?<Ewl_component event={Event1}/>:<Loader/>}
+        {Event1?<Ewl_component event={Event1} type={"event"}/>:<Loader/>}
         
       </Event>
       <ToastContainer></ToastContainer>
