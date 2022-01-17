@@ -59,7 +59,7 @@ export default function LectureName() {
   return (
     <div>
       <Lecture>
-        {Lecture1?<Ewl_component event={Lecture1}/>:<Loader/>}
+        {Lecture1?<Ewl_component event={Lecture1} type="lecture"/>:<Loader/>}
         
       </Lecture>
       <ToastContainer></ToastContainer>
