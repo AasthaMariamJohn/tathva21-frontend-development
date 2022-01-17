@@ -91,9 +91,9 @@ const Navbar = () => {
                 <ol className={style["navbar-list"]}>
                   {links.map((link) => (
                     <li key={link.id} className={style["navbar-link"]}>
-                      <Link href={link.link}>
+                      <button>
                         <a id={`${link.title}-link`}>{link.title}</a>
-                      </Link>
+                      </button>
                     </li>
                   ))}
                 </ol>
