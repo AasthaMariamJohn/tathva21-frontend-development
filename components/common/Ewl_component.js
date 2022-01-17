@@ -7,7 +7,9 @@ import displayRazorpay from "@/components/common/razerpay";
 import { useUserContext } from "@/context/userContext";
 import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
-export default function Ewl_component({event}) {
+import registerLecture from "@/lib/lectures/registerLecture";
+import registerWorkshop from "@/lib/workshops/registerWorkshop";
+export default function Ewl_component({ event, type }) {
   const eventdetails = {
     info: event.description,
     rules: event.rules,
@@ -16,8 +18,8 @@ export default function Ewl_component({event}) {
   };
   const [body, setBody] = useState(eventdetails.info);
 
-  const {user,isLoggedIn}=useUserContext()
-  const router =useRouter()
+  const { user, isLoggedIn } = useUserContext();
+  const router = useRouter();
 
   return (
     <>
@@ -74,23 +76,32 @@ export default function Ewl_component({event}) {
         </div>
         <p className={style.des}>{body}</p>
         <Center>
-          <div className={style.button} data-augmented-ui 
-            onClick={()=>{
-              if(isLoggedIn){
-                if(event.regPrice){
-                  displayRazorpay(event,user,"event",event.regPrice)
+          <div
+            className={style.button}
+            data-augmented-ui
+            onClick={() => {
+              if (isLoggedIn) {
+                if (event.regPrice) {
+                  if (type == "event")
+                    displayRazorpay(event, user, "event", event.regPrice);
+                  else if (type == "workshop")
+                    displayRazorpay(event, user, "workshop", event.regPrice);
+                  else if (type == "lecture")
+                    displayRazorpay(event, user, "lecture", event.regPrice);
+                } else {
+                  if(type=="event")
+                  registerEvent(event, user.id, user.jwt, router);
+                  else if(type=="lecture")
+                    registerLecture(event, user.id, user.jwt, router)
+                  else if(type=="workshop")
+                    registerWorkshop(event, user.id, user.jwt, router)
+                }
+              } else {
+                Login(router);
               }
-              else{
-                registerEvent(event.id,user.id,user.jwt,router)
-              }
-              }
-              else{
-                Login(router)
-              }
-              
             }}
           >
-            REGISTER for {event.regPrice?<>{event.regPrice}</>:<>Free</>}
+            REGISTER for {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
           </div>
         </Center>
       </div>
