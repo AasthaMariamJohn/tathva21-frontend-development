@@ -6,6 +6,7 @@ import { Login } from "@/lib/user/login";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 export default function Me() {
       const {isLoggedIn}=useUserContext()
@@ -21,8 +22,11 @@ export default function Me() {
                   <Head>
                         <title>Profile</title>
                   </Head>
+                  <ToastContainer limit={1} />
+
                   <Overlay>
                   <Main/>
+
                   </Overlay>
             </ProfileWrapper>
       )

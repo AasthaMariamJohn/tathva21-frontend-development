@@ -5,7 +5,7 @@ export default function Events() {
   return (
     <div>
       <Overlay>
-        <ComingSoon />
+        <ComingSoon event={"Events"} time={"05 26 2029, 6:00 am"}/>
       </Overlay>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useProfileContext } from "@/context/profileContext";
 import { useUserContext } from "@/context/userContext";
+import { useState } from "react";
 import getMe from "@/lib/profile/getMe";
 import updateMe from "@/lib/profile/updateMe";
 import {
@@ -16,7 +17,7 @@ import styles from "./profile.module.css";
 import Loader from "../common/loader";
 import { AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Main() {
   const {
@@ -28,8 +29,10 @@ export default function Main() {
     allInOne,
   } = useProfileContext();
   const { user } = useUserContext();
+  const [shown, setShown] = useState(false)
   useEffect(() => {
     if (user) getMe(user.jwt, setUserProfile);
+   if(!shown){
     toast.warn("Name can be updated only once", {
       position: "bottom-center",
       autoClose: false,
@@ -39,6 +42,8 @@ export default function Main() {
       draggable: true,
       progress: undefined,
     });
+    setShown(true)
+   }
   }, [user]);
 
   function Cancel() {
@@ -56,7 +61,7 @@ export default function Main() {
               updateMe(user, allInOne);
             }}
           >
-            {inEditMode ? <AiOutlineSave style={{color:"white"}}/> : <></>}
+            {inEditMode ? <AiOutlineSave style={{ color: "white" }} /> : <></>}
           </div>
           <div
             className={styles["edit-icon"]}
@@ -67,7 +72,11 @@ export default function Main() {
               }
             }}
           >
-            {inEditMode ? <ImCancelCircle style={{color:"white"}}/> : <AiOutlineEdit style={{color:"white"}}/>}
+            {inEditMode ? (
+              <ImCancelCircle style={{ color: "white" }} />
+            ) : (
+              <AiOutlineEdit style={{ color: "white" }} />
+            )}
           </div>
           <table className={styles["table"]}>
             <tbody>
@@ -115,7 +124,6 @@ export default function Main() {
               </tr>
             </tbody>
           </table>
-          <ToastContainer/>
         </div>
       ) : (
         <Loader />

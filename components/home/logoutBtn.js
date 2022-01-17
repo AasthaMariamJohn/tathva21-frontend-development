@@ -29,7 +29,6 @@ export default function LogoutBtn() {
   }
   return (
     <div>
-      <ToastContainer/>
       <button onClick={Logout}>Logout</button>
     </div>
   );

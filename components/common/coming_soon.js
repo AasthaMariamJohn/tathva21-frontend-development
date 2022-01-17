@@ -1,9 +1,10 @@
 import styles from "./comingsoon.module.css";
 import { useState ,useEffect} from "react";
 import moment from "moment";
-export default function ComingSoon() {
-      const timeTillDate="05 26 2029, 6:00 am" 
-	const timeFormat="MM DD YYYY, h:mm a" 
+export default function ComingSoon({event,time}) {
+      // const timeTillDate="05 26 2029, 6:00 am" 
+      const timeTillDate=time 
+	    const timeFormat="MM DD YYYY, h:mm a" 
 
       const [days, setDays] = useState(0)
       const [hours, setHours] = useState(0)
@@ -28,7 +29,7 @@ export default function ComingSoon() {
     <div className={styles["main"]}>
       <div className={styles["content"]}>
         <div className={styles["title"]}>
-          <span>Events</span>
+          <span>{event}</span>
         </div>
         <p>COMING SOON!</p>
         <section>
