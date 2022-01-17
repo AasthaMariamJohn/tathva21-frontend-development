@@ -8,9 +8,10 @@ import { ModelContainer } from "./nitc-model-loader";
 import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
 //import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import Loader2 from "../common/loader2";
+import { useRouter } from "next/router";
 
 const TWEEN = require("@tweenjs/tween.js");
-
+ 
 const TweenAnimation = (
   controls,
   camera,
@@ -19,7 +20,9 @@ const TweenAnimation = (
   z,
   duration,
   easing,
-  onComplete
+  onComplete,
+  router=null,
+  pushTo=null
 ) => {
   const target = { x: x, y: y, z: z };
   // controls.target = new THREE.Vector3(target.x,target.y,target.z);
@@ -27,12 +30,15 @@ const TweenAnimation = (
     .to(target, duration)
     .easing(easing)
     .onComplete(() => {
-      onComplete(controls);
+      onComplete(controls,router,pushTo);
     });
   tween.start();
 };
 
 const Button3D = (name, scene, x, y, z) => {
+
+
+
   const mesh = new THREE.Mesh(
     new THREE.SphereBufferGeometry(1, 1, 1),
     new THREE.MeshStandardMaterial({ color: 0xff0000 })
@@ -70,9 +76,14 @@ function onTouchStart(event, mouse){
   // rest of your code
 
 }
-const onAnimationComplete = (controls) => {
+const onAnimationComplete = (controls, router=null,pushTo=null) => {
   controls.enabled = true;
   console.log("animation done");
+  if(router!==null&&pushTo!==null){
+    router.push(pushTo);
+  }
+  
+
 };
 function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
   raycaster.setFromCamera(mouse, camera);
@@ -224,6 +235,11 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
 }
 
 const NITCModel3D = () => {
+
+  // Defining Router
+  const router = useRouter()
+
+
   const refContainer = useRef();
   const [loading, setLoading] = useState(true);
 
@@ -424,7 +440,9 @@ const NITCModel3D = () => {
           position.z,
           3000,
           TWEEN.Easing.Back.Out,
-          onAnimationComplete
+          onAnimationComplete,
+          router,
+          "/events"
         );
       });
       document.getElementById("Workshops-link").addEventListener("click", () => {
@@ -437,7 +455,9 @@ const NITCModel3D = () => {
           position.z,
           3000,
           TWEEN.Easing.Back.Out,
-          onAnimationComplete
+          onAnimationComplete,
+          router,
+          '/workshops'
         );
       });
       document.getElementById("Lecture-link").addEventListener("click", () => {
@@ -450,7 +470,9 @@ const NITCModel3D = () => {
           position.z,
           3000,
           TWEEN.Easing.Back.Out,
-          onAnimationComplete
+          onAnimationComplete,
+          router,
+          "/lectures"
         );
       });
       // document.getElementById("Profile-link").addEventListener("click", () => {
