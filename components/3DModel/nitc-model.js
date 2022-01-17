@@ -10,7 +10,7 @@ import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } f
 import Loader2 from "../common/loader2";
 
 const TWEEN = require("@tweenjs/tween.js");
-
+ 
 const TweenAnimation = (
   controls,
   camera,
