@@ -9,14 +9,13 @@ import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 
 export default function Me() {
-      const {isLoggedIn}=useUserContext()
+      const {isLoggedIn,user}=useUserContext()
       const router=useRouter()
-      console.log(isLoggedIn)
-      // useEffect(()=>{
-      //       if(!isLoggedIn)[
-      //             Login(router)
-      //       ]
-      // },[isLoggedIn])
+      useEffect(()=>{
+            if(!isLoggedIn && !user)[
+                  Login(router)
+            ]
+      },[isLoggedIn])
       return (
             <ProfileWrapper>
                   <Head>
