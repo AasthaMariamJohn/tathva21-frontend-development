@@ -21,7 +21,7 @@ export default function Me() {
                   <Head>
                         <title>Profile</title>
                   </Head>
-                  <ToastContainer limit={1} />
+                  <ToastContainer />
 
                   <Overlay>
                   <Main/>

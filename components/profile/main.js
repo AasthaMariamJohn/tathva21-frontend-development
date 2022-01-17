@@ -57,8 +57,9 @@ export default function Main() {
           <div
             className={styles["save-icon"]}
             onClick={() => {
-              setInEditMode(false);
               updateMe(user, allInOne);
+              setInEditMode(false);
+
             }}
           >
             {inEditMode ? <AiOutlineSave style={{ color: "white" }} /> : <></>}

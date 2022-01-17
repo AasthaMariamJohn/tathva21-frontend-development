@@ -1,10 +1,6 @@
-import { ToastContainer, toast } from "react-toastify";
-import { injectStyle } from "react-toastify/dist/inject-style";
-
-if (typeof window !== "undefined") {
-      injectStyle();
-    }
+import {  toast } from "react-toastify";
 export default  function updateSuccessMessage() {
+  console.log(" Profile Update Successfully");
   toast.success(" Profile Update Successfully", {
     position: "top-right",
     autoClose: 5000,
