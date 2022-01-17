@@ -20,28 +20,11 @@ export default function Dashboard() {
   const [userEventDetails, setUserEventDetails] = useState(null);
   const [isRegistered, setIsRegistered] = useState(false);
 
-<<<<<<< HEAD
-
-
-
-export default function Dashboard() {
-    return (
-        <div className={style.main}>
-
-            <div className={style.grid}>
-                <div className={style.section1}>
-                    <EventComponent />
-                    <Team />
-                </div>
-                <Section2 />
-            </div>
-=======
   useEffect(() => {
     if (eventName) {
       getEventWithName(eventName, setEvent);
     }
   }, [eventName]);
->>>>>>> dec4e29181132beeb1f4d1eb002a5021f0510659
 
   useEffect(() => {
     if (Event && userEvents) {
@@ -74,13 +57,9 @@ export default function Dashboard() {
           </div>
           <Section2 refId={userEventId} jwt={user.jwt} />
         </div>
-<<<<<<< HEAD
-    )
-=======
       ) : (
         <Loader />
       )}
     </div>
   );
->>>>>>> dec4e29181132beeb1f4d1eb002a5021f0510659
 }
