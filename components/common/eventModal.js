@@ -60,7 +60,7 @@ export default function BasicUsage() {
   const [xcor, setXcor] = useState(null);
   const [ycor, setYcor] = useState(null);
  
-  const { modelIsOpen, setModelIsOpen, mouse } = useUtilityContext();
+  const { modelIsOpen, setModelIsOpen, mouse,title,link,building } = useUtilityContext();
   function printMousePos(event) {
     setXcor(event.clientX);
     setYcor(event.clientY);
@@ -114,11 +114,11 @@ export default function BasicUsage() {
               <AiOutlineClose />
             </button>
           </div>
-          <div className={style.modalname}>Event</div>
-          <div className={style.modalbuildname}>Aryabatta hall</div>
-          <div className={style.modalview}>
+          <div className={style.modalname}>{title}</div>
+          <div className={style.modalbuildname}>{building}</div>
+          {/* <div className={style.modalview}>
             <button>View</button>
-          </div>
+          </div> */}
         </div>
       )}
     </>
