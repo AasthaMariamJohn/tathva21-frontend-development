@@ -2,7 +2,7 @@
 import DonateBtn from '@/components/common/donateBtn'
 import Head from 'next/head'
 import BasicUsage from '@/components/common/eventModal'
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect } from 'react'
 import { Login } from '@/lib/user/login'
 import { useRouter } from 'next/router'
 import { useUserContext } from '@/context/userContext'
