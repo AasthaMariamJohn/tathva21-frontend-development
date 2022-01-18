@@ -285,7 +285,7 @@ const NITCModel3D = () => {
         antialias: true,
         alpha: true,
       });
-      renderer.physicallyCorrectLights = true;
+      renderer.physicallyCorrectLights = false;
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(scW, scH);
       renderer.outputEncoding = THREE.sRGBEncoding;

@@ -29,25 +29,25 @@ export function loadGLTFModel(
       });
         scene.add(obj)
 
-        obj.traverse(function (child) {
-          if (child.isMesh) {
-            child.castShadow = true
-            child.receiveShadow = true
-            child.material.depthWrite = !child.material.transparent;
-          }
+        // obj.traverse(function (child) {
+        //   if (child.isMesh) {
+        //     child.castShadow = true
+        //     child.receiveShadow = true
+        //     child.material.depthWrite = !child.material.transparent;
+        //   }
 
-          // if (child.isLight) {
-          //   console.log(1);
-          //   const l = child;
-          //   l.castShadow = true;
-          //   l.shadow.bias = -0.003;
-          //   l.shadow.mapSize.width = 2048;
-          //   l.shadow.mapSize.height = 2048;
+        //   // if (child.isLight) {
+        //   //   console.log(1);
+        //   //   const l = child;
+        //   //   l.castShadow = true;
+        //   //   l.shadow.bias = -0.003;
+        //   //   l.shadow.mapSize.width = 2048;
+        //   //   l.shadow.mapSize.height = 2048;
        
-          // }
+        //   // }
 
 
-        })
+        // })
         resolve(obj)
       },
       undefined,
