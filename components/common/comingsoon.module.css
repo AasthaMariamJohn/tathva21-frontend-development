@@ -1,14 +1,13 @@
- .main {
+.main {
   position: absolute;
   width: 100%;
   background-size: cover;
   /* background-color: rgba(0, 0, 0, 0.76); */
   background-size: cover;
 }
-.content
-{
-  background-color: rgba(0, 0, 0, 0.76);
-  backdrop-filter: blur(15px);
+.content {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
   border-radius: 25px;
   width: 100%;
   max-width: 600px;
@@ -18,33 +17,32 @@
   position: relative;
   text-align: center;
   top: 33%;
-  font-family: 'quantico';
+  font-family: "quantico";
 }
-.title
- {
+.title {
   color: white;
   font-family: "Quicksand", sans-serif;
   font-size: 4rem;
   text-transform: uppercase;
   padding-bottom: 0px;
   margin-bottom: 0px;
-  font-family: 'batman_forever';
+  font-family: "batman_forever";
 }
 .title span {
   font-size: 4rem;
   cursor: pointer;
 }
-.title:hover
- {
+.title:hover {
   -webkit-animation: MISSION-HOVER 1.5s infinite;
   animation: MISSION-HOVER 1.5s infinite;
   -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-direction: alternate;
   -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
+  animation-timing-function: ease;
 }
 @-webkit-keyframes MISSION-HOVER {
-  0%, 100% {
+  0%,
+  100% {
     font-size: 4rem;
     color: white;
   }
@@ -54,8 +52,7 @@
     text-shadow: 0px 0px 30px #bffcff;
   }
 }
-.main p
-{
+.main p {
   color: #e6dbae;
   font-family: "Quicksand", sans-serif;
   font-size: 1.5rem;
@@ -63,10 +60,9 @@
   padding: 0;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
-  font-family: 'batman_forever';
+  font-family: "batman_forever";
 }
-.main p:last-child
- {
+.main p:last-child {
   font-size: 0.75rem;
   font-weight: 700;
   margin: 3em auto;
@@ -79,11 +75,10 @@
   color: inherit;
   transition: all 0.2s ease-in;
 }
- .main  p:last-child > a:hover{
+.main p:last-child > a:hover {
   color: #fff;
 }
-.main  section
-{
+.main section {
   color: #fff;
   margin: 100px auto;
   line-height: 24px;
@@ -91,19 +86,19 @@
   font-weight: 700;
 }
 
-.main  section ul {
+.main section ul {
   list-style-type: none;
   margin-bottom: 0;
   margin-left: 0;
 }
 
- .main  section ul li {
+.main section ul li {
   display: inline-block;
   margin-right: 2rem;
   width: 6rem;
 }
 
- .timenumbers {
+.timenumbers {
   display: block;
   font-size: 1.3rem;
   font-weight: 400;
