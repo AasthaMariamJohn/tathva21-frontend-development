@@ -16,7 +16,7 @@ export default function BasicUsage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Overlay>
+      {/* <Overlay> */}
         <Button onClick={onOpen}>Open Modal</Button>
 
         <Modal isOpen={isOpen} onClose={onClose}>
@@ -36,7 +36,7 @@ export default function BasicUsage() {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </Overlay>
+      {/* </Overlay> */}
     </>
   );
 }
