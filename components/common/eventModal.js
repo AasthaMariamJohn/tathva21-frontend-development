@@ -1,3 +1,4 @@
+import { useUtilityContext } from "@/context/utilityContext";
 import {
   Modal,
   ModalOverlay,
@@ -10,14 +11,24 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
-
+import { useEffect } from "react";
 export default function BasicUsage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const {modelIsOpen,setModelIsOpen}=useUtilityContext()
+  
+  function toggle(){
+    if(modelIsOpen)
+      setModelIsOpen(false)
+    else
+      setModelIsOpen(true)
+  }
+
   return (
     <>
-        <Button onClick={onOpen}>Open Modal</Button>
+        {/* <Button onClick={onOpen}>Open Modal</Button> */}
 
-        <Modal isOpen={isOpen} onClose={onClose} >
+        <Modal isOpen={modelIsOpen} onClose={toggle} >
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Modal Title</ModalHeader>
