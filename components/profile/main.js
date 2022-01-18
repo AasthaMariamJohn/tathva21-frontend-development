@@ -29,6 +29,7 @@ import {
   TableCaption,
   Button,
   Box,
+  Container,
 } from "@chakra-ui/react";
 export default function Main() {
   const {
@@ -91,7 +92,8 @@ export default function Main() {
           </div> */}
           <Table className={styles["table"]} variant={"unstyled"}>
             <TableCaption>
-              <Box pl={9} w={"100%"} display={"flex"} color={"blue.200"}>
+              <Container centerContent>
+              <Box pl={9} w={"100%"} display={"flex"} color={"blue.200"} >
                 <Button
                   onClick={() => {
                     if (!inEditMode) setInEditMode(true);
@@ -105,7 +107,7 @@ export default function Main() {
                 >
                   {inEditMode ? <>Cancel</> : <>Edit</>}
                 </Button>
-                {/* <Box
+                <Box
                   p={4}
                   color={"red"}
                   fontWeight="semibold"
@@ -115,8 +117,8 @@ export default function Main() {
                   ml="2"
                   as="h4"
                 >
-                  Name Can be Edited Only Once
-                </Box> */}
+                  please fill this
+                </Box>
                 {inEditMode ? (
                   <Button
                     onClick={() => {
@@ -133,6 +135,7 @@ export default function Main() {
                   <></>
                 )}
               </Box>
+              </Container>
             </TableCaption>
             <Tbody>
               <Tr className={styles["table-row"]}>
