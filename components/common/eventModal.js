@@ -109,11 +109,11 @@ export default function BasicUsage() {
           ref={wrapperRef}
           style={{ top: `${mouseRevertY(mouse.y)}px`, left: `${mouseRevertX(mouse.x)}px` }}
         >
-          <div className={style.modalclose}>
+          {/* <div className={style.modalclose}>
             <button onClick={toggle}>
               <AiOutlineClose />
             </button>
-          </div>
+          </div> */}
           <div className={style.modalname}>{title}</div>
           <div className={style.modalbuildname}>{building}</div>
           {/* <div className={style.modalview}>
