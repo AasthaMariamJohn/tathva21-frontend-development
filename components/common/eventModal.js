@@ -17,7 +17,7 @@ export default function BasicUsage() {
   return (
     <>
       {/* <Overlay> */}
-        <Button onClick={onOpen}>Open Modal</Button>
+        {/* <Button onClick={onOpen}>Open Modal</Button> */}
 
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
