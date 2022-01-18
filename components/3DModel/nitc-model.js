@@ -9,6 +9,7 @@ import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } f
 //import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import Loader2 from "../common/loader2";
 import { useRouter } from "next/router";
+import { useUtilityContext } from "@/context/utilityContext";
 
 
 const ButtonPrimaryHex = 0xFFE9E5
@@ -248,6 +249,17 @@ const NITCModel3D = () => {
 
   // Defining Router
   const router = useRouter()
+
+  // Modal Stuff
+  const { modelIsOpen, setModelIsOpen, setMouse, setBuilding,setLink, setTitle } = useUtilityContext()
+  const modalStuff = {
+    modelIsOpen : modelIsOpen,
+    setModelIsOpen : setModelIsOpen,
+    setMouse: setMouse,
+    setBuilding: setBuilding,
+    setLink: setLink,
+    setTitle: setTitle
+  }
 
 
   const refContainer = useRef();
@@ -527,8 +539,8 @@ const NITCModel3D = () => {
         }
         
         composer.render(delta);
-        resetHover(scene);
-        hoverButtons(scene, camera, raycaster, mouse);
+        resetHover(scene, modalStuff);
+        hoverButtons(scene, camera, raycaster, mouse, modalStuff);
         
         //renderer.render(scene, camera);
       };
@@ -593,7 +605,7 @@ const NITCModel3D = () => {
   }, [loading]);
 
   // hovering over buttons
-  const hoverButtons = (scene, camera, raycaster, mouse) => {
+  const hoverButtons = (scene, camera, raycaster, mouse, modalStuff=null) => {
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(scene.children);
     for (let i = 0; i < intersects.length; i++) {
@@ -602,30 +614,68 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("ECLC");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
       } else if (intersects[i].object.name === "ARYABHATAButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Aryabhata");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
       } else if (intersects[i].object.name === "MBButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Main Building");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
       } else if (intersects[i].object.name === "CCCButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Central Computing Center");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
       } else if (intersects[i].object.name === "ArchieButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Archie");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
+        
       }
+      
+      
     }
   };
-  const resetHover = (scene) => {
+  const resetHover = (scene, modalStuff=null) => {
     const eclcbutton = scene.getObjectByName("ECLCButton");
     const aryabhatabutton = scene.getObjectByName("ARYABHATAButton");
     const mbbutton = scene.getObjectByName("MBButton");
@@ -660,6 +710,10 @@ const NITCModel3D = () => {
       archibutton.scale.x = 1;
       archibutton.scale.y = 1;
       archibutton.scale.z = 1;
+    }
+    if (modalStuff.modelIsOpen!==null)
+    {
+      modalStuff.setModelIsOpen(false);
     }
   };
 

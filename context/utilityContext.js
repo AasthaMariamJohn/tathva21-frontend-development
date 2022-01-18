@@ -4,10 +4,11 @@ const utilityContext = createContext();
 utilityContext.displayName = "utilityContext";
 
 export function UtilityWrapper({ children }) {
-  const [modelIsOpen, setModelIsOpen] = useState(true);
+  const [modelIsOpen, setModelIsOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [building, setBuilding] = useState("");
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   return (
     <utilityContext.Provider
@@ -21,8 +22,8 @@ export function UtilityWrapper({ children }) {
         setLink: setLink,
         setBuilding: setBuilding,
         building: building,
-        setBuilding,
-        setBuilding,
+        mouse: mouse,
+        setMouse: setMouse
       }}
     >
       {children}
