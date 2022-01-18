@@ -1,4 +1,4 @@
-import style from "./ewl.module.css";
+// import style from "./ewl.module.css";
 import Ewl_component from "../common/Ewl_component";
 import { Center } from "@chakra-ui/react";
 
