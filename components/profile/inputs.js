@@ -12,6 +12,7 @@ export function NameInput() {
       disabled={inEditMode ? (name ? "disbled" : "") : "disabled"}
       name="name"
       value={name ? name : ""}
+      placeholder={name?"":"Name Can be Edited Only Once"}
       onChange={handleNameChange}
     ></input>
   );
