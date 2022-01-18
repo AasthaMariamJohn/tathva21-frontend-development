@@ -10,6 +10,11 @@ import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } f
 import Loader2 from "../common/loader2";
 import { useRouter } from "next/router";
 
+
+const ButtonPrimaryHex = 0xFFE9E5
+const ButtonSecondaryHex = 0xFFE9E5
+
+
 const TWEEN = require("@tweenjs/tween.js");
  
 const TweenAnimation = (
@@ -40,16 +45,18 @@ const Button3D = (name, scene, x, y, z) => {
 
 
   const mesh = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.2, 1, 32 ),
-    new THREE.MeshStandardMaterial({ color: 0xffff00, side: THREE.DoubleSide })
+    new THREE.RingBufferGeometry( 0.2, 0.9, 32 ),
+    new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex, side: THREE.DoubleSide })
   );
   const meshMobile =  new THREE.Mesh(
     new THREE.SphereBufferGeometry(3),
-    new THREE.MeshStandardMaterial({ color: 0xff0000 })
+    new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex })
   );
  
   
   mesh.position.set(x, y, z);
+  mesh.emissive = new THREE.Color(ButtonPrimaryHex);
+  mesh.emissiveIntensity = 1;
   meshMobile.position.set(x, y, z);
   mesh.name = name;
   meshMobile.name = name +'Mobile';
@@ -471,7 +478,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          1500,
+         1500,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
@@ -591,27 +598,27 @@ const NITCModel3D = () => {
     const intersects = raycaster.intersectObjects(scene.children);
     for (let i = 0; i < intersects.length; i++) {
       if (intersects[i].object.name === "ECLCButton") {
-        intersects[i].object.material.color.setHex(0x0000ff);
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
       } else if (intersects[i].object.name === "ARYABHATAButton") {
-        intersects[i].object.material.color.setHex(0x0000ff);
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
       } else if (intersects[i].object.name === "MBButton") {
-        intersects[i].object.material.color.setHex(0x0000ff);
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
       } else if (intersects[i].object.name === "CCCButton") {
-        intersects[i].object.material.color.setHex(0x0000ff);
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
       } else if (intersects[i].object.name === "ArchieButton") {
-        intersects[i].object.material.color.setHex(0x0000ff);
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
@@ -625,31 +632,31 @@ const NITCModel3D = () => {
     const CCCbutton = scene.getObjectByName("CCCButton");
     const archibutton = scene.getObjectByName("ArchieButton");
     if (eclcbutton) {
-      eclcbutton.material.color.setHex(0x0000FF);
+      eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
       eclcbutton.scale.y = 1;
       eclcbutton.scale.z = 1;
     }
     if (aryabhatabutton) {
-      aryabhatabutton.material.color.setHex(0x0000FF);
+      aryabhatabutton.material.color.setHex(ButtonPrimaryHex);
       aryabhatabutton.scale.x = 1;
       aryabhatabutton.scale.y = 1;
       aryabhatabutton.scale.z = 1;
     }
     if (mbbutton) {
-      mbbutton.material.color.setHex(0x0000FF);
+      mbbutton.material.color.setHex(ButtonPrimaryHex);
       mbbutton.scale.x = 1;
       mbbutton.scale.y = 1;
       mbbutton.scale.z = 1;
     }
     if (CCCbutton) {
-      CCCbutton.material.color.setHex(0x0000FF);
+      CCCbutton.material.color.setHex(ButtonPrimaryHex);
       CCCbutton.scale.x = 1;
       CCCbutton.scale.y = 1;
       CCCbutton.scale.z = 1;
     }
     if (archibutton) {
-      archibutton.material.color.setHex(0x0000FF);
+      archibutton.material.color.setHex(ButtonPrimaryHex);
       archibutton.scale.x = 1;
       archibutton.scale.y = 1;
       archibutton.scale.z = 1;
