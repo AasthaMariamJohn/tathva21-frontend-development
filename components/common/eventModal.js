@@ -10,13 +10,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
-import Overlay from "./overlay";
 
 export default function BasicUsage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      {/* <Overlay> */}
         <Button onClick={onOpen}>Open Modal</Button>
 
         <Modal isOpen={isOpen} onClose={onClose} >
@@ -36,7 +34,6 @@ export default function BasicUsage() {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      {/* </Overlay> */}
     </>
   )
 }

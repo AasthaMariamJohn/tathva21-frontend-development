@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className={style.logo}>
             <div className={`${style.circle} ${style.circle2}`}>
               <div className={style.logo1}>
-                <button>
+                <Link href={"/"} passHref>
                   <a id="logo-link">
                     <Image
                       src={"/logo/navbarlogo.png"}
@@ -73,7 +73,7 @@ const Navbar = () => {
                       alt="Tathva"
                     ></Image>
                   </a>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -83,17 +83,17 @@ const Navbar = () => {
             </div>
             <div className={`${style.navbarg}`}>
               <div className={style["navbar-title"]}>
-                <button >
+                <Link href={"/"}>
                   <a id="tathva-title">{title.title}</a>
-                </button>
+                </Link>
               </div>
               <div>
                 <ol className={style["navbar-list"]}>
                   {links.map((link) => (
                     <li key={link.id} className={style["navbar-link"]}>
-                      <button>
+                      <Link href={link.link}>
                         <a id={`${link.title}-link`}>{link.title}</a>
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ol>

@@ -82,9 +82,9 @@ const onAnimationComplete = (controls, router=null,pushTo=null) => {
 
   controls.enabled = true;
   console.log("animation done");
-  if(router!==null&&pushTo!==null){
-    router.push(pushTo);
-  }
+  // if(router!==null&&pushTo!==null){
+  //   router.push(pushTo);
+  // }
   
 
 };
@@ -401,7 +401,7 @@ const NITCModel3D = () => {
           controls,
           camera,
           -10,47,16,
-          1000,
+          1500,
           TWEEN.Easing.Quartic.Out,
           onAnimationComplete,
           router,
@@ -413,7 +413,7 @@ const NITCModel3D = () => {
           controls,
           camera,
           -10,47,16,
-          1000,
+          1500,
           TWEEN.Easing.Quartic.Out,
           onAnimationComplete,
           router,
@@ -441,7 +441,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          1000,
+          1500,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
@@ -456,7 +456,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          1000,
+          1500,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
@@ -471,7 +471,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-         1000,
+          1500,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
