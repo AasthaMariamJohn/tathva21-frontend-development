@@ -43,7 +43,7 @@
   width: 220px;
   height: 220px;
   margin-left: 35px;
-  background-color: black;
+  background: inherit;
   display: flex;
   flex-direction: column;
 }

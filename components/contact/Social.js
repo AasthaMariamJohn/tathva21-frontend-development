@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import 'augmented-ui/augmented-ui.min.css'
 import style from 'styles/social.module.css'
 
 const Social = () => {
