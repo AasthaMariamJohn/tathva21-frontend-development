@@ -13,7 +13,7 @@ import { useUtilityContext } from "@/context/utilityContext";
 
 
 const ButtonPrimaryHex = 0xFFE9E5
-const ButtonSecondaryHex = 0xFFE9E5
+const ButtonSecondaryHex = 0xFFFFFF
 
 
 const TWEEN = require("@tweenjs/tween.js");
@@ -43,15 +43,15 @@ const TweenAnimation = (
 
 const Button3D = (name, scene, x, y, z) => {
 
-
+  
 
   const mesh = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.2, 0.9, 32 ),
+    new THREE.RingBufferGeometry( 0.1, 1, 32 ),
     new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex, side: THREE.DoubleSide })
   );
   const meshMobile =  new THREE.Mesh(
     new THREE.SphereBufferGeometry(3),
-    new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex })
+    new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
  
   
@@ -68,7 +68,7 @@ const Button3D = (name, scene, x, y, z) => {
 
   setInterval(() => {
     mesh.rotateY(degToRad(8));
-  }, 200);
+  }, 180);
 };
 
 function onMouseMove(event, mouse) {
@@ -333,7 +333,7 @@ const NITCModel3D = () => {
       setCamera(camera);
 
       // adding ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       // adding fog
       // const fog = new THREE.FogExp2(0x21211F, 0.01);
