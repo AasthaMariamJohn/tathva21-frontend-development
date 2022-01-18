@@ -11,7 +11,7 @@ const refund = () => {
             In case of any payment is made for any particular, there is no
             cancellation or refund policy. Any issue pertaining to this will be
             dealt with an individual basis with a point of contact from Tathva
-            Team, Contact us If you have any further queries,"(Details)"
+            Team, Contact us If you have any further queries,&quot;Details)&quot;
           </p>
         </div>
       </div>

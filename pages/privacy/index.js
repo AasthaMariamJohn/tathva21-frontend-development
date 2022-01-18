@@ -9,7 +9,7 @@ const privacy = () => {
           <h1 className={style.h1}>Privacy Policy</h1>
           <div className={style.para}>
             <p className={style.p}>
-              Privacy Policy Tathva'21 operates tathva.org. This page informs
+              Privacy Policy Tathva&apos;21 operates tathva.org. This page informs
               you of our policies regarding the collection, use and disclosure
               of information we receive from users of the site. By using this
               site, you agree to the collection and use of information in

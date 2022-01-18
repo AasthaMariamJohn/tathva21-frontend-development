@@ -19,7 +19,7 @@ const donate = () => {
                 Tathva. This year, Tathva aims to provide financial support
                 towards Covid treatment and relief activities, primarily through
                 the CM fund. The profits from the Tathva Lecture Series will be
-                donated to aid our nation in it's war against the global
+                donated to aid our nation in it&apos; s war against the global
                 pandemic. We have also included a provision to accept your
                 generous contributions to further our cause. Please feel free to
                 make a donation as your contribution can make a difference.
