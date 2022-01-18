@@ -79,6 +79,7 @@ function onTouchStart(event, mouse){
 
 }
 const onAnimationComplete = (controls, router=null,pushTo=null) => {
+
   controls.enabled = true;
   console.log("animation done");
   if(router!==null&&pushTo!==null){
@@ -399,24 +400,24 @@ const NITCModel3D = () => {
         TweenAnimation(
           controls,
           camera,
-          initialCameraPosition.x,
-          initialCameraPosition.y,
-          initialCameraPosition.z,
-          2000,
+          -10,47,16,
+          1000,
           TWEEN.Easing.Quartic.Out,
-          onAnimationComplete
+          onAnimationComplete,
+          router,
+          "/"
         );
       });
       document.getElementById("tathva-title").addEventListener("click", () => {
         TweenAnimation(
           controls,
           camera,
-          initialCameraPosition.x,
-          initialCameraPosition.y,
-          initialCameraPosition.z,
-          2000,
+          -10,47,16,
+          1000,
           TWEEN.Easing.Quartic.Out,
-          onAnimationComplete
+          onAnimationComplete,
+          router,
+          "/"
         );
       });
       // document.getElementById("About Us-link").addEventListener("click", () => {
@@ -440,7 +441,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          3000,
+          1000,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
@@ -455,7 +456,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          3000,
+          1000,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
@@ -470,7 +471,7 @@ const NITCModel3D = () => {
           position.x,
           position.y,
           position.z,
-          3000,
+         1000,
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,

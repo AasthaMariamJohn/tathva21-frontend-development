@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className={style.logo}>
             <div className={`${style.circle} ${style.circle2}`}>
               <div className={style.logo1}>
-                <Link href="/" passHref>
+                <button>
                   <a id="logo-link">
                     <Image
                       src={"/logo/navbarlogo.png"}
@@ -73,7 +73,7 @@ const Navbar = () => {
                       alt="Tathva"
                     ></Image>
                   </a>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -83,9 +83,9 @@ const Navbar = () => {
             </div>
             <div className={`${style.navbarg}`}>
               <div className={style["navbar-title"]}>
-                <Link href={title.link}>
+                <button >
                   <a id="tathva-title">{title.title}</a>
-                </Link>
+                </button>
               </div>
               <div>
                 <ol className={style["navbar-list"]}>

@@ -25,6 +25,7 @@ export default function Home() {
     <title>Tathva 21</title>
   </Head>
       <DonateBtn/>
+      
       <BasicUsage/>
     </div>
   )

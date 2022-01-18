@@ -63,6 +63,7 @@ function Dashboard() {
       {Lecture && isRegistered && userLectureDetails ? (
         <div className={styles["grid"]}>
           <div className={styles["section1"]}>
+            
             <EventComponent event={Lecture}></EventComponent>
           </div>
         </div>
