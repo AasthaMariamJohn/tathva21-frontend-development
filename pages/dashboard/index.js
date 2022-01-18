@@ -1,4 +1,6 @@
-import Dashboard from "@/components/dashboard/Dashboard";
+import Overlay from "@/components/common/overlay";
+import DashboardMain from "@/components/dashboard/index/dashboardMain";
+
 export default function index() {
-  return (<div><Dashboard/></div>);
+  return (<div><Overlay><DashboardMain/></Overlay> </div>);
 }

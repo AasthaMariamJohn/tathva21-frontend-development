@@ -1,0 +1,314 @@
+.main-heading {
+  font-size: 30px;
+  font-weight: 300;
+  font-family: "BatmanForeverAlternate", arial;
+  color: white;
+}
+
+.nav-items {
+  font-family: BatmanForeverAlternate;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: white;
+}
+
+.top-left {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 300px;
+  padding-left: 30px;
+  align-items: center;
+}
+
+.vector-line1 {
+  position: absolute;
+  left: 104px;
+  top: 77px;
+  display: block;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 700px;
+  align-items: center;
+}
+
+.login-button {
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0px 0px 7.93569px rgba(115, 187, 228, 0.4);
+  width: 117.45px;
+  height: 46.03px;
+  border-radius: 7.93569px;
+  color: white;
+  font-family: BatmanForeverAlternate;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.2843px;
+  line-height: 14px;
+}
+
+.headphones {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(73, 233, 255, 0.45);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 9.68px 1px rgba(0, 209, 255, 0.43);
+}
+
+.tathva-logo {
+  width: 70px;
+  height: 70px;
+}
+
+/* .event-name{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 780px;
+  } */
+
+.top-vectors {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 725px;
+  position: absolute;
+  left: 350px;
+  top: 440px;
+}
+
+.below-vectors {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 725px;
+  position: absolute;
+  left: 350px;
+  top: 570px;
+}
+
+.box {
+  width: 222px;
+  height: 300px;
+  padding: 45px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  perspective: 100px;
+}
+
+.container {
+  display: block;
+}
+
+.game {
+  width: 100%;
+  height: 262px;
+  transition: transform 0.5s;
+  border: 1.56886px solid rgba(73, 233, 255, 0.6);
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+.slider {
+  position: absolute;
+  top: 270px;
+  left: 75px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+.slider-track {
+  display: flex;
+  /* animation: scroll 80s linear infinite; */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc((-250px) * 9));
+  }
+}
+
+.game:hover {
+  transform: translateZ(18px);
+}
+
+/* .owl-carousel {
+      position: absolute;
+      top: 200px;
+      left: 75px;
+  } */
+
+.event-name-item {
+  font-family: BatmanForeverAlternate;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #9c9c9c;
+}
+
+.mobile-slider {
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .mobile-slider {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+  }
+  .mobile-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+  }
+  /* .swiper {
+          display: flex;
+          width: 90%;
+      }
+  
+      .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 100%), url(download.jpeg);
+          border: 1.52903px solid #49E9FF;
+          border-radius: 10px;
+          width: 75%;
+          height: 200px;
+          margin: 20px;
+          Center slide text vertically 
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+      }
+  
+      .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+  
+      .swiper-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+      }
+  
+      .below-vectors {
+          display: none;
+      }*/
+
+  .top-vectors {
+    display: none;
+  }
+
+  .headphones {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+  }
+
+  .vector-line1 {
+    left: 90px;
+    top: 70px;
+    width: 230.5px;
+    height: 14.65px;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tathva-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .main-heading {
+    width: 92.4px;
+    height: 18.86px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .top-left {
+    width: 160px;
+  }
+
+  .nav-items {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+  }
+
+  .login-button {
+    display: none;
+  }
+
+  .navbar {
+    margin-top: 15px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-slider {
+    display: none;
+  }
+
+  /* .container {
+    display: none;
+  } */
+}
