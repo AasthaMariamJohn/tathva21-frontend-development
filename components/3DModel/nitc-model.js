@@ -40,19 +40,21 @@ const Button3D = (name, scene, x, y, z) => {
 
 
   const mesh = new THREE.Mesh(
-    new THREE.SphereBufferGeometry(1, 1, 1),
-    new THREE.MeshStandardMaterial({ color: 0xff0000 })
+    new THREE.RingBufferGeometry( 0.2, 1, 32 ),
+    new THREE.MeshStandardMaterial({ color: 0xffff00, side: THREE.DoubleSide })
   );
   const meshMobile =  new THREE.Mesh(
     new THREE.SphereBufferGeometry(3),
     new THREE.MeshStandardMaterial({ color: 0xff0000 })
   );
-
+ 
+  
   mesh.position.set(x, y, z);
   meshMobile.position.set(x, y, z);
   mesh.name = name;
   meshMobile.name = name +'Mobile';
   meshMobile.visible = false;
+
   scene.add(meshMobile);
   scene.add(mesh);
 
@@ -311,8 +313,8 @@ const NITCModel3D = () => {
       setCamera(camera);
 
       // adding ambient light
-      // const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-      // scene.add(ambientLight);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+      scene.add(ambientLight);
       // adding fog
       // const fog = new THREE.FogExp2(0x21211F, 0.01);
       // scene.fog = fog
@@ -622,31 +624,31 @@ const NITCModel3D = () => {
     const CCCbutton = scene.getObjectByName("CCCButton");
     const archibutton = scene.getObjectByName("ArchieButton");
     if (eclcbutton) {
-      eclcbutton.material.color.setHex(0xff0000);
+      eclcbutton.material.color.setHex(0x0000FF);
       eclcbutton.scale.x = 1;
       eclcbutton.scale.y = 1;
       eclcbutton.scale.z = 1;
     }
     if (aryabhatabutton) {
-      aryabhatabutton.material.color.setHex(0xff0000);
+      aryabhatabutton.material.color.setHex(0x0000FF);
       aryabhatabutton.scale.x = 1;
       aryabhatabutton.scale.y = 1;
       aryabhatabutton.scale.z = 1;
     }
     if (mbbutton) {
-      mbbutton.material.color.setHex(0xff0000);
+      mbbutton.material.color.setHex(0x0000FF);
       mbbutton.scale.x = 1;
       mbbutton.scale.y = 1;
       mbbutton.scale.z = 1;
     }
     if (CCCbutton) {
-      CCCbutton.material.color.setHex(0xff0000);
+      CCCbutton.material.color.setHex(0x0000FF);
       CCCbutton.scale.x = 1;
       CCCbutton.scale.y = 1;
       CCCbutton.scale.z = 1;
     }
     if (archibutton) {
-      archibutton.material.color.setHex(0xff0000);
+      archibutton.material.color.setHex(0x0000FF);
       archibutton.scale.x = 1;
       archibutton.scale.y = 1;
       archibutton.scale.z = 1;
