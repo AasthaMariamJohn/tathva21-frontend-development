@@ -4,24 +4,25 @@ const utilityContext = createContext();
 utilityContext.displayName = "utilityContext";
 
 export function UtilityWrapper({ children }) {
-  const [modelIsOpen, setModelIsOpen] = useState(false);
+  const [modelIsOpen, setModelIsOpen] = useState(true);
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [building, setBuilding] = useState("");
-  
+
   return (
     <utilityContext.Provider
       value={{
         modelIsOpen: modelIsOpen,
         setModelIsOpen: setModelIsOpen,
-        title:title,
-        setTitle,setTitle,
-        link:link,
-        setLink:setLink,
-        setBuilding:setBuilding,
-        building:building,
-        setBuilding,setBuilding,
-
+        title: title,
+        setTitle,
+        setTitle,
+        link: link,
+        setLink: setLink,
+        setBuilding: setBuilding,
+        building: building,
+        setBuilding,
+        setBuilding,
       }}
     >
       {children}
