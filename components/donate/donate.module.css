@@ -8,6 +8,7 @@
 .container {
   display: flex;
   width: 100%;
+  padding-top: 120px;
 }
 .info {
   width: 50%;
@@ -38,9 +39,9 @@
   height: 20vh;
 }
 .button {
-  width: 300px;
-  height: 60px;
-  border: 1px solid white;
+  padding: 0 30px;
+  border: 2px solid #49e9ff;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
