@@ -13,7 +13,6 @@ import { Button } from "@chakra-ui/react";
 import Overlay from "./overlay";
 
 export default function BasicUsage() {
-      debugger
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>

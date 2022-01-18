@@ -38,7 +38,7 @@ function Dashboard() {
   useEffect(() => {
     if (Workshop && userWorkshops) {
       for (var i = 0; i < userWorkshops.length; i++) {
-        if (userWorkshops[i].userWorkshopId == Workshop.id) {
+        if (userWorkshops[i].workshopId == Workshop.id) {
           setUserWorkshopId(userWorkshops[i].userWorkshopId);
           setIsRegistered(true);
         }

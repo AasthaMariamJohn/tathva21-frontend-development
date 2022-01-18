@@ -14,7 +14,7 @@ function loadScript(src) {
     document.body.appendChild(script);
   });
 }
-async function displayRazorpay(event, user, paymentType, regPrice) {
+async function displayRazorpay(event, user, paymentType, regPrice,router) {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
   if (!res) {
@@ -93,7 +93,16 @@ async function displayRazorpay(event, user, paymentType, regPrice) {
                   progress: undefined,
                 });
               }
-            });
+            })
+            .then(()=>{
+              if(paymentType=="event")
+                router.push(`/dashboard/events/${event.slug}`)
+              else  if(paymentType=="workshop")
+                router.push(`/dashboard/workshops/${event.slug}`)
+              else  if(paymentType=="lecture")
+                router.push(`/dashboard/lectures/${event.slug}`)
+            })
+
         },
         theme: {
           color: "#61dafb",

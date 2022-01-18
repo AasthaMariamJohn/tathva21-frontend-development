@@ -39,7 +39,7 @@ function Dashboard() {
   useEffect(() => {
     if (Lecture && userLectures) {
       for (var i = 0; i < userLectures.length; i++) {
-        if (userLectures[i].userLectureId == Lecture.id) {
+        if (userLectures[i].lectureId == Lecture.id) {
           setUserLectureId(userLectures[i].userLectureId);
           setIsRegistered(true);
         }

@@ -158,11 +158,11 @@ export default function Ewl_component({ event, type }) {
               if (isLoggedIn) {
                 if (event.regPrice) {
                   if (type == "event")
-                    displayRazorpay(event, user, "event", event.regPrice);
+                    displayRazorpay(event, user, "event", event.regPrice,router);
                   else if (type == "workshop")
-                    displayRazorpay(event, user, "workshop", event.regPrice);
+                    displayRazorpay(event, user, "workshop", event.regPrice,router);
                   else if (type == "lecture")
-                    displayRazorpay(event, user, "lecture", event.regPrice);
+                    displayRazorpay(event, user, "lecture", event.regPrice,router);
                 } else {
                   if(type=="event")
                   registerEvent(event, user.id, user.jwt, router);
