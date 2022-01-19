@@ -1,11 +1,18 @@
 .profile-page {
-  position: absolute;
-  top: 30vh;
-  text-align: center;
-  align-items: center;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	margin-top: 10rem;
+	margin-bottom: 2rem;
 }
 .profile {
-  font-family: "batman_forever";
-  font-size: large;
-  width: 100%;
+	font-family: 'batman_forever';
+	font-size: large;
+	width: 100%;
 }
+
+/* @media (max-width: 480px) {
+	.profile-page {
+		margin: 10rem 0;
+	}
+} */
