@@ -59,7 +59,7 @@ const Button3D = (name, scene, x, y, z) => {
     new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
  
-  
+  y=y-1
   mesh.position.set(x, y, z);
   meshDesktop.position.set(x, y, z);
   meshMobile.position.set(x, y, z);
