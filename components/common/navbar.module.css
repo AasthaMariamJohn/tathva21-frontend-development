@@ -24,6 +24,8 @@
     transform: rotate(-360deg);
   }
 }
+
+/* NAVBAR */
 .navbarg {
   height: 126px;
   background: linear-gradient(to top, transparent 0%, black 100%);
@@ -53,7 +55,7 @@
   color: white;
   height: 50px;
   width: 8.5%;
-  position: absolute;
+  position: fixed;
   top: 40px;
   right: 30px;
   border: 1px solid #49e9ff;
@@ -72,7 +74,6 @@
   cursor: pointer;
 }
 
-/* NAVBAR */
 .navbar {
   font-family: "batman_forever";
   color: white;
@@ -90,7 +91,6 @@
   margin-top: -15px;
   margin-right: 100px;
   float: left;
-
 }
 
 .navbar-list {
@@ -142,7 +142,7 @@
 
   .hamburger {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 55px;
     right: 30px;
     z-index: 1000;
@@ -162,6 +162,7 @@
     border-radius: 10px;
     position: absolute;
     top: 60px;
+    z-index: 100000;
   }
 
   .logo_menu {
@@ -231,14 +232,14 @@
     top: -30px;
   }
   .login {
-    width: 16%;
-    right: 20%;
+    width: 16.5%;
+    right: 17%;
     height: 34px;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     padding-top: 8px;
   }
   .hamburger {
-    right: 20px;
+    right: 19px;
   }
   .logo {
     left: 25px;
