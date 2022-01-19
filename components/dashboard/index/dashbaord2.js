@@ -8,7 +8,7 @@ import styles from "./swiper.module.css";
 
 import { Image, Box, Center,Heading } from "@chakra-ui/react";
 
-export default function Dashboard2({ events = null }) {
+export default function Dashboard2({ events =1 }) {
   return (
     <div>
       {!events ? (

@@ -19,7 +19,7 @@ const Navbar = () => {
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
-    { title: "Shop", id: 5, link: "/shop" },
+    { title: "Teams", id: 5, link: "/team" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
   ]);
   const [collapseDown, setCollapseDown] = useState(false);
@@ -51,8 +51,8 @@ const Navbar = () => {
       case "/about":
         setTitle({ title: "About Us", link: "/about" });
         break;
-      case "/shop":
-        setTitle({ title: "Shop", link: "/shop" });
+      case "/team":
+        setTitle({ title: "Teams", link: "/team" });
         break;
     }
   }, [router]);

@@ -15,6 +15,7 @@
 }
 @media (max-width:500px){
   .donate{
-    top: 85vh;
+    top: 86vh;
+    font-size: 16px;
   }
 }
