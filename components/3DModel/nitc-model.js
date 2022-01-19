@@ -641,9 +641,9 @@ const NITCModel3D = () => {
       Button3D(
         "AUDIButton",
         scene,
-        audi.position.x+5,
-        audi.position.y+5,
-        audi.position.z+5
+        audi.position.x,
+        audi.position.y,
+        audi.position.z
       );
     }
   }, [loading]);
