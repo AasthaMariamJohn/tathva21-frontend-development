@@ -671,8 +671,8 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("ECLC");
-          modalStuff.setTitle("Events");
-          modalStuff.setLink("/events");
+          modalStuff.setTitle("Workshops");
+          modalStuff.setLink("/workshops");
         }
       } else if (intersects[i].object.name === "ARYABHATAButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
@@ -695,8 +695,8 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Main Building");
-          modalStuff.setTitle("Events");
-          modalStuff.setLink("/events");
+          modalStuff.setTitle("About Us");
+          modalStuff.setLink("/aboutus");
         }
       } else if (intersects[i].object.name === "CCCButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
@@ -707,8 +707,8 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Central Computing Center");
-          modalStuff.setTitle("Events");
-          modalStuff.setLink("/events");
+          modalStuff.setTitle("Sponsors");
+          modalStuff.setLink("/sponsors");
         }
       } else if (intersects[i].object.name === "ArchieButton") {
         intersects[i].object.material.color.setHex(ButtonSecondaryHex);
@@ -719,8 +719,8 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Archie");
-          modalStuff.setTitle("Events");
-          modalStuff.setLink("/events");
+          modalStuff.setTitle("Shop");
+          modalStuff.setLink("/shop");
         }
         
       }
@@ -732,9 +732,9 @@ const NITCModel3D = () => {
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
-          modalStuff.setBuilding("Archie");
-          modalStuff.setTitle("Events");
-          modalStuff.setLink("/events");
+          modalStuff.setBuilding("Auditorium");
+          modalStuff.setTitle("Lectures");
+          modalStuff.setLink("/lectures");
         }
         
       }
