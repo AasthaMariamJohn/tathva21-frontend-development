@@ -383,7 +383,7 @@ const NITCModel3D = () => {
       //TweenAnimation(controls, camera, initialCameraPosition.x,initialCameraPosition.y, initialCameraPosition.z, 0, TWEEN.Easing.Quartic.Out, onAnimationComplete);
       
       controls.maxDistance = 52.5;
-      controls.minDistance = 23.5;
+      controls.minDistance = 33.5;
       
       controls.minPolarAngle = degToRad(60);
       controls.maxPolarAngle = degToRad(60);
@@ -641,9 +641,9 @@ const NITCModel3D = () => {
       Button3D(
         "AUDIButton",
         scene,
-        audi.position.x,
-        audi.position.y,
-        audi.position.z
+        audi.position.x+5,
+        audi.position.y+5,
+        audi.position.z+5
       );
     }
   }, [loading]);
