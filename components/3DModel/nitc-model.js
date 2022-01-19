@@ -175,7 +175,21 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
+    } else if (intersects[i].object.name === "AUDIButton"+ "Desktop") {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
     }
+
   }
 }
 
@@ -238,6 +252,19 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
         onAnimationComplete
       );
     } else if (intersects[i].object.name === "ArchieButton"+'Mobile') {
+      controls.enabled = false;
+      console.log(intersects[i].object.name, " clicked");
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+    } else if (intersects[i].object.name === "AUDIButton"+'Mobile') {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
@@ -576,6 +603,7 @@ const NITCModel3D = () => {
       const archi = scene.getObjectByName("Archie");
       const ccc = scene.getObjectByName("CCC");
       const aryabhata = scene.getObjectByName("ARYABHATA");
+      const audi = scene.getObjectByName("AUDI");
 
       Button3D(
         "ECLCButton",
@@ -609,6 +637,13 @@ const NITCModel3D = () => {
         aryabhata.position.x,
         aryabhata.position.y,
         aryabhata.position.z
+      );
+      Button3D(
+        "AUDIButton",
+        scene,
+        audi.position.x,
+        audi.position.y,
+        audi.position.z
       );
     }
   }, [loading]);
@@ -680,7 +715,20 @@ const NITCModel3D = () => {
         }
         
       }
-      
+      else if (intersects[i].object.name === "AUDIButton") {
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Archie");
+          modalStuff.setTitle("Events");
+          modalStuff.setLink("/events");
+        }
+        
+      }
       
     }
   };
@@ -690,6 +738,7 @@ const NITCModel3D = () => {
     const mbbutton = scene.getObjectByName("MBButton");
     const CCCbutton = scene.getObjectByName("CCCButton");
     const archibutton = scene.getObjectByName("ArchieButton");
+    const audiButton = scene.getObjectByName("AUDIButton");
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
@@ -719,6 +768,12 @@ const NITCModel3D = () => {
       archibutton.scale.x = 1;
       archibutton.scale.y = 1;
       archibutton.scale.z = 1;
+    }
+    if (audiButton) {
+      audiButton.material.color.setHex(ButtonPrimaryHex);
+      audiButton.scale.x = 1;
+      audiButton.scale.y = 1;
+      audiButton.scale.z = 1;
     }
     if (modalStuff.modelIsOpen!==null)
     {
