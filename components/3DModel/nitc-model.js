@@ -75,9 +75,18 @@ const Button3D = (name, scene, x, y, z) => {
   scene.add(meshDesktop);
   scene.add(meshMobile);
 
+  const timeInterval = 500;
   // setInterval(() => {
   //   mesh.rotateY(degToRad(8));
   // }, 180);
+
+    setInterval(() => {
+      mesh.position.y += 0.2;
+    }, timeInterval);
+    setInterval(() => {
+      mesh.position.y -= 0.1;
+    }, timeInterval/2);
+
 };
 
 function onMouseMove(event, mouse) {
