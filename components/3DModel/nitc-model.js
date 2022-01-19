@@ -46,7 +46,7 @@ const Button3D = (name, scene, x, y, z) => {
   
 
   const mesh = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.3, 0.7, 3,1,degToRad(35),degToRad(360),degToRad(360)),
+    new THREE.RingBufferGeometry( 0.1, 0.7, 3,1,degToRad(35),degToRad(360),degToRad(360)),
     new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex, side: THREE.DoubleSide })
   );
 
