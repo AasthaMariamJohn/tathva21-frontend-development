@@ -68,7 +68,7 @@ const Navbar = () => {
                   <a id="logo-link">
                     <Image
                       src={"/logo/navbarlogo.png"}
-                      width="120"
+                      width="110"
                       height="120"
                       alt="Tathva"
                     ></Image>

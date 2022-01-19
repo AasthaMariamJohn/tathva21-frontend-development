@@ -31,7 +31,8 @@ export default function ComingSoon({event,time}) {
         <div className={styles["title"]}>
           <span>{event}</span>
         </div>
-        <p>COMING SOON!</p>
+        <p className={styles['coming-soon']}>COMING SOON!</p>
+    
         <section>
           <ul id="countdown">
             <li>

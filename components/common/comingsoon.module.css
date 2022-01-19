@@ -21,17 +21,15 @@
 }
 .title {
   color: white;
-  font-family: "Quicksand", sans-serif;
   font-size: 4rem;
   text-transform: uppercase;
   padding-bottom: 0px;
   margin-bottom: 0px;
-  font-family: "batman_forever";
-}
-.title span {
+  font-family: "batman_forever", sans-serif;
   font-size: 4rem;
   cursor: pointer;
 }
+
 .title:hover {
   -webkit-animation: MISSION-HOVER 1.5s infinite;
   animation: MISSION-HOVER 1.5s infinite;
@@ -115,4 +113,27 @@
   text-align: center;
   position: relative;
   top: 0px;
+}
+
+@media(max-width: 1280px) {
+  
+}
+@media(max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+
+}
+@media(max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+@media(max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+  .main p {
+    font-size: 1.25rem;
+  }
 }
