@@ -46,34 +46,34 @@ const Button3D = (name, scene, x, y, z) => {
   
 
   const mesh = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.1, 1, 3,1,degToRad(35),degToRad(360),degToRad(360)),
+    new THREE.RingBufferGeometry( 0.1, 1.2, 3,1,degToRad(35),degToRad(360),degToRad(360)),
     new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex, side: THREE.DoubleSide })
   );
 
   const meshDesktop =  new THREE.Mesh(
-    new THREE.SphereBufferGeometry(1.3),
+    new THREE.SphereBufferGeometry(1.5),
     new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
   const meshMobile =  new THREE.Mesh(
-    new THREE.SphereBufferGeometry(3),
+    new THREE.SphereBufferGeometry(3.2),
     new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
  
   
   mesh.position.set(x, y, z);
   meshDesktop.position.set(x, y, z);
-  mesh.emissive = new THREE.Color(ButtonPrimaryHex);
-  mesh.emissiveIntensity = 1;
   meshMobile.position.set(x, y, z);
+  mesh.emissive = new THREE.Color(ButtonPrimaryHex);
+  mesh.emissiveIntensity = 100;
   mesh.name = name;
   meshDesktop.name = name + "Desktop";
   meshMobile.name = name +'Mobile';
   meshMobile.visible = false;
   meshDesktop.visible = false;
 
+  scene.add(mesh);
   scene.add(meshDesktop);
   scene.add(meshMobile);
-  scene.add(mesh);
 
   // setInterval(() => {
   //   mesh.rotateY(degToRad(8));
