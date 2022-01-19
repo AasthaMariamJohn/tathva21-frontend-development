@@ -18,9 +18,9 @@ export default function Navbarsvg() {
 
   return (
     <svg
-      width={WindowDimensions * 0.72}
+      width={WindowDimensions * .8}
       height="34"
-      viewBox={"0 0 " + WindowDimensions * 0.72 + " 34"}
+      viewBox={"0 0 " + WindowDimensions * .8 + " 34"}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
