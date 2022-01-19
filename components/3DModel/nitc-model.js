@@ -381,10 +381,13 @@ const NITCModel3D = () => {
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       // adding fog
-      // const fog = new THREE.FogExp2(0x21211F, 0.01);
-      // scene.fog = fog
+      const fog = new THREE.FogExp2(0x020144, 0.005);
+      scene.fog = fog
       // setting backgrouound color
       scene.background = new THREE.Color(0x000000);
+
+
+
       const controls = new MapControls(camera, renderer.domElement);
       //controls.autoRotate = true
       controls.target = initialCameraPosition;
