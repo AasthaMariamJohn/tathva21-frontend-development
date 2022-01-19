@@ -8,5 +8,6 @@
       "@/context/*": ["context/*"],
       "@/lib/*": ["lib/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }
