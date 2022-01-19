@@ -27,9 +27,9 @@ export default function Home() {
     <title>Tathva 21</title>
   </Head>
       <DonateBtn/>
-      <Overlay>
+      {/* <Overlay>
       <Loader/>
-      </Overlay>
+      </Overlay> */}
       <BasicUsage/>
     </div>
   )
