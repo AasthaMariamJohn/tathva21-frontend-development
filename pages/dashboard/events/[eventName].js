@@ -6,7 +6,7 @@ export default function index() {
   return (
     <div>
       <ToastContainer />
-      <Overlay>
+      <Overlay vh={250}>
         <Dashboard />
       </Overlay>
     </div>

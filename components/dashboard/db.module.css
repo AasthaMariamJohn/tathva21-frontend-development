@@ -10,7 +10,7 @@
   top: 200px;
   bottom: 0;
   color: white;
-  background: rgba(0, 0, 0, 0.76);
+  /* background: rgba(0, 0, 0, 0.76);  njan comment cheythu */
   font-family: "batman_forever";
   margin-top: -30px;
   padding-bottom: 80px;
@@ -110,7 +110,8 @@
   display: block;
 }
 .img_desktop img {
-  max-width: 100%;
+  width: 300px;
+  height: 350px;
 }
 
 .img_mobile {

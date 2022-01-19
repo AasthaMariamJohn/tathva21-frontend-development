@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
       <ChakraProvider>
         <UserWrapper>
           <Layout>
+        
             <Component {...pageProps} />
           </Layout>
         </UserWrapper>

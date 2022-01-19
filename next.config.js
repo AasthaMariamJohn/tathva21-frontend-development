@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['tathva21-rmupb.ondigitalocean.app'],
+    domains: ['tathva21-rmupb.ondigitalocean.app',"https://swiperjs.com"],
   },
 }

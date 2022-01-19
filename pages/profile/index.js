@@ -24,7 +24,7 @@ export default function Me() {
       </Head>
       <ToastContainer />
 
-      <Overlay>
+      <Overlay vh={180}>
         <Center>
           <Container>
           <Main />

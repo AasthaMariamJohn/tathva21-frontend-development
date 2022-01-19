@@ -53,6 +53,7 @@ export default function Dashboard() {
             <EventComponent event={Event} />
             <Team teamMembers={userEventDetails.teamMembers}/>
           </div>
+          
           <Section2 refId={userEventId} jwt={user.jwt} />
         </div>
       ) : (
