@@ -1,22 +1,25 @@
-import style from "./db.module.css";
-import Dropbox from "./Dropbox";
-import { Center } from "@chakra-ui/react";
+import Dropbox from './Dropbox'
+
+import styles from './section2.module.css'
+
 export default function Section2({ refId, jwt }) {
-  return (
-    <div className={style.section2}>
-      <Center>
-        <div className={style.section2content}>
-          <h2 className={style.titles}>NOTE</h2>
-          <p className={style.note}>
-            1.olor sit amet, consectetur adipiscing elit. Egestas dui
-            consectetur enim, etiam.Lorem ipsum dolor sit amet,
-          </p>
-        </div>{" "}
-        <p className={style.note}>
-          2.consectetur adipiscing elit. Egestas dui consectetur enim,zjsdam.
-        </p>
-        <Dropbox refId={refId} jwt={jwt} />
-      </Center>
-    </div>
-  );
+	return (
+		<div className={styles['section2']}>
+			<div className={styles['note-wrapper']}>
+				<h2>Note</h2>
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+					quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+				</p>
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+					quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+				</p>
+			</div>
+
+			<div className={styles['file-submit-wrapper']}>
+				<input type='file' />
+			</div>
+		</div>
+	)
 }
