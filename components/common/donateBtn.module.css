@@ -13,3 +13,8 @@
   padding: 6px;
   cursor: pointer;
 }
+@media (max-width:500px){
+  .donate{
+    top: 85vh;
+  }
+}
