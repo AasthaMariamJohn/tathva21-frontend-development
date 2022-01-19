@@ -3,6 +3,7 @@ import Main from "@/components/profile/main";
 import { ProfileWrapper } from "@/context/profileContext";
 import { useUserContext } from "@/context/userContext";
 import { Login } from "@/lib/user/login";
+import { Center, Container } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -23,9 +24,13 @@ export default function Me() {
       </Head>
       <ToastContainer />
 
-      {/* <Overlay> */}
-        <Main />
-      {/* </Overlay> */}
+      <Overlay>
+        <Center>
+          <Container>
+          <Main />
+          </Container>
+        </Center>
+      </Overlay>
     </ProfileWrapper>
   );
 }

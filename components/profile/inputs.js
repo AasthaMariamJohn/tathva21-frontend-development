@@ -1,4 +1,5 @@
 import { useProfileContext } from "@/context/profileContext";
+import { Input } from "@chakra-ui/react";
 import styles from "./profile.module.css";
 
 export function NameInput() {
@@ -7,14 +8,14 @@ export function NameInput() {
     setName(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
+    
       disabled={inEditMode ? (name ? "disbled" : "") : "disabled"}
       name="name"
       value={name ? name : ""}
       placeholder={name?"":"Name Can be Edited Only Once"}
       onChange={handleNameChange}
-    ></input>
+    ></Input>
   );
 }
 export function PhoneInput() {
@@ -23,13 +24,12 @@ export function PhoneInput() {
     setPhoneNumber(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled={inEditMode ? "" : "disabled"}
       name="phoneNumber"
       value={phoneNumber ? phoneNumber : ""}
       onChange={handlePhoneNumberChange}
-    ></input>
+    ></Input>
   );
 }
 
@@ -39,13 +39,12 @@ export function StateInput() {
     setState(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled={inEditMode ? "" : "disabled"}
       name="state"
       value={state ? state : ""}
       onChange={handleStateChange}
-    ></input>
+    ></Input>
   );
 }
 
@@ -55,13 +54,12 @@ export function DistrictInput() {
     setDistrict(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled={inEditMode ? "" : "disabled"}
       name="district"
       value={district ? district : ""}
       onChange={handleDistrictChange}
-    ></input>
+    ></Input>
   );
 }
 export function CollegeNameInput() {
@@ -70,13 +68,12 @@ export function CollegeNameInput() {
     setCollegeName(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled={inEditMode ? "" : "disabled"}
       name="collegeName"
       value={collegeName ? collegeName : ""}
       onChange={handleCollegeNameChange}
-    ></input>
+    ></Input>
   );
 }
 
@@ -86,24 +83,22 @@ export function YearOfStudyInput() {
     setYearOfStudy(e.target.value);
   }
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled={inEditMode ? "" : "disabled"}
       name="yearOfStudy"
       value={yearOfStudy ? yearOfStudy : ""}
       onChange={handleYearOfStudyChange}
-    ></input>
+    ></Input>
   );
 }
 
 export function TathvaIdInput() {
   const { userProfile } = useProfileContext();
   return (
-    <input
-      className={styles["input"]}
+    <Input
       disabled
       name="tathvaId"
       value={userProfile.tathvaId ? userProfile.tathvaId : ""}
-    ></input>
+    ></Input>
   );
 }

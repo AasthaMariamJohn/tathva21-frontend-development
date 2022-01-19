@@ -19,17 +19,12 @@ import { AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 import { ToastContainer, toast } from "react-toastify";
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
   Button,
   Box,
   Container,
+  Center,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 export default function Main() {
   const {
@@ -63,38 +58,78 @@ export default function Main() {
     reRender();
   }
   return (
+    <Center>
     <div className={styles["profile-page"]}>
       {userProfile ? (
         <div className={styles["profile"]}>
-          {/* <div
-            className={styles["save-icon"]}
-            onClick={() => {
-              updateMe(user, allInOne);
-              setInEditMode(false);
-            }}
-          >
-            {inEditMode ? <AiOutlineSave style={{ color: "white" }} /> : <></>}
-          </div> */}
-          {/* <div
-            className={styles["edit-icon"]}
-            onClick={() => {
-              if (!inEditMode) setInEditMode(true);
-              else {
-                Cancel();
-              }
-            }}
-          >
-            {inEditMode ? (
-              <ImCancelCircle style={{ color: "white" }} />
-            ) : (
-              <AiOutlineEdit style={{ color: "white" }} />
-            )}
-          </div> */}
-          <Table className={styles["table"]} variant={"unstyled"}>
-            <TableCaption>
-              <Container centerContent>
-              <Box pl={9} w={"100%"} display={"flex"} color={"blue.200"} >
-                <Button
+
+          <Box bg={"blackAlpha.900"} color={"white"}>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>Name</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><NameInput/></Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>Phone</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><PhoneInput/> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>State</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><StateInput/> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>District</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><DistrictInput/> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>College/School</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><CollegeNameInput/> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>Year Of Study</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><YearOfStudyInput /> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+                <Center>Tathav Id</Center>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Center><TathvaIdInput /> </Center>
+              </Box>
+            </Flex>
+            <Flex direction={["column","row"]} p={3} >
+              <Box  mt={[1.5]}>
+              <Button
                   onClick={() => {
                     if (!inEditMode) setInEditMode(true);
                     else {
@@ -107,7 +142,9 @@ export default function Main() {
                 >
                   {inEditMode ? <>Cancel</> : <>Edit</>}
                 </Button>
-                <Box
+              </Box>
+              <Spacer/>
+              <Box
                   p={4}
                   color={"red"}
                   fontWeight="semibold"
@@ -119,7 +156,9 @@ export default function Main() {
                 >
                   please fill this
                 </Box>
-                {inEditMode ? (
+                <Spacer/>
+                <Box>
+                 {inEditMode ? (
                   <Button
                     onClick={() => {
                       updateMe(user, allInOne);
@@ -132,60 +171,16 @@ export default function Main() {
                     Save
                   </Button>
                 ) : (
-                  <></>
+                  <></> 
                 )}
               </Box>
-              </Container>
-            </TableCaption>
-            <Tbody>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>Name</Td>
-                <Td className={styles["table-cell"]}>
-                  <NameInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>Phone</Td>
-                <Td className={styles["table-cell"]}>
-                  <PhoneInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>State</Td>
-                <Td className={styles["table-cell"]}>
-                  <StateInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>DisTrict</Td>
-                <Td className={styles["table-cell"]}>
-                  <DistrictInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>College/School</Td>
-                <Td className={styles["table-cell"]}>
-                  <CollegeNameInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>Year of Study</Td>
-                <Td className={styles["table-cell"]}>
-                  <YearOfStudyInput />
-                </Td>
-              </Tr>
-              <Tr className={styles["table-row"]}>
-                <Td className={styles["table-cell"]}>Tathva Id</Td>
-                <Td className={styles["table-cell"]}>
-                  <TathvaIdInput />
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+            </Flex>
+          </Box>
         </div>
       ) : (
         <Loader />
       )}
     </div>
+    </Center>
   );
 }
