@@ -384,7 +384,7 @@ const NITCModel3D = () => {
       const fog = new THREE.FogExp2(0x020144, 0.005);
       scene.fog = fog
       // setting backgrouound color
-      scene.background = new THREE.Color(0x000000);
+      scene.background = new THREE.Color(0x020144);
 
 
 
