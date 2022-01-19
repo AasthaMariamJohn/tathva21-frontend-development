@@ -46,8 +46,13 @@ const Button3D = (name, scene, x, y, z) => {
   
 
   const mesh = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.1, 1, 32 ),
+    new THREE.RingBufferGeometry( 0.1, 1, 3,1,degToRad(35),degToRad(360),degToRad(360)),
     new THREE.MeshStandardMaterial({ color: ButtonPrimaryHex, side: THREE.DoubleSide })
+  );
+
+  const meshDesktop =  new THREE.Mesh(
+    new THREE.SphereBufferGeometry(1.3),
+    new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
   const meshMobile =  new THREE.Mesh(
     new THREE.SphereBufferGeometry(3),
@@ -56,19 +61,23 @@ const Button3D = (name, scene, x, y, z) => {
  
   
   mesh.position.set(x, y, z);
+  meshDesktop.position.set(x, y, z);
   mesh.emissive = new THREE.Color(ButtonPrimaryHex);
   mesh.emissiveIntensity = 1;
   meshMobile.position.set(x, y, z);
   mesh.name = name;
+  meshDesktop.name = name + "Desktop";
   meshMobile.name = name +'Mobile';
   meshMobile.visible = false;
+  meshDesktop.visible = false;
 
+  scene.add(meshDesktop);
   scene.add(meshMobile);
   scene.add(mesh);
 
-  setInterval(() => {
-    mesh.rotateY(degToRad(8));
-  }, 180);
+  // setInterval(() => {
+  //   mesh.rotateY(degToRad(8));
+  // }, 180);
 };
 
 function onMouseMove(event, mouse) {
@@ -101,7 +110,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
   const intersects = raycaster.intersectObjects(scene.children);
 
   for (let i = 0; i < intersects.length; i++) {
-    if (intersects[i].object.name === "ECLCButton") {
+    if (intersects[i].object.name === "ECLCButton"+ "Desktop") {
       console.log(intersects[i].object.name, " clicked");
       controls.enabled = false;
       TweenAnimation(
@@ -114,7 +123,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
-    } else if (intersects[i].object.name === "ARYABHATAButton") {
+    } else if (intersects[i].object.name === "ARYABHATAButton"  + "Desktop") {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
@@ -127,7 +136,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
-    } else if (intersects[i].object.name === "MBButton") {
+    } else if (intersects[i].object.name === "MBButton"+ "Desktop") {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
@@ -140,7 +149,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
-    } else if (intersects[i].object.name === "CCCButton") {
+    } else if (intersects[i].object.name === "CCCButton"+ "Desktop") {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
@@ -153,7 +162,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
-    } else if (intersects[i].object.name === "ArchieButton") {
+    } else if (intersects[i].object.name === "ArchieButton"+ "Desktop") {
       controls.enabled = false;
       console.log(intersects[i].object.name, " clicked");
       TweenAnimation(
