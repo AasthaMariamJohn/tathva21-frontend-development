@@ -53,7 +53,7 @@ const Navbar = () => {
         setTitle({ title: "About Us", link: "/about" });
         break;
       case "/team":
-        setTitle({ title: "Teams", link: "/team" });
+        setTitle({ title: "Team", link: "/team" });
         break;
     }
   }, [router]);
@@ -62,50 +62,52 @@ const Navbar = () => {
     <div>
       {!collapseDown && (
         <>
-          <div className={style.logo}>
-            <div className={`${style.circle} ${style.circle2}`}>
-              <div className={style.logo1}>
-                <Link href={"/"} passHref>
-                  <a id="logo-link">
-                    <Image
-                      src={"/logo/navbarlogo.png"}
-                      width="110"
-                      height="120"
-                      alt="Tathva"
-                    ></Image>
-                  </a>
-                </Link>
+          <div className={style.main}>
+            <div className={style.logo}>
+              <div className={`${style.circle} ${style.circle2}`}>
+                <div className={style.logo1}>
+                  <Link href={"/"} passHref>
+                    <a id="logo-link">
+                      <Image
+                        src={"/logo/navbarlogo.png"}
+                        width="110"
+                        height="120"
+                        alt="Tathva"
+                      ></Image>
+                    </a>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className={style.navbar}>
-            <div className={`${style.navbarsvg}`}>
-              <Navbarsvg />
-            </div>
-            <div className={`${style.navbarg}`}>
-              <div className={style["navbar-title"]}>
-                <Link href={"/"}>
-                  <a id="tathva-title">{title.title}</a>
-                </Link>
+            <div className={style.navbar}>
+              <div className={`${style.navbarsvg}`}>
+                <Navbarsvg />
               </div>
-              <div>
-                <ol className={style["navbar-list"]}>
-                  {links.map((link) => (
-                    <li key={link.id} className={style["navbar-link"]}>
-                      <Link href={link.link}>
-                        <a id={`${link.title}-link`}>{link.title}</a>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
+              <div className={`${style.navbarg}`}>
+                <div className={style["navbar-title"]}>
+                  <Link href={"/"}>
+                    <a id="tathva-title">{title.title}</a>
+                  </Link>
+                </div>
+                <div>
+                  <ol className={style["navbar-list"]}>
+                    {links.map((link) => (
+                      <li key={link.id} className={style["navbar-link"]}>
+                        <Link href={link.link}>
+                          <a id={`${link.title}-link`}>{link.title}</a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </div>
-          </div>
-          <div className={style.login}>
-            {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
-          </div>
-          <div className={style.hamburger} onClick={handleCollapseDown}>
-            <Hamburger />
+            <div className={style.login}>
+              {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
+            </div>
+            <div className={style.hamburger} onClick={handleCollapseDown}>
+              <Hamburger />
+            </div>
           </div>
         </>
       )}

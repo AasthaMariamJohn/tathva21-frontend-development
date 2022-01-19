@@ -24,15 +24,23 @@
     transform: rotate(-360deg);
   }
 }
-
+.main{
+  position: absolute;
+  top: 0px;
+  /* left: -20px; */
+  width: 100vw;
+  background: linear-gradient(to bottom, black 30%, transparent  100%);
+  z-index: 111;
+}
 /* NAVBAR */
 .navbarg {
   height: 126px;
-  background: linear-gradient(to top, transparent 0%, black 100%);
+  /* width: 100vw; */
+  /* background: linear-gradient(to top, transparent 0%, black 100%); */
   margin-top: 26px;
   margin-left: 100px;
   width: 90%;
-  position: absolute;
+  position:relative;
   top: 30px;
   left: -20px;
   padding-left: 1.5%;
