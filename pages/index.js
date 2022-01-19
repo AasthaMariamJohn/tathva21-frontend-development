@@ -6,6 +6,8 @@ import { useEffect } from 'react'
 import { Login } from '@/lib/user/login'
 import { useRouter } from 'next/router'
 import { useUserContext } from '@/context/userContext'
+import Loader from '@/components/common/loader'
+import Overlay from '@/components/common/overlay'
 export default function Home() {
   
   const {user}=useUserContext()
@@ -25,7 +27,9 @@ export default function Home() {
     <title>Tathva 21</title>
   </Head>
       <DonateBtn/>
-      
+      <Overlay>
+      <Loader/>
+      </Overlay>
       <BasicUsage/>
     </div>
   )
