@@ -19,7 +19,7 @@ const Navbar = () => {
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
-    { title: "Teams", id: 5, link: "/team" },
+    { title: "Team", id: 5, link: "/team" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
     // { title: "Contact Us", id: 7, link: "/contact" },
   ]);
