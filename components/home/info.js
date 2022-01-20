@@ -22,10 +22,10 @@ export default function Info() {
       <Button  variant='ghost'  position="absolute" bottom={4} right={100} onClick={onOpen}>
         <FaInfo color={"#00A3C4"}/>
       </Button>
-      <Modal  isOpen={isOpen} onClose={onClose}>
+      <Modal  isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent bgColor={"black"} color={"white"}>
-          <ModalHeader>Modal Title</ModalHeader>
+        <ModalContent bgColor={"black"} color={"white"} fontSize={14}>
+          <ModalHeader>How To Use</ModalHeader>
           <ModalCloseButton />
           <ModalBody >
             <Text display={["none", "block"]}>

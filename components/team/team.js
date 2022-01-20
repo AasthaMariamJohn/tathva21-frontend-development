@@ -158,10 +158,10 @@ export default function Home() {
           Executive
         </li>
         <li onClick={openpc} className={pc ? styles.teamhiglight : ""}>
-          PC
+          Event
         </li>
         <li onClick={openprc} className={prc ? styles.teamhiglight : ""}>
-          PRC
+          Publicity
         </li>
         <li onClick={opentech} className={tech ? styles.teamhiglight : ""}>
           Tech
