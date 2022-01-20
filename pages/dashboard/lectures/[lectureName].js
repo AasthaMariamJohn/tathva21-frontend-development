@@ -10,9 +10,16 @@ import styles from "@/components/dashboard/db.module.css";
 import Loader from "@/components/common/loader";
 import EventComponent from "@/components/dashboard/EventComponent";
 import Overlay from "@/components/common/overlay";
+import { Login } from "@/lib/user/login";
 
 export default function DashboardLectureName() {
   const router=useRouter()
+  const { isLoggedIn, user } = useUserContext();
+  useEffect(() => {
+    if (!isLoggedIn && !user) {
+      Login(router);
+    }
+  }, [isLoggedIn]);
 	const {lectureName,refresh } = router.query
 	useEffect(()=>{
 		if(refresh=="True")
