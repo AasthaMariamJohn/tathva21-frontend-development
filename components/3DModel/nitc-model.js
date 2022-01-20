@@ -79,12 +79,25 @@ const Button3D = (name, scene, x, y, z) => {
   // setInterval(() => {
   //   mesh.rotateY(degToRad(8));
   // }, 180);
-
+    let flag = false;
+    const high = mesh.position.y + 0.2;
+    const mid = mesh.position.y + 0.1;
+    const low = mesh.position.y ;
     setInterval(() => {
-      mesh.position.y += 0.2;
+      mesh.position.y = high
     }, timeInterval);
+
+    
     setInterval(() => {
-      mesh.position.y -= 0.1;
+      if(flag === false)
+      {
+        mesh.position.y = mid;
+      }
+      else
+      {
+        mesh.position.y = low;
+      }
+      flag = !flag;
     }, timeInterval/2);
 
 };
