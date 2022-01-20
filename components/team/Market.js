@@ -9,21 +9,21 @@ export default function Home() {
       image: "/teams/Marketing/Jijo Ponnachan.webp",
       name: "Jijo Ponnachan",
       pos: "HEAD",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/jijo-ponnachan-7aab82187",
     },
     {
       id: "2",
       image: "/teams/Marketing/swathy suresh b.webp",
       name: "Swathy Suresh B",
       pos: "HEAD",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/swathy-suresh-",
     },
     {
       id: "3",
       image: "/teams/Marketing/Akhilesh.webp",
       name: "Akhilesh",
       pos: "HEAD",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/akhilesh-ks",
     },
   ];
 

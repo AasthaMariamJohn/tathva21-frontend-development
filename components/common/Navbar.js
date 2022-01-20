@@ -9,6 +9,7 @@ import LogoutBtn from "../home/logoutBtn";
 import LoginBtn from "../home/loginBtn";
 import Navbarsvg from "./navbarsvg";
 import { Center } from "@chakra-ui/react";
+import NavbarLogo from "./navbarLogo";
 
 const Navbar = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const Navbar = () => {
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
-    { title: "Team", id: 5, link: "/team" },
+    { title: "About Us", id: 5, link: "https://about.tathva.org/" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
     // { title: "Contact Us", id: 7, link: "/contact" },
   ]);
@@ -53,7 +54,7 @@ const Navbar = () => {
         setTitle({ title: "About Us", link: "/about" });
         break;
       case "/team":
-        setTitle({ title: "Team", link: "/team" });
+        setTitle({ title: "About Us", link: "https://about.tathva.org/" });
         break;
     }
   }, [router]);
@@ -63,21 +64,8 @@ const Navbar = () => {
       {!collapseDown && (
         <>
           <div className={style.main}>
-            <div className={style.logo}>
-              <div className={`${style.circle} ${style.circle2}`}>
-                <div className={style.logo1}>
-                  <Link href={"/"} passHref>
-                    <a id="logo-link">
-                      <Image
-                        src={"/logo/navbarlogo.png"}
-                        width="80px"
-                        height="80px"
-                        alt="Tathva"
-                      ></Image>
-                    </a>
-                  </Link>
-                </div>
-              </div>
+            <div className={style.logo} id="logo-link">
+              <NavbarLogo />
             </div>
             <div className={style.navbar}>
               <div className={`${style.navbarsvg}`}>
