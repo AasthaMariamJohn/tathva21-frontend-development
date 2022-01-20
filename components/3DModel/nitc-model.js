@@ -14,7 +14,7 @@ import { useUtilityContext } from "@/context/utilityContext";
 
 const ButtonPrimaryHex = 0xFFE9E5
 const ButtonSecondaryHex = 0xFFFFFF
-const initialPosition =  new THREE.Vector3(3, 47, 16);
+const initialPosition = {x:3,y:47,z:16}
 
 const TWEEN = require("@tweenjs/tween.js");
  
@@ -121,9 +121,9 @@ const onAnimationComplete = (controls, router=null,pushTo=null) => {
 
   controls.enabled = true;
   console.log("animation done");
-  if(router!==null&&pushTo!==null){
-    router.push(pushTo);
-  }
+  // if(router!==null&&pushTo!==null){
+  //   router.push(pushTo);
+  // }
   
 
 };
@@ -327,7 +327,7 @@ const NITCModel3D = () => {
   const [_camera, setCamera] = useState();
   const [target] = useState(new THREE.Vector3(0, 0, 0));
   // Set inital camera position here
-  const [initialCameraPosition] = useState(initialPosition)
+  const [initialCameraPosition] = useState(new THREE.Vector3(initialPosition.x, initialPosition.y, initialPosition.z));
   const [scene] = useState(new THREE.Scene());
   const [_controls, setControls] = useState();
   // for raycasting mose coordinates
