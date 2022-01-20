@@ -5,13 +5,13 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Tech/Heads/Rohit Robin Mampilly.webp",
+      image: "/teams/Tech/Heads/Rohit_Robin_Mampilly.webp",
       name: "Rohit Robin Mampilly",
       pos: "HEAD",
     },
     {
       id: "2",
-      image: "/teams/Tech/Heads/Vimal Joseph.webp",
+      image: "/teams/Tech/Heads/Vimal_Joseph.webp",
       name: "Vimal Joseph",
       pos: "HEAD",
     },
@@ -23,25 +23,25 @@ export default function Home() {
     },
     {
       id: "4",
-      image: "/teams/Tech/Ben Thomas.webp",
+      image: "/teams/Tech/Ben_Thomas.webp",
       name: "Ben Thomas",
       pos: "FULL-STACK",
     },
     {
       id: "5",
-      image: "/teams/Tech/Joel Robin P.webp",
+      image: "/teams/Tech/Joel_Robin_P.webp",
       name: "Joel Robin P",
       pos: "FRONT-END",
     },
     {
       id: "6",
-      image: "/teams/Tech/Amal Prakash.webp",
+      image: "/teams/Tech/Amal_Prakash.webp",
       name: "Amal Prakash",
       pos: "THREE.JS",
     },
     {
       id: "7",
-      image: "/teams/Tech/Alias George.webp",
+      image: "/teams/Tech/Alias_George.webp",
       name: "Alias George",
       pos: "FULL-STACK",
     },
@@ -53,26 +53,26 @@ export default function Home() {
     },
     {
       id: "9",
-      image: "/teams/Tech/Emmanuel Christo.webp",
+      image: "/teams/Tech/Emmanuel_Christo.webp",
       name: "Emmanuel Christo",
       pos: "FRONT-END",
     },
 
     {
       id: "10",
-      image: "/teams/Tech/Amal Krishna.webp",
+      image: "/teams/Tech/Amal_Krishna.webp",
       name: "Amal Krishna",
       pos: "FRONT-END",
     },
     {
       id: "11",
-      image: "/teams/Tech/Akhil Dev M S.webp",
+      image: "/teams/Tech/Akhil_Dev_M_S.webp",
       name: "Akhil Dev M S",
       pos: "FRONT-END",
     },
     {
       id: "12",
-      image: "/teams/Tech/Vaibhav Gupta.webp",
+      image: "/teams/Tech/Vaibhav_Gupta.webp",
       name: "Vaibhav Gupta",
       pos: "FRONT-END",
     },

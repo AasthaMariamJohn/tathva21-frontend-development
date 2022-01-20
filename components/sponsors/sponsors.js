@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import styles from './sponsors.module.css'
+import Image from "next/image";
+import styles from "./sponsors.module.css";
 export default function Sponsers() {
   return (
     <div className={styles["main"]}>
@@ -9,15 +9,26 @@ export default function Sponsers() {
       <div className={styles["sponsor"]}>
         <div className={styles["sponsorImg"]}>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-            ever since the 1500s when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap in
+            Being a part of Tathva gives you a chance to associate yourselves
+            with National Institute of Technology Calicut, ranked 25th
+            nationwide, thereby building an everlasting relationship with the
+            institution, an unavoidable part of Kerala history.Tathva instils a
+            sense of hope in the minds of young innovators and shows them that
+            dreams can come true after all.
           </p>
           <div className={styles["sponsor-images"]}>
-            <Image src={"/images/sponsor1.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"} />
-            <Image src={"/images/sponsor2.jpg"} alt='next-image' width={"2000vw"} height={"1000vh"} />
+            <Image
+              src={"/images/sponsor1.jpg"}
+              alt="next-image"
+              width={"2000vw"}
+              height={"1000vh"}
+            />
+            <Image
+              src={"/images/sponsor2.jpg"}
+              alt="next-image"
+              width={"2000vw"}
+              height={"1000vh"}
+            />
           </div>
         </div>
       </div>

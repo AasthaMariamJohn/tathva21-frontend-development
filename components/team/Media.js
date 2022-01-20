@@ -6,21 +6,21 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Media/Jishnu Jayarajan.webp",
+      image: "/teams/Media/Jishnu_Jayarajan.webp",
       name: "Jishnu Jayarajan",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/jishnu-jayarajan-96746a190",
     },
     {
       id: "2",
-      image: "/teams/Media/Nanditha A.webp",
+      image: "/teams/Media/Nanditha_A.webp",
       name: "Nanditha A",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/nanditha-a-107814190",
     },
     {
       id: "3",
-      image: "/teams/Media/Samyuktha M Suresh.webp",
+      image: "/teams/Media/Samyuktha_M_Suresh.webp",
       name: "Samyuktha M Suresh",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/samyuktha-m-suresh-1aa7b7190/",

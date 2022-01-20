@@ -5,21 +5,21 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Workshop/MALAVIKA SAJEEV.webp",
+      image: "/teams/Workshop/MALAVIKA_SAJEEV.webp",
       name: "MALAVIKA SAJEEV",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/malavika-sajeev-625b621a4",
     },
     {
       id: "2",
-      image: "/teams/Workshop/SHALOOB M.webp",
+      image: "/teams/Workshop/SHALOOB_M.webp",
       name: "SHALOOB M",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/shaloob-m-626870212",
     },
     {
       id: "3",
-      image: "/teams/Workshop/Mohamed Niyas A.webp",
+      image: "/teams/Workshop/Mohamed_Niyas_A.webp",
       name: "Mohamed Niyas A",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/mohamed-niyas-a-9931a01ba",
