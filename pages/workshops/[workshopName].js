@@ -9,6 +9,7 @@ import { Center } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import getWorkshopWithName from "@/lib/workshops/getWorkshop";
+import Head from "next/head";
 
 
 export function Workshop({children}) {
@@ -58,6 +59,9 @@ export default function WorkshopName() {
 
   return (
     <div>
+      <Head>
+        <title>Workshop</title>
+      </Head>
       <Workshop>
         {Workshop1?<Ewl_component event={Workshop1} type={"workshop"}/>:<Loader/>}
         

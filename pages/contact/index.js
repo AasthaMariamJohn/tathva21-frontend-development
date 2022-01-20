@@ -7,6 +7,7 @@ import { ImYoutube } from 'react-icons/im'
 import { IconContext } from 'react-icons'
 import Overlay from '@/components/common/overlay'
 import Social from '@/components/contact/Social'
+import Head from 'next/head'
 
 export default function Contact() {
 	const [forminput, setForminput] = useState({
@@ -22,6 +23,9 @@ export default function Contact() {
 	}
 	return (
 		<Overlay>
+			<Head>
+				<title>Contact Us</title>C
+			</Head>
 			<div className={style['body']}>
 				<div className={style['info']}>
 					<div className={style['item']}>

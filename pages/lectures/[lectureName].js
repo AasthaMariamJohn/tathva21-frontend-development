@@ -8,6 +8,7 @@ import { Center } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import getLectureWithName from "@/lib/lectures/getLecture";
+import Head from "next/head";
 
 
 export function Lecture({children}) {
@@ -58,6 +59,9 @@ export default function LectureName() {
 
   return (
     <div>
+      <Head>
+        <title>Lecture</title>
+      </Head>
       <Lecture>
         {Lecture1?<Ewl_component event={Lecture1} type="lecture"/>:<Loader/>}
         

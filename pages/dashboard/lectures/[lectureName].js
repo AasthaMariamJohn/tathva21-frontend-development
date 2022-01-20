@@ -11,6 +11,7 @@ import Loader from "@/components/common/loader";
 import EventComponent from "@/components/dashboard/EventComponent";
 import Overlay from "@/components/common/overlay";
 import { Login } from "@/lib/user/login";
+import Head from "next/head";
 
 export default function DashboardLectureName() {
   const router=useRouter()
@@ -30,6 +31,9 @@ export default function DashboardLectureName() {
 	},[refresh])
   return (
     <div>
+      <Head>
+        <title>Lecture</title>
+      </Head>
       <ToastContainer />
       <Overlay>
         <Dashboard lectureName={lectureName}/>

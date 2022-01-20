@@ -1,11 +1,15 @@
 
 import ComingSoon from "@/components/common/coming_soon";
 import Overlay from "@/components/common/overlay";
+import Head from "next/head";
 
 export default function Lectures() {
   return (
     <div>
       <Overlay>
+        <Head>
+          <title>Lecture</title>L
+        </Head>
         <ComingSoon event={"Lectures"} time={"05 26 2029, 6:00 am"}/>
       </Overlay>
     </div>

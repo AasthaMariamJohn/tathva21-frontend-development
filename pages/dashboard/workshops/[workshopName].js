@@ -10,6 +10,7 @@ import EventComponent from "@/components/dashboard/EventComponent";
 import { useRouter } from "next/router";
 import Overlay from "@/components/common/overlay";
 import { Login } from "@/lib/user/login";
+import Head from "next/head";
 
 export default function DashboardWorkshopName() {
   const router=useRouter()
@@ -26,6 +27,9 @@ export default function DashboardWorkshopName() {
 	},[refresh])
   return (
     <div>
+      <Head>
+        <title>WorkshopName</title>
+      </Head>
       <ToastContainer />
       <Overlay>
         <Dashboard />

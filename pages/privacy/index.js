@@ -1,9 +1,13 @@
 import Overlay from "@/components/common/overlay";
 import style from "@/components/privacy/privacy.module.css";
+import Head from "next/head";
 
 const privacy = () => {
   return (
     <Overlay>
+      <Head>
+        <title>Privacy</title>
+      </Head>
       <div className={style.container}>
         <div className={style.div}>
           <h1 className={style.h1}>Privacy Policy</h1>

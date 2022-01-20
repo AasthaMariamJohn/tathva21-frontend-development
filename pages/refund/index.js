@@ -1,9 +1,13 @@
 import Overlay from "@/components/common/overlay";
 import style from "@/components/refund/refund.module.css";
+import Head from "next/head";
 
 const refund = () => {
   return (
     <Overlay>
+      <Head>
+        <title>Refund</title>
+      </Head>
       <div className={style.container}>
         <div className={style.div}>
           <h1 className={style.h1}>Refund Policy</h1>
