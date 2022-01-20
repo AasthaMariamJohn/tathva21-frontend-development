@@ -550,19 +550,19 @@ const NITCModel3D = () => {
           "/lectures"
         );
       });
-      document.getElementById("About Us-link").addEventListener("click", () => {
-        var position = scene.getObjectByName("MB").position;
-        TweenAnimation(
-          controls,
-          camera,
-          position.x,
-          position.y,
-          position.z,
-          3000,
-          TWEEN.Easing.Back.Out,
-          onAnimationComplete
-        );
-      });
+      // document.getElementById("About Us-link").addEventListener("click", () => {
+      //   var position = scene.getObjectByName("MB").position;
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
 
       document.getElementById("Sponsors-link").addEventListener("click", () => {
         var position = scene.getObjectByName("CCC").position;
