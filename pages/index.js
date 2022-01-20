@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useUserContext } from "@/context/userContext";
 import AboutUs from "@/components/common/aboutUs";
 import { Box, Flex, Spacer } from "@chakra-ui/react";
+import Info  from '@/components/home/info'
 export default function Home() {
   const { user } = useUserContext();
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function Home() {
           <AboutUs />
         </Flex>
       </Box>
-      
+      <Info/>
       <BasicUsage />
     </div>
   );
