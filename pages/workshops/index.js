@@ -6,7 +6,7 @@ export default function Lectures() {
   return (
     <div>
       <Overlay>
-        <ComingSoon event={"Workshops"} time={"05 26 2029, 6:00 am"}/>
+        <ComingSoon event={"Workshops"} time={"01 22 2022, 4:00 pm"}/>
       </Overlay>
     </div>
   );

@@ -56,8 +56,8 @@
   border-radius: 50%;
   position: absolute;
 
-  margin-top: -97px;
-  margin-left: 5px;
+  margin-top: -95px;
+  margin-left: 10px;
 }
 .test img {
   /* width: 250px;
@@ -69,7 +69,7 @@
   -webkit-transition: 0.5s ease-out;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .container {
     height: 70px;
     width: 70px;
@@ -80,6 +80,6 @@
   }
   .test img {
     transform: scale(0.8);
-    margin-top: 10px;
+    margin-top: 16px;
   }
 }

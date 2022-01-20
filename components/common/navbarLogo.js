@@ -1,17 +1,22 @@
 import style from "./navbarLogo.module.css";
 import { Image } from "@chakra-ui/react";
+import Link from "next/link";
 export default function NavbarLogo() {
   return (
-    <>
-      <div className={style.container}></div>
-      <div className={style.test}>
-        <Image
-          src="/logo/navbarlogo.png"
-          width={"100px"}
-          height={"100px"}
-          alt=""
-        />
-      </div>
-    </>
+    <div>
+      <Link href="/" passHref>
+        <div style={{cursor:"pointer"}}>
+          <div className={style.container}></div>
+          <div className={style.test}>
+            <Image
+              src="/logo/White Logo.png"
+              width={"85px"}
+              height={"85px"}
+              alt="next-image"
+            />
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 }
