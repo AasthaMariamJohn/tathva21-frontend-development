@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function NavbarLogo() {
   return (
     <div>
-      <Link href="/" passHref>
-        <div style={{cursor:"pointer"}}>
+      <Link href="/" passHref >
+        <div style={{cursor:"pointer"}}  id="logo-link">
           <div className={style.container}></div>
           <div className={style.test}>
             <Image
