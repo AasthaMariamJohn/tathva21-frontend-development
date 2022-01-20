@@ -85,7 +85,11 @@ export default function Home() {
             <div className={styles.teamimg}>
               <div className={styles["image-overlay"]}>
                 <p>
-                  <a href={`${img.linkedin}`} target={"_blank"}>
+                  <a
+                    href={`${img.linkedin}`}
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
                     <BsLinkedin />
                   </a>
                 </p>

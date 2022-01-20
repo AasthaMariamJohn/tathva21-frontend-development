@@ -43,7 +43,7 @@ export default function Home() {
       image: "/teams/Executives/Treasurers/Sangeeth S U.jpg",
       name: "Sangeeth S U",
       pos: "Treasurer",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/sangeeth-s-u-070535190/",
     },
   ];
 
@@ -55,7 +55,11 @@ export default function Home() {
             <div className={styles.teamimg}>
               <div className={styles["image-overlay"]}>
                 <p>
-                  <a href={`${img.linkedin}`} target={"_blank"}>
+                  <a
+                    href={`${img.linkedin}`}
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
                     <BsLinkedin />
                   </a>
                 </p>
