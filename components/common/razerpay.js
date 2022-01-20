@@ -14,7 +14,14 @@ function loadScript(src) {
     document.body.appendChild(script);
   });
 }
-async function displayRazorpay(event, user, paymentType, regPrice,router) {
+async function displayRazorpay(
+  event,
+  user,
+  paymentType,
+  regPrice,
+  router,
+  userEvents,
+) {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
   if (!res) {
@@ -92,17 +99,23 @@ async function displayRazorpay(event, user, paymentType, regPrice,router) {
                   draggable: true,
                   progress: undefined,
                 });
+                if (paymentType == "event") {
+                  userEvents.push({ eventId: event.id, userEventId: result.data.id });
+                  router.push(`/dashboard/events/${event.slug}`);
+                } else if (paymentType == "workshop"){
+                  userEvents.push({ workshopId: event.id, userWorkshopId: result.data.id });
+                  router.push(`/dashboard/workshops/${event.slug}`);
+                }
+                  
+                else if (paymentType == "lecture"){
+                  userEvents.push({ lectureId: event.id, userLectureId: result.data.id });
+                  router.push(`/dashboard/lectures/${event.slug}`);
+                }
+                  
+                return result;
               }
-            })
-            .then(()=>{
-              if(paymentType=="event")
-                router.push(`/dashboard/events/${event.slug}?refresh=True`)
-              else  if(paymentType=="workshop")
-                router.push(`/dashboard/workshops/${event.slug}?refresh=True`)
-              else  if(paymentType=="lecture")
-                router.push(`/dashboard/lectures/${event.slug}?refresh=True`)
-            })
-
+              
+            });
         },
         theme: {
           color: "#61dafb",
@@ -113,8 +126,7 @@ async function displayRazorpay(event, user, paymentType, regPrice,router) {
     });
 }
 
-
-export default displayRazorpay
+export default displayRazorpay;
 
 // function RazerPay({ event, user, paymentType, regPrice }) {
 // function loadScript(src) {

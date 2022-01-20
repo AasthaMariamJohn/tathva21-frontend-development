@@ -162,7 +162,8 @@ export default function Ewl_component({ event, type }) {
                       user,
                       "event",
                       event.regPrice,
-                      router
+                      router,
+                      userEvents,
                     );
                   else if (type == "workshop")
                     displayRazorpay(
@@ -170,7 +171,8 @@ export default function Ewl_component({ event, type }) {
                       user,
                       "workshop",
                       event.regPrice,
-                      router
+                      router,
+                      userWorkshops,
                     );
                   else if (type == "lecture")
                     displayRazorpay(
@@ -178,7 +180,8 @@ export default function Ewl_component({ event, type }) {
                       user,
                       "lecture",
                       event.regPrice,
-                      router
+                      router,
+                      userLectures,
                     );
                 } else {
                   if (type == "event")
