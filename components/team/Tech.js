@@ -5,74 +5,74 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1qcEdii_BoByXXZ3hRZTsn5dUoI3Ef1eS",
+      image: "/teams/Tech/Heads/Rohit Robin Mampilly.webp",
       name: "Rohit Robin Mampilly",
       pos: "HEAD",
     },
     {
       id: "2",
-      image: "1Q7ElNJ5t6DCo7H561XaAQfb8RkMnbt5N",
+      image: "/teams/Tech/Heads/Vimal Joseph.webp",
       name: "Vimal Joseph",
       pos: "HEAD",
     },
     {
       id: "3",
-      image: "1oRwXAhBwYmhbvYZJR8XbVvSsJFQTQQ43",
+      image: "/teams/Tech/Aastha_Mariam_John.webp",
       name: "Aastha Mariam John",
       pos: "FRONT-END",
     },
     {
       id: "4",
-      image: "17-jk4-OMkgajMbCJWxQR_jYV0ItN361E",
+      image: "/teams/Tech/Ben Thomas.webp",
       name: "Ben Thomas",
       pos: "FULL-STACK",
     },
     {
       id: "5",
-      image: "1pdPoX2Z8Co6vXFi1Q0T2x41f4_GOoYr6",
+      image: "/teams/Tech/Joel Robin P.webp",
       name: "Joel Robin P",
       pos: "FRONT-END",
     },
     {
       id: "6",
-      image: "1HWHgWpl9zGNxRuDuOrBL4agQs04VT0ru",
+      image: "/teams/Tech/Amal Prakash.webp",
       name: "Amal Prakash",
       pos: "THREE.JS",
     },
     {
       id: "7",
-      image: "1GJ3F7mfA8vCHwFyxssQ--YTwowQagDVK",
+      image: "/teams/Tech/Alias George.webp",
       name: "Alias George",
       pos: "FULL-STACK",
     },
     {
       id: "8",
-      image: "1e1DjQ41X3VKNSBSm1-o01QT5Q4K6WuaZ",
+      image: "/teams/Tech/Amal P Mathews.webp",
       name: "Amal P Mathews",
       pos: "FULL-STACK",
     },
     {
       id: "9",
-      image: "1P4VocyQuzPSFwiZL8-RhsaVBUNG5uq5a",
+      image: "/teams/Tech/Emmanuel Christo.webp",
       name: "Emmanuel Christo",
       pos: "FRONT-END",
     },
 
     {
       id: "10",
-      image: "14jdmUbKLtih21CnAN8XuPEIitGx5aaDu",
+      image: "/teams/Tech/Amal Krishna.webp",
       name: "Amal Krishna",
       pos: "FRONT-END",
     },
     {
       id: "11",
-      image: "16A_qeSxrfInYX2RkNgXyPMfuBl1AG4rh",
+      image: "/teams/Tech/Akhil Dev M S.webp",
       name: "Akhil Dev M S",
       pos: "FRONT-END",
     },
     {
       id: "12",
-      image: "1HmEO6l9znYiAc4N30HYeKSr77S1QoAAs",
+      image: "/teams/Tech/Vaibhav Gupta.webp",
       name: "Vaibhav Gupta",
       pos: "FRONT-END",
     },
@@ -96,7 +96,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 alt="next-image"
                 height={"180px"}
                 width={"180px"}

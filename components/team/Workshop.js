@@ -5,21 +5,24 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Workshop/MALAVIKA SAJEEV.jpg",
+      image: "/teams/Workshop/MALAVIKA SAJEEV.webp",
       name: "MALAVIKA SAJEEV",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/malavika-sajeev-625b621a4",
     },
     {
       id: "2",
-      image: "/teams/Workshop/SHALOOB M.jpg",
+      image: "/teams/Workshop/SHALOOB M.webp",
       name: "SHALOOB M",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/shaloob-m-626870212",
     },
     {
       id: "3",
-      image: "/teams/Workshop/Mohamed Niyas A.jpg",
+      image: "/teams/Workshop/Mohamed Niyas A.webp",
       name: "Mohamed Niyas A",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/mohamed-niyas-a-9931a01ba",
     },
   ];
 
@@ -41,7 +44,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

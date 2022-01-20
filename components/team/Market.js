@@ -6,15 +6,24 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1SiWQ5dpQl40XqaNvqTNz2zh3UQAeGtVw",
+      image: "/teams/Marketing/Jijo Ponnachan.webp",
       name: "Jijo Ponnachan",
       pos: "HEAD",
+      linkedin: "",
     },
     {
       id: "2",
-      image: "1Af_-5cCuV8vxQ5i8EAc1JFXRx9uaTprd",
+      image: "/teams/Marketing/swathy suresh b.webp",
       name: "Swathy Suresh B",
       pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "3",
+      image: "/teams/Marketing/Akhilesh.webp",
+      name: "Akhilesh",
+      pos: "HEAD",
+      linkedin: "",
     },
   ];
 
@@ -36,7 +45,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

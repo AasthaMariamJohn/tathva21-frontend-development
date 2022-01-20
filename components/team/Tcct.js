@@ -5,9 +5,31 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1guN8TlqUF5ORwnZ3MCcXErVAnDer6SAa",
+      image: "/teams/Tcct/ADITYA KRISHNA.webp",
+      name: "ADITYA KRISHNA",
+      pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "1",
+      image: "/teams/Tcct/AMAL KR.webp",
+      name: "AMAL KR",
+      pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "1",
+      image: "/teams/Tcct/KOLACHANA SRUTHI.webp",
+      name: "KOLACHANA SRUTHI",
+      pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "1",
+      image: "/teams/Tcct/VISHNU AJAY.jpeg.webp",
       name: "VISHNU AJAY",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/vishnu-ajay/",
     },
   ];
 
@@ -29,7 +51,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

@@ -6,15 +6,38 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1yeECAJu22f7ioVbToDL_0X1OPD5uwG0G",
+      image: "/teams/Lecture/Haris Muhammed S.webp",
       name: "Haris Muhammed S",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/haris-muhammed-85053a190",
     },
     {
       id: "2",
-      image: "1t4i8UUSJVqtx3X8KjDST6VsBuOEiX5lb",
+      image: "/teams/Lecture/Mohammed Mirza K K.webp",
       name: "Mohammed Mirza K K",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/mohammed-m-09084b10a",
+    },
+    {
+      id: "3",
+      image: "/teams/Lecture/Manu Narayanan.webp",
+      name: "Manu Narayanan",
+      pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "4",
+      image: "/teams/Lecture/Midhunkrishnan P U.webp",
+      name: "Mohammed Mirza K K",
+      pos: "HEAD",
+      linkedin: "",
+    },
+    {
+      id: "5",
+      image: "/teams/Lecture/Vimal Joshy.webp",
+      name: "Vimal Joshy",
+      pos: "HEAD",
+      linkedin: "",
     },
   ];
 
@@ -36,7 +59,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

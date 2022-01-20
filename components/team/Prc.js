@@ -5,70 +5,81 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "19qoOR-9XzRNCYGEBU7ayYYC7zDQYPccY",
+      image: "/teams/PRC/CA/Hima K Vasudevan.webp",
       name: "Hima K Vasudevan",
       pos: "CA",
+      linkedin: "https://www.linkedin.com/in/hima-k-vasudevan-129462190",
     },
     {
       id: "2",
-      image: "1l-tIuqlfytkIlWMRPGT71R03GtrNCCMl",
+      image: "/teams/PRC/CA/Vishnu Vijay.webp",
       name: "Vishnu Vijay",
       pos: "CA",
+      linkedin: "https://www.linkedin.com/in/vishnu-vijay-8453b7187/",
     },
     {
       id: "3",
-      image: "1TqmawaayCtRCaBV6T0g-70wTRfEJrsLN",
+      image: "/teams/PRC/event and pr/Akshara Biju.webp",
       name: "Akshara Biju",
       pos: "Event & PR",
+      linkedin: "https://www.linkedin.com/in/akshara-biju-3993671a5",
     },
     {
       id: "4",
-      image: "1Yq9wvgsfjkgfZTbvAqTIccaxCIybMbzj",
+      image: "/teams/PRC/event and pr/Bhavana.webp",
       name: "Bhavana",
       pos: "Event & PR",
+      linkedin: "https://www.linkedin.com/in/bhavana-ketavath-164989212",
     },
     {
       id: "5",
-      image: "/teams/PRC/event and pr/Vishnuprasad R Nair.jpg",
+      image: "/teams/PRC/event and pr/Vishnuprasad R Nair.webp",
       name: "Vishnuprasad R Nair",
       pos: "Event & PR",
+      linkedin: "https://www.linkedin.com/in/vishnuprasad-r-nair-2b3635190",
     },
     {
       id: "6",
-      image: "1UplH_7hibQfuLQ7ACp7jm17yrBZh9Q_J",
+      image: "/teams/PRC/outreach/ABHAY R.webp",
       name: "Abhay R",
       pos: "OutReach",
+      linkedin: "https://www.linkedin.com/in/abhay-r-76153b166",
     },
     {
       id: "7",
-      image: "1KHXt87USQ-1Vnw5dpakQxAlsVz1ahPnb",
+      image: "/teams/PRC/outreach/Aditya Anand.webp",
       name: "Aditya Anand",
       pos: "OutReach",
+      linkedin: "https://www.linkedin.com/in/aditya-anand-74b661190",
     },
     {
       id: "8",
-      image: "1t-7U8AUZNoxD7QgYbAqBgOM55D6xULrk",
+      image: "/teams/PRC/outreach/Anagha Ashok.webp",
       name: "Anagha Ashok",
       pos: "OutReach",
+      linkedin: "https://www.linkedin.com/in/anagha-ashok-80a467190",
     },
     {
       id: "9",
-      image: "1HZysxnbAKlaN4QrD7siQTUT6CJpWklGq",
+      image: "/teams/PRC/outreach/Busarla Desika.webp",
       name: "Busarla Desika",
       pos: "OutReach",
+      linkedin: "https://www.linkedin.com/in/desika-busarla-066057190",
     },
 
     {
       id: "10",
-      image: "1ktQX1o9zY4hQiUXhPb9n95RkkghPpUi6",
+      image: "/teams/PRC/outreach/Manish kumar.webp",
       name: "Manish kumar",
       pos: "OutReach",
+      linkedin: "http://linkedin.com/in/manish-kumar-77b9051b3",
     },
     {
       id: "11",
-      image: "1YgejIt1uNpkcyJ1hMMtZLgt3Y4H_wOQA",
+      image: "/teams/PRC/outreach/Saran Josh.webp",
       name: "Saran Josh",
       pos: "OutReach",
+      linkedin: "https://www.linkedin.com/in/saran-josh-khandavalli-ba227220b",
     },
   ];
 
@@ -90,7 +101,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 alt="next-image"
                 height={"160px"}
                 width={"140px"}

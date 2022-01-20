@@ -6,59 +6,59 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1bN_Yk2f5cN_dE6sESXKv-Z40RHazVsgd",
+      image: "/teams/Programme committee/ecos/ADITYA KRISHNA.webp",
       name: "ADITYA KRISHNA",
       pos: "ECOS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/aditya-krishna-734406212",
     },
     {
       id: "2",
-      image: "1ceO3JiLHTs_FMbR5NWqDmbOmj1FH2BM0",
+      image: "/teams/Programme committee/ecos/ANAKHA. P. S.webp",
       name: "ANAKHA. P. S",
       pos: "ECOS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/anakha-sreenivas-80228a18b",
     },
     {
       id: "3",
-      image: "1ZtWXuok9cfY2JjSib4ygDlNj6MccvZkW",
+      image: "/teams/Programme committee/ecos/Arjun Murali.webp",
       name: "Arjun Murali",
       pos: "ECOS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/arjunmurali245",
     },
     {
       id: "4",
-      image: "1K_u25GkHE-fltCNhH9CHgv1u8y7_no07",
+      image: "/teams/Programme committee/ecos/John Johnson V.webp",
       name: "John Johnson V",
       pos: "ECOS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/john-johnson-v",
     },
     {
       id: "5",
-      image: "12tgh96r7U0wY8rvO0kLhGxnlHiiGrM2j",
+      image: "/teams/Programme committee/pg reps/Bhagya.webp",
       name: "Bhagya",
       pos: "PG REPS",
       linkedin: "",
     },
     {
       id: "6",
-      image: "1YsaDAzdtNVPwm9TXFbaVSfgn__g7id_M",
+      image: "/teams/Programme committee/pg reps/Dhrona Jaine.webp",
       name: "Dhrona Jaine",
       pos: "PG REPS",
       linkedin: "",
     },
     {
       id: "7",
-      image: "1_FwSjwzFrB6GYOidN5fFUfYzNIBAOUQR",
+      image: "/teams/Programme committee/pg reps/Muhamed Nabeel.webp",
       name: "Muhamed Nabeel",
       pos: "PG REPS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/muhamed-nabeel-b831877a",
     },
     {
       id: "8",
-      image: "1FWroVIoiuoO60VcsJlxd2eZBcGHhRXbv",
+      image: "/teams/Programme committee/pg reps/Pradeep.webp",
       name: "Pradeep",
       pos: "PG REPS",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/pradeep-ravichandran-725042195",
     },
   ];
 
@@ -80,7 +80,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

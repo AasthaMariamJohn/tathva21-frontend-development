@@ -6,21 +6,21 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "1BB8L3fAvb3vp-Jz4m6nr4V4uzJK0MZNv",
+      image: "/teams/Media/Jishnu Jayarajan.webp",
       name: "Jishnu Jayarajan",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/jishnu-jayarajan-96746a190",
     },
     {
       id: "2",
-      image: "1SCB3wwHcW9uvTcd-4tg69OYM1M3OnjgG",
+      image: "/teams/Media/Nanditha A.webp",
       name: "Nanditha A",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/nanditha-a-107814190",
     },
     {
       id: "3",
-      image: "/teams/Media/Samyuktha M Suresh.jpg",
+      image: "/teams/Media/Samyuktha M Suresh.webp",
       name: "Samyuktha M Suresh",
       pos: "HEAD",
       linkedin: "https://www.linkedin.com/in/samyuktha-m-suresh-1aa7b7190/",
@@ -45,7 +45,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`https://drive.google.com/uc?id=${img.image}`}
+                src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"
