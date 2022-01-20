@@ -5,7 +5,7 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Tcct/VISHNU AJAY.jpeg.jpg",
+      image: "1guN8TlqUF5ORwnZ3MCcXErVAnDer6SAa",
       name: "VISHNU AJAY",
       pos: "HEAD",
     },
@@ -29,7 +29,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`${img.image}`}
+                src={`https://drive.google.com/uc?id=${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

@@ -5,25 +5,25 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/PRC/CA/Hima K Vasudevan.jpg",
+      image: "19qoOR-9XzRNCYGEBU7ayYYC7zDQYPccY",
       name: "Hima K Vasudevan",
       pos: "CA",
     },
     {
       id: "2",
-      image: "/teams/PRC/CA/Vishnu Vijay.jpg",
+      image: "1l-tIuqlfytkIlWMRPGT71R03GtrNCCMl",
       name: "Vishnu Vijay",
       pos: "CA",
     },
     {
       id: "3",
-      image: "/teams/PRC/event and pr/Akshara Biju.jpg",
+      image: "1TqmawaayCtRCaBV6T0g-70wTRfEJrsLN",
       name: "Akshara Biju",
       pos: "Event & PR",
     },
     {
       id: "4",
-      image: "/teams/PRC/EVENT AND PR/Bhavana.jpeg",
+      image: "1Yq9wvgsfjkgfZTbvAqTIccaxCIybMbzj",
       name: "Bhavana",
       pos: "Event & PR",
     },
@@ -35,38 +35,38 @@ export default function Home() {
     },
     {
       id: "6",
-      image: "/teams/PRC/outreach/Abhay R.jpg",
+      image: "1UplH_7hibQfuLQ7ACp7jm17yrBZh9Q_J",
       name: "Abhay R",
       pos: "OutReach",
     },
     {
       id: "7",
-      image: "/teams/PRC/outreach/Aditya Anand.jpg",
+      image: "1KHXt87USQ-1Vnw5dpakQxAlsVz1ahPnb",
       name: "Aditya Anand",
       pos: "OutReach",
     },
     {
       id: "8",
-      image: "/teams/PRC/outreach/Anagha Ashok.jpg",
+      image: "1t-7U8AUZNoxD7QgYbAqBgOM55D6xULrk",
       name: "Anagha Ashok",
       pos: "OutReach",
     },
     {
       id: "9",
-      image: "/teams/PRC/outreach/Busarla Desika.jpg",
+      image: "1HZysxnbAKlaN4QrD7siQTUT6CJpWklGq",
       name: "Busarla Desika",
       pos: "OutReach",
     },
 
     {
       id: "10",
-      image: "/teams/PRC/outreach/Manish kumar.jpg",
+      image: "1ktQX1o9zY4hQiUXhPb9n95RkkghPpUi6",
       name: "Manish kumar",
       pos: "OutReach",
     },
     {
       id: "11",
-      image: "/teams/PRC/outreach/Saran Josh.jpg",
+      image: "1YgejIt1uNpkcyJ1hMMtZLgt3Y4H_wOQA",
       name: "Saran Josh",
       pos: "OutReach",
     },
@@ -90,11 +90,10 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`${img.image}`}
+                src={`https://drive.google.com/uc?id=${img.image}`}
                 alt="next-image"
                 height={"160px"}
                 width={"140px"}
-                
               ></Image>
               <div className={styles.overlay}></div>
             </div>
