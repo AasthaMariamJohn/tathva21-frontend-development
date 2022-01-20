@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./team.module.css";
+import { BsLinkedin } from "react-icons/bs";
 export default function Home() {
   const imagefile = [
     {

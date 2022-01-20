@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./team.module.css";
+import { BsLinkedin } from "react-icons/bs";
 export default function Home() {
   const imagefile = [
     {
@@ -18,7 +19,11 @@ export default function Home() {
             <div className={styles.teamimg}>
               <div className={styles["image-overlay"]}>
                 <p>
-                  <a href={`${img.linkedin}`} target={"_blank"}>
+                  <a
+                    href={`${img.linkedin}`}
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
                     <BsLinkedin />
                   </a>
                 </p>
