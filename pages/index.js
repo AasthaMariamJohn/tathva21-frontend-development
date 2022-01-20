@@ -30,7 +30,7 @@ export default function Home() {
           <AboutUs />
         </Flex>
       </Box>
-      <Info />
+//       <Info />
       <BasicUsage />
     </div>
   );
