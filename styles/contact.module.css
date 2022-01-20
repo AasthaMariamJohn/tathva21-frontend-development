@@ -12,6 +12,8 @@
 	justify-content: space-between;
 	color: #fff;
 	padding-top: 3rem;
+	font-family: "quantico";
+	
 }
 .info {
 	/* border: 2px solid #49E9FF; */
@@ -23,7 +25,7 @@
 	position: relative;
 	margin-top: 90px;
 	font-size: 0.8rem;
-
+	font-size: 1rem;
 	/* background-color: red; */
 }
 .item {

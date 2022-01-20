@@ -69,9 +69,9 @@ const Navbar = () => {
                   <Link href={"/"} passHref>
                     <a id="logo-link">
                       <Image
-                        src={"/logo/navbarlogo.png"}
-                        width="110"
-                        height="120"
+                        src={"/logo/navbarLogo.png"}
+                        width="80px"
+                        height="80px"
                         alt="Tathva"
                       ></Image>
                     </a>
@@ -118,9 +118,9 @@ const Navbar = () => {
               <div className={style.logo_menu}>
                 <Link href="/" passHref>
                   <Image
-                    src={"/logo/navbarlogo.png"}
-                    width="120"
-                    height="120"
+                    src={"/logo/navbarLogo.png"}
+                    width="80px"
+                    height="80px"
                     alt="Tathva"
                   ></Image>
                 </Link>

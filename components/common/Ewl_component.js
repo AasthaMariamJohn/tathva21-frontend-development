@@ -71,8 +71,6 @@
 //   );
 // }
 
-
-
 import style from "../events_workshop_lectures/ewl.module.css";
 import { MdAlarm } from "react-icons/md";
 import { Center, Image } from "@chakra-ui/react";
@@ -93,7 +91,8 @@ export default function Ewl_component({ event, type }) {
   };
   const [body, setBody] = useState(eventdetails.info);
 
-  const { user, isLoggedIn } = useUserContext();
+  const { user, isLoggedIn, userEvents, userWorkshops, userLectures } =
+    useUserContext();
   const router = useRouter();
 
   return (
@@ -158,18 +157,36 @@ export default function Ewl_component({ event, type }) {
               if (isLoggedIn) {
                 if (event.regPrice) {
                   if (type == "event")
-                    displayRazorpay(event, user, "event", event.regPrice,router);
+                    displayRazorpay(
+                      event,
+                      user,
+                      "event",
+                      event.regPrice,
+                      router
+                    );
                   else if (type == "workshop")
-                    displayRazorpay(event, user, "workshop", event.regPrice,router);
+                    displayRazorpay(
+                      event,
+                      user,
+                      "workshop",
+                      event.regPrice,
+                      router
+                    );
                   else if (type == "lecture")
-                    displayRazorpay(event, user, "lecture", event.regPrice,router);
+                    displayRazorpay(
+                      event,
+                      user,
+                      "lecture",
+                      event.regPrice,
+                      router
+                    );
                 } else {
-                  if(type=="event")
-                  registerEvent(event, user.id, user.jwt, router);
-                  else if(type=="lecture")
-                    registerLecture(event, user.id, user.jwt, router)
-                  else if(type=="workshop")
-                    registerWorkshop(event, user.id, user.jwt, router)
+                  if (type == "event")
+                    registerEvent(event, user, router, userEvents);
+                  else if (type == "lecture")
+                    registerLecture(event, user, router,userLectures);
+                  else if (type == "workshop")
+                    registerWorkshop(event, user, router,userWorkshops);
                 }
               } else {
                 Login(router);
