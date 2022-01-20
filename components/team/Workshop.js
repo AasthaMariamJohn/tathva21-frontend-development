@@ -41,7 +41,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`${img.image}`}
+                src={`https://drive.google.com/uc?id=${img.image}`}
                 height={"160px"}
                 width={"140px"}
                 alt="next-image"

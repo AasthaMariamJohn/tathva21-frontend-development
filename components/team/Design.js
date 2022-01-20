@@ -69,7 +69,7 @@ export default function Home() {
 
     {
       id: "10",
-      image: "/teams/Design/3D Team/Love Kush Pranu.jpg",
+      image: "1AFIlDFZ2YQQ9BLqgPfLMrMyIyxC9GaWO",
       name: "Love Kush Pranu",
       pos: "3D",
       linkedin: "https://www.linkedin.com/in/lovekush-pranu",
@@ -83,28 +83,28 @@ export default function Home() {
     },
     {
       id: "12",
-      image: "/teams/Design/UI-UX/Jaljith.jpeg",
+      image: "1zT9mUO6CJt5aLRLxdTbnfUGnOilBMHYp",
       name: "Jaljith",
       pos: "UI/UX",
       linkedin: "",
     },
     {
       id: "13",
-      image: "/teams/Design/3D TEAM/JUNIORS/ABHINAVE M S.jpg",
+      image: "1lweqdISWNXi58vBnCUrP9eAXA4YlIpt0",
       name: "Abhinave M S",
       pos: "JUNIOR",
       linkedin: "https://www.linkedin.com/in/abhinave-m-s-54170121a",
     },
     {
       id: "14",
-      image: "/teams/Design/3D TEAM/JUNIORS/MADHAV UNNIKRISHNAN.jpg",
+      image: "1t_sR4EZKWGxSSZJUHtckFKcK3l56qgQI",
       name: "Madhav Unnikrishnan",
       pos: "JUNIOR",
       linkedin: "https://www.linkedin.com/in/madhav-unni-077990202",
     },
     {
       id: "14",
-      image: "/teams/Design/3D TEAM/JUNIORS/MUAAD AKMAL.jpg",
+      image: "1c11D8HtYu_XLYa6n4EigeNfM3EZjAEQr",
       name: "Muaad Akmal",
       pos: "JUNIOR",
       linkedin: "https://www.linkedin.com/in/muaad-akmal-04bba5212",
@@ -129,11 +129,10 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src={`${img.image}`}
+                src={`https://drive.google.com/uc?id=${img.image}`}
                 alt="next-image"
                 height={"180px"}
                 width={"180px"}
-                
               ></Image>
             </div>
             <div className={styles.teaminfo}>

@@ -4,9 +4,7 @@ import Overlay from "../common/overlay";
 export default function Info() {
   return (
     <Overlay>
-      <Box>
-            
-      </Box>
+      <Box>afdkjsdfhskjfhskfjhskjdfhskjf</Box>
     </Overlay>
   );
 }
