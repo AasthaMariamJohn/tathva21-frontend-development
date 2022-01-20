@@ -26,7 +26,7 @@ export default function Home() {
       </Head>
       <Box position={"absolute"} bottom={["3"]} left={["10"]}>
         <Flex>
-          <DonateBtn/>
+          {/* <DonateBtn/> */}
           <Box p={2}></Box>
           <AboutUs />
         </Flex>
