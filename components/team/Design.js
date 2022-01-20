@@ -57,14 +57,14 @@ export default function Home() {
       image: "/teams/Design/3D Team/Sangeeth S U.jpg",
       name: "Sangeeth S U",
       pos: "3D",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/sangeeth-s-u-070535190",
     },
     {
       id: "9",
       image: "/teams/Design/3D TEAM/ADARSH T R.jpg",
       name: "ADARSH T.R",
       pos: "3D",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/adarsh-t-r-724778191",
     },
 
     {
@@ -72,14 +72,14 @@ export default function Home() {
       image: "/teams/Design/3D Team/Love Kush Pranu.jpg",
       name: "Love Kush Pranu",
       pos: "3D",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/lovekush-pranu",
     },
     {
       id: "11",
       image: "/teams/Design/3D TEAM/SARATH U M.jpg",
       name: "Sarath. U. M",
       pos: "3D",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/sarath-u-m-2933ba212",
     },
     {
       id: "12",
@@ -93,21 +93,21 @@ export default function Home() {
       image: "/teams/Design/3D TEAM/JUNIORS/ABHINAVE M S.jpg",
       name: "Abhinave M S",
       pos: "JUNIOR",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/abhinave-m-s-54170121a",
     },
     {
       id: "14",
       image: "/teams/Design/3D TEAM/JUNIORS/MADHAV UNNIKRISHNAN.jpg",
       name: "Madhav Unnikrishnan",
       pos: "JUNIOR",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/madhav-unni-077990202",
     },
     {
       id: "14",
       image: "/teams/Design/3D TEAM/JUNIORS/MUAAD AKMAL.jpg",
       name: "Muaad Akmal",
       pos: "JUNIOR",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/muaad-akmal-04bba5212",
     },
   ];
 

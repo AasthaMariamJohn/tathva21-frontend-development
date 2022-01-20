@@ -9,18 +9,21 @@ export default function Home() {
       image: "/teams/Media/Jishnu Jayarajan.jpeg.jpg",
       name: "Jishnu Jayarajan",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/jishnu-jayarajan-96746a190",
     },
     {
       id: "2",
       image: "/teams/Media/Nanditha A.jpg",
       name: "Nanditha A",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/nanditha-a-107814190",
     },
     {
       id: "3",
       image: "/teams/Media/Samyuktha M Suresh.jpg",
       name: "Samyuktha M Suresh",
       pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/samyuktha-m-suresh-1aa7b7190/",
     },
   ];
 
