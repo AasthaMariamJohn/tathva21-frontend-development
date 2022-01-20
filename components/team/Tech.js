@@ -47,7 +47,7 @@ export default function Home() {
     },
     {
       id: "8",
-      image: "/teams/Tech/Amal P Mathews.webp",
+      image: "/teams/Tech/Amal_P_Mathews.webp",
       name: "Amal P Mathews",
       pos: "FULL-STACK",
     },
