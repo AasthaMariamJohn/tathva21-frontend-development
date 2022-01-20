@@ -1,19 +1,11 @@
 import Image from "next/image";
 import styles from "./team.module.css";
-import { BsLinkedin } from "react-icons/bs";
-
 export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Marketing/Jijo Ponnachan.jpg",
-      name: "Jijo Ponnachan",
-      pos: "HEAD",
-    },
-    {
-      id: "2",
-      image: "/teams/Marketing/swathy suresh b.jpg",
-      name: "Swathy Suresh B",
+      image: "/teams/Tcct/VISHNU AJAY.jpeg.jpg",
+      name: "VISHNU AJAY",
       pos: "HEAD",
     },
   ];

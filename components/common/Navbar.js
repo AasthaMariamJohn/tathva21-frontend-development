@@ -69,7 +69,7 @@ const Navbar = () => {
                   <Link href={"/"} passHref>
                     <a id="logo-link">
                       <Image
-                        src={"/logo/navbarLogo.png"}
+                        src={"/logo/navbarlogo.png"}
                         width="80px"
                         height="80px"
                         alt="Tathva"

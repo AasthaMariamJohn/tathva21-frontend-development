@@ -6,14 +6,14 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
-      image: "/teams/Marketing/Jijo Ponnachan.jpg",
-      name: "Jijo Ponnachan",
+      image: "/teams/Lecture/Haris Muhammed S.jpg",
+      name: "Haris Muhammed S",
       pos: "HEAD",
     },
     {
       id: "2",
-      image: "/teams/Marketing/swathy suresh b.jpg",
-      name: "Swathy Suresh B",
+      image: "/teams/Lecture/Mohammed Mirza K K.jpg",
+      name: "Mohammed Mirza K K",
       pos: "HEAD",
     },
   ];

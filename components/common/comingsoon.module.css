@@ -41,7 +41,7 @@
 @-webkit-keyframes MISSION-HOVER {
   0%,
   100% {
-    font-size: 4rem;
+    /* font-size: 4rem; */
     color: white;
   }
   50% {
@@ -115,21 +115,19 @@
   top: 0px;
 }
 
-@media(max-width: 1280px) {
-  
+@media (max-width: 1280px) {
 }
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .title {
     font-size: 3rem;
   }
-
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .title {
     font-size: 2.5rem;
   }
 }
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .title {
     font-size: 2rem;
   }
