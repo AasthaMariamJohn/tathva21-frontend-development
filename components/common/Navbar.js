@@ -20,7 +20,7 @@ const Navbar = () => {
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops" },
     { title: "Lecture", id: 4, link: "/lectures" },
-    { title: "Team", id: 5, link: "/team" },
+    { title: "Shop", id: 5, link: "/shop" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
     // { title: "Contact Us", id: 7, link: "/contact" },
   ]);
@@ -106,7 +106,7 @@ const Navbar = () => {
               <div className={style.logo_menu}>
                 <Link href="/" passHref>
                   <Image
-                    src={"/logo/navbarLogo.png"}
+                    src={"/logo/navbarlogoblue.png"}
                     width="80px"
                     height="80px"
                     alt="Tathva"

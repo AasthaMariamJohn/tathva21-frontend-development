@@ -13,21 +13,27 @@ import {
   useDisclosure,
   Text,
 } from "@chakra-ui/react";
-import {FaInfo} from 'react-icons/fa'
+import { FaInfo } from "react-icons/fa";
 export default function Info() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Button  variant='ghost'  position="absolute" bottom={4} right={100} onClick={onOpen}>
-        <FaInfo color={"#00A3C4"}/>
+      <Button
+        variant="ghost"
+        position="absolute"
+        bottom={4}
+        right={100}
+        onClick={onOpen}
+      >
+        <FaInfo color={"#00A3C4"} />
       </Button>
-      <Modal  isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent bgColor={"black"} color={"white"} fontSize={14}>
           <ModalHeader>How To Use</ModalHeader>
           <ModalCloseButton />
-          <ModalBody >
+          <ModalBody>
             <Text display={["none", "block"]}>
               <Text>
                 1) To pan, click and drag the cursor to the left or right.
