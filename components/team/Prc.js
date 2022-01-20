@@ -94,7 +94,7 @@ export default function Home() {
                 alt="next-image"
                 height={"160px"}
                 width={"140px"}
-                layout="fill"
+                
               ></Image>
               <div className={styles.overlay}></div>
             </div>

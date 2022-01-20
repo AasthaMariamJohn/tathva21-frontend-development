@@ -12,6 +12,7 @@
 }
 @media (max-width: 500px) {
   .contact-logo img{
+    bottom:54px;
     width:60px;
   }
 }
