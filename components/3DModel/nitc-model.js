@@ -505,7 +505,7 @@ const NITCModel3D = () => {
       //   );
       // });
       document.getElementById("Events-link").addEventListener("click", () => {
-        var position =scene.getObjectByName("MB").position;
+        var position =scene.getObjectByName("ARYABHATA").position;
         TweenAnimation(
           controls,
           camera,
@@ -520,7 +520,7 @@ const NITCModel3D = () => {
         );
       });
       document.getElementById("Workshops-link").addEventListener("click", () => {
-        var position = scene.getObjectByName("ARYABHATA").position;
+        var position = scene.getObjectByName("ECLC").position;
         TweenAnimation(
           controls,
           camera,
@@ -535,6 +535,35 @@ const NITCModel3D = () => {
         );
       });
       document.getElementById("Lecture-link").addEventListener("click", () => {
+        var position = scene.getObjectByName("AUDI").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+         1500,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete,
+          router,
+          "/lectures"
+        );
+      });
+      document.getElementById("About Us-link").addEventListener("click", () => {
+        var position = scene.getObjectByName("MB").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
+
+      document.getElementById("Sponsors-link").addEventListener("click", () => {
         var position = scene.getObjectByName("CCC").position;
         TweenAnimation(
           controls,
@@ -549,19 +578,7 @@ const NITCModel3D = () => {
           "/lectures"
         );
       });
-      // document.getElementById("Profile-link").addEventListener("click", () => {
-      //   var position = new THREE.Vector3(100, 10, 10);
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     position.x,
-      //     position.y,
-      //     position.z,
-      //     3000,
-      //     TWEEN.Easing.Back.Out,
-      //     onAnimationComplete
-      //   );
-      // });
+
 
       loadGLTFModel(
         scene,
@@ -702,7 +719,7 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Main Building");
-          modalStuff.setTitle("About Us");
+          modalStuff.setTitle("");
           modalStuff.setLink("/aboutus");
         }
       } else if (intersects[i].object.name === "CCCButton") {
@@ -714,7 +731,7 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Central Computing Center");
-          modalStuff.setTitle("Sponsors");
+          modalStuff.setTitle("");
           modalStuff.setLink("/sponsors");
         }
       } else if (intersects[i].object.name === "ArchieButton") {
@@ -726,8 +743,8 @@ const NITCModel3D = () => {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
           modalStuff.setBuilding("Archie");
-          modalStuff.setTitle("Shop");
-          modalStuff.setLink("/shop");
+          modalStuff.setTitle("Adizya");
+          modalStuff.setLink("/adizya");
         }
         
       }
