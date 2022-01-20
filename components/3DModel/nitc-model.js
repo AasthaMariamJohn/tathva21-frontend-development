@@ -14,7 +14,7 @@ import { useUtilityContext } from "@/context/utilityContext";
 
 const ButtonPrimaryHex = 0xFFE9E5
 const ButtonSecondaryHex = 0xFFFFFF
-
+const initialPosition =  new THREE.Vector3(3, 47, 16);
 
 const TWEEN = require("@tweenjs/tween.js");
  
@@ -314,7 +314,7 @@ const NITCModel3D = () => {
   const [_camera, setCamera] = useState();
   const [target] = useState(new THREE.Vector3(0, 0, 0));
   // Set inital camera position here
-  const [initialCameraPosition] = useState(new THREE.Vector3(-10, 47, 16));
+  const [initialCameraPosition] = useState(initialPosition)
   const [scene] = useState(new THREE.Scene());
   const [_controls, setControls] = useState();
   // for raycasting mose coordinates
@@ -401,7 +401,7 @@ const NITCModel3D = () => {
       controls.maxPolarAngle = degToRad(60);
       //controls.noRotate = true
       controls.minAzimuthAngle = degToRad(-30);
-      controls.maxAzimuthAngle = degToRad(-30);
+      controls.maxAzimuthAngle = degToRad(30);
 
 
       // Bloom
@@ -467,7 +467,9 @@ const NITCModel3D = () => {
         TweenAnimation(
           controls,
           camera,
-          -10,47,16,
+          initialPosition.x,
+          initialPosition.y,
+          initialPosition.z,
           1500,
           TWEEN.Easing.Quartic.Out,
           onAnimationComplete,
@@ -479,7 +481,9 @@ const NITCModel3D = () => {
         TweenAnimation(
           controls,
           camera,
-          -10,47,16,
+          initialPosition.x,
+          initialPosition.y,
+          initialPosition.z,
           1500,
           TWEEN.Easing.Quartic.Out,
           onAnimationComplete,
