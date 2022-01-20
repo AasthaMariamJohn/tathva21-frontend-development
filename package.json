@@ -1,6 +1,7 @@
 {
   "name": "main-website",
   "private": true,
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
