@@ -1,8 +1,55 @@
-import Dropbox from './Dropbox'
 
 import styles from './section2.module.css'
-
+import axios from "axios";
+import { useState } from "react";
+import { toast } from "react-toastify";
 export default function Section2({ refId, jwt }) {
+
+	const [image, setImage] = useState(null);
+
+  function handleChange(e) {
+    setImage(e.target.files[0]);
+  }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("files", image);
+    formData.append("refId", refId);
+    if (!image) {
+      toast.error("Please Select some file", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
+    const id = toast.loading("Please wait...");
+
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/upload`, formData, {
+        headers: {
+          Authorization: "Bearer " + jwt,
+        },
+      })
+      .then(() => {
+        toast.update(id, {
+          render: "Submission Added",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
+      });
+  }
+
+
+
+
+
 	return (
 		<div className={styles['section2']}>
 			<div className={styles['note-wrapper']}>
@@ -18,7 +65,10 @@ export default function Section2({ refId, jwt }) {
 			</div>
 
 			<div className={styles['file-submit-wrapper']}>
-				<input type='file' />
+				<form>
+				<input type='file' onChange={handleChange}/>
+				<button type="submit" onClick={handleSubmit}>Submit</button>
+				</form>
 			</div>
 		</div>
 	)

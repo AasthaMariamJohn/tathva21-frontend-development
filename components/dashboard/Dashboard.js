@@ -12,11 +12,17 @@ import Loader from '../common/loader'
 export default function Dashboard() {
 	const { user, userEvents } = useUserContext()
 	const router = useRouter()
-	const { eventName } = router.query
+	
+	const { eventName,refresh } = router.query
 	const [Event, setEvent] = useState(null)
 	const [userEventId, setUserEventId] = useState(null)
 	const [userEventDetails, setUserEventDetails] = useState(null)
 	const [isRegistered, setIsRegistered] = useState(false)
+
+	useEffect(()=>{
+		if(refresh=="True")
+			router.push(`/dashboard/events/${eventName}`)
+	},[refresh])
 
 	useEffect(() => {
 		if (eventName) {
@@ -46,7 +52,7 @@ export default function Dashboard() {
 				<div className={style.grid}>
 					<div className={style.section1}>
 						<EventComponent event={Event} />
-						<Team teamMembers={userEventDetails.teamMembers} />
+						<Team userEventId={userEventId} teamMembers={userEventDetails.teamMembers} />
 					</div>
 					<div className={style['section2-wrapper']}>
 						<Section2 refId={userEventId} jwt={user.jwt} />

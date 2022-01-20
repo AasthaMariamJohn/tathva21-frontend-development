@@ -11,6 +11,12 @@ import { useRouter } from "next/router";
 import Overlay from "@/components/common/overlay";
 
 export default function DashboardWorkshopName() {
+  const router=useRouter()
+	const {workshopName,refresh } = router.query
+	useEffect(()=>{
+		if(refresh=="True")
+			router.push(`/dashboard/workshops/${workshopName}`)
+	},[refresh])
   return (
     <div>
       <ToastContainer />

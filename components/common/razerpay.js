@@ -96,11 +96,11 @@ async function displayRazorpay(event, user, paymentType, regPrice,router) {
             })
             .then(()=>{
               if(paymentType=="event")
-                router.push(`/dashboard/events/${event.slug}`)
+                router.push(`/dashboard/events/${event.slug}?refresh=True`)
               else  if(paymentType=="workshop")
-                router.push(`/dashboard/workshops/${event.slug}`)
+                router.push(`/dashboard/workshops/${event.slug}?refresh=True`)
               else  if(paymentType=="lecture")
-                router.push(`/dashboard/lectures/${event.slug}`)
+                router.push(`/dashboard/lectures/${event.slug}?refresh=True`)
             })
 
         },

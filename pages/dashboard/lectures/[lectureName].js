@@ -12,19 +12,27 @@ import EventComponent from "@/components/dashboard/EventComponent";
 import Overlay from "@/components/common/overlay";
 
 export default function DashboardLectureName() {
+  const router=useRouter()
+	const {lectureName,refresh } = router.query
+	useEffect(()=>{
+		if(refresh=="True")
+    {
+			router.push(`/dashboard/lectures/${lectureName}`) 
+    }
+    
+	},[refresh])
   return (
     <div>
       <ToastContainer />
       <Overlay>
-        <Dashboard />
+        <Dashboard lectureName={lectureName}/>
       </Overlay>
     </div>
   );
 }
-function Dashboard() {
+function Dashboard({lectureName}) {
   const { user, userLectures } = useUserContext();
-  const router = useRouter();
-  const { lectureName } = router.query;
+
   const [Lecture, setLecture] = useState(null);
   const [userLectureId, setUserLectureId] = useState(null);
   const [userLectureDetails, setUserLectureDetails] = useState(null);
