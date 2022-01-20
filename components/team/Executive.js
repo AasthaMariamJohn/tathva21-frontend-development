@@ -68,7 +68,7 @@ export default function Home() {
                 src={`${img.image}`}
                 height={"160px"}
                 width={"140px"}
-                layout="fill"
+                alt="next-image"
               ></Image>
             </div>
             <div className={styles.teaminfo}>

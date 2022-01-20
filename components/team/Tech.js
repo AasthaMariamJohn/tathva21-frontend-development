@@ -100,7 +100,6 @@ export default function Home() {
                 alt="next-image"
                 height={"180px"}
                 width={"180px"}
-                layout="fill"
               ></Image>
             </div>
             <div className={styles.teaminfo}>
