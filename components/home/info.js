@@ -21,9 +21,9 @@ export default function Info() {
     <>
       <Button
         variant="ghost"
-        position="absolute"
-        bottom={["69px" ,4]}
-        right={100}
+        position="fixed"
+        bottom={["64px", 4]}
+        right={["70px", "80px", "12%"]}
         onClick={onOpen}
       >
         <FaInfo color={"#00A3C4"} />
@@ -35,7 +35,7 @@ export default function Info() {
           <ModalCloseButton />
           <ModalBody>
             <Text display={["none", "block"]}>
-            <Text>
+              <Text>
                 1) To pan, click and drag the cursor to the left or right.
               </Text>
               <Text>

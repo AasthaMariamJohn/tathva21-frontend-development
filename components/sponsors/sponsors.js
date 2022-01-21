@@ -12,8 +12,8 @@ export default function Sponsers() {
           <Image
             src={"/cn.png"}
             alt="next-image"
-            width={"600vw"}
-            height={"300vh"}
+            width={"400vw"}
+            height={"200vh"}
           />
           <br />
           <p>Previous Sponsors</p>
