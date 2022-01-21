@@ -210,6 +210,34 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
+    } else if (intersects[i].object.name === "OATButton"+'Desktop') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "NLHCButton"+'Desktop') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
     }
 
   }
@@ -299,6 +327,34 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
       );
+    } else if (intersects[i].object.name === "OATButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "NLHCButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
     }
   }
 }
@@ -743,7 +799,12 @@ const NITCModel3D = () => {
       const ccc = scene.getObjectByName("CCC");
       const aryabhata = scene.getObjectByName("ARYABHATA");
       const audi = scene.getObjectByName("AUDI");
-
+      const oat = scene.getObjectByName("OAT");
+      const nlhc = scene.getObjectByName("NLHC");
+      const bbcourt = scene.getObjectByName("BB court");
+      const creativezone = scene.getObjectByName("Creative Zone");
+      const elhcpits = scene.getObjectByName("ELHC pits");
+      const vbcourt = scene.getObjectByName("VB court");
       Button3D(
         "ECLCButton",
         scene,
@@ -784,6 +845,48 @@ const NITCModel3D = () => {
         audi.position.y,
         audi.position.z
       );
+      Button3D(
+        "OATButton",
+        scene,
+        oat.position.x,
+        oat.position.y,
+        oat.position.z
+      );
+      Button3D(
+        "NLHCButton",
+        scene,
+        nlhc.position.x,
+        nlhc.position.y,
+        nlhc.position.z
+      );
+      // Button3D(
+      //   "BBcourtButton",
+      //   scene,
+      //   bbcourt.position.x,
+      //   bbcourt.position.y,
+      //   bbcourt.position.z
+      // );
+      // Button3D(
+      //   "CreativeZoneButton",
+      //   scene,
+      //   creativezone.position.x,
+      //   creativezone.position.y,
+      //   creativezone.position.z
+      // );
+      // Button3D(
+      //   "ELHCptsButton",
+      //   scene,
+      //   elhcpits.position.x,
+      //   elhcpits.position.y,
+      //   elhcpits.position.z
+      // );
+      // Button3D(
+      //   "VBcourtButton",
+      //   scene,
+      //   vbcourt.position.x,
+      //   vbcourt.position.y,
+      //   vbcourt.position.z
+      // );
     }
   }, [loading]);
 
@@ -868,6 +971,34 @@ const NITCModel3D = () => {
         }
         
       }
+      else if (intersects[i].object.name === "OATButton") {
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("OAT");
+          modalStuff.setTitle("");
+          modalStuff.setLink("/lectures");
+        }
+        
+      }
+      else if (intersects[i].object.name === "NLHCButton") {
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("NLHC");
+          modalStuff.setTitle("");
+          modalStuff.setLink("/lectures");
+        }
+        
+      }
       
     }
   };
@@ -878,6 +1009,8 @@ const NITCModel3D = () => {
     const CCCbutton = scene.getObjectByName("CCCButton");
     const archibutton = scene.getObjectByName("ArchieButton");
     const audiButton = scene.getObjectByName("AUDIButton");
+    const nlhcButton = scene.getObjectByName("NLHCButton");
+    const oatButton = scene.getObjectByName("OATButton");
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
@@ -913,6 +1046,18 @@ const NITCModel3D = () => {
       audiButton.scale.x = 1;
       audiButton.scale.y = 1;
       audiButton.scale.z = 1;
+    }
+    if (nlhcButton) {
+      nlhcButton.material.color.setHex(ButtonPrimaryHex);
+      nlhcButton.scale.x = 1;
+      nlhcButton.scale.y = 1;
+      nlhcButton.scale.z = 1;
+    }
+    if (oatButton) {
+      oatButton.material.color.setHex(ButtonPrimaryHex);
+      oatButton.scale.x = 1;
+      oatButton.scale.y = 1;
+      oatButton.scale.z = 1;
     }
     if (modalStuff.modelIsOpen!==null)
     {
