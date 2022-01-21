@@ -699,7 +699,7 @@ const NITCModel3D = () => {
           TWEEN.Easing.Back.Out,
           onAnimationComplete,
           router,
-          "/lectures"
+          "/sponsors"
         );
       });
 
