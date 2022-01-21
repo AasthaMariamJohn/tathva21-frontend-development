@@ -105,8 +105,8 @@ export default function Home() {
     {
       id: "15",
       image: "/teams/Design/3D_Team/JUNIORS/MADHAV_UNNIKRISHNAN.webp",
-      name: "Madhav Unnikrishnan",
-      pos: "3D",
+      name: "Madhav Unnikrishnan -3D",
+      pos: "",
       linkedin: "https://www.linkedin.com/in/madhav-unni-077990202",
     },
     {

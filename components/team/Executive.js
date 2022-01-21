@@ -20,8 +20,8 @@ export default function Home() {
     {
       id: "3",
       image: "/teams/Executives/Students_Coordinator/FARIS_ALI.webp",
-      name: "Faris Ali",
-      pos: "Students Coordinator",
+      name: "Faris Ali -Students",
+      pos: "Coordinator",
       linkedin: "https://www.linkedin.com/in/frzfaris-ali/",
     },
     {
