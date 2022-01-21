@@ -124,7 +124,7 @@ const Navbar = () => {
               <p className={style["menu-title"]}>
                 <Link href={title.link}>
                   <a>{title.title}</a>
-                </Link>
+                </Link> 
               </p>
               <ol className={style["menu-list"]}>
                 {links.map((link) => (
@@ -134,7 +134,7 @@ const Navbar = () => {
                     onClick={handleClose}
                   >
                     <Link href={link.link}>
-                      <a>{link.title}</a>
+                      <a  id={`${link.title}-link-mobile`}>{link.title}</a>
                     </Link>
                   </li>
                 ))}
