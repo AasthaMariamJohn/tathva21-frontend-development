@@ -23,15 +23,17 @@ export default function Info() {
         // variant="ghost"
         position="fixed"
         bottom={["9px", 4]}
-        right={["76px","80px", "12%"]}
+        right={["76px", "80px", "10%", "8%"]}
         backgroundColor={"transparent"}
         onClick={onOpen}
-      
         borderRadius={"50%"}
         borderColor={"#00A3C4"}
-        sx={{"border":"1.5px solid #49e9ffe8"}}
+        fontFamily={"blackman_forever"}
+        fontSize={"1.4rem"}
+        color={"#49e9ffe8"}
+        sx={{ border: "1.5px solid #49e9ffe8" }}
       >
-        <FaInfo color={"#00A3C4"} />
+        {/* <FaInfo color={"#00A3C4"} /> */}i
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
