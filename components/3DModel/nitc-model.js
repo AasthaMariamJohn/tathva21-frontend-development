@@ -236,6 +236,34 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         onAnimationComplete
       );
 
+    } else if (intersects[i].object.name === "ELHCButton"+'Desktop') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "CreativeZoneButton"+'Desktop') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
     }
 
   }
@@ -340,6 +368,34 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
       );
 
     } else if (intersects[i].object.name === "NLHCButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "CreativeZoneButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "ELHCButton"+'Mobile') {
       console.log(intersects[i].object.name, " clicked");
       controls.enabled = false;
       TweenAnimation(
@@ -799,10 +855,10 @@ const NITCModel3D = () => {
       const audi = scene.getObjectByName("AUDI");
       const oat = scene.getObjectByName("OAT");
       const nlhc = scene.getObjectByName("NLHC");
-      const bbcourt = scene.getObjectByName("BB court");
-      const creativezone = scene.getObjectByName("Creative Zone");
-      const elhcpits = scene.getObjectByName("ELHC pits");
-      const vbcourt = scene.getObjectByName("VB court");
+      const creativezone = scene.getObjectByName("CZ");
+      const elhc = scene.getObjectByName("ELHC");
+      // const bbcourt = scene.getObjectByName("BB");
+      // const vbcourt = scene.getObjectByName("VB");
       Button3D(
         "ECLCButton",
         scene,
@@ -847,7 +903,7 @@ const NITCModel3D = () => {
         "OATButton",
         scene,
         oat.position.x,
-        oat.position.y,
+        oat.position.y-5,
         oat.position.z
       );
       Button3D(
@@ -857,26 +913,26 @@ const NITCModel3D = () => {
         nlhc.position.y,
         nlhc.position.z
       );
+      Button3D(
+        "CreativeZoneButton",
+        scene,
+        creativezone.position.x,
+        creativezone.position.y,
+        creativezone.position.z
+      );
+      Button3D(
+        "ELHCButton",
+        scene,
+        elhc.position.x,
+        elhc.position.y,
+        elhc.position.z
+      );
       // Button3D(
       //   "BBcourtButton",
       //   scene,
       //   bbcourt.position.x,
       //   bbcourt.position.y,
       //   bbcourt.position.z
-      // );
-      // Button3D(
-      //   "CreativeZoneButton",
-      //   scene,
-      //   creativezone.position.x,
-      //   creativezone.position.y,
-      //   creativezone.position.z
-      // );
-      // Button3D(
-      //   "ELHCptsButton",
-      //   scene,
-      //   elhcpits.position.x,
-      //   elhcpits.position.y,
-      //   elhcpits.position.z
       // );
       // Button3D(
       //   "VBcourtButton",
@@ -996,7 +1052,36 @@ const NITCModel3D = () => {
           modalStuff.setLink("/lectures");
         }
         
-      }
+      } 
+      else if (intersects[i].object.name === "CreativeZoneButton") {
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Creative Zone");
+          modalStuff.setTitle("");
+          modalStuff.setLink("/");
+        }
+        
+      } 
+      else if (intersects[i].object.name === "ELHCButton") {
+        intersects[i].object.material.color.setHex(ButtonSecondaryHex);
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("EHLHC");
+          modalStuff.setTitle("");
+          modalStuff.setLink("/");
+        }
+        
+      } 
+
       
     }
   };
@@ -1009,6 +1094,9 @@ const NITCModel3D = () => {
     const audiButton = scene.getObjectByName("AUDIButton");
     const nlhcButton = scene.getObjectByName("NLHCButton");
     const oatButton = scene.getObjectByName("OATButton");
+    const creativeZoneButton = scene.getObjectByName("CreativeZoneButton");
+    const elhcButton = scene.getObjectByName("ELHCButton");
+
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
@@ -1057,6 +1145,19 @@ const NITCModel3D = () => {
       oatButton.scale.y = 1;
       oatButton.scale.z = 1;
     }
+    if (creativeZoneButton) {
+      creativeZoneButton.material.color.setHex(ButtonPrimaryHex);
+      creativeZoneButton.scale.x = 1;
+      creativeZoneButton.scale.y = 1;
+      creativeZoneButton.scale.z = 1;
+    }
+    if (elhcButton) {
+      elhcButton.material.color.setHex(ButtonPrimaryHex);
+      elhcButton.scale.x = 1;
+      elhcButton.scale.y = 1;
+      elhcButton.scale.z = 1;
+    }
+
     if (modalStuff.modelIsOpen!==null)
     {
       modalStuff.setModelIsOpen(false);
