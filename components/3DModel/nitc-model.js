@@ -125,7 +125,7 @@ const onAnimationComplete = (controls, router=null,pushTo=null) => {
   
 
 };
-function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
+function onMouseDown(event, scene, camera, raycaster, mouse, controls, router=null) {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(scene.children);
 
@@ -139,9 +139,11 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/workshops"
       );
     } else if (intersects[i].object.name === "ARYABHATAButton"  + "Desktop") {
       controls.enabled = false;
@@ -152,9 +154,11 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/events"
       );
     } else if (intersects[i].object.name === "MBButton"+ "Desktop") {
       controls.enabled = false;
@@ -204,9 +208,11 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/events"
       );
     } else if (intersects[i].object.name === "OATButton"+'Desktop') {
       console.log(intersects[i].object.name, " clicked");
@@ -270,7 +276,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls) {
 }
 
 
-function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
+function onTouchDown(event, scene, camera, raycaster, mouse, controls, router) {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(scene.children);
 
@@ -284,9 +290,11 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/workshops"
       );
     } else if (intersects[i].object.name === "ARYABHATAButton"+'Mobile') {
       controls.enabled = false;
@@ -297,9 +305,11 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/events"
       );
     } else if (intersects[i].object.name === "MBButton"+'Mobile') {
       controls.enabled = false;
@@ -349,9 +359,11 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls) {
         intersects[i].object.position.x,
         intersects[i].object.position.y,
         intersects[i].object.position.z,
-        2000,
+        1500,
         TWEEN.Easing.Quartic.Out,
-        onAnimationComplete
+        onAnimationComplete,
+        router,
+        "/lectures"
       );
     } else if (intersects[i].object.name === "OATButton"+'Mobile') {
       console.log(intersects[i].object.name, " clicked");
@@ -565,7 +577,7 @@ const NITCModel3D = () => {
         window.addEventListener(
           "pointerdown",
           (event) => {
-            onMouseDown(event, scene, camera, raycaster, mouse, controls);
+            onMouseDown(event, scene, camera, raycaster, mouse, controls , router);
           },
           false,
           );
@@ -580,7 +592,7 @@ const NITCModel3D = () => {
         "touchend",
         (event) => {
           
-          onTouchDown(event, scene, camera, raycaster, mouse, controls);
+          onTouchDown(event, scene, camera, raycaster, mouse, controls, router);
         },
         false
       );
@@ -1033,7 +1045,7 @@ const NITCModel3D = () => {
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
-          modalStuff.setBuilding("OAT");
+          modalStuff.setBuilding("Open Air Theater");
           modalStuff.setTitle("");
           modalStuff.setLink("/lectures");
         }
