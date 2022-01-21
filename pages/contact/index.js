@@ -34,7 +34,7 @@ export default function Contact() {
 					</div>
 					<div className={style['item']}>
 						<p className={style['label']}>phone</p>
-						<p className={style['data']}>+91 xxxxxxxxxx</p>
+						<p className={style['data']}>+91 8943992992</p>
 					</div>
 					<div className={style['item']}>
 						<p className={style['label']}>Address</p>
