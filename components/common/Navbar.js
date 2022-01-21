@@ -10,10 +10,14 @@ import LoginBtn from "../home/loginBtn";
 import Navbarsvg from "./navbarsvg";
 import { Center } from "@chakra-ui/react";
 import NavbarLogo from "./navbarLogo";
+import { useUtilityContext } from "@/context/utilityContext";
 
 const Navbar = () => {
   const router = useRouter();
   const { isLoggedIn } = useUserContext();
+  const {setIsHandBOpen}=useUtilityContext()
+
+
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
     // { title: "About Us", id: 1, link: "/about" },
@@ -27,10 +31,12 @@ const Navbar = () => {
   const [collapseDown, setCollapseDown] = useState(false);
 
   const handleCollapseDown = () => {
+    setIsHandBOpen(true)
     setCollapseDown(true);
   };
 
   const handleClose = () => {
+    setIsHandBOpen(false)
     setCollapseDown(false);
   };
   useEffect(() => {
@@ -113,7 +119,7 @@ const Navbar = () => {
                   ></Image>
                 </Link>
               </div>
-              <div className={style.close} onClick={handleClose}>
+              <div className={style.close} onClick={handleClose} id="logo-link-mobile">
                 <Image
                   src={"/images/close.png"}
                   width="40"
@@ -121,7 +127,7 @@ const Navbar = () => {
                   alt="next-image"
                 />
               </div>
-              <p className={style["menu-title"]}>
+              <p className={style["menu-title"]} id="tathva-title-mobile">
                 <Link href={title.link}>
                   <a>{title.title}</a>
                 </Link> 

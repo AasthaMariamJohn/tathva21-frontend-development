@@ -551,19 +551,19 @@ const NITCModel3D = () => {
           "/lectures"
         );
       });
-      // document.getElementById("About Us-link").addEventListener("click", () => {
-      //   var position = scene.getObjectByName("MB").position;
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     position.x,
-      //     position.y,
-      //     position.z,
-      //     3000,
-      //     TWEEN.Easing.Back.Out,
-      //     onAnimationComplete
-      //   );
-      // });
+      document.getElementById("Shop-link").addEventListener("click", () => {
+        var position = scene.getObjectByName("MB").position;
+        TweenAnimation(
+          controls,
+          camera,
+          position.x,
+          position.y,
+          position.z,
+          3000,
+          TWEEN.Easing.Back.Out,
+          onAnimationComplete
+        );
+      });
 
       document.getElementById("Sponsors-link").addEventListener("click", () => {
         var position = scene.getObjectByName("CCC").position;
@@ -582,21 +582,21 @@ const NITCModel3D = () => {
       });
 
       // // Mobile Navbar Event Listeners
-      // document.getElementById("logo-link").addEventListener("click", () => {
-      //   TweenAnimation(
-      //     controls,
-      //     camera,
-      //     initialPosition.x,
-      //     initialPosition.y,
-      //     initialPosition.z,
-      //     1500,
-      //     TWEEN.Easing.Quartic.Out,
-      //     onAnimationComplete,
-      //     router,
-      //     "/"
-      //   );
-      // });
-      // document.getElementById("tathva-title").addEventListener("click", () => {
+      document.getElementById("logo-link").addEventListener("click", () => {
+        TweenAnimation(
+          controls,
+          camera,
+          initialPosition.x,
+          initialPosition.y,
+          initialPosition.z,
+          1500,
+          TWEEN.Easing.Quartic.Out,
+          onAnimationComplete,
+          router,
+          "/"
+        );
+      });
+      // document.getElementById("tathva-title-mobile").addEventListener("click", () => {
       //   TweenAnimation(
       //     controls,
       //     camera,
@@ -611,7 +611,7 @@ const NITCModel3D = () => {
       //   );
       // });
 
-      // document.getElementById("Events-link").addEventListener("click", () => {
+      // document.getElementById("Events-link-mobile").addEventListener("click", () => {
       //   var position =scene.getObjectByName("ARYABHATA").position;
       //   TweenAnimation(
       //     controls,
@@ -626,7 +626,7 @@ const NITCModel3D = () => {
       //     "/events"
       //   );
       // });
-      // document.getElementById("Workshops-link").addEventListener("click", () => {
+      // document.getElementById("Workshops-link-mobile").addEventListener("click", () => {
       //   var position = scene.getObjectByName("ECLC").position;
       //   TweenAnimation(
       //     controls,
@@ -641,7 +641,7 @@ const NITCModel3D = () => {
       //     '/workshops'
       //   );
       // });
-      // document.getElementById("Lecture-link").addEventListener("click", () => {
+      // document.getElementById("Lecture-link-mobile").addEventListener("click", () => {
       //   var position = scene.getObjectByName("AUDI").position;
       //   TweenAnimation(
       //     controls,
@@ -656,21 +656,21 @@ const NITCModel3D = () => {
       //     "/lectures"
       //   );
       // });
-      // // document.getElementById("About Us-link").addEventListener("click", () => {
-      // //   var position = scene.getObjectByName("MB").position;
-      // //   TweenAnimation(
-      // //     controls,
-      // //     camera,
-      // //     position.x,
-      // //     position.y,
-      // //     position.z,
-      // //     3000,
-      // //     TWEEN.Easing.Back.Out,
-      // //     onAnimationComplete
-      // //   );
-      // // });
+      // document.getElementById("Shop-link-mobile").addEventListener("click", () => {
+      //   var position = scene.getObjectByName("MB").position;
+      //   TweenAnimation(
+      //     controls,
+      //     camera,
+      //     position.x,
+      //     position.y,
+      //     position.z,
+      //     3000,
+      //     TWEEN.Easing.Back.Out,
+      //     onAnimationComplete
+      //   );
+      // });
 
-      // document.getElementById("Sponsors-link").addEventListener("click", () => {
+      // document.getElementById("Sponsors-link-mobile").addEventListener("click", () => {
       //   var position = scene.getObjectByName("CCC").position;
       //   TweenAnimation(
       //     controls,

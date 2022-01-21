@@ -22,7 +22,7 @@ export default function Info() {
       <Button
         variant="ghost"
         position="absolute"
-        bottom={4}
+        bottom={["69px" ,4]}
         right={100}
         onClick={onOpen}
       >
@@ -35,7 +35,7 @@ export default function Info() {
           <ModalCloseButton />
           <ModalBody>
             <Text display={["none", "block"]}>
-              <Text>
+            <Text>
                 1) To pan, click and drag the cursor to the left or right.
               </Text>
               <Text>
