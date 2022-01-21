@@ -20,11 +20,16 @@ export default function Info() {
   return (
     <>
       <Button
-        variant="ghost"
+        // variant="ghost"
         position="fixed"
-        bottom={["64px", 4]}
-        right={["70px", "80px", "12%"]}
+        bottom={["9px", 4]}
+        right={["76px","80px", "12%"]}
+        backgroundColor={"transparent"}
         onClick={onOpen}
+      
+        borderRadius={"50%"}
+        borderColor={"#00A3C4"}
+        sx={{"border":"1.5px solid #49e9ffe8"}}
       >
         <FaInfo color={"#00A3C4"} />
       </Button>
