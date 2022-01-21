@@ -6,7 +6,7 @@ export default function LoginBtn() {
 
   return (
     <div>
-      <button  onClick={() => Login(router)}>Login</button>
+      <button  >Login</button>
     </div>
   );
 }

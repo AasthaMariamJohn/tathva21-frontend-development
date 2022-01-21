@@ -9,7 +9,7 @@ export function UtilityWrapper({ children }) {
   const [link, setLink] = useState("");
   const [building, setBuilding] = useState("");
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-
+  const [isHandBOpen,setIsHandBOpen]=useState(false)
   return (
     <utilityContext.Provider
       value={{
@@ -23,7 +23,9 @@ export function UtilityWrapper({ children }) {
         setBuilding: setBuilding,
         building: building,
         mouse: mouse,
-        setMouse: setMouse
+        setMouse: setMouse,
+        isHandBOpen:isHandBOpen,
+        setIsHandBOpen:setIsHandBOpen,
       }}
     >
       {children}
