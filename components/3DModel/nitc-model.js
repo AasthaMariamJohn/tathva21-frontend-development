@@ -575,7 +575,7 @@ const NITCModel3D = () => {
         false
         );
         window.addEventListener(
-          "pointerdown",
+          "mousedown",
           (event) => {
             onMouseDown(event, scene, camera, raycaster, mouse, controls , router);
           },
@@ -1087,7 +1087,7 @@ const NITCModel3D = () => {
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
-          modalStuff.setBuilding("EHLHC");
+          modalStuff.setBuilding("ELHC");
           modalStuff.setTitle("");
           modalStuff.setLink("/");
         }
