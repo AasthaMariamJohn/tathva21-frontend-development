@@ -16,7 +16,7 @@
     left bottom,
     left top,
     color-stop(0.0005, #49e9ff),
-    color-stop(0.06, rgba(0, 0, 0, 0.582))
+    color-stop(0.04, rgba(0, 0, 0, 0.582))
   );
   border-radius: 50%;
 }
@@ -57,7 +57,7 @@
   position: absolute;
 
   margin-top: -95px;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 .test img {
   /* width: 250px;
@@ -79,7 +79,7 @@
     width: 60px;
   }
   .test img {
-    transform: scale(0.8);
+    transform: scale(0.75);
     margin-top: 16px;
   }
 }
