@@ -14,8 +14,8 @@ export default function Home() {
     {
       id: "2",
       image: "/teams/Lecture/Mohammed_Mirza_K_K.webp",
-      name: "Mohammed Mirza K K",
-      pos: "HEAD",
+      name: "Mohammed Mirza K K -HEAD",
+      pos: "",
       linkedin: "https://www.linkedin.com/in/mohammed-m-09084b10a",
     },
     {
@@ -28,8 +28,8 @@ export default function Home() {
     {
       id: "4",
       image: "/teams/Lecture/Midhunkrishnan_P_U.webp",
-      name: "Mohammed Mirza K K",
-      pos: "HEAD",
+      name: "Midhunkrishnan P U -HEAD",
+      pos: "",
       linkedin: "",
     },
     {

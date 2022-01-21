@@ -8,14 +8,15 @@ export default function Sponsers() {
       </div>
       <div className={styles["sponsor"]}>
         <div className={styles["sponsorImg"]}>
-          <p>
-            Being a part of Tathva gives you a chance to associate yourselves
-            with National Institute of Technology Calicut, ranked 25th
-            nationwide, thereby building an everlasting relationship with the
-            institution, an unavoidable part of Kerala history.Tathva instils a
-            sense of hope in the minds of young innovators and shows them that
-            dreams can come true after all.
-          </p>
+          <p>Coding Partner</p>
+          <Image
+            src={"/cn.png"}
+            alt="next-image"
+            width={"600vw"}
+            height={"300vh"}
+          />
+          <br />
+          <p>Previous Sponsors</p>
           <div className={styles["sponsor-images"]}>
             <Image
               src={"/images/sponsor1.jpg"}

@@ -5,31 +5,31 @@ export default function Home() {
   const imagefile = [
     {
       id: "1",
+      image: "/teams/Tcct/VISHNU_AJAY.webp",
+      name: "VISHNU AJAY",
+      pos: "HEAD",
+      linkedin: "https://www.linkedin.com/in/vishnu-ajay/",
+    },
+    {
+      id: "2",
       image: "/teams/Tcct/ADITYA_KRISHNA.webp",
       name: "ADITYA KRISHNA",
       pos: "HEAD",
       linkedin: "",
     },
     {
-      id: "2",
+      id: "3",
       image: "/teams/Tcct/AMAL_KR.webp",
       name: "AMAL KR",
       pos: "HEAD",
       linkedin: "",
     },
     {
-      id: "3",
+      id: "4",
       image: "/teams/Tcct/KOLACHANA_SRUTHI.webp",
       name: "KOLACHANA SRUTHI",
       pos: "HEAD",
       linkedin: "",
-    },
-    {
-      id: "4",
-      image: "/teams/Tcct/VISHNU_AJAY.webp",
-      name: "VISHNU AJAY",
-      pos: "HEAD",
-      linkedin: "https://www.linkedin.com/in/vishnu-ajay/",
     },
   ];
 

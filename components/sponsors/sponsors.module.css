@@ -1,66 +1,72 @@
 .main {
-	color: white;
+  color: white;
+}
+
+.main p {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 .heading {
-	margin: 180px 0px 50px 0px;
-	display: flex;
-	justify-content: center;
+  margin: 400px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
 }
 .heading h1 {
-	font-family: 'batman_forever';
-	font-style: normal;
-	font-weight: normal;
-	font-size: 50px;
+  font-family: "batman_forever";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
 }
 .sponsor {
-	font-family: 'quantico';
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: 0 160px;
-	bottom: 105px;
-	overflow-x: hidden;
+  font-family: "quantico";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 160px;
+  bottom: 105px;
+  overflow-x: hidden;
 }
 .sponsor div {
-	margin: 10px;
+  margin: 10px;
 }
 .sponsor-images {
-	height: 50vh;
-	overflow-y: scroll;
+  height: 50vh;
+  overflow-y: scroll;
 }
 .sponsorImg {
-	width: 75vw;
-	margin-top: 25px;
-	justify-content: center;
+  width: 75vw;
+  margin-top: 25px;
+  justify-content: center;
 }
 .sponsorImg img {
-	width: inherit;
-	height: inherit;
+  width: inherit;
+  height: inherit;
 }
 
 @media (max-width: 768px) {
-	.sponsor {
-		margin: 0 24px;
-		justify-content: center;
-	}
-	.sponsor p {
-		color: white;
-		line-height: 1.8;
-		display: flex;
-		justify-content: center;
-		text-align: center;
-		margin-bottom: 15px;
-	}
+  .sponsor {
+    margin: 0 24px;
+    justify-content: center;
+  }
+  .sponsor p {
+    color: white;
+    line-height: 1.8;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-width: 1024px) {
-	.heading h1 {
-		font-size: 3rem;
-	}
+  .heading h1 {
+    font-size: 3rem;
+  }
 }
 @media (max-width: 768px) {
-	.heading h1 {
-		font-size: 2.5rem;
-	}
+  .heading h1 {
+    font-size: 2.5rem;
+  }
 }
