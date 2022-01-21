@@ -1,12 +1,10 @@
-import { AspectRatio, Spinner } from "@chakra-ui/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/OrbitControls";
 import { degToRad } from "three/src/math/MathUtils";
 import { loadGLTFModel } from "./lib/model";
 import { ModelContainer } from "./nitc-model-loader";
-import {VignetteEffect , BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
-//import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import {BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
 import Loader2 from "../common/loader2";
 import { useRouter } from "next/router";
 import { useUtilityContext } from "@/context/utilityContext";
@@ -121,9 +119,9 @@ const onAnimationComplete = (controls, router=null,pushTo=null) => {
 
   controls.enabled = true;
   console.log("animation done");
-  // if(router!==null&&pushTo!==null){
-  //   router.push(pushTo);
-  // }
+  if(router!==null&&pushTo!==null){
+    router.push(pushTo);
+  }
   
 
 };
