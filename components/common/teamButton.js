@@ -6,11 +6,11 @@ export default function teamButton() {
       <div className={styles["about-us"]}>
         <a href="https://about.tathva.org/">About Us</a>
       </div>
-      <div className={styles["team"]}>
+      {/* <div className={styles["team"]}>
         <Link href="/team">
           <a>Team</a>
         </Link>
-      </div>
+      </div> */}
     </>
   );
 }
