@@ -158,7 +158,7 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls, router=nu
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete,
         router,
-        "/lectures"
+        "/events"
       );
     } else if (intersects[i].object.name === "MBButton"+ "Desktop") {
       controls.enabled = false;
@@ -309,7 +309,7 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls, router) {
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete,
         router,
-        "/lectures"
+        "/events"
       );
     } else if (intersects[i].object.name === "MBButton"+'Mobile') {
       controls.enabled = false;
