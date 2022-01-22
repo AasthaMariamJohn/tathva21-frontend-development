@@ -2,6 +2,8 @@ import getInitialUserDetails from "@/lib/user/getInitialUserDetails";
 import { parseCookies } from "nookies";
 import { createContext, useContext, useState, useEffect } from "react";
 
+ 
+
 const UserContext = createContext();
 UserContext.displayName = "UserContext";
 
@@ -11,19 +13,31 @@ export function UserWrapper({ children }) {
   var initialVal = TathvaUser ? JSON.parse(TathvaUser) : null;
   const [user, setUser] = useState(initialVal);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEvents, setUserEvents] = useState(null);
-  const [userLectures, setUserLectures] = useState(null);
-  const [userWorkshops, setuserWorkshops] = useState(null);
+  const [userEvents, setUserEvents] = useState([]);
+  const [userLectures, setUserLectures] = useState([]);
+  const [userWorkshops, setUserWorkshops] = useState([]);
+
+  useEffect(()=>{
+    let userDetails=localStorage.getItem("TathvaUser")
+    setUser(JSON.parse(userDetails))
+    if(userDetails)
+      setIsLoggedIn(true);
+    else
+    setIsLoggedIn(false);
+
+  },[])
+
   useEffect(() => {
     if (user) {
       getInitialUserDetails(
         setUser,
         setUserEvents,
         setUserLectures,
-        setuserWorkshops,
+        setUserWorkshops,
         user.jwt
       );
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
+
     }
   }, []);
   return (
@@ -36,7 +50,7 @@ export function UserWrapper({ children }) {
         userEvents: userEvents,
         setUserEvents: setUserEvents,
         userWorkshops: userWorkshops,
-        setuserWorkshops: setuserWorkshops,
+        setUserWorkshops: setUserWorkshops,
         userLectures: userLectures,
         setUserLectures: setUserLectures,
       }}

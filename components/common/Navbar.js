@@ -22,7 +22,7 @@ const Navbar = () => {
   const [links, setLinks] = useState([
     // { title: "About Us", id: 1, link: "/about" },
     { title: "Events", id: 2, link: "/events" },
-    { title: "Workshops", id: 3, link: "/workshops" },
+    { title: "Workshops", id: 3, link: "/workshops/data-science" },
     { title: "Lecture", id: 4, link: "/lectures" },
     { title: "Shop", id: 5, link: "/shop" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
@@ -48,7 +48,7 @@ const Navbar = () => {
         setTitle({ title: "EVENTS", link: "/events" });
         break;
       case "/workshops":
-        setTitle({ title: "WORKSHOPS", link: "/workshops" });
+        setTitle({ title: "WORKSHOPS", link: "/workshops/data-science" });
         break;
       case "/lectures":
         setTitle({ title: "LECTURES", link: "/lectures" });

@@ -8,8 +8,9 @@ export default function LogoutBtn() {
   const { setUser, setIsLoggedIn } = useUserContext();
   const router = useRouter();
   function DestroyCookie() {
-    console.log('logged out');
-    destroyCookie({}, "TathvaUser");
+    // console.log('logged out');
+    // destroyCookie({}, "TathvaUser");
+   
   }
   function Logout() {
     toast.success("You are logged out", {
@@ -26,6 +27,8 @@ export default function LogoutBtn() {
     setUser(null);
     setIsLoggedIn(false);
     router.push("/");
+    localStorage.removeItem('TathvaUser')
+    localStorage.removeItem("loginClikedFrom")
   }
   return (
     <div>

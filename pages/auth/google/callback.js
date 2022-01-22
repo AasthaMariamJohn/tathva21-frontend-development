@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default function GoogleAuthCallback() {
   const router = useRouter();
-  const { setUser, setIsLoggedIn } = useUserContext();
+  const { user,setUser, setIsLoggedIn } = useUserContext();
   useEffect(() => {
     if (router.query["id_token"]) {
       axios
@@ -18,12 +18,27 @@ export default function GoogleAuthCallback() {
           const data = CleanedUserData(res.data.jwt, res.data.user);
           saveCookie(data);
           setUser(data);
+          localStorage.setItem("TathvaUser",JSON.stringify(data))
           setIsLoggedIn(true);
-          var prevPage = sessionStorage.getItem("logginFrom");
-          console.log(prevPage);
-          sessionStorage.removeItem("logginFrom");
+          axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/me`,
+          {
+            headers:{
+              Authorization:`Bearer ${res.data.jwt}`
+            }
+          })
+          .then((res)=>{
+          
+            if(!res.data.name){
+              router.push("/profile")
+              return
+            }
+          })
+          
+          router.push("/")
+          // var prevPage = sessionStorage.getItem("logginFrom");
+          // console.log(prevPage);
+          // sessionStorage.removeItem("logginFrom");
           // router.push(prevPage);
-          router.push('/')
         });
     }
   }, [router.query]);

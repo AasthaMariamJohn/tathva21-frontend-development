@@ -10,15 +10,15 @@ import Info from "@/components/home/info";
 export default function Home() {
   const { user } = useUserContext();
   const router = useRouter();
-  useEffect(() => {
-    if (user) {
-      if (user.tathvaId) {
-        if (user.name == "") {
-          Login(router);
-        }
-      }
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     if (user.tathvaId) {
+  //       if (user.name == "") {
+  //         router.push("/profile")
+  //       }
+  //     }
+  //   }
+  // }, [user]);
   return (
     <div>
       <Head>

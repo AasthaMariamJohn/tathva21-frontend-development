@@ -9,8 +9,9 @@ import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
 import registerLecture from "@/lib/lectures/registerLecture";
 import registerWorkshop from "@/lib/workshops/registerWorkshop";
+import Link from "next/link";
 
-export default function Ewl_component({ event, type }) {
+export default function Ewl_component({ event, type,isRegistered }) {
   const eventdetails = {
     info: event.description,
     rules: event.rules,
@@ -19,7 +20,7 @@ export default function Ewl_component({ event, type }) {
   };
   const [body, setBody] = useState(eventdetails.info);
 
-  const { user, isLoggedIn, userEvents, userWorkshops, userLectures } =
+  const { user, isLoggedIn, userEvents, userWorkshops, userLectures ,setUserWorkshops} =
     useUserContext();
   const router = useRouter();
 
@@ -79,6 +80,12 @@ export default function Ewl_component({ event, type }) {
         {/* <p className={style.des}>{body}</p> */}
         <Text className={style.des}>{body}</Text>
         <Center>
+          {isRegistered?<><Link href={`/dashboard/${type}s/${event.slug}`} passHref>
+          <div
+            className={style.button}
+            data-augmented-ui
+            >View</div>
+            </Link></>:
           <div
             className={style.button}
             data-augmented-ui
@@ -101,7 +108,8 @@ export default function Ewl_component({ event, type }) {
                       "workshop",
                       event.regPrice,
                       router,
-                      userWorkshops
+                      userWorkshops,
+                      setUserWorkshops
                     );
                   else if (type == "lecture")
                     displayRazorpay(
@@ -121,12 +129,14 @@ export default function Ewl_component({ event, type }) {
                     registerWorkshop(event, user, router, userWorkshops);
                 }
               } else {
+                localStorage.setItem('loginClikedFrom',`${router.asPath}`)
                 Login(router);
               }
             }}
           >
             REGISTER for {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
-          </div>
+            
+          </div>}
         </Center>
         
       </div>

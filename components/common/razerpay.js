@@ -21,6 +21,7 @@ async function displayRazorpay(
   regPrice,
   router,
   userEvents,
+  setUserWorkshops
 ) {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
@@ -97,18 +98,19 @@ async function displayRazorpay(
                   closeOnClick: true,
                   pauseOnHover: true,
                   draggable: true,
-                  progress: undefined,
                 });
                 if (paymentType == "event") {
-                  userEvents.push({ eventId: event.id, userEventId: result.data.id });
+                  // userEvents.push({ eventId: event.id, userEventId: result.data.id });
                   router.push(`/dashboard/events/${event.slug}`);
                 } else if (paymentType == "workshop"){
-                  userEvents.push({ workshopId: event.id, userWorkshopId: result.data.id });
+                  let newUserevents=[...userEvents]
+                  newUserevents.push({ workshopId: event.id, userWorkshopId: result.data.id });
+                  setUserWorkshops(newUserevents)
                   router.push(`/dashboard/workshops/${event.slug}`);
                 }
                   
                 else if (paymentType == "lecture"){
-                  userEvents.push({ lectureId: event.id, userLectureId: result.data.id });
+                  // userEvents.push({ lectureId: event.id, userLectureId: result.data.id });
                   router.push(`/dashboard/lectures/${event.slug}`);
                 }
                   

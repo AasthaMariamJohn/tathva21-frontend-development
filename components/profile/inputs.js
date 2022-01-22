@@ -9,7 +9,6 @@ export function NameInput() {
   }
   return (
     <Input
-    
       disabled={inEditMode ? (name ? "disbled" : "") : "disabled"}
       name="name"
       value={name ? name : ""}
