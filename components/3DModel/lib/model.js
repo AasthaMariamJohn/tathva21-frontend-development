@@ -14,7 +14,7 @@ export function loadGLTFModel(
       gltf => {
         const obj = gltf.scene
         obj.name = 'NITC 3D Model'
-        obj.position.y = 0
+        obj.position.y = 5
         obj.position.x = 0
         obj.position.z = 0
         obj.receiveShadow = receiveShadow
