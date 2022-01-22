@@ -10,30 +10,53 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import getWorkshopWithName from "@/lib/workshops/getWorkshop";
 import Head from "next/head";
-
+import Link from "next/link"
 
 export function Workshop({children}) {
+  const workshops=[{
+    id:1,
+    title:"Data Science",
+    link:"/workshops/data-science"
+  },
+  {
+    id:2,
+    title:"Digital Marketing and SEO",
+    link:"/workshops/digital-marketing-and-seo"
+  },
+  {
+    id:3,
+    title:"Metaverse, NFTs and Digital Realities",
+    link:"/workshops/metaverse-nf-ts-and-digital-realities"
+  },
+  {
+    id:4,
+    title:"Web Development and Design",
+    link:"/workshops/web-development-and-design"
+  },
+ 
+
+]
+
+
   return (
     <div className={style.main}>
       <div className={style.list}>
         <ul>
-          <li>AI</li>
-          <li>ML</li>
-          <li>ROCKET</li>
-          <li>SPACEx</li>
-          <li>Tesla</li>
-          <li>Googe</li>
+          {workshops.map((workshop)=>(
+            <li key={workshop.id}>
+              <Link href={workshop.link} passHref><a>{workshop.title}</a></Link>
+            </li>
+          ))}
         </ul>
       </div>
       <Center>
         <div className={style.listmobile}>
           <ul>
-            <li>AI</li>
-            <li>ML</li>
-            <li>ROCKET</li>
-            <li>SPACEx</li>
-            <li>Tesla</li>
-            <li>Googe</li>
+          {workshops.map((workshop)=>(
+            <li key={workshop.id}>
+              <Link href={workshop.link} passHref><a>{workshop.title}</a></Link>
+            </li>
+          ))}
           </ul>
         </div>
       </Center>

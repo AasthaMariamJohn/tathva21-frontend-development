@@ -1,6 +1,6 @@
 import style from "../events_workshop_lectures/ewl.module.css";
 import { MdAlarm } from "react-icons/md";
-import { Center, Image } from "@chakra-ui/react";
+import { Center, Image,Text } from "@chakra-ui/react";
 import { useState } from "react";
 import registerEvent from "@/lib/events/registerEvent";
 import displayRazorpay from "@/components/common/razerpay";
@@ -9,6 +9,7 @@ import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
 import registerLecture from "@/lib/lectures/registerLecture";
 import registerWorkshop from "@/lib/workshops/registerWorkshop";
+
 export default function Ewl_component({ event, type }) {
   const eventdetails = {
     info: event.description,
@@ -27,7 +28,7 @@ export default function Ewl_component({ event, type }) {
       <div className={style.img}>
         <Center>
           <div className={style.img_desktop}>
-            <Image src={event.coverImage.src} alt="next-image" />
+            <Image src={event.coverImage.src} alt="next-image" width={"400px"} height={"300px"}/>
           </div>
         </Center>
         <Center>
@@ -75,7 +76,8 @@ export default function Ewl_component({ event, type }) {
             </button>
           </h3>
         </div>
-        <p className={style.des}>{body}</p>
+        {/* <p className={style.des}>{body}</p> */}
+        <Text className={style.des}>{body}</Text>
         <Center>
           <div
             className={style.button}
@@ -126,6 +128,7 @@ export default function Ewl_component({ event, type }) {
             REGISTER for {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
           </div>
         </Center>
+        
       </div>
     </>
   );
