@@ -1,6 +1,6 @@
 .swiper {
   width: 100%;
-  padding-top: 40vh;
+  padding-top: 10vh;
   padding-bottom: 50px;
 }
 
@@ -14,4 +14,11 @@
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+.swiper-text {
+  color: white;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  font-family: "quantico";
 }

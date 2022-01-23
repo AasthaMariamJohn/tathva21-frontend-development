@@ -9,9 +9,6 @@ import styles from "./swiper.module.css";
 import { Image, Box, Center, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 export default function Dashboard2({ events }) {
-  //  events.map((workshop)=>{
-  //    console.log(workshop.name,workshop.slug,workshop.src)
-  //  })
   return (
     <div>
       {!events ? (
@@ -31,7 +28,7 @@ export default function Dashboard2({ events }) {
             modifier: 1,
             slideShadows: true,
           }}
-          pagination={true}
+          pagination={false}
           className={styles["swiper"]}
         >
           {events.map((workshop) => (
@@ -40,7 +37,9 @@ export default function Dashboard2({ events }) {
                 <Link href={`/dashboard/workshops/${workshop.slug}`} passHref>
                   <Box>
                     <Image src={`${workshop.src}`} alt="next-image" />
-                    <Text>{workshop.name}</Text>
+                    <Text className={styles["swiper-text"]}>
+                      {workshop.name}
+                    </Text>
                   </Box>
                 </Link>
               </SwiperSlide>

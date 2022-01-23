@@ -11,26 +11,24 @@ export default function Workshops() {
   const router = useRouter();
   const { workshops, setWorkshops } = useWorkshopContext();
   useEffect(() => {
-    if (workshops == null && router.asPath=="/workshops") 
-      {
-        async function test(){
-          let data=await getWorkshops();
-          setWorkshops(data)
-          
-        }
-        test()
+    if (workshops == null && router.asPath == "/workshops") {
+      async function test() {
+        let data = await getWorkshops();
+        setWorkshops(data);
+        router.push(`/workshops/${data[0].slug}`);
       }
-      else if(workshops && router.asPath=="/workshops"){
-        router.push(`/workshops/${workshops[0].slug}`)
-      }
-      // getWorkshops(setWorkshops,router);
+      test();
+    } else if (workshops && router.asPath == "/workshops") {
+      router.push(`/workshops/${workshops[0].slug}`);
+    }
+    // getWorkshops(setWorkshops,router);
   }, [router.asPath]);
   return (
     <>
       <Head>
         <title>Tathva 21</title>
       </Head>
-      <Loader/>
+      <Loader />
     </>
   );
 }
