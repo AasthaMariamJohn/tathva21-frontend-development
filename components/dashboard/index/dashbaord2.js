@@ -14,7 +14,7 @@ export default function Dashboard2({ events }) {
       {!events || !events.length ? (
         <Center pt={["10vh"]}>
           <Heading as="h1" style={{ color: "white" }}>
-            Nothing Here!!!
+            Registered events will appear here
           </Heading>
         </Center>
       ) : (
