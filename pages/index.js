@@ -13,9 +13,9 @@ export default function Home() {
   const { user } = useUserContext();
   const router = useRouter();
   const [info, setInfo] = useState(null);
-  useEffect(()=>{
-    setInfo(getHomePageInfo())
-  })
+  useEffect(() => {
+    setInfo(getHomePageInfo());
+  },[]);
   return (
     <div>
       <Head>
@@ -25,26 +25,27 @@ export default function Home() {
         <Flex>
           <Box p={[3, 2]}></Box>
           <Teambutton />
-          
         </Flex>
       </Box>
-      {/* <Box position={"absolute"} top={[1]}>
-        <Text>AJbsefhwfh</Text>
-      </Box> */}
+
       <Box position={"absolute"} bottom={["65vh", "50vh"]} left={["0", "50vh"]}>
-      <Badge  variant='outline' colorScheme='green'>
-        fdkjfdkj
-      </Badge>
+        {/* {info ? (
+          <Badge variant="outline" colorScheme="green">
+            {info}
+          </Badge>
+        ) : (
+          <></>
+        )} */}
       </Box>
       <Box position={"absolute"} top={11} left={22}>
-      <Badge  variant='outline' colorScheme='green'>
-        fdkjfdkj
-      </Badge>
+        <Badge variant="outline" colorScheme="green">
+          fdkjfdkj
+        </Badge>
       </Box>
-     
+
       <Info />
       <BasicUsage />
-      <ContactUsLogo/>
+      <ContactUsLogo />
     </div>
   );
 }
