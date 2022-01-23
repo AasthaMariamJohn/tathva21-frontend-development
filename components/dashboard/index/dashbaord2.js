@@ -6,9 +6,12 @@ import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
 SwiperCore.use([EffectCoverflow, Pagination]);
 import styles from "./swiper.module.css";
 
-import { Image, Box, Center,Heading } from "@chakra-ui/react";
-
-export default function Dashboard2({ events =1 }) {
+import { Image, Box, Center, Heading, Text } from "@chakra-ui/react";
+import Link from "next/link";
+export default function Dashboard2({ events }) {
+ events.map((workshop)=>{
+   console.log(workshop.name,workshop.slug,workshop.src)
+ })
   return (
     <div>
       {!events ? (
@@ -31,22 +34,21 @@ export default function Dashboard2({ events =1 }) {
           pagination={true}
           className={styles["swiper"]}
         >
-          <SwiperSlide className={styles["swiper-slide"]}>
-            <Box>
-              <Image
-                src={"https://swiperjs.com/demos/images/nature-1.jpg"}
-                alt="next-image"
-              />
-            </Box>
-          </SwiperSlide>
-          <SwiperSlide className={styles["swiper-slide"]}>
-            <Box>
-              <Image
-                src={"https://swiperjs.com/demos/images/nature-1.jpg"}
-                alt="next-image"
-              />
-            </Box>
-          </SwiperSlide>
+     
+          {events.map((workshop) => (
+            <div key={workshop.id}>
+            <SwiperSlide className={styles["swiper-slide"]}>
+              <Link href={`/dashboard/workshops/${workshop.slug}`} passHref>
+                <Box>
+                  <Image src={`${workshop.src}`} alt="next-image" />
+                  <Text>{workshop.name}</Text>
+
+          
+                </Box>
+              </Link>
+            </SwiperSlide>
+            </div>
+          ))}
         </Swiper>
       )}
     </div>

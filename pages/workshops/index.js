@@ -12,8 +12,19 @@ export default function Workshops() {
   const { workshops, setWorkshops } = useWorkshopContext();
   useEffect(() => {
     if (workshops == null) 
-      getWorkshops(setWorkshops,router);
-  }, []);
+      {
+        async function test(){
+          let data=await getWorkshops();
+          setWorkshops(data)
+          
+        }
+        test()
+      }
+      else if(workshops && router.asPath=="/workshops"){
+        router.push(`/workshops/${workshops[0].slug}`)
+      }
+      // getWorkshops(setWorkshops,router);
+  }, [router.asPath]);
   return (
     <>
       <Head>
