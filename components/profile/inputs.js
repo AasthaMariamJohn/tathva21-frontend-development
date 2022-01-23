@@ -1,15 +1,17 @@
 import { useProfileContext } from "@/context/profileContext";
+import { useUserContext } from "@/context/userContext";
 import { Input } from "@chakra-ui/react";
 import styles from "./profile.module.css";
 
 export function NameInput() {
   const { name, setName, inEditMode } = useProfileContext();
+  const {user}=useUserContext()
   function handleNameChange(e) {
     setName(e.target.value);
   }
   return (
     <Input
-      disabled={inEditMode ? (name ? "disbled" : "") : "disabled"}
+      disabled={inEditMode ? (user.name ? "disbled" : "") : "disabled"}
       name="name"
       value={name ? name : ""}
       placeholder={name?"":"Name Can be Edited Only Once"}
