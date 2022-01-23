@@ -11,9 +11,11 @@ import Link from "next/link";
 export default function Dashboard2({ events }) {
   return (
     <div>
-      {!events ? (
-        <Center pt={["30vh"]}>
-          <Heading as="h1">No Events registered</Heading>
+      {!events || !events.length ? (
+        <Center pt={["10vh"]}>
+          <Heading as="h1" style={{ color: "white" }}>
+            Nothing Here!!!
+          </Heading>
         </Center>
       ) : (
         <Swiper
