@@ -18,8 +18,16 @@ import { useRef } from "react";
 export function Workshop({ children }) {
   const { workshops, setWorkshops } = useWorkshopContext();
   useEffect(() => {
-    if (workshops == null) getWorkshops(setWorkshops);
-  }, []);
+    if (workshops == null) {
+      async function test(){
+        let data=await getWorkshops();
+        setWorkshops(data)
+        
+      }
+      test()
+    }
+      
+  }, [workshops]);
 
   function handleControls(shift) {
     myRef.current.scrollLeft += shift;
@@ -41,7 +49,7 @@ export function Workshop({ children }) {
             ))}
           </ul>
         ) : (
-          <></>
+          <>jsfhskfjskj</>
         )}
       </div>
       <Center>

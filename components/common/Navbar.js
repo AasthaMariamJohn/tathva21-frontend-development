@@ -48,6 +48,13 @@ const Navbar = () => {
         {title:  "Dashboard",id:7,link:"/dashboard"}
       ])
     }
+    // else{
+    //   setLinks([
+    //     { title: "Home", id: 18, link: "/" },
+    //     { title: "Profile", id: 19, link: "/profile" },
+    //     {title:  "Dashboard",id:7,link:"/dashboard"}
+    //   ])
+    // }
     switch (router.asPath.split("/")[1]) {
     
       case "events":

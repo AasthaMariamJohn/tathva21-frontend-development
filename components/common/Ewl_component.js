@@ -215,7 +215,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
             <>
               <Link href={`/dashboard/${type}s/${event.slug}`} passHref>
                 <div className={style.buttonview} data-augmented-ui>
-                  View
+                  Go To Dashboard
                 </div>
               </Link>
             </>
