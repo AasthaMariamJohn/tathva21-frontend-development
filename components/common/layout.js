@@ -29,7 +29,6 @@ export default function Layout({ children }) {
       <Model3D />
 
       <main className={styles["main-container"]}>{children}</main>
-      <ContactUsLogo />
     </div>
   );
 }
