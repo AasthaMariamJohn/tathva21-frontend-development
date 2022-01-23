@@ -1,6 +1,7 @@
 import style from "../events_workshop_lectures/ewl.module.css";
 import { Center, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { MdAlarm } from "react-icons/md";
 import registerEvent from "@/lib/events/registerEvent";
 import displayRazorpay from "@/components/common/razerpay";
 import { useUserContext } from "@/context/userContext";
@@ -9,6 +10,7 @@ import { useRouter } from "next/router";
 import registerLecture from "@/lib/lectures/registerLecture";
 import registerWorkshop from "@/lib/workshops/registerWorkshop";
 import moment from "moment";
+import Link from "next/link";
 import {
   Modal,
   ModalOverlay,
@@ -20,22 +22,32 @@ import {
   Box,
   Button,
   useDisclosure,
+  Input,
 } from "@chakra-ui/react";
 
-export default function Ewl_component({ event, type }) {
+export default function Ewl_component({ event, type, isRegistered }) {
   const eventdetails = {
     info: event.description,
     contacts: event.contacts,
   };
 
-  const { user, isLoggedIn, userEvents, userWorkshops, userLectures } =
-    useUserContext();
+  const {
+    user,
+    isLoggedIn,
+    userEvents,
+    userWorkshops,
+    userLectures,
+    setUserWorkshops,
+  } = useUserContext();
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [info, setInfo] = useState(true);
   const [contact, setContact] = useState(false);
   const [regstatus, setRegstatus] = useState("");
+
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+  const [refCode, setRefCode] = useState("");
 
   const openInfo = () => {
     setInfo(true);
@@ -93,7 +105,7 @@ export default function Ewl_component({ event, type }) {
           </button>
         </div>
       </div>
-      <Modal
+      {/* <Modal
         isOpen={isOpen}
         onClose={onClose}
         isCentered
@@ -116,7 +128,8 @@ export default function Ewl_component({ event, type }) {
 
           <ModalFooter></ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
+
       <div className={style.content}>
         <div className={style.eventname}>
           <h2 className={style.titles}>{event.name}</h2>
@@ -192,57 +205,125 @@ export default function Ewl_component({ event, type }) {
             </>
           )}
 
-          {regstatus === "available" && (
+          {isRegistered ? (
             <>
-              <div
-                className={style.button}
-                data-augmented-ui
-                onClick={() => {
-                  if (isLoggedIn) {
-                    if (event.regPrice) {
-                      if (type == "event")
-                        displayRazorpay(
-                          event,
-                          user,
-                          "event",
-                          event.regPrice,
-                          router,
-                          userEvents
+              <Link href={`/dashboard/${type}s/${event.slug}`} passHref>
+                <div className={style.buttonview} data-augmented-ui>
+                  View
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              {regstatus === "available" && (
+                <>
+                  <Modal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    isCentered
+                    motionPreset="slideInBottom"
+                  >
+                    <ModalOverlay />
+                    <ModalContent
+                      bgColor={"black"}
+                      color={"white"}
+                      fontSize={14}
+                    >
+                      <ModalHeader>Referral Code</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <Input
+                          placeholder="Optional"
+                          value={refCode}
+                          onChange={(e) => {
+                            setRefCode(e.target.value);
+                          }}
+                        ></Input>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button
+                          variant={"outline"}
+                          colorScheme={"blue"}
+                          onClick={() => {
+                            onClose();
+
+                            if (event.regPrice) {
+                              if (type == "event")
+                                displayRazorpay(
+                                  event,
+                                  user,
+                                  "event",
+                                  event.regPrice,
+                                  router,
+                                  userEvents,
+                                  refCode
+                                );
+                              else if (type == "workshop")
+                                displayRazorpay(
+                                  event,
+                                  user,
+                                  "workshop",
+                                  event.regPrice,
+                                  router,
+                                  userWorkshops,
+                                  setUserWorkshops,
+                                  refCode
+                                );
+                              else if (type == "lecture")
+                                displayRazorpay(
+                                  event,
+                                  user,
+                                  "lecture",
+                                  event.regPrice,
+                                  router,
+                                  userLectures,
+                                  refCode
+                                );
+                            } else {
+                              if (type == "event")
+                                registerEvent(event, user, router, userEvents);
+                              else if (type == "lecture")
+                                registerLecture(
+                                  event,
+                                  user,
+                                  router,
+                                  userLectures
+                                );
+                              else if (type == "workshop")
+                                registerWorkshop(
+                                  event,
+                                  user,
+                                  router,
+                                  userWorkshops
+                                );
+                            }
+                          }}
+                        >
+                          Continue
+                        </Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+
+                  <div
+                    className={style.button}
+                    data-augmented-ui
+                    onClick={() => {
+                      if (isLoggedIn) onOpen();
+                      else {
+                        localStorage.setItem(
+                          "loginClikedFrom",
+                          `${router.asPath}`
                         );
-                      else if (type == "workshop")
-                        displayRazorpay(
-                          event,
-                          user,
-                          "workshop",
-                          event.regPrice,
-                          router,
-                          userWorkshops
-                        );
-                      else if (type == "lecture")
-                        displayRazorpay(
-                          event,
-                          user,
-                          "lecture",
-                          event.regPrice,
-                          router,
-                          userLectures
-                        );
-                    } else {
-                      if (type == "event")
-                        registerEvent(event, user, router, userEvents);
-                      else if (type == "lecture")
-                        registerLecture(event, user, router, userLectures);
-                      else if (type == "workshop")
-                        registerWorkshop(event, user, router, userWorkshops);
-                    }
-                  } else {
-                    Login(router);
-                  }
-                }}
-              >
-                REGISTER for{" "}
-                {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
-              </div>
+                        Login(router);
+                      }
+                    }}
+                  >
+                    REGISTER for{" "}
+                    {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
+                  </div>
+                </>
+              )}
             </>
           )}
           {regstatus === "closed" && (

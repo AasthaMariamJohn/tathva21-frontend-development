@@ -7,13 +7,13 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export default function Index() {
-  const { isLoggedIn, user } = useUserContext();
-  const router = useRouter();
-  useEffect(() => {
-    if (!isLoggedIn && !user) {
-      Login(router);
-    }
-  }, [isLoggedIn]);
+  // const { isLoggedIn, user } = useUserContext();
+  // const router = useRouter();
+  // useEffect(() => {
+  //   if (!isLoggedIn && !user) {
+  //     Login(router);
+  //   }
+  // }, [isLoggedIn]);
   return (
     <div>
       <Head>

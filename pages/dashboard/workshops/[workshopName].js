@@ -14,12 +14,12 @@ import Head from "next/head";
 
 export default function DashboardWorkshopName() {
   const router=useRouter()
-  const { isLoggedIn, user } = useUserContext();
-  useEffect(() => {
-    if (!isLoggedIn && !user) {
-      Login(router);
-    }
-  }, [isLoggedIn]);
+  // const { isLoggedIn, user } = useUserContext();
+  // useEffect(() => {
+  //   if (!isLoggedIn && !user) {
+  //     Login(router);
+  //   }
+  // }, [isLoggedIn]);
 	const {workshopName,refresh } = router.query
 	useEffect(()=>{
 		if(refresh=="True")

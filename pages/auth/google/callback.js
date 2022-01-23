@@ -1,5 +1,6 @@
 import Loader from "@/components/common/loader";
 import { useUserContext } from "@/context/userContext";
+import getInitialUserDetails from "@/lib/user/getInitialUserDetails";
 import { CleanedUserData, saveCookie } from "@/lib/user/login";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -7,7 +8,7 @@ import { useEffect } from "react";
 
 export default function GoogleAuthCallback() {
   const router = useRouter();
-  const { user,setUser, setIsLoggedIn } = useUserContext();
+  const { user,setUser, setIsLoggedIn,setUserEvents,setUserWorkshops,setUserLectures } = useUserContext();
   useEffect(() => {
     if (router.query["id_token"]) {
       axios
@@ -17,7 +18,13 @@ export default function GoogleAuthCallback() {
         .then((res) => {
           const data = CleanedUserData(res.data.jwt, res.data.user);
           saveCookie(data);
-          setUser(data);
+          getInitialUserDetails(
+            setUser,
+            setUserEvents,
+            setUserLectures,
+            setUserWorkshops,
+            res.data.jwt
+          );
           localStorage.setItem("TathvaUser",JSON.stringify(data))
           setIsLoggedIn(true);
           axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/me`,

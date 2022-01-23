@@ -119,9 +119,9 @@ const onAnimationComplete = (controls, router=null,pushTo=null) => {
 
   controls.enabled = true;
   console.log("animation done");
-  if(router!==null&&pushTo!==null){
-    router.push(pushTo);
-  }
+  // if(router!==null&&pushTo!==null){
+  //   router.push(pushTo);
+  // }
   
 
 };

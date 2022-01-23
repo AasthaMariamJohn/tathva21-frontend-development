@@ -30,10 +30,10 @@ export default function Main() {
     allInOne,
   } = useProfileContext();
   const { user, setUser } = useUserContext();
-  const [shown, setShown] = useState(true);
+
+
   useEffect(() => {
     if (user) getMe(user.jwt, setUserProfile, setInEditMode,);
-
    
   }, [user]);
   const router=useRouter()
