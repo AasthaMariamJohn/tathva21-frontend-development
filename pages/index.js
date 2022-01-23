@@ -5,17 +5,35 @@ import { Login } from "@/lib/user/login";
 import { useRouter } from "next/router";
 import { useUserContext } from "@/context/userContext";
 import Teambutton from "@/components/common/teamButton";
-import { Badge, Box, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Spacer, styled, Text } from "@chakra-ui/react";
 import Info from "@/components/home/info";
 import ContactUsLogo from "@/components/common/contactLogo";
 import getHomePageInfo from "@/lib/home/test";
+import style from "@/components/common/index.module.css";
+import { ToastContainer, toast } from "react-toastify";
+
 export default function Home() {
   const { user } = useUserContext();
   const router = useRouter();
   const [info, setInfo] = useState(null);
   useEffect(() => {
-    setInfo(getHomePageInfo());
-  },[]);
+    async function test() {
+      let data = await getHomePageInfo();
+      setInfo(data);
+      if (data) {
+        toast.info(data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
+    test();
+  }, []);
   return (
     <div>
       <Head>
@@ -27,25 +45,15 @@ export default function Home() {
           <Teambutton />
         </Flex>
       </Box>
-
-      <Box position={"absolute"} bottom={["65vh", "50vh"]} left={["0", "50vh"]}>
-        {/* {info ? (
-          <Badge variant="outline" colorScheme="green">
-            {info}
-          </Badge>
-        ) : (
-          <></>
-        )} */}
-      </Box>
-      <Box position={"absolute"} top={11} left={22}>
-        <Badge variant="outline" colorScheme="green">
-          fdkjfdkj
-        </Badge>
-      </Box>
+      {/* 
+      <Box position={"absolute"} className={style.news}>
+        {info ? <p>{info}</p> : <></>}
+      </Box> */}
 
       <Info />
       <BasicUsage />
       <ContactUsLogo />
+      <ToastContainer />
     </div>
   );
 }
