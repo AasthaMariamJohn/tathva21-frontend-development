@@ -1,26 +1,25 @@
 import ComingSoon from "@/components/common/coming_soon";
+import Loader from "@/components/common/loader";
 import Overlay from "@/components/common/overlay";
 import { useWorkshopContext } from "@/context/workshopContext";
 import getWorkshops from "@/lib/workshops/getWorkshops";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import {useEffect} from 'react'
+import { useEffect } from "react";
 
-export default function Lectures() {
-  // const router =useRouter()
-  const {workshops,setWorkshops}=useWorkshopContext()
-  useEffect(()=>{
-    if(workshops==null)
-      getWorkshops(setWorkshops)
-  },[])
+export default function Workshops() {
+  const router = useRouter();
+  const { workshops, setWorkshops } = useWorkshopContext();
+  useEffect(() => {
+    if (workshops == null) 
+      getWorkshops(setWorkshops,router);
+  }, []);
   return (
     <>
       <Head>
         <title>Tathva 21</title>
-        </Head>
-      
-
-      
+      </Head>
+      <Loader/>
     </>
   );
 }
