@@ -40,7 +40,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
     setUserWorkshops,
     setUser,
     setUserEvents,
-    setUserLectures
+    setUserLectures,
   } = useUserContext();
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -186,14 +186,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
           </h3>
         </div>
         {info && (
-          <div
-            style={{
-              display: "flex",
-              textAlign: "left",
-              flexDirection: "column",
-              marginTop: "30px",
-            }}
-          >
+          <div className={style.content_words}>
             {eventdetails.info.split("\n").map((words) => {
               return <Text className={style.des}>{words}</Text>;
             })}
