@@ -46,7 +46,12 @@ export default function Ewl_component({ event, type, isRegistered }) {
   const [contact, setContact] = useState(false);
   const [regstatus, setRegstatus] = useState("");
 
-  // const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isEditOpen,
+    onOpen: onEditOpen,
+    onClose: onEditClose,
+  } = useDisclosure();
+
   const [refCode, setRefCode] = useState("");
 
   const openInfo = () => {
@@ -94,7 +99,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
           </div>
         </Center>
         <div>
-          <button onClick={onOpen}>
+          <button onClick={onEditOpen}>
             <Center>
               <Image
                 src={event.coverImage.src}
@@ -105,9 +110,10 @@ export default function Ewl_component({ event, type, isRegistered }) {
           </button>
         </div>
       </div>
-      {/* <Modal
-        isOpen={isOpen}
-        onClose={onClose}
+
+      <Modal
+        isOpen={isEditOpen}
+        onClose={onEditClose}
         isCentered
         motionPreset="slideInBottom"
         size={"xl"}
@@ -128,7 +134,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
 
           <ModalFooter></ModalFooter>
         </ModalContent>
-      </Modal> */}
+      </Modal>
 
       <div className={style.content}>
         <div className={style.eventname}>
