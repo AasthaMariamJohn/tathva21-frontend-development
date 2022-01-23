@@ -57,7 +57,7 @@ const Button3D = (name, scene, x, y, z) => {
     new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
  
-  y=y-1
+  y=y+6
   mesh.position.set(x, y, z);
   meshDesktop.position.set(x, y, z);
   meshMobile.position.set(x, y, z);
@@ -915,7 +915,7 @@ const NITCModel3D = () => {
         "OATButton",
         scene,
         oat.position.x,
-        oat.position.y-5,
+        oat.position.y,
         oat.position.z
       );
       Button3D(
