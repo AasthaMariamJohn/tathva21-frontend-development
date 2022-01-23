@@ -65,7 +65,6 @@ export default function Ewl_component({ event, type, isRegistered }) {
 
   useEffect(() => {
     const today = moment().format("DD-MM-yyyy h:mm:ss a");
-    console.log(today);
     if (
       moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
         moment(event.regStartDate, "DD-MM-yyyy h:mm:ss a")
