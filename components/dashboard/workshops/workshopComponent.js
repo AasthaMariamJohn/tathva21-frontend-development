@@ -1,4 +1,4 @@
-import style from "../events_workshop_lectures/ewl.module.css";
+import style from "./workshop.module.css";
 import { Center, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { MdAlarm } from "react-icons/md";
@@ -196,7 +196,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
             </table>
           </div>
         )}
-        <Center>
+        {/* <Center>
           {regstatus === "not" && (
             <>
               <div className={style.button} data-augmented-ui>
@@ -333,7 +333,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
               </div>
             </>
           )}
-        </Center>
+        </Center> */}
       </div>
     </>
   );

@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import Overlay from "@/components/common/overlay";
 import { Login } from "@/lib/user/login";
 import Head from "next/head";
+import Ewl_component from "@/components/dashboard/workshops/workshopComponent";
 
 export default function DashboardWorkshopName() {
   const router=useRouter()
@@ -76,10 +77,11 @@ function Dashboard() {
 
   return (
     <div className={styles["main"]}>
-      {Workshop && isRegistered && userWorkshopDetails ? (
+      {Workshop && isRegistered &&   userWorkshopDetails ? (
         <div className={styles["grid"]}>
           <div className={styles["section1"]}>
-            <EventComponent event={Workshop}></EventComponent>
+            {/* <EventComponent event={Workshop}></EventComponent> */}
+            <Ewl_component event={Workshop} isRegistered={true}></Ewl_component>
           </div>
         </div>
       ) : (

@@ -41,7 +41,7 @@ const Navbar = () => {
     if(isLoggedIn && links[links.length-1].link!=="/dashboard"){   
       setLinks([
         { title: "Events", id: 2, link: "/events" },
-        { title: "Workshops", id: 3, link: "/workshops/data-science" },
+        { title: "Workshops", id: 3, link: "/workshops" },
         { title: "Lecture", id: 4, link: "/lectures" },
         { title: "Shop", id: 5, link: "/shop" },
         { title: "Sponsors", id: 6, link: "/sponsors" },
@@ -55,7 +55,7 @@ const Navbar = () => {
         
         break;
       case "workshops":
-        setTitle({ title: "WORKSHOPS", link: "/workshops/data-science" });
+        setTitle({ title: "WORKSHOPS", link: "/workshops" });
         
         break;
       case "lectures":
