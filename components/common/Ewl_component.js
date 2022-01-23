@@ -38,6 +38,9 @@ export default function Ewl_component({ event, type, isRegistered }) {
     userWorkshops,
     userLectures,
     setUserWorkshops,
+    setUser,
+    setUserEvents,
+    setUserLectures
   } = useUserContext();
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -272,8 +275,11 @@ export default function Ewl_component({ event, type, isRegistered }) {
                                   event.regPrice,
                                   router,
                                   userWorkshops,
-                                  setUserWorkshops,
-                                  refCode
+                                  refCode,
+                                  setUser,
+                                  setUserEvents,
+                                  setUserLectures,
+                                  setUserWorkshops
                                 );
                               else if (type == "lecture")
                                 displayRazorpay(

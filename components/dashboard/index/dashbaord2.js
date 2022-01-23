@@ -31,7 +31,7 @@ export default function Dashboard2({ events }) {
             modifier: 1,
             slideShadows: true,
           }}
-          pagination={true}
+          // pagination={true}
           className={styles["swiper"]}
         >
      

@@ -1,3 +1,4 @@
+import getInitialUserDetails from "@/lib/user/getInitialUserDetails";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -21,8 +22,11 @@ async function displayRazorpay(
   regPrice,
   router,
   userEvents,
-  setUserWorkshops,
-  refCode
+  refCode,
+  setUser,
+  setUserEvents,
+  setUserLectures,
+  setUserWorkshops
 ) {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
@@ -80,46 +84,15 @@ async function displayRazorpay(
               },
             },
           };
-          axios
-            .post(
-              `${process.env.NEXT_PUBLIC_BACKEND_URL}/orders/paymentComplete`,
-              data,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.jwt}`,
-                  "x-razorpay-signature": response.razorpay_signature,
-                },
-              }
-            )
-            .then((result) => {
-              if (result.data.status == "ok") {
-                toast.success("Payment Successfull", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                });
-                if (paymentType == "event") {
-                  // userEvents.push({ eventId: event.id, userEventId: result.data.id });
-                  router.push(`/dashboard/events/${event.slug}`);
-                } else if (paymentType == "workshop"){
-                  let newUserevents=[...userEvents]
-                  newUserevents.push({ workshopId: event.id, userWorkshopId: result.data.id });
-                  setUserWorkshops(newUserevents)
-                  router.push(`/dashboard/workshops/${event.slug}`);
-                }
-                  
-                else if (paymentType == "lecture"){
-                  // userEvents.push({ lectureId: event.id, userLectureId: result.data.id });
-                  router.push(`/dashboard/lectures/${event.slug}`);
-                }
-                  
-                return result;
-              }
-              
-            });
+          setTimeout(()=>{
+            getInitialUserDetails(setUser,
+              setUserEvents,
+              setUserLectures,
+              setUserWorkshops,
+              user.jwt)
+            router.push("/dashboard/workshops/"+event.slug)
+          },2000)
+          
         },
         theme: {
           color: "#61dafb",
