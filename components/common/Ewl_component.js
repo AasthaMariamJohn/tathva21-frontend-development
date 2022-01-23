@@ -68,7 +68,6 @@ export default function Ewl_component({ event, type, isRegistered }) {
 
   useEffect(() => {
     const today = moment().format("DD-MM-yyyy h:mm:ss a");
-    console.log(today);
     if (
       moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
         moment(event.regStartDate, "DD-MM-yyyy h:mm:ss a")
@@ -187,10 +186,20 @@ export default function Ewl_component({ event, type, isRegistered }) {
           </h3>
         </div>
         {info && (
-          <div>
-            <Text className={style.des}>{eventdetails.info}</Text>
+          <div
+            style={{
+              display: "flex",
+              textAlign: "left",
+              flexDirection: "column",
+              marginTop: "30px",
+            }}
+          >
+            {eventdetails.info.split("\n").map((words) => {
+              return <Text className={style.des}>{words}</Text>;
+            })}
           </div>
         )}
+
         {contact && (
           <div>
             <table className={style.contact_table}>

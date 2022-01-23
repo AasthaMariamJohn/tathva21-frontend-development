@@ -15,8 +15,7 @@ import { useUtilityContext } from "@/context/utilityContext";
 const Navbar = () => {
   const router = useRouter();
   const { isLoggedIn } = useUserContext();
-  const {setIsHandBOpen}=useUtilityContext()
-
+  const { setIsHandBOpen } = useUtilityContext();
 
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
@@ -29,61 +28,68 @@ const Navbar = () => {
   const [collapseDown, setCollapseDown] = useState(false);
 
   const handleCollapseDown = () => {
-    setIsHandBOpen(true)
+    setIsHandBOpen(true);
     setCollapseDown(true);
   };
 
   const handleClose = () => {
-    setIsHandBOpen(false)
+    setIsHandBOpen(false);
     setCollapseDown(false);
   };
   useEffect(() => {
-    if(isLoggedIn && links[links.length-1].link!=="/dashboard"){   
+    if (
+      isLoggedIn &&
+      router.asPath.split("/")[1] != "dashboard" &&
+      router.asPath.split("/")[1] != "profile"
+    ) {
       setLinks([
         { title: "Events", id: 2, link: "/events" },
         { title: "Workshops", id: 3, link: "/workshops" },
         { title: "Lecture", id: 4, link: "/lectures" },
         { title: "Shop", id: 5, link: "/shop" },
         { title: "Sponsors", id: 6, link: "/sponsors" },
-        {title:  "Dashboard",id:7,link:"/dashboard"}
-      ])
-    }
-    else{
+        { title: "Dashboard", id: 7, link: "/dashboard" },
+      ]);
+    } else if (isLoggedIn) {
       setLinks([
         { title: "Home", id: 18, link: "/" },
         { title: "Profile", id: 19, link: "/profile" },
-        {title:  "Dashboard",id:7,link:"/dashboard"}
-      ])
+        { title: "Dashboard", id: 7, link: "/dashboard" },
+      ]);
+    } else {
+      setLinks([
+        { title: "Events", id: 2, link: "/events" },
+        { title: "Workshops", id: 3, link: "/workshops" },
+        { title: "Lecture", id: 4, link: "/lectures" },
+        { title: "Shop", id: 5, link: "/shop" },
+        { title: "Sponsors", id: 6, link: "/sponsors" },
+      ]);
     }
     switch (router.asPath.split("/")[1]) {
-    
       case "events":
         setTitle({ title: "EVENTS", link: "/events" });
-        
+
         break;
       case "workshops":
         setTitle({ title: "WORKSHOPS", link: "/workshops" });
-        
+
         break;
       case "lectures":
         setTitle({ title: "LECTURES", link: "/lectures" });
-       
+
         break;
       case "profile":
         setTitle({ title: "Profile", link: "/profile" });
         break;
-        
+
       case "dashboard":
         setTitle({ title: "Dashboard", link: "/dashboard" });
-        break
-        
-      default :
-        setTitle({ title: "Tathva 21", link: "/" });
-      
+        break;
 
-       
+      default:
+        setTitle({ title: "Tathva 21", link: "/" });
     }
-  }, [router,isLoggedIn]);  
+  }, [router, isLoggedIn]);
 
   return (
     <div>
@@ -139,7 +145,11 @@ const Navbar = () => {
                   ></Image>
                 </Link>
               </div>
-              <div className={style.close} onClick={handleClose} id="logo-link-mobile">
+              <div
+                className={style.close}
+                onClick={handleClose}
+                id="logo-link-mobile"
+              >
                 <Image
                   src={"/images/close.png"}
                   width="40"
@@ -150,7 +160,7 @@ const Navbar = () => {
               <p className={style["menu-title"]} id="tathva-title-mobile">
                 <Link href={title.link}>
                   <a>{title.title}</a>
-                </Link> 
+                </Link>
               </p>
               <ol className={style["menu-list"]}>
                 {links.map((link) => (
@@ -160,7 +170,7 @@ const Navbar = () => {
                     onClick={handleClose}
                   >
                     <Link href={link.link}>
-                      <a  id={`${link.title}-link-mobile`}>{link.title}</a>
+                      <a id={`${link.title}-link-mobile`}>{link.title}</a>
                     </Link>
                   </li>
                 ))}
