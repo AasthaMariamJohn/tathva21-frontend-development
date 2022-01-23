@@ -1,6 +1,7 @@
 import style from "./navbarLogo.module.css";
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
+
 export default function NavbarLogo() {
   return (
     <div>

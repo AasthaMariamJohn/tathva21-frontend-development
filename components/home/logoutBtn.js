@@ -4,6 +4,8 @@ import { destroyCookie } from "nookies";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import styles from '../common/loginbtn.module.css'
+
 export default function LogoutBtn() {
   const { setUser, setIsLoggedIn, setUserWorkshops } = useUserContext();
   const router = useRouter();
@@ -32,7 +34,7 @@ export default function LogoutBtn() {
   }
   return (
     <div>
-      <button onClick={Logout}>Logout</button>
+      <button className={styles.loginout_button} onClick={Logout}>Logout</button>
     </div>
   );
 }

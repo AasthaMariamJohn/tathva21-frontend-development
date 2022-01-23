@@ -1,78 +1,48 @@
 .main {
-  position: absolute;
-  top: 0px;
-  /* left: -20px; */
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.5rem;
   width: 100vw;
   background: linear-gradient(to bottom, black 30%, transparent 100%);
   z-index: 111;
+  position: absolute;
 }
 /* NAVBAR */
 .navbarg {
-  height: 126px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   /* width: 100vw; */
   /* background: linear-gradient(to top, transparent 0%, black 100%); */
-  margin-top: 26px;
-  margin-left: 100px;
-  width: 90%;
-  position: relative;
-  top: 30px;
-  left: -20px;
-  padding-left: 1.5%;
-  overflow: hidden;
 }
 
 .navbarsvg {
   background-color: transparent;
-  position: absolute;
-  top: 90px;
-  left: 110px;
-  width: 100%;
   z-index: 1000;
 }
 
-.login {
-  text-align: center;
-  font-family: "batman_forever";
-  font-size: large;
-  color: white;
-  height: 50px;
-  width: 8.5%;
-  position: fixed;
-  top: 40px;
-  right: 30px;
-  border: 1px solid #49e9ff;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0px 0px 7.93569px rgba(115, 187, 228, 0.4);
-  border-radius: 7.93569px;
+.login_button_container {
+  margin: 0.8rem 4rem 0rem 4rem;
   z-index: 100;
-  padding-top: 10px;
 }
 
 .logo {
-  position: absolute;
-  z-index: 999;
-  top: 20px;
-  left: 10px;
   cursor: pointer;
 }
 
 .navbar {
   font-family: "batman_forever";
   color: white;
-  position: relative;
-  z-index: 100;
-  left: 30px;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
 }
 .navbar-title {
-  width: 300px;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bolder;
   z-index: 1000;
-  margin-right: -15px;
-  margin-top: -15px;
-  margin-right: 100px;
-  float: left;
 }
 
 .navbar-list {
@@ -80,7 +50,7 @@
   display: flex;
   justify-content: space-evenly;
   word-wrap: none;
-  position: relative;
+  /* position: relative; */
   left: -100px;
 }
 
@@ -93,42 +63,38 @@
 }
 
 .navbar-link:hover {
-  font-weight: bolder;
-  letter-spacing: 2px;
-  text-shadow: 0px 0px 30px #bffcff;
+  /* font-weight: bolder; */
+  /* letter-spacing: 2px; */
+  text-shadow: 0px 0px 10px #00e0ff;
 }
 
 .hamburger {
   display: none;
+}
+.navbar_content {
+  width: 45%;
 }
 
 @media (max-width: 1250px) {
   .navbar-link {
     font-size: 0.8rem;
   }
-
-  .login {
-    font-size: 15px;
-    color: white;
-    height: 40px;
-    width: 8.5%;
-    padding-top: 9px;
-    z-index: 100;
-    margin-left: 10px;
-  }
 }
 
 @media (max-width: 1100px) {
+  .navbar {
+    width: 45%;
+  }
   .navbarsvg {
     display: none;
   }
 
   .hamburger {
-    display: block;
-    position: fixed;
-    top: 55px;
-    right: 30px;
-    z-index: 1000;
+    width: 12%;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .close {
     position: absolute;
@@ -185,45 +151,43 @@
     top: -100px;
   }
   .login {
-    width: 15%;
-    top: 47px;
-    right: 100px;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .navbar-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    width: 100%;
+  }
+  .navbar_content {
+    display: none;
   }
 }
 @media (max-width: 768px) {
-  .menu-title {
-    top: -80px;
+  .navbar-title {
+    font-size: 1.5rem;
+    width: 100%;
   }
 }
 
 @media (max-width: 580px) {
+  .login_button_container {
+    margin: 0.8rem 2rem 0rem 0rem;
+  }
   .navbar-title {
-    font-size: 1.5rem;
-    margin-top: -6px;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 450px) {
   .navbar-title {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     z-index: 1000;
   }
   .menu-title {
     font-size: 1.5rem;
     top: -30px;
-  }
-  .login {
-    width: 16.5%;
-    right: 17%;
-    height: 34px;
-    font-size: 0.6rem;
-    padding-top: 8px;
-  }
-  .hamburger {
-    right: 19px;
   }
   .logo {
     left: 25px;
