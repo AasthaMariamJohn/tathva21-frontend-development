@@ -1,9 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useUserContext } from "./userContext";
 
 const profileContext = createContext();
 profileContext.displayName = "ProfileContext";
 
 export function ProfileWrapper({ children }) {
+  const {user}=useUserContext()
   const [userProfile, setUserProfile] = useState(null);
   const [name, setName] = useState(null);
   const [state, setState] = useState(null);
@@ -14,9 +16,9 @@ export function ProfileWrapper({ children }) {
   const [inEditMode, setInEditMode] = useState(false);
   useEffect(() => {
     if (userProfile ) {
-      setName(userProfile.name);
+        setName(userProfile.name);
       setState(userProfile.state);
-      setDistrict(userProfile.district);
+        setDistrict(userProfile.district);
       setPhoneNumber(userProfile.phoneNumber);
       setCollegeName(userProfile.collegeName);
       setYearOfStudy(userProfile.yearOfStudy);

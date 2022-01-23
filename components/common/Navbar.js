@@ -20,13 +20,11 @@ const Navbar = () => {
 
   const [title, setTitle] = useState({ title: "Tathva 21", link: "/" });
   const [links, setLinks] = useState([
-    // { title: "About Us", id: 1, link: "/about" },
     { title: "Events", id: 2, link: "/events" },
     { title: "Workshops", id: 3, link: "/workshops/data-science" },
     { title: "Lecture", id: 4, link: "/lectures" },
     { title: "Shop", id: 5, link: "/shop" },
     { title: "Sponsors", id: 6, link: "/sponsors" },
-    // { title: "Contact Us", id: 7, link: "/contact" },
   ]);
   const [collapseDown, setCollapseDown] = useState(false);
 
@@ -40,30 +38,45 @@ const Navbar = () => {
     setCollapseDown(false);
   };
   useEffect(() => {
-    switch (router.asPath) {
-      case "/":
-        setTitle({ title: "Tathva 21", link: "/" });
-        break;
-      case "/events":
-        setTitle({ title: "EVENTS", link: "/events" });
-        break;
-      case "/workshops":
-        setTitle({ title: "WORKSHOPS", link: "/workshops/data-science" });
-        break;
-      case "/lectures":
-        setTitle({ title: "LECTURES", link: "/lectures" });
-        break;
-      case "/profile":
-        setTitle({ title: "PROFILE", link: "/profile" });
-        break;
-      // case "/about":
-      //   setTitle({ title: "About Us", link: "/about" });
-      //   break;
-      case "/team":
-        setTitle({ title: "Team", link: "/team" });
-        break;
+    if(isLoggedIn && links[links.length-1].link!=="/dashboard"){   
+      setLinks([
+        { title: "Events", id: 2, link: "/events" },
+        { title: "Workshops", id: 3, link: "/workshops/data-science" },
+        { title: "Lecture", id: 4, link: "/lectures" },
+        { title: "Shop", id: 5, link: "/shop" },
+        { title: "Sponsors", id: 6, link: "/sponsors" },
+        {title:  "Dashboard",id:7,link:"/dashboard"}
+      ])
     }
-  }, [router]);
+    switch (router.asPath.split("/")[1]) {
+    
+      case "events":
+        setTitle({ title: "EVENTS", link: "/events" });
+        
+        break;
+      case "workshops":
+        setTitle({ title: "WORKSHOPS", link: "/workshops/data-science" });
+        
+        break;
+      case "lectures":
+        setTitle({ title: "LECTURES", link: "/lectures" });
+       
+        break;
+      case "profile":
+        setTitle({ title: "Profile", link: "/profile" });
+        break;
+        
+      case "dashboard":
+        setTitle({ title: "Dashboard", link: "/dashboard" });
+        break
+        
+      default :
+        setTitle({ title: "Tathva 21", link: "/" });
+      
+
+       
+    }
+  }, [router,isLoggedIn]);  
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import Ewl_component from "@/components/common/Ewl_component";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Loader from "@/components/common/loader";
 
 import style from "../../components/events_workshop_lectures/ewl.module.css";
@@ -62,11 +62,19 @@ export function Workshop({ children }) {
     </div>
   );
 }
-
+function isReg(Workshop1, userWorkshops){
+  if (Workshop1 && userWorkshops) {
+    for (let i = 0; i <userWorkshops.length; i++) {
+      if (userWorkshops[i].workshopId === Workshop1.id) {  
+        return true
+      }
+    }
+  }
+  return false
+}
 export default function WorkshopName() {
   const [Workshop1, setWorkshop1] = useState(null); 
   const {userWorkshops}=useUserContext()
-  const [isRegistered, setIsRegistered] = useState(false);
 
   const router = useRouter();
   const { workshopName } = router.query;
@@ -75,15 +83,11 @@ export default function WorkshopName() {
       getWorkshopWithName(workshopName, setWorkshop1);
     }
   }, [workshopName]);
-  useEffect(() => {
-    if (Workshop1 && userWorkshops) {
-      for (let i = 0; i <userWorkshops.length; i++) {
-        if (userWorkshops[i].workshopId == Workshop1.id) {
-          setIsRegistered(true);
-        }
-      }
-    }
-  }, [Workshop1, userWorkshops]);
+  const isRegistered = useMemo(()=>isReg(Workshop1, userWorkshops),[Workshop1, userWorkshops])
+
+  // useEffect(() => {
+    
+  // }, [Workshop1, userWorkshops]);
   return (
     <div>
       <Head>

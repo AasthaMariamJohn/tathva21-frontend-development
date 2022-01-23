@@ -19,27 +19,37 @@ export function UserWrapper({ children }) {
 
   useEffect(()=>{
     let userDetails=localStorage.getItem("TathvaUser")
-    setUser(JSON.parse(userDetails))
-    if(userDetails)
-      setIsLoggedIn(true);
-    else
-    setIsLoggedIn(false);
-
-  },[])
-
-  useEffect(() => {
-    if (user) {
-      getInitialUserDetails(
+    if(userDetails){
+      // setUser(JSON.parse(userDetails))
+     getInitialUserDetails(
         setUser,
         setUserEvents,
         setUserLectures,
         setUserWorkshops,
-        user.jwt
-      );
-      // setIsLoggedIn(true);
-
+        JSON.parse(userDetails).jwt
+      )
+      if(userDetails)
+        setIsLoggedIn(true);
+      else
+       setIsLoggedIn(false);
     }
-  }, []);
+    
+
+  },[])
+
+  // useEffect(() => {
+  //   if (user) {
+  //     getInitialUserDetails(
+  //       setUser,
+  //       setUserEvents,
+  //       setUserLectures,
+  //       setUserWorkshops,
+  //       user.jwt
+  //     );
+  //     // setIsLoggedIn(true);
+
+  //   }
+  // }, [user]);
   return (
     <UserContext.Provider
       value={{

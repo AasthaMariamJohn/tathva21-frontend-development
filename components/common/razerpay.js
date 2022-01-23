@@ -21,7 +21,8 @@ async function displayRazorpay(
   regPrice,
   router,
   userEvents,
-  setUserWorkshops
+  setUserWorkshops,
+  refCode
 ) {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
@@ -41,6 +42,7 @@ async function displayRazorpay(
         entity: {
           id: event.id,
         },
+        refCode:refCode
       },
       {
         headers: {

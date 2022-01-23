@@ -1,6 +1,6 @@
 import style from "../events_workshop_lectures/ewl.module.css";
 import { MdAlarm } from "react-icons/md";
-import { Center, Image,Text } from "@chakra-ui/react";
+import { Center, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import registerEvent from "@/lib/events/registerEvent";
 import displayRazorpay from "@/components/common/razerpay";
@@ -10,8 +10,19 @@ import { useRouter } from "next/router";
 import registerLecture from "@/lib/lectures/registerLecture";
 import registerWorkshop from "@/lib/workshops/registerWorkshop";
 import Link from "next/link";
-
-export default function Ewl_component({ event, type,isRegistered }) {
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Input,
+  Button,
+} from "@chakra-ui/react";
+export default function Ewl_component({ event, type, isRegistered }) {
   const eventdetails = {
     info: event.description,
     rules: event.rules,
@@ -20,16 +31,28 @@ export default function Ewl_component({ event, type,isRegistered }) {
   };
   const [body, setBody] = useState(eventdetails.info);
 
-  const { user, isLoggedIn, userEvents, userWorkshops, userLectures ,setUserWorkshops} =
-    useUserContext();
+  const {
+    user,
+    isLoggedIn,
+    userEvents,
+    userWorkshops,
+    userLectures,
+    setUserWorkshops,
+  } = useUserContext();
   const router = useRouter();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [refCode, setRefCode] = useState("");
   return (
     <>
       <div className={style.img}>
         <Center>
           <div className={style.img_desktop}>
-            <Image src={event.coverImage.src} alt="next-image" width={"400px"} height={"300px"}/>
+            <Image
+              src={event.coverImage.src}
+              alt="next-image"
+              width={"400px"}
+              height={"300px"}
+            />
           </div>
         </Center>
         <Center>
@@ -80,65 +103,167 @@ export default function Ewl_component({ event, type,isRegistered }) {
         {/* <p className={style.des}>{body}</p> */}
         <Text className={style.des}>{body}</Text>
         <Center>
-          {isRegistered?<><Link href={`/dashboard/${type}s/${event.slug}`} passHref>
-          <div
-            className={style.button}
-            data-augmented-ui
-            >View</div>
-            </Link></>:
-          <div
-            className={style.button}
-            data-augmented-ui
-            onClick={() => {
-              if (isLoggedIn) {
-                if (event.regPrice) {
-                  if (type == "event")
-                    displayRazorpay(
-                      event,
-                      user,
-                      "event",
-                      event.regPrice,
-                      router,
-                      userEvents
-                    );
-                  else if (type == "workshop")
-                    displayRazorpay(
-                      event,
-                      user,
-                      "workshop",
-                      event.regPrice,
-                      router,
-                      userWorkshops,
-                      setUserWorkshops
-                    );
-                  else if (type == "lecture")
-                    displayRazorpay(
-                      event,
-                      user,
-                      "lecture",
-                      event.regPrice,
-                      router,
-                      userLectures
-                    );
-                } else {
-                  if (type == "event")
-                    registerEvent(event, user, router, userEvents);
-                  else if (type == "lecture")
-                    registerLecture(event, user, router, userLectures);
-                  else if (type == "workshop")
-                    registerWorkshop(event, user, router, userWorkshops);
-                }
-              } else {
-                localStorage.setItem('loginClikedFrom',`${router.asPath}`)
-                Login(router);
-              }
-            }}
-          >
-            REGISTER for {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
-            
-          </div>}
+          {isRegistered ? (
+            <>
+              <Link href={`/dashboard/${type}s/${event.slug}`} passHref>
+                <div className={style.button} data-augmented-ui>
+                  View
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader>Referral Code</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody>
+                    <Input
+                      placeholder="Optional"
+                      value={refCode}
+                      onChange={(e) => {
+                        setRefCode(e.target.value);
+                      }}
+                    ></Input>
+                  </ModalBody>
+                  <ModalFooter>
+                    {/* <Button colorScheme="blue" mr={3} onClick={()=>{
+                      // onClose
+
+
+
+                    }}>
+                      Register
+                    </Button> */}
+                    <div
+                      className={style.button}
+                      data-augmented-ui
+                      onClick={() => {
+                        onClose()
+
+                        if (event.regPrice) {
+                          if (type == "event")
+                            displayRazorpay(
+                              event,
+                              user,
+                              "event",
+                              event.regPrice,
+                              router,
+                              userEvents,
+                              refCode
+                            );
+                          else if (type == "workshop")
+                            displayRazorpay(
+                              event,
+                              user,
+                              "workshop",
+                              event.regPrice,
+                              router,
+                              userWorkshops,
+                              setUserWorkshops,
+                              refCode
+                            );
+                          else if (type == "lecture")
+                            displayRazorpay(
+                              event,
+                              user,
+                              "lecture",
+                              event.regPrice,
+                              router,
+                              userLectures,
+                              refCode
+                            );
+                        } else {
+                          if (type == "event")
+                            registerEvent(event, user, router, userEvents);
+                          else if (type == "lecture")
+                            registerLecture(event, user, router, userLectures);
+                          else if (type == "workshop")
+                            registerWorkshop(
+                              event,
+                              user,
+                              router,
+                              userWorkshops
+                            );
+                        }
+                      }}
+                    >
+                      REGISTER for{" "}
+                      {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
+                    </div>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+
+              <div
+                className={style.button}
+                data-augmented-ui
+                onClick={() => {
+                  if (isLoggedIn) onOpen();
+                  else {
+                    localStorage.setItem("loginClikedFrom", `${router.asPath}`);
+                    Login(router);
+                  }
+                }}
+              >
+                REGISTER for{" "}
+                {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
+              </div>
+              {/* <div
+                className={style.button}
+                data-augmented-ui
+                onClick={() => {
+                  if (isLoggedIn) {
+                    if (event.regPrice) {
+                      if (type == "event")
+                        displayRazorpay(
+                          event,
+                          user,
+                          "event",
+                          event.regPrice,
+                          router,
+                          userEvents
+                        );
+                      else if (type == "workshop")
+                        displayRazorpay(
+                          event,
+                          user,
+                          "workshop",
+                          event.regPrice,
+                          router,
+                          userWorkshops,
+                          setUserWorkshops
+                        );
+                      else if (type == "lecture")
+                        displayRazorpay(
+                          event,
+                          user,
+                          "lecture",
+                          event.regPrice,
+                          router,
+                          userLectures
+                        );
+                    } else {
+                      if (type == "event")
+                        registerEvent(event, user, router, userEvents);
+                      else if (type == "lecture")
+                        registerLecture(event, user, router, userLectures);
+                      else if (type == "workshop")
+                        registerWorkshop(event, user, router, userWorkshops);
+                    }
+                  } else {
+                    localStorage.setItem("loginClikedFrom", `${router.asPath}`);
+                    Login(router);
+                  }
+                }}
+              >
+                REGISTER for{" "}
+                {event.regPrice ? <>{event.regPrice}</> : <>Free</>}
+              </div> */}
+            </>
+          )}
         </Center>
-        
       </div>
     </>
   );
