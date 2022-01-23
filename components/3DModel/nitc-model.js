@@ -49,16 +49,44 @@ const InstaButton = (name, scene, x, y, z) => {
     new THREE.SphereBufferGeometry(3.2),
     new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
   );
-   
+  const mesh = scene.getObjectByName('IG');
   meshDesktop.name = name + "Desktop";
   meshMobile.name = name +'Mobile';
   meshDesktop.position.set(x, y+5, z);
   meshMobile.position.set(x, y+1.5, z);
   meshMobile.visible = false;
   meshDesktop.visible = false;
+
+
+
   
   scene.add(meshDesktop);
   scene.add(meshMobile);
+
+  const timeInterval = 500;
+  // setInterval(() => {
+  //   mesh.rotateY(degToRad(8));
+  // }, 180);
+    let flag = false;
+    const high = mesh.position.y + 0.2;
+    const mid = mesh.position.y + 0.1;
+    const low = mesh.position.y ;
+    setInterval(() => {
+      mesh.position.y = high
+    }, timeInterval);
+
+    
+    setInterval(() => {
+      if(flag === false)
+      {
+        mesh.position.y = mid;
+      }
+      else
+      {
+        mesh.position.y = low;
+      }
+      flag = !flag;
+    }, timeInterval/2);
 }
 
 const Button3D = (name, scene, x, y, z) => {
@@ -660,8 +688,9 @@ const NITCModel3D = () => {
         false
       );
       setControls(controls);
-
-      // Desktop Navbar Event Listeners
+      try 
+      {
+        // Desktop Navbar Event Listeners
       document.getElementById("logo-link").addEventListener("click", () => {
         TweenAnimation(
           controls,
@@ -871,6 +900,12 @@ const NITCModel3D = () => {
       //   );
       // });
 
+        
+      } catch (error) 
+      {
+        console.log("error ! Navbar Links won't work.");  
+      }
+      
       loadGLTFModel(
         scene,
         "/model/scene.glb",
@@ -1165,9 +1200,10 @@ const NITCModel3D = () => {
         
       } 
       else if (intersects[i].object.name === "InstaButton") {
-        intersects[i].object.scale.x = 2;
-        intersects[i].object.scale.y = 2;
-        intersects[i].object.scale.z = 2;
+        const ig = scene.getObjectByName("IG");
+        ig.scale.x = 2;
+        ig.scale.y = 2;
+        ig.scale.z = 2;
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1194,6 +1230,7 @@ const NITCModel3D = () => {
     const creativeZoneButton = scene.getObjectByName("CreativeZoneButton");
     const elhcButton = scene.getObjectByName("ELHCButton");
     const instagramButton = scene.getObjectByName("InstaButton");
+    const ig = scene.getObjectByName("IG");
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
@@ -1255,9 +1292,9 @@ const NITCModel3D = () => {
       elhcButton.scale.z = 1;
     }
     if (instagramButton) {
-      instagramButton.scale.x = 1;
-      instagramButton.scale.y = 1;
-      instagramButton.scale.z = 1;
+      ig.scale.x = 1;
+      ig.scale.y = 1;
+      ig.scale.z = 1;
     }
 
     if (modalStuff.modelIsOpen!==null)
