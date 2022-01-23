@@ -39,6 +39,28 @@ const TweenAnimation = (
   tween.start();
 };
 
+const InstaButton = (name, scene, x, y, z) => {
+
+  const meshDesktop =  new THREE.Mesh(
+    new THREE.SphereBufferGeometry(1.5),
+    new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
+  );
+  const meshMobile =  new THREE.Mesh(
+    new THREE.SphereBufferGeometry(3.2),
+    new THREE.MeshBasicMaterial({ color: ButtonPrimaryHex })
+  );
+   
+  meshDesktop.name = name + "Desktop";
+  meshMobile.name = name +'Mobile';
+  meshDesktop.position.set(x, y+5, z);
+  meshMobile.position.set(x, y+1.5, z);
+  meshMobile.visible = false;
+  meshDesktop.visible = false;
+  
+  scene.add(meshDesktop);
+  scene.add(meshMobile);
+}
+
 const Button3D = (name, scene, x, y, z) => {
 
   
@@ -115,6 +137,19 @@ function onTouchStart(event, mouse){
   // rest of your code
 
 }
+
+const onInstaAnimationComplete = (controls, router=null,pushTo=null) => {
+
+  controls.enabled = true;
+  console.log("animation done");
+  window.location.href = "https://www.instagram.com/tathva_nitcalicut/?hl=en";
+  // if(router!==null&&pushTo!==null){
+  //   router.push(pushTo);
+  // }
+  
+
+};
+
 const onAnimationComplete = (controls, router=null,pushTo=null) => {
 
   controls.enabled = true;
@@ -270,6 +305,20 @@ function onMouseDown(event, scene, camera, raycaster, mouse, controls, router=nu
         onAnimationComplete
       );
 
+    } else if (intersects[i].object.name === "InstaButton"+'Desktop') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onInstaAnimationComplete
+      );
+
     }
 
   }
@@ -419,6 +468,20 @@ function onTouchDown(event, scene, camera, raycaster, mouse, controls, router) {
         2000,
         TWEEN.Easing.Quartic.Out,
         onAnimationComplete
+      );
+
+    } else if (intersects[i].object.name === "InstaButton"+'Mobile') {
+      console.log(intersects[i].object.name, " clicked");
+      controls.enabled = false;
+      TweenAnimation(
+        controls,
+        camera,
+        intersects[i].object.position.x,
+        intersects[i].object.position.y,
+        intersects[i].object.position.z,
+        2000,
+        TWEEN.Easing.Quartic.Out,
+        onInstaAnimationComplete
       );
 
     }
@@ -869,6 +932,7 @@ const NITCModel3D = () => {
       const nlhc = scene.getObjectByName("NLHC");
       const creativezone = scene.getObjectByName("CZ");
       const elhc = scene.getObjectByName("ELHC");
+      const instatag = scene.getObjectByName("IGTAG");
       // const bbcourt = scene.getObjectByName("BB");
       // const vbcourt = scene.getObjectByName("VB");
       Button3D(
@@ -938,6 +1002,13 @@ const NITCModel3D = () => {
         elhc.position.x,
         elhc.position.y,
         elhc.position.z
+      );
+      InstaButton(
+        "InstaButton",
+        scene,
+        instatag.position.x,
+        instatag.position.y,
+        instatag.position.z
       );
       // Button3D(
       //   "BBcourtButton",
@@ -1093,6 +1164,20 @@ const NITCModel3D = () => {
         }
         
       } 
+      else if (intersects[i].object.name === "InstaButton") {
+        intersects[i].object.scale.x = 2;
+        intersects[i].object.scale.y = 2;
+        intersects[i].object.scale.z = 2;
+        if (modalStuff !== null) {
+          modalStuff.setModelIsOpen(true);
+          modalStuff.setMouse(mouse);
+          modalStuff.setBuilding("Visit Our Instagram Page");
+          modalStuff.setTitle("");
+          modalStuff.setLink("/");
+        }
+        
+      } 
+
 
       
     }
@@ -1108,7 +1193,7 @@ const NITCModel3D = () => {
     const oatButton = scene.getObjectByName("OATButton");
     const creativeZoneButton = scene.getObjectByName("CreativeZoneButton");
     const elhcButton = scene.getObjectByName("ELHCButton");
-
+    const instagramButton = scene.getObjectByName("InstaButton");
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
@@ -1168,6 +1253,11 @@ const NITCModel3D = () => {
       elhcButton.scale.x = 1;
       elhcButton.scale.y = 1;
       elhcButton.scale.z = 1;
+    }
+    if (instagramButton) {
+      instagramButton.scale.x = 1;
+      instagramButton.scale.y = 1;
+      instagramButton.scale.z = 1;
     }
 
     if (modalStuff.modelIsOpen!==null)
