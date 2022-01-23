@@ -11,7 +11,7 @@ export default function Workshops() {
   const router = useRouter();
   const { workshops, setWorkshops } = useWorkshopContext();
   useEffect(() => {
-    if (workshops == null) 
+    if (workshops == null && router.asPath=="/workshops") 
       {
         async function test(){
           let data=await getWorkshops();
