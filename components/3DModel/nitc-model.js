@@ -1072,6 +1072,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1084,6 +1085,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1096,6 +1098,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1108,6 +1111,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1120,6 +1124,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1134,6 +1139,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1148,6 +1154,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1162,6 +1169,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1176,6 +1184,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1190,6 +1199,7 @@ const NITCModel3D = () => {
         intersects[i].object.scale.x = 2;
         intersects[i].object.scale.y = 2;
         intersects[i].object.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1204,6 +1214,7 @@ const NITCModel3D = () => {
         ig.scale.x = 2;
         ig.scale.y = 2;
         ig.scale.z = 2;
+        document.body.style.cursor = 'pointer';
         if (modalStuff !== null) {
           modalStuff.setModelIsOpen(true);
           modalStuff.setMouse(mouse);
@@ -1231,6 +1242,7 @@ const NITCModel3D = () => {
     const elhcButton = scene.getObjectByName("ELHCButton");
     const instagramButton = scene.getObjectByName("InstaButton");
     const ig = scene.getObjectByName("IG");
+    document.body.style.cursor = 'default';
     if (eclcbutton) {
       eclcbutton.material.color.setHex(ButtonPrimaryHex);
       eclcbutton.scale.x = 1;
