@@ -31,12 +31,10 @@ export default function Main() {
   } = useProfileContext();
   const { user, setUser } = useUserContext();
 
-
   useEffect(() => {
-    if (user) getMe(user.jwt, setUserProfile, setInEditMode,);
-   
+    if (user) getMe(user.jwt, setUserProfile, setInEditMode);
   }, [user]);
-  const router=useRouter()
+  const router = useRouter();
   function Cancel() {
     setInEditMode(false);
     reRender();
@@ -92,7 +90,7 @@ export default function Main() {
             </Flex>
             <Flex direction={["column", "row"]} p={3}>
               <Box mt={[1.5]}>
-                <Center>College/School</Center>
+                <Center>Name of College/School</Center>
               </Box>
               <Spacer />
               <Box>
@@ -114,7 +112,7 @@ export default function Main() {
             </Flex>
             <Flex direction={["column", "row"]} p={3}>
               <Box mt={[1.5]}>
-                <Center>Tathav Id</Center>
+                <Center>Tathva Id</Center>
               </Box>
               <Spacer />
               <Box>
@@ -157,7 +155,7 @@ export default function Main() {
                 {inEditMode ? (
                   <Button
                     onClick={() => {
-                      updateMe(user, allInOne,router);
+                      updateMe(user, allInOne, router);
                       setInEditMode(false);
                     }}
                     backgroundColor={"blackAlpha.100"}

@@ -189,7 +189,11 @@ export default function Ewl_component({ event, type, isRegistered }) {
         {info && (
           <div className={style.content_words}>
             {eventdetails.info.split("\n").map((words) => {
-              return <Text className={style.des}>{words}</Text>;
+              return (
+                <Text key={words} className={style.des}>
+                  {words}
+                </Text>
+              );
             })}
           </div>
         )}
