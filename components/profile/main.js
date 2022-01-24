@@ -155,7 +155,7 @@ export default function Main() {
                 {inEditMode ? (
                   <Button
                     onClick={() => {
-                      updateMe(user, allInOne, router);
+                      updateMe(user, allInOne, router,setUser);
                       setInEditMode(false);
                     }}
                     backgroundColor={"blackAlpha.100"}
