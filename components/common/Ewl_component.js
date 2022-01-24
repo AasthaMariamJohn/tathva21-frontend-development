@@ -24,6 +24,7 @@ import {
   useDisclosure,
   Input,
 } from "@chakra-ui/react";
+import { getRefCode } from "@/lib/refCode";
 
 export default function Ewl_component({ event, type, isRegistered }) {
   const eventdetails = {
@@ -55,7 +56,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
     onClose: onEditClose,
   } = useDisclosure();
 
-  const [refCode, setRefCode] = useState("");
+  const [refCode, setRefCode] = useState(getRefCode());
 
   const openInfo = () => {
     setInfo(true);
