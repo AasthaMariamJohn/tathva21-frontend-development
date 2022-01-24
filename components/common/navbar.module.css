@@ -1,7 +1,7 @@
 .main {
   display: flex;
   justify-content: space-around;
-  padding-top: 1.5rem;
+  padding-top: 1.7rem;
   width: 100vw;
   background: linear-gradient(to bottom, black 30%, transparent 100%);
   z-index: 111;
