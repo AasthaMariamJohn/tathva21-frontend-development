@@ -57,7 +57,7 @@ export default function Main() {
             </Flex>
             <Flex direction={["column", "row"]} p={3}>
               <Box mt={[1.5]}>
-                <Center>Phone</Center>
+                <Center>Phone No</Center>
               </Box>
               <Spacer />
               <Box>
@@ -155,7 +155,7 @@ export default function Main() {
                 {inEditMode ? (
                   <Button
                     onClick={() => {
-                      updateMe(user, allInOne, router,setUser);
+                      updateMe(user, allInOne, router, setUser);
                       setInEditMode(false);
                     }}
                     backgroundColor={"blackAlpha.100"}

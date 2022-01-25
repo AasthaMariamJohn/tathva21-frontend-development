@@ -2,8 +2,6 @@ import getInitialUserDetails from "@/lib/user/getInitialUserDetails";
 import { parseCookies } from "nookies";
 import { createContext, useContext, useState, useEffect } from "react";
 
- 
-
 const UserContext = createContext();
 UserContext.displayName = "UserContext";
 
@@ -17,25 +15,22 @@ export function UserWrapper({ children }) {
   const [userLectures, setUserLectures] = useState([]);
   const [userWorkshops, setUserWorkshops] = useState([]);
 
-  useEffect(()=>{
-    let userDetails=localStorage.getItem("TathvaUser")
-    if(userDetails){
+  useEffect(() => {
+    let userDetails = localStorage.getItem("TathvaUser");
+    if (userDetails) {
       // setUser(JSON.parse(userDetails))
-     getInitialUserDetails(
+      getInitialUserDetails(
         setUser,
         setUserEvents,
         setUserLectures,
         setUserWorkshops,
-        JSON.parse(userDetails).jwt
-      )
-      if(userDetails)
-        setIsLoggedIn(true);
-      else
-       setIsLoggedIn(false);
+        JSON.parse(userDetails).jwt,
+        setIsLoggedIn
+      );
+      if (userDetails) setIsLoggedIn(true);
+      else setIsLoggedIn(false);
     }
-    
-
-  },[])
+  }, []);
 
   // useEffect(() => {
   //   if (user) {
