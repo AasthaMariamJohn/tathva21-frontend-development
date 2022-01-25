@@ -22,8 +22,8 @@ export default function Home() {
       setInfo(data);
       if (data) {
         toast.info(data, {
-          position: "top-center",
-          autoClose: 5000,
+          position: "top-right",
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
