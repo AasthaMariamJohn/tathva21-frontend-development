@@ -10,11 +10,11 @@ import { Login } from "@/lib/user/login";
 export default function Index() {
   const router = useRouter();
   const { isLoggedIn, user } = useUserContext();
-  useEffect(() => {
-    if (!isLoggedIn && !user) {
-      Login(router);
-    }
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   if (!isLoggedIn && !user) {
+  //     Login(router);
+  //   }
+  // }, [isLoggedIn]);
   const { eventName, refresh } = router.query;
   useEffect(() => {
     if (refresh == "True") router.push(`/dashboard/events/${eventName}`);
