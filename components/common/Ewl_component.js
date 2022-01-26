@@ -30,6 +30,8 @@ export default function Ewl_component({ event, type, isRegistered }) {
   const eventdetails = {
     info: event.description,
     contacts: event.contacts,
+    regStartDate: moment(event.regStartDate).format("DD-MM-yyyy h:mm:ss a"),
+    regEndDate: moment(event.regEndDate).format("DD-MM-yyyy h:mm:ss a"),
   };
 
   const {
@@ -71,16 +73,16 @@ export default function Ewl_component({ event, type, isRegistered }) {
     const today = moment().format("DD-MM-yyyy h:mm:ss a");
     if (
       moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
-        moment(event.regStartDate, "DD-MM-yyyy h:mm:ss a")
+        moment(eventdetails.regStartDate, "DD-MM-yyyy h:mm:ss a")
       )
     ) {
       setRegstatus("not");
     } else if (
       moment(today, "DD-MM-yyyy h:mm:ss a").isAfter(
-        moment(event.regStartDate, "DD-MM-yyyy h:mm:ss a")
+        moment(eventdetails.regStartDate, "DD-MM-yyyy h:mm:ss a")
       ) &&
       moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
-        moment(event.regEndDate, "DD-MM-yyyy h:mm:ss a")
+        moment(eventdetails.regEndDate, "DD-MM-yyyy h:mm:ss a")
       )
     ) {
       setRegstatus("available");
