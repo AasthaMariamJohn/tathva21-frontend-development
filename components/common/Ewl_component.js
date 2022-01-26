@@ -147,20 +147,20 @@ export default function Ewl_component({ event, type, isRegistered }) {
               {regstatus === "not" && (
                 <>
                   <p>Reg Starts on</p>
-                  {event.regStartDate}
+                  {moment(event.regStartDate).format("DD-MMM-yyyy h:mm:ss a")}
                 </>
               )}
 
               {regstatus === "available" && (
                 <>
                   <p>Reg Close on</p>
-                  {event.regEndDate}
+                  {moment(event.regEndDate).format("DD-MMM-yyyy h:mm:ss a")}
                 </>
               )}
               {regstatus === "closed" && (
                 <>
                   <p>Reg Closed on</p>
-                  {event.regEndDate}
+                  {moment(event.regEndDate).format("DD-MMM-yyyy h:mm:ss a")}
                 </>
               )}
             </h3>
@@ -172,6 +172,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
               onClick={() => {
                 openInfo();
               }}
+              style={info ? { color: "white" } : { color: "gray" }}
             >
               INFO
             </button>
@@ -181,6 +182,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
               onClick={() => {
                 openContact();
               }}
+              style={contact ? { color: "white" } : { color: "gray" }}
             >
               CONTACT
             </button>
@@ -216,7 +218,7 @@ export default function Ewl_component({ event, type, isRegistered }) {
           {regstatus === "not" && (
             <>
               <div className={style.button} data-augmented-ui>
-                Comming Soon
+                Coming Soon
               </div>
             </>
           )}

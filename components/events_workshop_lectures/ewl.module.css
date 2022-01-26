@@ -148,8 +148,8 @@
   margin-top: 25px;
   padding: 10px;
   --aug-border: initial;
-  --aug-border-all: 2px;
-  --aug-border-bg: #49e9ff;
+  --aug-border-all: 0.5px;
+  /* --aug-border-bg: #49e9ff; */
 
   --aug-clip-tl1: initial;
   --aug-tl1: 10px;
@@ -170,7 +170,7 @@
   --aug-b-extend1: 20%;
   --aug-b1: 6px;
   --aug-b2: 6px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     rgb(146, 192, 252),
     rgba(146, 192, 252, 0.795),
@@ -184,7 +184,11 @@
     rgba(146, 192, 252, 0.795),
     rgb(146, 192, 252)
   );
-  box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2.29075px 2.29075px rgba(0, 0, 0, 0.25); */
+  background: rgba(31, 174, 255, 0.11);
+  border: 0.1px solid #1faeff;
+  box-sizing: border-box;
+  color: #1faeff;
 }
 .buttonview {
   padding: 8px 30px;

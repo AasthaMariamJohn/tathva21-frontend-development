@@ -5,9 +5,12 @@
 .grid {
   position: absolute;
   top: 200px;
-  max-width: 70%;
+  /* max-width: 70%; */
+  padding-bottom: 150px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  grid-gap: 8em 4rem; */
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 8em 4rem;
 }
 
@@ -66,15 +69,26 @@
   color: #1faeff;
 }
 
+@media (max-width: 1250px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 500px) {
   .grid {
     max-width: 101%;
-    padding-bottom: 150px;
     top: 170px;
   }
   .section {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
   }
 
   .title {
