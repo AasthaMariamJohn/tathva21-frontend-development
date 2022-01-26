@@ -1,6 +1,6 @@
-
 import ComingSoon from "@/components/common/coming_soon";
 import Overlay from "@/components/common/overlay";
+import EwlFrontPage from "@/components/events_workshop_lectures/EwlFrontPage";
 import Head from "next/head";
 
 export default function Lectures() {
@@ -8,23 +8,13 @@ export default function Lectures() {
     <div>
       <Overlay>
         <Head>
-          <title>Lecture</title>L
+          <title>Lecture</title>
         </Head>
-        <ComingSoon event={"Lectures"} time={"05 26 2029, 6:00 am"}/>
+        <ComingSoon event={"Lectures"} time={"05 26 2029, 6:00 am"} />
       </Overlay>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
 
 // import Loader from "@/components/common/loader";
 // import { useUserContext } from "@/context/userContext";

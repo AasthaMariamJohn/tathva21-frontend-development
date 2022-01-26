@@ -14,19 +14,18 @@ import getWorkshops from "@/lib/workshops/getWorkshops";
 import { useUserContext } from "@/context/userContext";
 import Overlay from "@/components/common/overlay";
 import { useRef } from "react";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 export function Workshop({ children }) {
   const { workshops, setWorkshops } = useWorkshopContext();
   useEffect(() => {
     if (workshops == null) {
-      async function test(){
-        let data=await getWorkshops();
-        setWorkshops(data)
-        
+      async function test() {
+        let data = await getWorkshops();
+        setWorkshops(data);
       }
-      test()
+      test();
     }
-      
   }, [workshops]);
 
   function handleControls(shift) {
@@ -37,7 +36,7 @@ export function Workshop({ children }) {
 
   return (
     <div className={style.main}>
-      <div className={style.list}>
+      {/* <div className={style.list}>
         {workshops ? (
           <ul className={style.style2}>
             {workshops.map((workshop) => (
@@ -90,11 +89,19 @@ export function Workshop({ children }) {
             <></>
           )}
         </div>
+      </Center> */}
+      <Center>
+        <Link href={"/workshops"} passHref>
+          <button className={style.backbtn}>
+            {/* <RiArrowGoBackFill style={{ fontSize: "2.5rem" }} /> */}
+            Back
+          </button>
+        </Link>
+        <div className={style.main2}>
+          {/* <Ewl_component /> */}
+          {children}
+        </div>
       </Center>
-      <div className={style.main2}>
-        {/* <Ewl_component /> */}
-        {children}
-      </div>
     </div>
   );
 }
