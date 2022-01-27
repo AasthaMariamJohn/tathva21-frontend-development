@@ -25,6 +25,11 @@
   border-radius: 10px;
   opacity: 0.8;
 }
+
+.img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 .content {
   text-align: left;
   font-family: "quantico";
@@ -43,6 +48,7 @@
   position: relative;
   top: -140px;
   padding-left: 8px;
+  cursor: pointer;
 }
 .btn {
   position: relative;
