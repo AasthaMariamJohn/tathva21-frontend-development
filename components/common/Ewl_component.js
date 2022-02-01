@@ -149,26 +149,20 @@ export default function Ewl_component({ event, type, isRegistered }) {
               {regstatus === "not" && (
                 <>
                   <p>Reg Starts on</p>
-                  {moment(event.regStartDate)
-                    .format("DD-MMM-yyyy h:mm:ss a")
-                    .replace("-", " ")}
+                  {moment(event.regStartDate).format("DD MMM h:mm a")}
                 </>
               )}
 
               {regstatus === "available" && (
                 <>
                   <p>Reg Close on</p>
-                  {moment(event.regEndDate)
-                    .format("DD-MMM-yyyy h:mm:ss a")
-                    .replace("-", " ")}
+                  {moment(event.regEndDate).format("DD MMM h:mm a")}
                 </>
               )}
               {regstatus === "closed" && (
                 <>
                   <p>Reg Closed on</p>
-                  {moment(event.regEndDate)
-                    .format("DD-MMM-yyyy h:mm:ss a")
-                    .replace("-", " ")}
+                  {moment(event.regEndDate).format("DD MMM h:mm a")}
                 </>
               )}
             </h3>

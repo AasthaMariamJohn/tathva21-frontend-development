@@ -72,10 +72,13 @@
 .eventname h2 {
   font-size: 25px;
 }
+
 .des {
   font-family: "quantico";
   font-size: 0.9rem;
   margin-top: 30px;
+  /* display: flex; */
+  text-align: left;
 }
 
 .eventdetails {

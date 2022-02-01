@@ -9,7 +9,7 @@ export default function Events() {
         <title>Events</title>
       </Head>
       <Overlay>
-        <ComingSoon event={"Events"} time={"05 26 2029, 6:00 am"}/>
+        <ComingSoon event={"Events"} time={"02 06 2022, 12:00 am"} />
       </Overlay>
     </div>
   );

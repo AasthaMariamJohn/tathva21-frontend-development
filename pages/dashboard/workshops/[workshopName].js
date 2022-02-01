@@ -6,26 +6,24 @@ import getWorkshopWithName from "@/lib/workshops/getWorkshop";
 import getRegisteredWorkshopInfo from "@/lib/workshops/getRegisteredWorkshopInfo";
 import styles from "@/components/dashboard/db.module.css";
 import Loader from "@/components/common/loader";
-import EventComponent from "@/components/dashboard/EventComponent";
+import Ewl_component from "@/components/dashboard/workshops/workshopComponent";
 import { useRouter } from "next/router";
 import Overlay from "@/components/common/overlay";
 import { Login } from "@/lib/user/login";
 import Head from "next/head";
-import Ewl_component from "@/components/dashboard/workshops/workshopComponent";
 
 export default function DashboardWorkshopName() {
-  const router=useRouter()
+  const router = useRouter();
   // const { isLoggedIn, user } = useUserContext();
   // useEffect(() => {
   //   if (!isLoggedIn && !user) {
   //     Login(router);
   //   }
   // }, [isLoggedIn]);
-	const {workshopName,refresh } = router.query
-	useEffect(()=>{
-		if(refresh=="True")
-			router.push(`/dashboard/workshops/${workshopName}`)
-	},[refresh])
+  const { workshopName, refresh } = router.query;
+  useEffect(() => {
+    if (refresh == "True") router.push(`/dashboard/workshops/${workshopName}`);
+  }, [refresh]);
   return (
     <div>
       <Head>
@@ -77,7 +75,7 @@ function Dashboard() {
 
   return (
     <div className={styles["main"]}>
-      {Workshop && isRegistered &&   userWorkshopDetails ? (
+      {Workshop && isRegistered && userWorkshopDetails ? (
         <div className={styles["grid"]}>
           <div className={styles["section1"]}>
             {/* <EventComponent event={Workshop}></EventComponent> */}

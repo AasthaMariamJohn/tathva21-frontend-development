@@ -10,7 +10,7 @@ export default function Lectures() {
         <Head>
           <title>Lecture</title>
         </Head>
-        <ComingSoon event={"Lectures"} time={"05 26 2029, 6:00 am"} />
+        <ComingSoon event={"Lectures"} time={"02 10 2022, 12:00 am"} />
       </Overlay>
     </div>
   );

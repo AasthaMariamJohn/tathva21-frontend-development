@@ -138,7 +138,7 @@ export default function Main() {
                 </Button>
               </Box>
               <Spacer />
-              <Box
+              {/* <Box
                 p={4}
                 color={"red"}
                 fontWeight="semibold"
@@ -149,7 +149,7 @@ export default function Main() {
                 as="h4"
               >
                 please fill this
-              </Box>
+              </Box> */}
               <Spacer />
               <Box>
                 {inEditMode ? (

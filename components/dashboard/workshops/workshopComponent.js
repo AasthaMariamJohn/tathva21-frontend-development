@@ -111,8 +111,14 @@ export default function Ewl_component({ event, type, isRegistered }) {
           {info && (
             <div>
               <Text className={style.des}>
-                {eventdetails.announcements
-                  ? eventdetails.announcements
+                {event.announcements
+                  ? event.announcements.split("\n").map((words) => {
+                      return (
+                        <Text key={words} className={style.des}>
+                          {words}
+                        </Text>
+                      );
+                    })
                   : "No Announcements Check Later for the updates"}
               </Text>
             </div>

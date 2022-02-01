@@ -37,7 +37,7 @@ export default function Dashboard2({ events }) {
             <div key={workshop.id}>
               <SwiperSlide className={styles["swiper-slide"]}>
                 <Link href={`/dashboard/workshops/${workshop.slug}`} passHref>
-                  <Box>
+                  <Box style={{ cursor: "pointer" }}>
                     <Image src={`${workshop.src}`} alt="next-image" />
                     <Text className={styles["swiper-text"]}>
                       {workshop.name}

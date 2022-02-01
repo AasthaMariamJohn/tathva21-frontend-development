@@ -6,7 +6,7 @@ export default function Sponsors() {
   return (
     <div>
       <Head>
-        <title>Sponsers</title>
+        <title>Sponsors</title>
       </Head>
       <Overlay>
         <Sponsers />

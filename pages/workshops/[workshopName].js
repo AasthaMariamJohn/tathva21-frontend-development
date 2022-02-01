@@ -28,11 +28,11 @@ export function Workshop({ children }) {
     }
   }, [workshops]);
 
-  function handleControls(shift) {
-    myRef.current.scrollLeft += shift;
-  }
+  // function handleControls(shift) {
+  //   myRef.current.scrollLeft += shift;
+  // }
 
-  const myRef = useRef(null);
+  // const myRef = useRef(null);
 
   return (
     <div className={style.main}>

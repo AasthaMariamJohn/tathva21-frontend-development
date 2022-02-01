@@ -3,42 +3,29 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import getEventWithName from "@/lib/events/getEvent";
 import Loader from "@/components/common/loader";
-
 import style from "@/components/events_workshop_lectures/ewl.module.css";
 import { Center } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import Link from "next/link";
 import Overlay from "@/components/common/overlay";
+
 export function Event({ children }) {
   return (
     <div className={style.main}>
-      <div className={style.list}>
-        <ul className={style.style2}>
-          <li>AI</li>
-          <li>ML</li>
-          <li>ROCKET</li>
-          <li>SPACEx</li>
-          <li>Tesla</li>
-          <li>Googe</li>
-        </ul>
-      </div>
       <Center>
-        <div className={style.listmobile}>
-          <ul>
-            <li>AI</li>
-            <li>ML</li>
-            <li>ROCKET</li>
-            <li>SPACEx</li>
-            <li>Tesla</li>
-            <li>Googe</li>
-          </ul>
+        <Link href={"/events"} passHref>
+          <button className={style.backbtn}>
+            {/* <RiArrowGoBackFill style={{ fontSize: "2.5rem" }} /> */}
+            Back
+          </button>
+        </Link>
+        <div className={style.main2}>
+          {/* <Ewl_component /> */}
+          {children}
         </div>
       </Center>
-      <div className={style.main2}>
-        {/* <Ewl_component /> */}
-        {children}
-      </div>
     </div>
   );
 }
