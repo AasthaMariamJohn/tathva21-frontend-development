@@ -36,60 +36,6 @@ export function Workshop({ children }) {
 
   return (
     <div className={style.main}>
-      {/* <div className={style.list}>
-        {workshops ? (
-          <ul className={style.style2}>
-            {workshops.map((workshop) => (
-              <li key={workshop.id}>
-                <Link href={`/workshops/${workshop.slug}`} passHref>
-                  <a>{workshop.name}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <>jsfhskfjskj</>
-        )}
-      </div>
-      <Center>
-        <div className={style.listmobile}>
-          {workshops ? (
-            <>
-              <button
-                style={{ display: "inline-block" }}
-                onClick={() => {
-                  handleControls(-220);
-                }}
-                className={style.prev}
-              >
-                {"<"}
-              </button>
-
-              <ul ref={myRef} style={{ display: "inline-block" }}>
-                {workshops.map((workshop) => (
-                  <li key={workshop.id}>
-                    <Link href={`/workshops/${workshop.slug}`} passHref>
-                      <a>{workshop.name}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                style={{ display: "inline-block" }}
-                onClick={() => {
-                  handleControls(220);
-                }}
-                className={style.next}
-              >
-                {">"}
-              </button>
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
-      </Center> */}
       <Center>
         <Link href={"/workshops"} passHref>
           <button className={style.backbtn}>

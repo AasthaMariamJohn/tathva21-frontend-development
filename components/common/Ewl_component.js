@@ -282,7 +282,11 @@ export default function Ewl_component({ event, type, isRegistered }) {
                                   event.regPrice,
                                   router,
                                   userEvents,
-                                  refCode
+                                  refCode,
+                                  setUser,
+                                  setUserEvents,
+                                  setUserLectures,
+                                  setUserWorkshops
                                 );
                               else if (type == "workshop")
                                 displayRazorpay(
@@ -306,7 +310,11 @@ export default function Ewl_component({ event, type, isRegistered }) {
                                   event.regPrice,
                                   router,
                                   userLectures,
-                                  refCode
+                                  refCode,
+                                  setUser,
+                                  setUserEvents,
+                                  setUserLectures,
+                                  setUserWorkshops
                                 );
                             } else {
                               if (type == "event")
