@@ -28,7 +28,7 @@ export default function Layout({ children }) {
         />
       </Head>
        <Navbar />
-      {/* <Model3D /> */}
+      <Model3D />
       <main className={styles["main-container"]}>{children}</main>
     </div>
   );

@@ -1,6 +1,6 @@
 import Ewl_component from "@/components/common/Ewl_component";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useMemo } from "react";
 import getEventWithName from "@/lib/events/getEvent";
 import Loader from "@/components/common/loader";
 import style from "@/components/events_workshop_lectures/ewl.module.css";
@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import Link from "next/link";
 import Overlay from "@/components/common/overlay";
+import { useUserContext } from "@/context/userContext";
 
 export function Event({ children }) {
   return (
@@ -29,9 +30,19 @@ export function Event({ children }) {
     </div>
   );
 }
-
+function isReg(Workshop1, userWorkshops) {
+  if (Workshop1 && userWorkshops) {
+    for (let i = 0; i < userWorkshops.length; i++) {
+      if (userWorkshops[i].eventId === Workshop1.id) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 export default function EventName() {
   const [Event1, setEvent1] = useState(null);
+  const { userEvents } = useUserContext();
   const router = useRouter();
   const { eventName } = router.query;
   useEffect(() => {
@@ -39,7 +50,10 @@ export default function EventName() {
       getEventWithName(eventName, setEvent1);
     }
   }, [eventName]);
-
+  const isRegistered = useMemo(
+    () => isReg(Event1,  userEvents),
+    [Event1, userEvents]
+  );
   return (
     <div>
       <Head>
@@ -48,7 +62,7 @@ export default function EventName() {
       <Overlay>
         <Event>
           {Event1 ? (
-            <Ewl_component event={Event1} type={"event"} />
+            <Ewl_component event={Event1} type={"event"} isRegistered={isRegistered}/>
           ) : (
             <Loader />
           )}

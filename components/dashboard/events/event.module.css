@@ -1,0 +1,173 @@
+.next,
+.prev {
+  font-size: 1.5rem;
+  color: #49e9ffe8;
+  position: relative;
+  top: -15px;
+}
+.next {
+  margin-left: 15px;
+}
+.prev {
+  margin-right: 15px;
+}
+
+.contact_table {
+  font-family: "quantico";
+  font-size: 1rem;
+  margin: 50px 0px 20px 10%;
+}
+
+.contact_table td {
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.main2 {
+  width: 80%;
+  background: rgba(0, 0, 0, 0.76);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
+  border-image-slice: 1;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  min-height: 400px;
+}
+
+.list {
+  position: fixed;
+  margin: 10px 0 80px 30px;
+  border-radius: 5px;
+}
+
+.content {
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.66);
+}
+
+.content button {
+  border: 1px solid #49e9ff;
+  padding: 5px 10px;
+
+  border-radius: 5px;
+  color: gray;
+}
+
+.titles {
+  text-decoration: none;
+  display: block;
+  margin: 3px 8px;
+}
+.eventname {
+  font-size: 15px;
+}
+.eventname h2 {
+  font-size: 25px;
+}
+
+.des {
+  font-family: "quantico";
+  font-size: 0.9rem;
+  margin-top: 30px;
+  /* display: flex; */
+  text-align: left;
+}
+
+.eventdetails {
+  margin-top: 20px;
+}
+
+.img_desktop {
+  display: block;
+  /* padding: 5px; */
+  border-radius: 20px;
+}
+.img {
+  display: flex;
+  justify-content: center;
+}
+.img_mobile {
+  display: none;
+}
+
+.listmobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .img_desktop {
+    display: none;
+  }
+
+  .img_mobile {
+    display: block;
+    width: 70%;
+    border: 2px solid #49e9ff;
+  }
+  .main2 {
+    display: block;
+    border: none;
+    width: 56%;
+    margin-top: 80px;
+    margin-left: 25%;
+  }
+
+  .content {
+    border: 1px solid transparent;
+    padding: 20px;
+    border-image: linear-gradient(90deg, rgb(0, 238, 255), rgb(255, 0, 255));
+    border-image-slice: 1;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  .img_desktop {
+    border: 2px solid #49e9ff;
+    width: 80%;
+  }
+
+  .button {
+    margin-top: 70px;
+  }
+
+  .contact_table {
+    margin: 50px 0px 20px 15%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .contact_table {
+    margin: 50px 0px 20px 7%;
+  }
+
+  .contact_table td {
+    width: 180px;
+    padding: 5px;
+  }
+
+  .main2 {
+    display: block;
+    border: none;
+    width: 90%;
+    margin-top: 50px;
+    margin-left: 6%;
+  }
+
+  .titles {
+    font-size: 0.9rem;
+  }
+
+  .des {
+    font-family: "quantico";
+    font-size: 0.8rem;
+    margin-top: 30px;
+  }
+}

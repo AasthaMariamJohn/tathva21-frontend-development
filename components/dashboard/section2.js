@@ -3,12 +3,13 @@ import styles from './section2.module.css'
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { FileUploader } from "react-drag-drop-files";
 export default function Section2({ refId, jwt }) {
 
 	const [image, setImage] = useState(null);
 
   function handleChange(e) {
-    setImage(e.target.files[0]);
+    setImage(e);  
   }
   async function handleSubmit(e) {
     e.preventDefault();
@@ -66,7 +67,8 @@ export default function Section2({ refId, jwt }) {
 
 			<div className={styles['file-submit-wrapper']}>
 				<form>
-				<input type='file' onChange={handleChange}/>
+				{/* <input type='file' onChange={handleChange}/> */}
+        <FileUploader handleChange={handleChange} name="file"  />
 				<button type="submit" onClick={handleSubmit}>Submit</button>
 				</form>
 			</div>
