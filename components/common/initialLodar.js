@@ -1,8 +1,15 @@
 import styles from "./styles.module.css";
 import {useState,useEffect} from "react";
+
+
+
+
+
+
 export default function InitialLoader({loading}) {
+
   // const begin=new Date().getTime();
-  const [show, setShow] = useState(true);
+ 
   // useEffect(() => {
   //   if(!loading){
   //     if(new Date().getTime()-begin <2){
@@ -17,15 +24,21 @@ export default function InitialLoader({loading}) {
   //     }
   //   };
   // }, [loading]);
-  window.setTimeout(() => {
-    setShow(false);
-  }, 10000);
+  // window.setTimeout(() => {
+  //   setShow(false);
+  // }, 10000);
+  const [showVideo, setShowVideo] = useState(true);
+  useEffect(() => {
+    window.setTimeout(()=>{
+      setShowVideo(false);
+    }, 5000);
+  }, []);
 
-
-  
+  // the video should only show if the loading (model) is true and showVido is true 
   return (
     <div className={styles.video}>
-   {show && loading &&  <video
+      
+      { (showVideo || loading) &&  <video
       autoPlay
       loop
       muted

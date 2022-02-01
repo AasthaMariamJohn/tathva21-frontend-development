@@ -1290,7 +1290,7 @@ const NITCModel3D = () => {
 
   return (
     <div>
-      {loading ? <InitialLoader loading={loading}/> : <></>}
+      <InitialLoader loading={loading}/>
       <ModelContainer ref={refContainer}></ModelContainer>  
     </div>
   );
