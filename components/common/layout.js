@@ -3,7 +3,9 @@ import Navbar from "./Navbar";
 import Model3D from "@/components/3DModel/main";
 import ContactUsLogo from "./contactLogo";
 import styles from './layout.module.css'
+import InitialLoader from "./initialLodar";
 export default function Layout({ children }) {
+
   return (
     <div className={styles["html-container"]}>
       <Head>
@@ -25,9 +27,8 @@ export default function Layout({ children }) {
           href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css"
         />
       </Head>
-      <Navbar />
-      <Model3D />
-
+       <Navbar />
+      {/* <Model3D /> */}
       <main className={styles["main-container"]}>{children}</main>
     </div>
   );
