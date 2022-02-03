@@ -60,7 +60,7 @@ export default function Dashboard() {
             />
           </div>
           <div className={style["section2-wrapper"]}>
-            <Section2 refId={userEventId} jwt={user.jwt} />
+            <Section2 refId={userEventId} jwt={user.jwt} submissions={userEventDetails.submission} />
           </div>
         </div>
       ) : (
