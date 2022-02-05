@@ -142,10 +142,7 @@ export default function Section2({
           <ul>
             {questions.map((question) => (
               <li key={question.id}>
-                <p>
-                  {question.question} {question.submissionType}{" "}
-                  {question.maxfileupload} {question.filetypes}
-                </p>
+                <p>{question.question}</p>
                 {question.submissionType === "fileUpload" ? (
                   <form>
                     <FileUploader
@@ -171,11 +168,15 @@ export default function Section2({
                 ) : (
                   <form>
                     <input
+                      placeholder="answer here"
+                      className={styles["text-input"]}
+                      id="text1"
+                      type="text"
                       value={textInput}
                       onChange={(e) => {
                         setTextInput(e.target.value);
                       }}
-                    ></input>
+                    />
                   </form>
                 )}
               </li>
