@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
 import styles from "./sponsors.module.css";
 export default function Sponsers() {
   return (
