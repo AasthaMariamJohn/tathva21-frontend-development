@@ -1,34 +1,43 @@
 import styles from "./section2.module.css";
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { FileUploader } from "react-drag-drop-files";
-import moment from "moment"
-export default function Section2({ refId, jwt, submissions, questions,event }) {
+import moment from "moment";
+export default function Section2({
+  refId,
+  jwt,
+  submissions,
+  questions,
+  event,
+}) {
   const [image, setImage] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState("");
+  const [textInput, setTextInput] = useState("");
   function handleChange(e) {
     setImage(e);
   }
   async function handleSubmit(e) {
-    if (!image) return;
+    // if (!image) return;
     e.preventDefault();
+
+    if (!image) {
+      toast.error("Please Select some file", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
     for (let i = 0; i < image.length; i++) {
       const formData = new FormData();
       formData.append("files", image[i]);
       formData.append("refId", refId);
-      if (!image) {
-        toast.error("Please Select some file", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        return;
-      }
 
       const id = toast.loading("Please wait...");
 
@@ -51,7 +60,8 @@ export default function Section2({ refId, jwt, submissions, questions,event }) {
   }
 
   useEffect(() => {
-    const today = moment().format("DD-MM-yyyy h:mm:ss a");
+    const today = moment().format();
+
     if (
       moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
         moment(event.submissionStartDate, "DD-MM-yyyy h:mm:ss a")
@@ -89,36 +99,11 @@ export default function Section2({ refId, jwt, submissions, questions,event }) {
         </p>
       </div>
 
-      {/* <div className={styles["file-submit-wrapper"]}>
-        <form>
-          <FileUploader
-            handleChange={handleChange}
-            name="file"
-            multiple={true}
-          />
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
-      </div> */}
-      <br/>
-      {submissionStatus ="not" &&
-      <>
-       submission not started
-      </>
-      }
-       {submissionStatus ="available" &&
-      <>
-         poyi submit chey
-      </>
-      }
-       {submissionStatus === "closed" &&
-      <>
-         submission closed
-      </>
-      }
-      {/* {event.submissionStartDate} */}
-      {questions ? (
+     
+      {/* {(submissionStatus === "not" && <>submission not started</>)}
+      {(submissionStatus === "available" && <>poyi submit chey</>)}
+      {submissionStatus === "closed" && <>submission closed</>} */}
+      {submissionStatus === "available" && questions ? (
         <div>
           <h1>Questions</h1>
           <ul>
@@ -134,7 +119,11 @@ export default function Section2({ refId, jwt, submissions, questions,event }) {
                       handleChange={handleChange}
                       name="file"
                       multiple={question.maxfileupload > 1 ? true : false}
-                      maxSize={question.maxfileupload}
+                      // maxSize={question.maxfileupload}
+                      // disabled={submissions.length}
+                      label={"Upload or drop a file right here"}
+                      hoverTitle={"Drop here"}
+                      
                       types={
                         question.filetypes
                           ? question.filetypes.split(",").map((a) => {
@@ -149,7 +138,12 @@ export default function Section2({ refId, jwt, submissions, questions,event }) {
                   </form>
                 ) : (
                   <form>
-                    <input></input>
+                    <input
+                      value={textInput}
+                      onChange={(e) => {
+                        setTextInput(e.target.value);
+                      }}
+                    ></input>
                   </form>
                 )}
               </li>
