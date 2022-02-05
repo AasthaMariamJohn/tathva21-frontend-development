@@ -50,14 +50,12 @@ export default function Dashboard() {
   return (
     <div className={style.main}>
       {Event && userEventDetails && isRegistered ? (
-        <div className={style.grid}>
-          <div className={style.section1}>
+        <>
             <Event_component event={Event}></Event_component>
             <Team
               userEventId={userEventId}
               teamMembers={userEventDetails.teamMembers}
             />
-          </div>
           <div className={style["section2-wrapper"]}>
             <Section2
               refId={userEventId}
@@ -67,7 +65,7 @@ export default function Dashboard() {
               event={Event}
             />
           </div>
-        </div>
+        </>
       ) : (
         <Loader />
       )}

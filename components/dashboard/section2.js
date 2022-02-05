@@ -140,11 +140,15 @@ export default function Section2({
       {(submissionStatus === "available" && <>poyi submit chey</>)}
       {submissionStatus === "closed" && <>submission closed</>} */}
       {submissionStatus === "available" && questions ? (
-        <div>
-          <h1>Questions</h1>
-          <ul>
+        <div >
+          <ul style={{
+          display:"flex",
+          flexDirection:"column",
+          gap:"2rem",
+          alignItems:"flex-start"
+        }}>
             {questions.map((question) => (
-              <li key={question.id}>
+              <li key={question.id} className={styles["input-li"]}>
                 <p>{question.question}</p>
                 {question.submissionType === "fileUpload" ? (
                   <form>
@@ -164,7 +168,7 @@ export default function Section2({
                           : []
                       }
                     />
-                    <button type="submit" onClick={handleSubmit}>
+                    <button type="submit" onClick={handleSubmit} className={styles["submit-file-btn"]}>
                       Submit
                     </button>
                   </form>

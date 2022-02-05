@@ -1,5 +1,4 @@
 .section2 {
-  border: 1px solid #49e9ff;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 0.5rem;
@@ -7,7 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 50px 40px;
 }
 
 /* .note-wrapper {
@@ -56,11 +54,27 @@
   transform: translate(10);
 }
 .file-submit-wrapper {
+  text-align: left;
   font-weight: 300;
   font-family: "quantico", sans-serif;
 }
-
-@media (max-width: 1280px) {
+.submit-file-btn{
+  margin-top: 0.5rem;
+  background-color: rgba(45, 93, 176, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.input-li{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 390px) {
+  .section2{
+    padding: 0.5rem;
+  }
 }
 @media (max-width: 1024px) {
   .section2 {

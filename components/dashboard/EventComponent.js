@@ -95,7 +95,7 @@ const Contacts = ({ data }) => {
         color: "rgba(255, 255, 255, 0.7)",
       }}
     >
-      {data.map((item, idx) => {
+      {data?.map((item, idx) => {
         return <div>{item.name + " " + item.phone}</div>;
       })}
     </div>
