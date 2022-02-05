@@ -76,13 +76,13 @@ export default function Team({ teamMembers, userEventId }) {
       <button className={style.addmember} onClick={onOpen}>
         ADD TEAM MEMBER
       </button>
-      {/* <button
+      <button
         onClick={() => {
           setTeamLeader(user.jwt, userEventId, 1);
         }}
       >
         set Team Leader
-      </button> */}
+      </button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
