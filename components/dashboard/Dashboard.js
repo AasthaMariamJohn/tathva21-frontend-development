@@ -1,6 +1,6 @@
 import style from "./db.module.css";
 import Section2 from "./section2";
-import EventComponent from "./EventComponent";
+import Event_component from "./EventComponent";
 import Team from "./Team";
 import getRegisteredEventInfo from "@/lib/events/getRegisterEventInfo";
 import { useState, useEffect } from "react";
@@ -8,8 +8,7 @@ import { useRouter } from "next/router";
 import { useUserContext } from "@/context/userContext";
 import getEventWithName from "@/lib/events/getEvent";
 import Loader from "../common/loader";
-import Ewl_component from "./workshops/workshopComponent";
-import Event_component from "./events/eventComponent";
+// import Event_component from "./events/eventComponent";
 
 export default function Dashboard() {
   const { user, userEvents } = useUserContext();
