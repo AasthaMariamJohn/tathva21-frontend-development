@@ -19,6 +19,7 @@ import { useUserContext } from "@/context/userContext";
 import searchMember from "@/lib/events/searchMember";
 import addTeamMembers, {
   updateTeamMemebers,
+  setTeamLeader,
 } from "@/lib/events/addTeamMembers";
 import { useRouter } from "next/router";
 
@@ -75,13 +76,20 @@ export default function Team({ teamMembers, userEventId }) {
       <button className={style.addmember} onClick={onOpen}>
         ADD TEAM MEMBER
       </button>
+      <button
+        onClick={() => {
+          setTeamLeader(user.jwt, userEventId, 1);
+        }}
+      >
+        set Team Leader
+      </button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
-	  isCentered
-	  motionPreset='slideInBottom'
+        isCentered
+        motionPreset="slideInBottom"
       >
         <ModalOverlay />
         <ModalContent>
@@ -103,7 +111,7 @@ export default function Team({ teamMembers, userEventId }) {
               <Input
                 placeholder="Name"
                 value={newMember.name ? newMember.name : ""}
-		    onChange={()=>{}}
+                onChange={() => {}}
               />
             </FormControl>
             <FormControl mt={4}>
@@ -111,7 +119,7 @@ export default function Team({ teamMembers, userEventId }) {
               <Input
                 placeholder="College"
                 value={newMember.collegeName ? newMember.collegeName : ""}
-		    onChange={()=>{}}
+                onChange={() => {}}
               />
             </FormControl>
           </ModalBody>

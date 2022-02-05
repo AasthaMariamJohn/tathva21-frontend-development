@@ -14,6 +14,7 @@ import Loader2 from "../common/loader2";
 import { useRouter } from "next/router";
 import { useUtilityContext } from "@/context/utilityContext";
 import InitialLoader from "../common/initialLodar";
+import Loader from "../common/loader";
 
 const ButtonPrimaryHex = 0xffe9e5;
 const ButtonSecondaryHex = 0xffffff;
@@ -1290,7 +1291,8 @@ const NITCModel3D = () => {
 
   return (
     <div>
-      <InitialLoader loading={loading}/>
+      {/* <InitialLoader loading={loading}/> */}
+      {loading?<Loader/>:<></>}
       <ModelContainer ref={refContainer}></ModelContainer>  
     </div>
   );

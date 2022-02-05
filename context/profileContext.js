@@ -5,7 +5,7 @@ const profileContext = createContext();
 profileContext.displayName = "ProfileContext";
 
 export function ProfileWrapper({ children }) {
-  const {user}=useUserContext()
+  const { user } = useUserContext();
   const [userProfile, setUserProfile] = useState(null);
   const [name, setName] = useState(null);
   const [state, setState] = useState(null);
@@ -15,17 +15,17 @@ export function ProfileWrapper({ children }) {
   const [yearOfStudy, setYearOfStudy] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
   useEffect(() => {
-    if (userProfile ) {
-        setName(userProfile.name);
+    if (userProfile) {
+      setName(userProfile.name);
       setState(userProfile.state);
-        setDistrict(userProfile.district);
+      setDistrict(userProfile.district);
       setPhoneNumber(userProfile.phoneNumber);
       setCollegeName(userProfile.collegeName);
       setYearOfStudy(userProfile.yearOfStudy);
     }
   }, [userProfile]);
-  function reRender(){
-    if (userProfile ) {
+  function reRender() {
+    if (userProfile) {
       setName(userProfile.name);
       setState(userProfile.state);
       setDistrict(userProfile.district);
@@ -51,17 +51,17 @@ export function ProfileWrapper({ children }) {
         setCollegeName: setCollegeName,
         yearOfStudy: yearOfStudy,
         setYearOfStudy: setYearOfStudy,
-        inEditMode:inEditMode,
-        setInEditMode:setInEditMode,
-        reRender:reRender,
-        allInOne:{
-          name:name,
-          phoneNumber:phoneNumber,
-          collegeName:collegeName,
-          yearOfStudy:yearOfStudy,
-          state:state,
-          district:district
-        }
+        inEditMode: inEditMode,
+        setInEditMode: setInEditMode,
+        reRender: reRender,
+        allInOne: {
+          name: name,
+          phoneNumber: phoneNumber,
+          collegeName: collegeName,
+          yearOfStudy: yearOfStudy,
+          state: state,
+          district: district,
+        },
       }}
     >
       {children}

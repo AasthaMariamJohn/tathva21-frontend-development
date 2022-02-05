@@ -1,21 +1,18 @@
 import styles from "./section2.module.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { toast } from "react-toastify";
 import { FileUploader } from "react-drag-drop-files";
-export default function Section2({ refId, jwt, submissions }) {
+import moment from "moment"
+export default function Section2({ refId, jwt, submissions, questions,event }) {
   const [image, setImage] = useState(null);
-
+  const [submissionStatus, setSubmissionStatus] = useState("");
   function handleChange(e) {
     setImage(e);
   }
   async function handleSubmit(e) {
     if (!image) return;
     e.preventDefault();
-
-    // for(let i = 0; i < image.length; i++) {
-    //   formData.append(`images[${i}]`, image[i])
-    // }
     for (let i = 0; i < image.length; i++) {
       const formData = new FormData();
       formData.append("files", image[i]);
@@ -53,6 +50,27 @@ export default function Section2({ refId, jwt, submissions }) {
     }
   }
 
+  useEffect(() => {
+    const today = moment().format("DD-MM-yyyy h:mm:ss a");
+    if (
+      moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
+        moment(event.submissionStartDate, "DD-MM-yyyy h:mm:ss a")
+      )
+    ) {
+      setSubmissionStatus("not");
+    } else if (
+      moment(today, "DD-MM-yyyy h:mm:ss a").isAfter(
+        moment(event.submissionStartDate, "DD-MM-yyyy h:mm:ss a")
+      ) &&
+      moment(today, "DD-MM-yyyy h:mm:ss a").isBefore(
+        moment(event.submissionEndDate, "DD-MM-yyyy h:mm:ss a")
+      )
+    ) {
+      setSubmissionStatus("available");
+    } else {
+      setSubmissionStatus("closed");
+    }
+  }, [submissionStatus]);
   return (
     <div className={styles["section2"]}>
       <div className={styles["note-wrapper"]}>
@@ -71,9 +89,8 @@ export default function Section2({ refId, jwt, submissions }) {
         </p>
       </div>
 
-      <div className={styles["file-submit-wrapper"]}>
+      {/* <div className={styles["file-submit-wrapper"]}>
         <form>
-          {/* <input type='file' onChange={handleChange}/> */}
           <FileUploader
             handleChange={handleChange}
             name="file"
@@ -83,7 +100,65 @@ export default function Section2({ refId, jwt, submissions }) {
             Submit
           </button>
         </form>
-      </div>
+      </div> */}
+      <br/>
+      {submissionStatus ="not" &&
+      <>
+       submission not started
+      </>
+      }
+       {submissionStatus ="available" &&
+      <>
+         poyi submit chey
+      </>
+      }
+       {submissionStatus === "closed" &&
+      <>
+         submission closed
+      </>
+      }
+      {/* {event.submissionStartDate} */}
+      {questions ? (
+        <div>
+          <h1>Questions</h1>
+          <ul>
+            {questions.map((question) => (
+              <li key={question.id}>
+                <p>
+                  {question.question} {question.submissionType}{" "}
+                  {question.maxfileupload} {question.filetypes}
+                </p>
+                {question.submissionType === "fileUpload" ? (
+                  <form>
+                    <FileUploader
+                      handleChange={handleChange}
+                      name="file"
+                      multiple={question.maxfileupload > 1 ? true : false}
+                      maxSize={question.maxfileupload}
+                      types={
+                        question.filetypes
+                          ? question.filetypes.split(",").map((a) => {
+                              return a;
+                            })
+                          : []
+                      }
+                    />
+                    <button type="submit" onClick={handleSubmit}>
+                      Submit
+                    </button>
+                  </form>
+                ) : (
+                  <form>
+                    <input></input>
+                  </form>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div></div>
+      )}
       <div>
         <h1>Submissions</h1>
         {submissions ? (

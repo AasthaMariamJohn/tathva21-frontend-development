@@ -53,14 +53,20 @@ export default function Dashboard() {
       {Event && userEventDetails && isRegistered ? (
         <div className={style.grid}>
           <div className={style.section1}>
-		<Event_component event={Event}></Event_component>
+            <Event_component event={Event}></Event_component>
             <Team
               userEventId={userEventId}
               teamMembers={userEventDetails.teamMembers}
             />
           </div>
           <div className={style["section2-wrapper"]}>
-            <Section2 refId={userEventId} jwt={user.jwt} submissions={userEventDetails.submission} />
+            <Section2
+              refId={userEventId}
+              jwt={user.jwt}
+              submissions={userEventDetails.submission}
+              questions={Event.submissionInfo}
+              event={Event}
+            />
           </div>
         </div>
       ) : (
