@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { FileUploader } from "react-drag-drop-files";
 import moment from "moment";
+import { useRouter } from "next/router";
+import {deleteSubmission} from "@/lib/dashboard/deleteSubmission"
 export default function Section2({
   refId,
   jwt,
@@ -17,6 +19,7 @@ export default function Section2({
   function handleChange(e) {
     setImage(e.target.files[0]);
   }
+  const router=useRouter()
   async function handleSubmit(e) {
     // if (!image) return;
     e.preventDefault();
@@ -199,6 +202,7 @@ export default function Section2({
                   >
                     {submission.name}
                   </a>
+                  <button onClick={()=>{deleteSubmission(refId,submission.id,jwt,router)}}>Delete</button>
                 </li>
               </>
             ))}
