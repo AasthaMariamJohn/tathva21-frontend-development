@@ -3,12 +3,12 @@
 }
 
 .main p {
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 20px;
   font-size: 1.5rem;
 }
 .heading {
-  margin: 400px 0px 10px 0px;
+  margin: 1200px 10px 0px;
   display: flex;
   justify-content: center;
 }
@@ -20,32 +20,25 @@
 }
 .sponsor {
   font-family: "quantico";
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: inline-block;
   justify-content: center;
-  margin: 0 160px;
-  bottom: 105px;
   overflow-x: hidden;
 }
-.sponsor div {
-  margin: 10px;
+.sponsor a{
+  margin-left: 50px;
 }
-.sponsor-images {
-  height: 50vh;
-  overflow-y: scroll;
+.group1{
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
 }
-.sponsorImg {
-  width: 75vw;
-  margin-top: 25px;
+.group2{
+  position: relative;
   justify-content: center;
-}
-.sponsorImg img {
-  width: inherit;
-  height: inherit;
-}
+  left: 410px; 
+ }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .sponsor {
     margin: 0 24px;
     justify-content: center;
@@ -58,15 +51,93 @@
     text-align: center;
     margin-bottom: 15px;
   }
+  .heading {
+  margin: 900px 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+.sponsor {
+  font-family: "quantico";
+  display: inline-block;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.group1{
+  position: relative;
+  display: block;
+  justify-content: center;
+  width: 150px;
+  left: 75px;
+}
+.group2{
+  position: relative;
+  display: block;
+  justify-content: center;
+  left: 75px;
+  width: 150px;
+}
 }
 
 @media (max-width: 1024px) {
   .heading h1 {
     font-size: 3rem;
   }
+  .heading {
+  margin: 1100px 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+.sponsor {
+  font-family: "quantico";
+  display: inline-block;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.group1{
+  position: relative;
+  display: block;
+  justify-content: center;
+  width: 500px;
+  left: 60px;
+}
+.group2{
+  position: relative;
+  display: block;
+  justify-content: center;
+  left: 60px;
+  width: 500px;
+}
 }
 @media (max-width: 768px) {
   .heading h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
+  .main p{
+    font-size: 1rem;
+  }
+  .heading {
+  margin: 1700px 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+.sponsor {
+  font-family: "quantico";
+  display: inline-block;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.group1{
+  position: relative;
+  display: block;
+  justify-content: center;
+  width: 150px;
+  left: 75px;
+}
+.group2{
+  position: relative;
+  display: block;
+  justify-content: center;
+  left: 75px;
+  width: 150px;
+}
 }
