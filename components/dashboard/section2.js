@@ -148,6 +148,7 @@ export default function Section2({
           alignItems:"flex-start"
         }}>
             {questions.map((question) => (
+              <>
               <li key={question.id} className={styles["input-li"]}>
                 <p>{question.question}</p>
                 {question.submissionType === "fileUpload" ? (
@@ -187,6 +188,8 @@ export default function Section2({
                   </form>
                 )}
               </li>
+              <hr className={styles.dotted}></hr>
+              </>
             ))}
           </ul>
         </div>
